@@ -1,0 +1,10 @@
+<component>
+	name = "BootGuardKeys"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\FIT\BootGuardKeys\"
+	RefName = "BootGuardKeys"
+[files]
+"BootGuardKeys.sdl"
+"GenBootGuardKey.bat"
+"keygen.exe"
+<endComponent>

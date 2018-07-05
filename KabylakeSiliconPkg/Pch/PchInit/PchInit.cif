@@ -1,0 +1,11 @@
+<component>
+	name = "PchInit"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\PchInit\"
+	RefName = "KabylakeSiliconPkg.Pch.PchInit"
+[files]
+"PchInit.sdl"	
+[parts]
+"KabylakeSiliconPkg.Pch.PchInit.Dxe"
+"KabylakeSiliconPkg.Pch.PchInit.Smm"
+<endComponent>

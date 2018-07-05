@@ -1,0 +1,10 @@
+<component>
+	name = "SmartTimer"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\SmartTimer\"
+	RefName = "KabylakeSiliconPkg.Pch.SmartTimer"
+[files]
+"PchSmartTimer.sdl"	
+[parts]
+"KabylakeSiliconPkg.Pch.SmartTimer.Dxe"
+<endComponent>

@@ -1,0 +1,12 @@
+<component>
+	name = "BoardInit"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Board\BoardInit\"
+	RefName = "KabylakePlatSamplePkg.BoardInit"
+[INF]
+"Pei\BoardConfigInitPreMem.inf"
+"Pei\BoardConfigInit.inf"
+"Dxe\BoardConfigInit.inf"
+[files]
+"RcBoardInit.sdl"	
+<endComponent>

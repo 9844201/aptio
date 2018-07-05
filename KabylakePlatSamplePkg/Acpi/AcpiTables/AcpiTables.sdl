@@ -1,0 +1,425 @@
+PCIDEVICE
+    Title  = "PciHost (Virtual)"
+    Attribute  = "0x2"
+    Dev_type  = "HostBridge"
+    Dev  = 00h
+    SleepNum  = 03h
+    ASLfile  = "'AmiModulePkg/ACPI/AMLUPD.ASL;Before Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/GloblNvs.asl;Before Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/CPU.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/PCI_DRC.ASL;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Video.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/PCIEDOCK.ASL;After Pci Tree','KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/Pch.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Platform.asl;After Pci Tree','AmiChipsetModulePkg/ASL/RRIORDMA.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Gpe.ASL;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Devices/IVCAM.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/ScsPlatform.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/PchRpPxsxWrapper.asl;After Pci Tree','KabylakePlatSamplePkg/Features/Pep/AcpiTables/Pep.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Psm.asl;Before Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SkyCamSensors.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/WirelessCharge.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/HIDWakeDSM.asl;After Pci Tree', 'AmiChipsetModulePkg/ASL/SbPcie.asl;After Pci Tree'"
+    ASLdeviceName  = "HST0"
+    DeviceType = OnBoard
+    PCIBusSize = 64bit
+    ROMMain = No
+    Virtual = Yes
+    PCIExpress = Yes
+    ASL_PTS  = "Method;\RPTS(ARG0)"
+    ASL_WAK  = "Method;\RWAK(ARG0)"
+End
+
+
+PCIDEVICE
+    Title  = "Embedded Controller"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/EC/Asl/EC.ASL;After Pci Tree'"
+    Token = "EC_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "LPC Devices"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/LPC_DEV.ASL;After Pci Tree'"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "Ambient Light Sensor"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/ALS.ASL;After Pci Tree'"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "H8S2113 Com1"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/H8S2113_SIO.ASL;After Pci Tree'"
+    Token = "CRB_EC_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "SMSC1007 Super IO"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/SMSC1007_SIO.ASL;After Pci Tree'"
+    Token = "SMSC1007_SUPPORT" "=" "1"
+    Token = "SMSC1007_SIO_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "SMSC1007 Super IO COM Ports"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/SMSC1007_COM.ASL;After Pci Tree'"
+    Token = "SMSC1007_SUPPORT" "=" "1"
+    Token = "SMSC1007_COM_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "SMSC1000 Super IO"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/SMSC1000_SIO.ASL;After Pci Tree'"
+    Token = "SMSC1000_SUPPORT" "=" "1"
+    Token = "SMSC1000_SIO_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "SMSC1000 Super IO COM Ports"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/SMSC1000_COM.ASL;After Pci Tree'"
+    Token = "SMSC1000_SUPPORT" "=" "1"
+    Token = "SMSC1000_COM_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "SMSC1000 Super IO Parallel Ports"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/SMSC1000_LPT.ASL;After Pci Tree'"
+    Token = "SMSC1000_SUPPORT" "=" "1"
+    Token = "SMSC1000_LPT_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "NAT Super IO"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/NAT_SIO.ASL;After Pci Tree'"
+    Token = "NAT_SUPPORT" "=" "1"
+    Token = "NAT_SIO_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "NAT Super IO COM Ports"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/NAT_COM.ASL;After Pci Tree'"
+    Token = "NAT_SUPPORT" "=" "1"
+    Token = "NAT_COM_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "NAT Super IO Parallel Ports"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/NAT_LPT.ASL;After Pci Tree'"
+    Token = "NAT_SUPPORT" "=" "1"
+    Token = "NAT_LPT_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "WPCN381U Super IO"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/WPCN381U_SIO.ASL;After Pci Tree'"
+    Token = "WPCN381U_SUPPORT" "=" "1"
+    Token = "WPCN381U_SIO_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "WPCN381U Super IO COM Ports"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/WPCN381U_COM.ASL;After Pci Tree'"
+    Token = "WPCN381U_SUPPORT" "=" "1"
+    Token = "WPCN381U_COM_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "WPCN381U Super IO Parallel Ports"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SIO/WPCN381U_LPT.ASL;After Pci Tree'"
+    Token = "WPCN381U_SUPPORT" "=" "1"
+    Token = "WPCN381U_LPT_SUPPORT" "=" "1"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+TOKEN
+    Name  = "AcpiTables_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling AcpiTables support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+TOKEN
+    Name  = "PTID_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SsdtPtid support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AcpiProtocolLib_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable AcpiProtocolLib support in Project"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "IntelRMT_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable Intel Ready Mode Technology support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SLEEP_CONTROL_REG_TYPE"
+    Value  = "0x01"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "HW_REDUCED_ACPI" "=" "1"
+End
+
+TOKEN
+    Name  = "SLEEP_CONTROL_REG_BITWIDTH"
+    Value  = "0x08"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "HW_REDUCED_ACPI" "=" "1"
+End
+
+TOKEN
+    Name  = "SLEEP_CONTROL_REG_BITOFFSET"
+    Value  = "0x00"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "HW_REDUCED_ACPI" "=" "1"
+End
+
+TOKEN
+    Name  = "SLEEP_CONTROL_REG_ACCESS_SIZE"
+    Value  = "EFI_ACPI_3_0_BYTE"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "HW_REDUCED_ACPI" "=" "1"
+End
+
+TOKEN
+    Name  = "SLEEP_CONTROL_REG_ADDRESS"
+    Value  = "$(PM1A_EVT_BLK_ADDRESS) + 0x05"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "HW_REDUCED_ACPI" "=" "1"
+End
+
+TOKEN
+    Name  = "SLEEP_STATUS_REG_TYPE"
+    Value  = "0x01"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "HW_REDUCED_ACPI" "=" "1"
+End
+
+TOKEN
+    Name  = "SLEEP_STATUS_REG_BITWIDTH"
+    Value  = "0x08"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "HW_REDUCED_ACPI" "=" "1"
+End
+
+TOKEN
+    Name  = "SLEEP_STATUS_REG_BITOFFSET"
+    Value  = "0x00"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "HW_REDUCED_ACPI" "=" "1"
+End
+
+TOKEN
+    Name  = "SLEEP_STATUS_REG_ACCESS_SIZE"
+    Value  = "EFI_ACPI_3_0_BYTE"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "HW_REDUCED_ACPI" "=" "1"
+End
+
+TOKEN
+    Name  = "SLEEP_STATUS_REG_ADDRESS"
+    Value  = "$(PM1A_EVT_BLK_ADDRESS) + 0x01"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "HW_REDUCED_ACPI" "=" "1"
+End
+
+PATH
+    Name  = "AcpiASL_DIR"
+    Path  = "KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt"
+End
+
+ELINK
+    Name  = "$(AcpiASL_DIR)"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+INFComponent
+   Name  = "AcpiPlatform"
+   File  = "AcpiPlatform.inf"
+   Package  = "KabylakePlatSamplePkg"
+   ModuleTypes  = "DXE_DRIVER"
+End
+
+FFS_FILE
+    Name  = "AcpiPlatform"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "KabylakePlatSamplePkg.AcpiPlatform"
+    Index  = '"AFTER" "SaInitDxe"'
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.AcpiPlatformSetupLib"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.AcpiPlatform"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.AcpiGetSetupData"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.AcpiPlatform"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiChipsetModulePkg.NbGetSetupData"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.AcpiPlatform"
+End

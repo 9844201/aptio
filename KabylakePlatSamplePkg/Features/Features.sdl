@@ -1,0 +1,16 @@
+TOKEN
+    Name  = "Features_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable Features support in Project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+TOKEN
+    Name  = "PTID_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SsdtPtid support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End

@@ -1,0 +1,8 @@
+<component>
+	name = "MdePkg"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Override\MdePkg\"
+	RefName = "KabylakeSiliconPkg.Override.MdePkg"
+[parts]
+"KabylakeSiliconPkg.Override.MdePkg.Library"
+<endComponent>

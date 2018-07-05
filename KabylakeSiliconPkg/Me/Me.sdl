@@ -1,0 +1,55 @@
+TOKEN
+	Name  = "iME_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Me support in the project"
+	TokenType = Boolean
+    TargetH = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "PTT_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Intel PTT support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "MeGuidLib_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable MeGuidLib support in Project"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "MeLibPpi_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable MeLibPpi support in Project"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "MeProtocolLib_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable MeProtocolLib support in Project"
+	TokenType = Boolean
+End
+
+PATH
+	Name  = "MeGuidLib_DIR"
+	Path  = "KabylakeSiliconPkg\Me\Guid"
+End
+
+PATH
+	Name  = "MeLibPpi_DIR"
+	Path  = "KabylakeSiliconPkg\Me\Ppi"
+End
+
+PATH
+	Name  = "MeProtocolLib_DIR"
+	Path  = "KabylakeSiliconPkg\Me\Protocol"
+End
+

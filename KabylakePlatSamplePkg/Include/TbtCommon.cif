@@ -1,0 +1,8 @@
+<component>
+	name = "TbtCommon"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Include\"
+	RefName = "KabylakePlatSamplePkg.Include.TbtCommon"
+[files]
+"TbtBoardInfo.h"	
+<endComponent>

@@ -1,0 +1,18 @@
+<component>
+	name = "SystemAgent RefCode"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\"
+	RefName = "KabylakeSiliconPkg.SystemAgentRefCode"
+[files]
+"SystemAgentRefCode.sdl"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.AcpiTables"
+"KabylakeSiliconPkg.SystemAgent.BdatAccessHandler"
+"KabylakeSiliconPkg.SystemAgent.Include"
+"KabylakeSiliconPkg.SystemAgent.Library"
+"KabylakeSiliconPkg.SystemAgent.MemoryInit"
+"KabylakeSiliconPkg.SystemAgent.PciHostBridge"
+"KabylakeSiliconPkg.SystemAgent.SaInit"
+"KabylakeSiliconPkg.SystemAgent.SmmAccess"
+"KabylakeSiliconPkg.SystemAgent.IntelGraphicsPeim"
+<endComponent>

@@ -1,0 +1,17 @@
+<component>
+	name = "SkylakeHaloDdr4Rvp11"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Board\SkylakeHaloDdr4Rvp11\"
+	RefName = "KabylakePlatSamplePkg.SkylakeHaloDdr4Rvp11"
+[INF]
+"DxeBoardInitLib\SkylakeHaloDdr4Rvp11InitLib.inf"
+"PeiBoardInitLib\PeiSkylakeHaloDdr4Rvp11InitPreMemLib.inf"
+"PeiBoardInitLib\PeiSkylakeHaloDdr4Rvp11InitLib.inf"
+[files]
+"SkylakeHaloDdr4Rvp11.sdl"	
+"DxeBoardInitLib\SkylakeHaloDdr4Rvp11InitLib.h"	
+"PeiBoardInitLib\GpioTableHaloRvp11.h"	
+"PeiBoardInitLib\PeiSkylakeHaloDdr4Rvp11InitLib.h"	
+"PeiBoardInitLib\SkylakeHaloDdr4Rvp11HsioPtssTables.h"	
+"PeiBoardInitLib\SkylakeHaloDdr4Rvp11HdaVerbTables.h"	
+<endComponent>

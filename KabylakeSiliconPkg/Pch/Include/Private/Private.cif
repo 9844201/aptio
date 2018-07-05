@@ -1,0 +1,19 @@
+<component>
+	name = "Private"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Include\Private\"
+	RefName = "KabylakeSiliconPkg.Pch.Include.Private"
+[files]
+"PchHdaEndpoints.h"	
+"PchHHsioBx.h"	
+"PchHHsioDx.h"	
+"PchHsio.h"	
+"PchLpHsioBx.h"	
+"PchLpHsioCx.h"	
+"KblPchHHsioAx.h"	
+"PchConfigHob.h"	
+[parts]
+"KabylakeSiliconPkg.Pch.Include.Private.Library"
+"KabylakeSiliconPkg.Pch.Include.Private.Protocol"
+"KabylakeSiliconPkg.Pch.Include.Private.Ppi"
+<endComponent>

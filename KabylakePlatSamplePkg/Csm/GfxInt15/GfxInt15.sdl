@@ -1,0 +1,34 @@
+TOKEN
+	Name  = "PlatSamplePkg_Int15_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Platform support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+ELINK
+    Name  = "$(BUILD_DIR)/GfxInt15.csm16"
+    Parent  = "CSM_OEMINT_SRC"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PLATFORM_SAMPLE_PKG_DIR)/Include/CmosMap.equ"
+    Parent  = "CSM_OEMINT_SRC"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "INT15Proc"
+    Parent  = "CsmOemInterrupts"
+    ProcID  = 015h
+    SrcFile  = "$(BUILD_DIR)/GfxInt15.csm16"
+    InvokeOrder = AfterParent
+End
+
+OUTPUTREGISTER
+    Name  = "GfxInt15Csm"
+    Path  = "Build"
+    File  = "GfxInt15.csm16"
+    Template  = "GfxInt15.asm16"
+End

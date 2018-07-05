@@ -1,0 +1,114 @@
+TOKEN
+    Name  = "PcAtChipsetPkg_Library_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for PcAtChipsetPkg Library support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "BaseIoApicLib"
+    File  = "BaseIoApicLib\BaseIoApicLib.inf"
+    Package  = "PcAtChipsetPkg"
+End
+
+LibraryMapping
+    Class  = "IoApicLib"
+    Instance  = "PcAtChipsetPkg.BaseIoApicLib"
+End
+
+INFComponent
+    Name  = "BaseAcpiTimerLib"
+    File  = "AcpiTimerLib\BaseAcpiTimerLib.inf"
+    Package  = "PcAtChipsetPkg"
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"    
+End
+
+LibraryMapping
+    Class  = "TimerLib"
+    Instance  = "PcAtChipsetPkg.BaseAcpiTimerLib"
+    ModuleTypes  = "SEC"
+    Override  = "UefiCpuPkg.SecCore"
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"     
+End
+
+PcdMapping
+    Name  = "PcdAcpiIoPciBusNumber"
+    GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x0"
+    TargetDSC = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+PcdMapping
+    Name  = "PcdAcpiIoPciDeviceNumber"
+    GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x1F"
+    TargetDSC = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+PcdMapping
+    Name  = "PcdAcpiIoPciFunctionNumber"
+    GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x2"
+    TargetDSC = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+PcdMapping
+    Name  = "PcdAcpiIoPciEnableRegisterOffset"
+    GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x44"
+    TargetDSC = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+PcdMapping
+    Name  = "PcdAcpiIoBarEnableMask"
+    GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x80"
+    TargetDSC = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+PcdMapping
+    Name  = "PcdAcpiIoPciBarRegisterOffset"
+    GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x40"
+    TargetDSC = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+PcdMapping
+    Name  = "PcdAcpiIoPortBaseAddress"
+    GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x1800"
+    TargetDSC = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+PcdMapping
+    Name  = "PcdAcpiPm1TmrOffset"
+    GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x08"
+    TargetDSC = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+PcdMapping
+    Name  = "PcdAcpiIoPortBaseAddressMask"
+    GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0xFFFC"
+    TargetDSC = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End

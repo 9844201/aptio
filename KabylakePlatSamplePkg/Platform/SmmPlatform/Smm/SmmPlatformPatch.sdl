@@ -1,0 +1,7 @@
+INFComponent
+	Name  = "SmmPlatform"
+	File  = "SmmPlatformPatch.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+End
+

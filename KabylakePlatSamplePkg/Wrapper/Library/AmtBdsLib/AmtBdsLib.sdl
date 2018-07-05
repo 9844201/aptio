@@ -1,0 +1,34 @@
+TOKEN
+    Name  = "AmtBdsLib"
+    Value  = "1"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+    Help  = "Main switch to enable AmtBdsLib support in Project"
+    Token = "iAMT_SUPPORT" "=" "1"  
+End
+
+ELINK
+    Name  = "AmtSolBeforeConInProtocolHook,"
+    Parent  = "InstallConInStartedProtocol,"
+    InvokeOrder = BeforeParent
+End
+
+ELINK
+    Name  = "AmtSolAfterDriverConnectedHook,"
+    Parent  = "ConnectEverything,"
+    InvokeOrder = AfterParent
+End
+
+INFComponent
+    Name  = "AmtBdsLib"
+    File  = "AmtBdsLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.AmtBdsLib"
+    Override  = "AmiModulePkg.Bds"
+End

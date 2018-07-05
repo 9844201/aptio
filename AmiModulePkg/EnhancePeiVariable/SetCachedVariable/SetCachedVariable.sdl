@@ -1,0 +1,22 @@
+TOKEN
+    Name  = "SetCachedVariable_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SetCachedVariable support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+    Token  = "SET_CACHED_VARIABLE" "=" "1"
+End
+
+INFComponent
+    Name  = "SetCachedVariableLib"
+    File  = "SetCachedVariable.inf"
+    Package  = "AmiModulePkg"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiModulePkg.SetCachedVariableLib"
+	Override  = "AmiModulePkg.NvramDxe"
+End

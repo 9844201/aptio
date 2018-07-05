@@ -1,0 +1,89 @@
+TOKEN
+	Name  = "SaWrapLibrary_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SystemAgent Library support in the project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes	
+	Master = Yes
+End
+
+TOKEN
+	Name  = "MEMORY_CHANNEL_INTERLEAVED_OVERRIDE"
+	Value  = "0"
+	Help  = "Switch to Override Channel Interleaved for Memory 1: TRUE 0: FALSE."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "MEMORY_CHANNEL_INTERLEAVED"
+	Value  = "1"
+	Help  = "Switch to enable Channel Interleaved for Memory 1: TRUE 0: FALSE."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "MEMORY_CHANNEL_INTERLEAVED_OVERRIDE" "=" "1"   
+End
+
+TOKEN
+	Name  = "SKIP_EXT_GFX_SCAN"
+	Value  = "0"
+	Help  = "1: Skip External Gfx Device Scan; 0: Scan for external graphics devices. Set this policy to skip External Graphics card scanning if the platform uses Internal Graphics only."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SKIP_EXT_GFX_SCAN"
+	Value  = "1"
+	Help  = "1: Skip External Gfx Device Scan; 0: Scan for external graphics devices. Set this policy to skip External Graphics card scanning if the platform uses Internal Graphics only."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "DETECT_PCH_PCIE_VGA" "=" "0"    
+	Token = "DETECT_SA_PEG_VGA" "=" "0"            
+End
+
+ELINK
+    Name  = "SaSetupCallbacks,"
+    Parent  = "NbConfigurationList"
+    InvokeOrder = AfterParent
+End
+
+INFComponent
+    Name  = "SaLinkLib"
+    File  = "SaLinkLib/SaLinkLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "SaLinkLib"
+    Instance  = "KabylakeSiliconPkg.SaLinkLib"
+End
+
+INFComponent
+    Name  = "SystemAgentHookPeiLib"
+    File  = "SystemAgentHookLib\SystemAgentHookPeiLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "SystemAgentHookPeiLib"
+    Instance  = "KabylakeSiliconPkg.SystemAgentHookPeiLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+	Name  = "SystemAgentHookDxeLib"
+	File  = "SystemAgentHookLib\SystemAgentHookDxeLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "SystemAgentHookDxeLib"
+    Instance  = "KabylakeSiliconPkg.SystemAgentHookDxeLib"
+    ModuleTypes  = "DXE_DRIVER"
+End

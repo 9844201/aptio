@@ -1,0 +1,29 @@
+TOKEN
+    Name  = "AmiGetUcsiRevLib"
+    Value  = "1"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+    Help  = "Main switch to enable AmiGetUcsiRevLib support in Project"
+    Token = "PlatSamplePkg_UsbTypeC_SUPPORT" "=" "1"  
+End
+
+TOKEN
+    Name  = "DEFAULT_UCSI_REV"
+    Value  = "0x0100"
+    Help  = "The default ucsi revsion."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+INFComponent
+    Name  = "AmiGetUcsiRevLibNull"
+    File  = "AmiGetUcsiRevLibNull.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "AmiGetUcsiRevLib"
+    Instance  = "KabylakePlatSamplePkg.AmiGetUcsiRevLibNull"
+End

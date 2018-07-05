@@ -1,0 +1,8 @@
+<component>
+	name = "AcpiTables"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\AcpiTables\"
+	RefName = "KabylakeSiliconPkg.Me.AcpiTables"
+[parts]
+"KabylakeSiliconPkg.Me.AcpiTables.MeSsdt"
+<endComponent>

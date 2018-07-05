@@ -1,0 +1,350 @@
+TOKEN
+	Name  = "AmiCpuModulePkg_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling AmiCpuModulePkg support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "NUMBER_CPU_SOCKETS"
+	Value  = "1"
+	Help  = "Number CPU Sockets on the board."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CpuPei_Support"
+	Value  = "1"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "CpuPeiBeforeMem_Support"
+	Value  = "1"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "CpuDxe_Support"
+	Value  = "1"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "CpuSpSmi_Support"
+	Value  = "1"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "CPU_SIZE_OF_PAGED_MEMORY"
+	Value  = "0x100000000"
+	Help  = "Size of Paged Memory for 64-bits."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU_MAX_MEMORY_SIZE"
+	Value  = "0x100000000"
+	Help  = "Maximum memory size addressable by the CPU"
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU_MAX_IO_SIZE"
+	Value  = "0x10000"
+	Help  = "Maximum I/O size addressable by the CPU"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SW_SMI_PSTATE_CNT"
+	Value  = "0"
+	Help  = "VALUE to write into SMI CMD register to enter\CPU performance state control mode (if any)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-0xff 0 = not supported"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "SW_SMI_CST_CNT"
+	Value  = "0"
+	Help  = "Value to write in SMI_CMD reg to support _CST object and change state notification"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-0xff"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "ACPI_INFO2_PROTOCOL_PUBLISHED"
+	Value  = "1"
+	Help  = "ACPI INFO2 PROTOCOL is published by this module."
+	TokenType = Boolean
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "LOCAL_APIC_BASE"
+	Value  = "0xfee00000"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "APIC_VERSION_REGISTER"
+	Value  = "0x30"
+	Help  = "APIC Version Register Index"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SW_SMI_S3_RESTORE_MSR_FROM_SDL"
+	Value  = "0x59"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CP_OPTS"
+	Value  = " /b"
+	Help  = "Tool chain tag"
+	TokenType = Expression
+	TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "SW_SMI_SAVE_MSR"
+    Value  = "0x56"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SW_SMI_RESTORE_MSR"
+    Value  = "0x57"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SW_SMI_S3_RESTORE_MSR_FROM_SDL"
+    Value  = "0x59"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+	Name  = "SMM_FROM_SMBASE_DRIVER"
+	Value  = "0x55"
+	Help  = "SWSMI number used in CPU RC"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU_SETUP_SET_MAX_RATIO"
+	Value  = "0"
+	Help  = "Enable setup question force max ratio."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+#TOKEN
+#	Name  = "TemporaryRamBaseAddress"
+#	Value  = "(0xffffffff - $(FLASH_SIZE) + 1 - 0x100000) & 0xfff00000"
+#	Help  = "DO NOT CHANGE THIS VALUE.\Cache-as-RAM physical base location"
+#	TokenType = Integer
+#	TargetEQU = Yes
+#	TargetH = Yes
+#End
+
+TOKEN
+	Name  = "TemporaryRamBaseAddress"
+	Value  = "(0xffffffff - 0x1000000 + 1 - 0x100000) & 0xfff00000"
+	Help  = "DO NOT CHANGE THIS VALUE.\Cache-as-RAM physical base location"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TotalTemporaryRamSize"
+	Value  = "0x40000"
+	Help  = "DO NOT CHANGE THIS VALUE.\Cache-as-RAM physical base location"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+PATH
+	Name  = "CPU_LIBRARY_DIR"
+	Path  = "AmiCpuModulePkg/Library"
+End
+
+PATH
+	Name  = "CPU_LIBRARY_HEADER_DIR"
+	Path  = "AmiCpuModulePkg/Include"
+End
+
+PATH
+	Name  = "CPU_DIR"
+End
+
+MODULE
+	File  = "Cpu.mak"
+End
+
+INFComponent
+	Name  = "CpuPeiBoard"
+	File  = "Pei/CpuPei/CpuPei.inf"
+	Package  = "AmiCpuModulePkg"
+	ModuleTypes  = "PEIM"
+	Token = "CpuPei_Support" "=" "1"
+End
+
+INFComponent
+	Name  = "CpuDxeBoard"
+	File  = "Dxe/CpuDxe/CpuDxe.inf"
+	Package  = "AmiCpuModulePkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "CpuDxe_Support" "=" "1"
+End
+
+INFComponent
+	Name  = "CpuPeiEarlyInit"
+	File  = "Pei/CpuPeiBeforeMem/CpuPeiBeforeMem.inf"
+	Package  = "AmiCpuModulePkg"
+	ModuleTypes  = "PEIM"
+	Token = "CpuPeiBeforeMem_Support" "=" "1"
+End
+
+INFComponent
+	Name  = "CpuSpSmi"
+	File  = "Dxe/CpuSpSmi/CpuSpSmi.inf"
+	Package  = "AmiCpuModulePkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "CpuSpSmi_Support" "=" "1"
+End
+
+INFComponent
+    Name  = "CpuIoDxe"
+    File  = "Dxe/CpuIoDxe/CpuIoDxe.inf"
+    Package  = "AmiCpuModulePkg"
+    ModuleTypes = "DXE_DRIVER"
+End
+
+INFComponent
+	Name  = "AcpiVariableHobOnSmramReserveHob"
+	File  = "Pei/AcpiVariableHobOnSmramReserveHobThunk/AcpiVariableHobOnSmramReserveHobThunk.inf"
+	Package  = "AmiCpuModulePkg"
+	ModuleTypes  = "PEIM"
+	Token = "EdkCompatibilityPkg_SUPPORT" "=" "0"	
+End
+
+INFComponent
+	Name  = "CpuCspLib"
+	File  = "Library/CpuCspLib/CpuCspLib.inf"
+	Package  = "AmiCpuModulePkg"
+End
+
+INFComponent
+	Name  = "CpuCspPeiLib"
+	File  = "Library/CpuCspLib/CpuCspPeiLib.inf"
+	Package  = "AmiCpuModulePkg"
+End
+
+INFComponent
+	Name  = "CpuBoardLib"
+	File  = "Library/CpuBoardLib/CpuBoardLib.inf"
+	Package  = "AmiCpuModulePkg"
+End
+
+INFComponent
+    Name  = "TscTimerLib"
+    File  = "Library/TscTimerLib/TscTimerLib.inf"
+    Package  = "AmiCpuModulePkg"  
+End
+
+INFComponent
+	Name  = "CpuS3Pei"
+	File  = "Pei/CpuS3Pei/CpuS3Pei.inf"
+	Package  = "AmiCpuModulePkg"
+	ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "SmmCpuPlatformHookLib"
+    File  = "Library/SmmCpuPlatformHookLib/SmmCpuPlatformHookLib.inf"
+    Package  = "AmiCpuModulePkg"
+End
+
+LibraryMapping
+	Class  = "CpuCspLib"
+	Instance  = "AmiCpuModulePkg.CpuCspLib"
+End
+
+LibraryMapping
+	Class  = "CpuCspPeiLib"
+	Instance  = "AmiCpuModulePkg.CpuCspPeiLib"
+End
+
+LibraryMapping
+	Class  = "CpuBoardLib"
+	Instance  = "AmiCpuModulePkg.CpuBoardLib"
+End
+
+LibraryMapping
+    Class  = "TimerLib"
+    Instance  = "AmiCpuModulePkg.TscTimerLib"
+    Token = "PERFORMANCE_MEASUREMENTS_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "SmmCpuPlatformHookLib"
+	Instance  = "AmiCpuModulePkg.SmmCpuPlatformHookLib"
+End
+
+FFS_FILE
+    Name  = "CpuPeiBoard"
+    FD_AREA  = "FV_BB"
+    INFComponent  = "AmiCpuModulePkg.CpuPeiBoard"
+    Index  = '"BEFORE" "PlatformInit"'
+    Token = "BiosGuard_SUPPORT" "=" "1"
+End
+
+PcdMapping
+	Name  = "PcdTemporaryRamBase"
+	GuidSpace  = "gSiPkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	Value  = "$(TemporaryRamBaseAddress)"	
+	Offset  = 00h
+	Length  = 00h
+	TargetDSC = Yes	
+End
+
+PcdMapping
+	Name  = "PcdTemporaryRamSize"
+	GuidSpace  = "gSiPkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	Value  = "$(TotalTemporaryRamSize)"	
+	Offset  = 00h
+	Length  = 00h
+	TargetDSC = Yes	
+End

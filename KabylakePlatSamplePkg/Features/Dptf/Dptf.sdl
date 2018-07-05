@@ -1,0 +1,45 @@
+TOKEN
+	Name  = "Dptf_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+	Help  = "Main switch to enable Dptf support in Project"
+End
+
+INFComponent
+    Name  = "Dptf"
+    File  = "Dxe\Dptf.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "DptfAcpiTables"
+    File  = "AcpiTables\DptfAcpiTables.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes="USER_DEFINED"
+End
+
+FFS_FILE
+    Name  = "DptfAcpiTables"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "KabylakePlatSamplePkg.DptfAcpiTables"
+    Rule_Override  = "ACPITABLE"
+End
+
+INFComponent
+    Name  = "DptfAcpiTablesSds"
+    File  = "AcpiTables\Sds\DptfAcpiTablesSds.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes="USER_DEFINED"
+End
+
+FFS_FILE
+    Name  = "DptfAcpiTablesSds"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "KabylakePlatSamplePkg.DptfAcpiTablesSds"
+    Rule_Override  = "ACPITABLE"
+End

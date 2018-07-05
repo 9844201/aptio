@@ -1,0 +1,25 @@
+<component>
+	name = "Intel Kabylake"
+	category = eChipset
+	LocalRoot = "AmiChipsetModulePkg\"
+	RefName = "AmiChipsetModulePkg.NorthBridge"
+[INF]
+"NB\SmbiosUpdateData\SmbiosUpdateData.inf"
+"NB\UpdateMemoryRecord\UpdateMemoryRecord.inf"
+"NB\LegacyRegionDxe\LegacyRegionDxe.inf"
+[files]
+"Nb.sdl"	
+"Nb.mak"	
+"Elink\NbElinks.txt"	
+"NB_History.txt"	
+[parts]
+"AmiChipsetModulePkg.IntelVBIOS"
+"AmiChipsetModulePkg.NbInit"
+"AmiChipsetModulePkg.NbSetup"
+"AmiChipsetModulePkg.NbAsl"
+"AmiChipsetModulePkg.NbLibrary"
+"AmiChipsetModulePkg.NbInclude"
+"AmiChipsetModulePkg.IntelSaGopDriver"
+"AmiChipsetModulePkg.AmiMemoryInfoConfig"
+"AmiChipsetModulePkg.NbOemPciDeviceInitRoutine"
+<endComponent>

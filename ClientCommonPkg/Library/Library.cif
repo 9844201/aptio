@@ -1,0 +1,17 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "ClientCommonPkg\Library\"
+	RefName = "ClientCommonPkg.Library"
+[INF]
+"BaseDebugPropertyLibNull\BaseDebugPropertyLibNull.inf"
+"BasePlatformPostCodeMapLib\BasePlatformPostCodeMapLib.inf"
+"BasePostCodeLibPort80Ex\BasePostCodeLibPort80Ex.inf"
+"BaseI2cDriverLib\BaseI2cDriverLib.inf"
+"BaseSerialPortParameterLibPcd\BaseSerialPortParameterLibPcd.inf"
+"DxeSmbiosProcessorLib\DxeSmbiosProcessorLib.inf"
+"PeiMultiPlatSupportLib\PeiMultiPlatSupportLibOptSize.inf"
+"PeiMultiPlatSupportLib\PeiMultiPlatSupportLib.inf"
+[files]
+"Library.sdl"	
+<endComponent>

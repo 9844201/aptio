@@ -1,0 +1,12 @@
+<component>
+	name = "UefiCpuPkg"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Override\UefiCpuPkg\"
+	RefName = "KabylakePlatSamplePkg.Override.UefiCpuPkg"
+[INF]
+"PiSmmCpuDxeSmm\PiSmmCpuDxeSmm.inf"
+[files]
+"UefiCpuPkg.sdl"	
+"PiSmmCpuDxeSmm\PiSmmCpuDxeSmm.uni"	
+"PiSmmCpuDxeSmm\PiSmmCpuDxeSmmExtra.uni"	
+<endComponent>

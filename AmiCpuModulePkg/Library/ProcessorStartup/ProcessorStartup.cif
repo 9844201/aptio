@@ -1,0 +1,11 @@
+<component>
+	name = "ProcessorStartup"
+	category = ModulePart
+	LocalRoot = "AmiCpuModulePkg\Library\ProcessorStartup\"
+	RefName = "AmiCpuModulePkg.ProcessorStartup"
+[INF]
+"ProcessorStartup.inf"
+[files]
+"ProcessorStartup.sdl"	
+"ProcessorStartup.mak"	
+<endComponent>

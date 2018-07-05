@@ -1,0 +1,9 @@
+<component>
+	name = "SaNvRamHook"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\SystemAgent\SaNvRamHook\"
+	RefName = "KabylakeSiliconPkg.SystemAgentWrap.SaNvRamHook"
+[files]
+"SaNvRamHook.sdl"	
+"SaNvRamHook.c"	
+<endComponent>

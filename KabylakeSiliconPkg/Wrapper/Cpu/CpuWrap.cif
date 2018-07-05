@@ -1,0 +1,11 @@
+<component>
+	name = "CpuWrap"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Cpu\"
+	RefName = "KabylakeSiliconPkg.CpuWrap"
+[files]
+"CpuWrap.sdl"	
+[parts]
+"KabylakeSiliconPkg.CpuWrap.CpuRcPolicyLibraryInstances"
+"KabylakeSiliconPkg.CpuWrap.TxtTools"
+<endComponent>

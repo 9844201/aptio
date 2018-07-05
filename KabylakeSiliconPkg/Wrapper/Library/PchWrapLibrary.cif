@@ -1,0 +1,13 @@
+<component>
+	name = "PchWrapLibrary"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Library\"
+	RefName = "KabylakeSiliconPkg.PchWrapLibrary"
+[INF]
+"PchLinkLib\PchLinkLib.inf"
+"PchHookLib\PchHookPeiLib.inf"
+"PchHookLib\PchHookDxeLib.inf"
+"PchHookLib\PchPcieSsdHookLib.inf"
+[files]
+"PchWrapLibrary.sdl"	
+<endComponent>

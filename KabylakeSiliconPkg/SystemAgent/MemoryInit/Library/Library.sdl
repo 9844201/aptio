@@ -1,0 +1,18 @@
+TOKEN
+	Name  = "SA_MemoryInit_Library_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SA MemoryInit Library support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "PeiDxeSmmMemoryAddressEncodeDecodeLib"
+	File  = "PeiDxeSmmMemoryAddressEncodeDecodeLib\PeiDxeSmmMemoryAddressEncodeDecodeLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "MemoryAddressEncodeDecodeLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmMemoryAddressEncodeDecodeLib"
+End

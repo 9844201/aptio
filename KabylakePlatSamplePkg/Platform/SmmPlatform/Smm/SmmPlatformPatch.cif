@@ -1,0 +1,10 @@
+<component>
+	name = "SmmPlatformPatch"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Platform\SmmPlatform\Smm\"
+	RefName = "AmiMsiPkg.SmmPlatformPatch"
+[INF]
+"SmmPlatformPatch.inf"
+[files]
+"SmmPlatformPatch.sdl"	
+<endComponent>

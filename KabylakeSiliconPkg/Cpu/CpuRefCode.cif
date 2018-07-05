@@ -1,0 +1,14 @@
+<component>
+	name = "Cpu RefCode"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Cpu\"
+	RefName = "KabylakeSiliconPkg.CpuRefCode"
+[parts]
+"KabylakeSiliconPkg.Cpu.AcpiTables"
+"KabylakeSiliconPkg.Cpu.BiosGuard"
+"KabylakeSiliconPkg.Cpu.CpuInit"
+"KabylakeSiliconPkg.Cpu.Include"
+"KabylakeSiliconPkg.Cpu.Library"
+"KabylakeSiliconPkg.Cpu.PowerManagement"
+"KabylakeSiliconPkg.Cpu.TxtInit"
+<endComponent>

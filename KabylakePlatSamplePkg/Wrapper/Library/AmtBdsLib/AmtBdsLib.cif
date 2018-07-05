@@ -1,0 +1,10 @@
+<component>
+	name = "AmtBdsLib"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\Library\AmtBdsLib\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.Library.AmtBdsLib"
+[INF]
+"AmtBdsLib.inf"
+[files]
+"AmtBdsLib.sdl"	
+<endComponent>

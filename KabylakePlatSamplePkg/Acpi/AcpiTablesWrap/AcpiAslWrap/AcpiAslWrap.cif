@@ -1,0 +1,13 @@
+<component>
+	name = "AcpiAslWrap"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiAslWrap\"
+	RefName = "KabylakePlatSamplePkg.Acpi.AcpiTablesWrap.AcpiAslWrap"
+[files]
+"AcpiAslWrap.sdl"	
+"PlatformPS2Wake.asl"	
+"PlatformEC.asl"	
+"PlatformDock.asl"	
+"PlatformExternal.asl"	
+"BatBst.asl"	
+<endComponent>

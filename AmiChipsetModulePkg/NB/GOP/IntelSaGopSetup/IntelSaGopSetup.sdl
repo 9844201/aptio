@@ -1,0 +1,101 @@
+TOKEN
+    Name  = "IntelSaGopSetup_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable IntelSaGopSetup support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+    Token = "AmiGopPolicy" "=" "1"
+End
+
+PATH
+    Name  = "IntelSaGopSetup_DIR"
+End
+
+ELINK
+    Name  = "IntelSaGopSetupInfo,"
+    Parent  = "InitAmiGopPolicyStrings,"
+    InvokeOrder = AfterParent
+End
+
+TOKEN
+    Name  = "====== For Intel Brightness ======"
+    TokenType = Expression
+End
+
+ELINK
+	Name  = "$(IntelSaGopSetup_DIR)/IntelSaGopSetup.sd"
+	Parent  = "$(AMIGOPPOLICY_DIR)/AmiGopPolicy.sd"
+	InvokeOrder = ReplaceParent
+	Token = "AmiGopPolicy" "=" "1"
+End
+
+ELINK
+	Name  = "$(IntelSaGopSetup_DIR)/IntelSaGopSetup.uni"
+	Parent  = "$(AMIGOPPOLICY_DIR)/AmiGopPolicy.uni"
+	InvokeOrder = ReplaceParent
+	Token = "AmiGopPolicy" "=" "1"
+End
+
+ELINK
+    Name  = "IntelGopSwitchFunction,"
+    Parent  = "AmiDefaultGopSwitchFunction,"
+    InvokeOrder = ReplaceParent
+    Token = "AmiGopPolicy" "=" "1"
+End
+
+ELINK
+    Name = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,AGP_BRIGHTNESS_KEY,IntelGopMultifunctionCallback),"
+    Parent = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+    Token = "AmiGopPolicy" "=" "1"
+End
+
+ELINK
+    Name = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,AGP_BIST_KEY,IntelGopMultifunctionCallback),"
+    Parent = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+    Token = "AmiGopPolicy" "=" "1"
+End
+
+INFComponent
+    Name  = "IntelSaGopSetupLib"
+    File  = "IntelSaGopSetup.inf"
+    Package  = "AmiChipsetModulePkg"
+End
+
+LibraryMapping
+    Class  = "IntelSaGopSetupLib"
+    Instance  = "AmiChipsetModulePkg.IntelSaGopSetupLib"
+End
+
+ELINK
+    Name  = "IntelSaGopSetupLib"
+    Parent  = "AdditionalSetupLibraryClasses"
+    InvokeOrder = AfterParent
+End
+
+INFComponent
+    Name  = "SetBrightnessLevelDuringPostLib"
+    File  = "SetBrightnessLevelDuringPostLib.inf"
+    Package  = "AmiChipsetModulePkg"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiChipsetModulePkg.SetBrightnessLevelDuringPostLib"
+	Override  = "AmiModulePkg.Bds"
+End
+
+ELINK
+	Name  = "SetBrightnessLevelDuringPost,"
+	Parent  = "ConnectVgaConOut,"
+	InvokeOrder = BeforeParent
+End
+
+ELINK
+    Name  = "SetBrightnessLevelDuringPost,"
+    Parent  = "FastbootConsoleCheck,"
+    InvokeOrder = BeforeParent
+End

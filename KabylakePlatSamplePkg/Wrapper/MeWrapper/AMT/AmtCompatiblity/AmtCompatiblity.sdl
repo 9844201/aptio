@@ -1,0 +1,18 @@
+TOKEN
+	Name  = "AmtCompatiblity_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable AmtCompatiblity support in Project"
+	TokenType = Boolean
+End
+
+PATH
+    Name  = "AmtCompatiblity_DIR"
+End
+
+INFComponent
+	Name  = "AmtCompatiblity"
+	File  = "AmtCompatiblity.inf"
+	Package  = "AMTWrapperPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+

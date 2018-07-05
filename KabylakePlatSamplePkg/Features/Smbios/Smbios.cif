@@ -1,0 +1,13 @@
+<component>
+	name = "Smbios"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Smbios\"
+	RefName = "KabylakePlatSamplePkg.Features.Smbios"
+[INF]
+"FirmwareVersionInfoDxe\FirmwareVersionInfoDxe.inf"
+"SystemSlotInfoDxe\SystemSlotInfoDxe.inf"
+[files]
+"Smbios.sdl"	
+[parts]
+"KabylakePlatSamplePkg.Features.Smbios.SmbiosMiscDxe"
+<endComponent>

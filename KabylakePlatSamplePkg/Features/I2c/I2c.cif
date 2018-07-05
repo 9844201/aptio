@@ -1,0 +1,11 @@
+<component>
+	name = "I2c"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\I2c\"
+	RefName = "KabylakePlatSamplePkg.Features.I2c"
+[INF]
+"I2cTouchPanelDxe\I2cTouchPanelDxe.inf"
+"I2cPlatformDxe\I2cPlatformDxe.inf"
+[files]
+"I2c.sdl"	
+<endComponent>

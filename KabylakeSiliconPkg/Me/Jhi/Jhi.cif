@@ -1,0 +1,10 @@
+<component>
+	name = "Jhi"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\Jhi\"
+	RefName = "KabylakeSiliconPkg.Me.Jhi"
+[INF]
+"Dxe\JhiDxe.inf"
+[files]
+"Jhi.sdl"	
+<endComponent>

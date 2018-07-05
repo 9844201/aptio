@@ -1,0 +1,10 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Include\Private\Protocol\"
+	RefName = "KabylakeSiliconPkg.Pch.Include.Private.Protocol"
+[files]
+"PchNvs.h"	
+"PchNvsArea.h"	
+"PcieIoTrap.h"	
+<endComponent>

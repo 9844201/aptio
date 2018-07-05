@@ -1,0 +1,8 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Include"
+	RefName = "KabylakeSiliconPkg.Common.Wrapper.Include"
+[files]
+"Library\SafeStringOverrideLib.h"	
+<endComponent>

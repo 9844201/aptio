@@ -1,0 +1,14 @@
+<component>
+	name = "Intel Video BIOS"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\LegacyRom\Vbios"
+	RefName = "AmiChipsetModulePkg.IntelVBIOS"
+[files]
+"SKL_VBios.dat"
+"SKL_VBios_rvp_10.dat"
+"SKL_VBios_rvp_11.dat"
+"SKL_VBios_rvp_3_rvp_7.dat"
+"SKL_VBios_rvp_8.dat"
+"KBL_VBios_S_uDIMM_RVP.dat"
+"VbiosFdfFileStatements.txt"
+<endComponent>

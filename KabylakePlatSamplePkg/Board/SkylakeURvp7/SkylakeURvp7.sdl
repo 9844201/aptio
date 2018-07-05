@@ -1,0 +1,49 @@
+TOKEN
+    Name  = "SkylakeURvp7_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SkylakeURvp7 support in Project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "PeiSkylakeURvp7BoardInitPreMemLib"
+    File  = "PeiBoardInitLib\PeiSkylakeURvp7InitPreMemLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeURvp7BoardInitPreMemLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.BoardConfigInitPreMem"
+End
+
+INFComponent
+    Name  = "PeiSkylakeURvp7BoardInitLib"
+    File  = "PeiBoardInitLib\PeiSkylakeURvp7InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeURvp7BoardInitLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PeiBoardConfigInit"
+End
+
+INFComponent
+    Name  = "DxeSkylakeURvp7InitLib"
+    File  = "DxeBoardInitLib\SkylakeURvp7InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.DxeSkylakeURvp7InitLib"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.DxeBoardConfigInit"
+End

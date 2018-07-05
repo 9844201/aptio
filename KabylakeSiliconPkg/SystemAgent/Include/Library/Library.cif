@@ -1,0 +1,11 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\Include\Library\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.Include.Library"
+[files]
+"DxeSaPolicyLib.h"	
+"PeiSaPolicyLib.h"	
+"SaPlatformLib.h"	
+"SmmAccessLib.h"	
+<endComponent>

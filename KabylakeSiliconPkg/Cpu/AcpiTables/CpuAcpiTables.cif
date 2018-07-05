@@ -1,0 +1,10 @@
+<component>
+	name = "CPU ACPI Tables"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Cpu\AcpiTables\"
+	RefName = "KabylakeSiliconPkg.Cpu.AcpiTables"
+[INF]
+"CpuAcpiTables.inf"
+[files]
+"CpuAcpiTables.sdl"	
+<endComponent>

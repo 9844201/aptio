@@ -1,0 +1,15 @@
+TOKEN
+	Name  = "MeFwDowngrade_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable MeFwDowngrade support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "MeFwDowngrade"
+	File  = "MeFwDowngrade.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes="DXE_DRIVER"
+End
+

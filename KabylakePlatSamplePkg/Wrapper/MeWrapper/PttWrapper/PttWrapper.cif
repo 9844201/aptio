@@ -1,0 +1,10 @@
+<component>
+	name = "PttWrapper"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\PttWrapper\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper.PttWrapper"
+[INF]
+"PttWrapper.inf"
+[files]
+"PttWrapper.sdl"	
+<endComponent>

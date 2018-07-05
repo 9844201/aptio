@@ -1,0 +1,14 @@
+<component>
+	name = "AcpiTables"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Acpi\"
+	RefName = "KabylakePlatSamplePkg.Features.AcpiTables"
+[INF]
+"AcpiTables\AcpiFeatures.inf"
+"AcpiTables\SsdtIrmt\IrmtAcpiTables.inf"
+[files]
+"AcpiTables.sdl"	
+"AcpiTables\Lpit\Lpit.h"	
+"AcpiTables\Security\Wsmt\Wsmt.h"	
+"AcpiTables\TbtTypeC\TbtTypeCWrapper.asl"	
+<endComponent>

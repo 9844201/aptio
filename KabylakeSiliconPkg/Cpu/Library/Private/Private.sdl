@@ -1,0 +1,157 @@
+TOKEN
+	Name  = "Cpu_Library_Private_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Cpu Library_Private support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "PeiBiosGuardLib"
+	File  = "PeiBiosGuardLib\PeiBiosGuardLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "BiosGuardLib"
+	Instance  = "KabylakeSiliconPkg.PeiBiosGuardLib"
+End
+
+INFComponent
+	Name  = "PeiCpuInitLib"
+	File  = "PeiCpuInitLib\PeiCpuInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "CpuInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiCpuInitLib"
+End
+
+INFComponent
+	Name  = "PeiCpuOcInitLib"
+	File  = "PeiCpuOcInitLib\PeiCpuOcInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "CpuOcInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiCpuOcInitLib"
+End
+
+INFComponent
+	Name  = "PeiCpuOcLib"
+	File  = "PeiCpuOcLib\PeiCpuOcLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "CpuOcLib"
+	Instance  = "KabylakeSiliconPkg.PeiCpuOcLib"
+End
+
+INFComponent
+	Name  = "PeiCpuPowerMgmtLib"
+	File  = "PeiCpuPowerMgmtLib\PeiCpuPowerMgmtLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "CpuPowerMgmtLib"
+	Instance  = "KabylakeSiliconPkg.PeiCpuPowerMgmtLib"
+End
+
+INFComponent
+	Name  = "PeiSmbiosCpuLib"
+	File  = "PeiSmbiosCpuLib\PeiSmbiosCpuLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SmbiosCpuLib"
+	Instance  = "KabylakeSiliconPkg.PeiSmbiosCpuLib"
+	ModuleTypes  = "PEIM"
+End
+
+INFComponent
+	Name  = "PeiTxtLib"
+	File  = "PeiTxtLib\PeiTxtLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PeiTxtLib"
+	Instance  = "KabylakeSiliconPkg.PeiTxtLib"
+End
+
+INFComponent
+	Name  = "PeiCpuS3Lib"
+	File  = "PeiCpuS3Lib\PeiCpuS3Lib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+LibraryMapping
+	Class  = "CpuS3Lib"
+	Instance  = "KabylakeSiliconPkg.PeiCpuS3Lib"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+INFComponent
+	Name  = "PeiCpuS3LibFsp"
+	File  = "PeiCpuS3Lib\PeiCpuS3LibFsp.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"    
+End
+
+LibraryMapping
+	Class  = "CpuS3Lib"
+	Instance  = "KabylakeSiliconPkg.PeiCpuS3LibFsp"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"    
+End
+
+INFComponent
+	Name  = "PeiCpuPowerOnConfigLib"
+	File  = "PeiCpuPowerOnConfigLib\PeiCpuPowerOnConfigLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "CpuPowerOnConfigLib"
+	Instance  = "KabylakeSiliconPkg.PeiCpuPowerOnConfigLib"
+End
+
+INFComponent
+	Name  = "PeiCpuPowerOnConfigLibDisable"
+	File  = "PeiCpuPowerOnConfigLibDisable\PeiCpuPowerOnConfigLibDisable.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+#LibraryMapping
+#    Class  = "CpuPowerOnConfigLib"
+#    Instance  = "KabylakeSiliconPkg.PeiCpuPowerOnConfigLibDisable"
+#End
+
+INFComponent
+	Name  = "PeiDxeSmmCpuCommonLib"
+	File  = "PeiDxeSmmCpuCommonLib\PeiDxeSmmCpuCommonLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "CpuCommonLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmCpuCommonLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSoftwareGuardLib"
+	File  = "PeiDxeSoftwareGuardLib\PeiDxeSoftwareGuardLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SoftwareGuardLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSoftwareGuardLib"
+End

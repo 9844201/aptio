@@ -1,0 +1,160 @@
+TOKEN
+    Name  = "MemoryInit_RC_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling MemoryInit support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+PATH
+    Name  = "Mrc_DIR"
+End
+
+TOKEN
+    Name  = "MRC_DEBUG_PRINT_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+    Name  = "SSA_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "INTEL_MMA_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SSA_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+    Token = "INTEL_MMA_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "EMBEDDED_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "BDAT_ENABLE"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "BDAT_ENABLE"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "INTEL_MMA_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "BDAT_ENABLE"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "MRC_DEBUG_PRINT_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "-D ULT_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "-D SSA_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "SSA_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "-D SSA_CLIENT_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "SSA_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "-D EMBEDDED_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "EMBEDDED_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "-D PTT_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "PTT_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "-D BDAT_SUPPORT"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "BDAT_ENABLE" "=" "1"
+End
+
+ELINK
+    Name  = "-D MRC_DEBUG_PRINT_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "MRC_DEBUG_PRINT_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "$(Mrc_DIR)"
+    Parent = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name = "$(Mrc_DIR)/Library/Private/PeiMemoryInitLib"
+    Parent = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name = "$(Mrc_DIR)/Library/Private/PeiMemoryInitLib/Source/Include"
+    Parent = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name = "$(Mrc_DIR)/Library/Private/PeiMemoryInitLib/Source/Api"
+    Parent = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name = "$(Mrc_DIR)/Library/Private/PeiMemoryInitLib/Source/Include/MrcRegisters"
+    Parent = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End

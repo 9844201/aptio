@@ -1,0 +1,54 @@
+TOKEN
+	Name  = "SI_INIT_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "SiInitPreMem"
+	File  = "Pei/SiInitPreMem.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_WRAPPER_ENABLE" "=" "0"	
+End
+
+INFComponent
+	Name  = "SiInitPreMemFsp"
+	File  = "Pei/SiInitPreMemFsp.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"       	
+End
+
+INFComponent
+	Name  = "SiInit"
+	File  = "Pei/SiInit.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_WRAPPER_ENABLE" "=" "0"	
+End
+
+INFComponent
+	Name  = "SiInit"
+	File  = "Pei/SiInit.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"       
+End
+
+INFComponent
+	Name  = "SiInitDxe"
+	File  = "Dxe\SiInitDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0" 	
+End
+
+FFS_FILE
+	Name  = "SiInitPreMem"
+	FD_AREA  = "FV_BB"
+	INFComponent  = "KabylakeSiliconPkg.SiInitPreMem"
+	Token = "FSP_WRAPPER_ENABLE" "=" "0"    
+End

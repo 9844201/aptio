@@ -1,0 +1,18 @@
+<component>
+	name = "AmiMsiPkg"
+	category = eBoard
+	Rank = 51
+	LocalRoot = "AmiMsiPkg\"
+	RefName = "AmiMsiPkg"
+[INF]
+"MsiPs2PortDetectionLib\MsiPs2PortDetectionLib.inf"
+"SafeStringOverrideLib\SafeStringOverrideLib.inf"
+"DxeSmmAcpiCustomLib\DxeSmmAcpiCustomLib.inf"
+[files]
+"AmiMsiPkg.sdl"	
+"RealTek.rom"	
+[parts]
+"MsiRomImage"
+"SecureFlashModTestFWKey"
+"AmiMsiPkg.SmmPlatformPatch"
+<endComponent>

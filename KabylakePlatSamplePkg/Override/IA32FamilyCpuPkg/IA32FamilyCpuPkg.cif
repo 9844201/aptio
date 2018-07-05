@@ -1,0 +1,11 @@
+<component>
+	name = "IA32FamilyCpuPkg"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Override\IA32FamilyCpuPkg\"
+	RefName = "KabylakePlatSamplePkg.Override.IA32FamilyCpuPkg"
+[files]
+"IA32FamilyCpuPkg.sdl"	
+"Include\Library\ClientCpuSmmDefLib.h"	
+[parts]
+"KabylakePlatSamplePkg.IA32FamilyCpuPkg.Library"
+<endComponent>

@@ -1,0 +1,223 @@
+
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2017, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+#
+#*************************************************************************
+# $Header: $
+#
+# $Revision: $
+#
+# $Date: $
+#*************************************************************************
+#<AMI_FHDR_START>
+#
+# Name:  <CspLib.SDL>
+#
+# Description:     
+#
+#<AMI_FHDR_END>
+#*************************************************************************
+TOKEN
+	Name  = "AMICSPLIB_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable CSP Library support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "CSPLIB_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable CSP Library support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+End
+
+PATH
+	Name  = "AmiCspLib_DIR"
+End
+
+PATH
+	Name  = "CSP_LIB_DIR"
+	Path  = "AmiChipsetModulePkg/Library/AmiCspLib"
+End
+
+MODULE
+	Help  = "Includes AmiCspLib.mak to Project"
+	File  = "AmiCspLib.mak"
+End
+
+ELINK
+	Name  = "gEfiAcpiTableProtocolGuid"
+	Parent  = "AMI_CSP_DXE_PROTOCOLS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PLATFORM_DSC_INCLUDE_PATHS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AMI_CSP_LIB_INCLUDE_FILES"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_PEI_SOURCES"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_DXE_SOURCES"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_PEI_LIBRARIES"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_DXE_LIBRARIES"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_LIBRARIES"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_PEI_PPIS"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_DXE_PROTOCOLS"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_PACKAGES"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_PCD"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_PEI_PCD"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AMI_CSP_DXE_PCD"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = " "
+	Parent  = "AMI_CSP_PEI_PCD"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = " "
+	Parent  = "AMI_CSP_DXE_PCD"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = " "
+	Parent  = "AMI_CSP_PCD"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AMI_CSP_PEI_GUIDS"
+    InvokeOrder = ReplaceParent
+End
+
+ELINK
+    Name  = "AMI_CSP_DXE_GUIDS"
+    InvokeOrder = ReplaceParent
+End
+
+ELINK
+    Name  = "AMI_CSP_GUIDS"
+    InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = " "
+	Parent  = "AMI_CSP_PEI_GUIDS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = " "
+	Parent  = "AMI_CSP_DXE_GUIDS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = " "
+	Parent  = "AMI_CSP_GUIDS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "KabylakeSiliconPkg/SiPkg.dec"
+	Parent  = "AMI_CSP_PACKAGES"
+	Help  = "(EIP190855) Add this Elink for implement NbIsDualChannel function"
+	InvokeOrder = AfterParent
+End
+
+OUTPUTREGISTER
+	Name  = "AMI_CSP_LIB_HEADER_FILE"
+	Path  = "Build/"
+	File  = "AmiCspLib.h"
+	Template  = "Include/AmiCspLib.txt"
+End
+
+INFComponent
+	Name  = "AmiCspLibPei"
+	File  = "../Build/AmiCspLibPei.inf"
+	Package  = "AmiChipsetModulePkg"
+End
+
+INFComponent
+	Name  = "AmiCspLibDxe"
+	File  = "../Build/AmiCspLibDxe.inf"
+	Package  = "AmiChipsetModulePkg"
+End
+
+LibraryMapping
+	Class  = "AmiCspLib"
+	Instance  = "AmiChipsetModulePkg.AmiCspLibPei"
+	ModuleTypes  = "PEIM PEI_CORE SEC"
+End
+
+LibraryMapping
+	Class  = "AmiCspLib"
+	Instance  = "AmiChipsetModulePkg.AmiCspLibDxe"
+	ModuleTypes  = "DXE_CORE DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SAL_DRIVER DXE_SMM_DRIVER UEFI_APPLICATION UEFI_DRIVER"
+End
+

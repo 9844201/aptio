@@ -1,0 +1,18 @@
+TOKEN
+	Name  = "Common_LibraryPrivate_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Common LibraryPrivate support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "DxeSiFviInitLib"
+	File  = "DxeSiFviInitLib\DxeSiFviInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SiFviInitLib"
+	Instance  = "KabylakeSiliconPkg.DxeSiFviInitLib"
+End

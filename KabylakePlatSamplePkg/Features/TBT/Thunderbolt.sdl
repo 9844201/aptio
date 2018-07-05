@@ -1,0 +1,929 @@
+TOKEN
+	Name  = "Thunderbolt_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Thunderbolt support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+	Token = "AmiPciBus_SUPPORT" "=" "1"
+	Token = "HOTPLUG_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "TBT_DEEPSX_SUPPORT"
+	Value  = "0"
+	Help  = "Enable:1 / Disable:0 Thunderbolt's workaround for deep sleep. This is optional for customer."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "====== Thunderbolt Setup Items Default Configuration ======"
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_ENABLE"
+	Value  = "2"
+	Help  = "2: Fully disable / 0: Only enable USB3.1 function / 1: Enable."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_BOOT_FROM_TBT_SUPPORT"
+	Value  = "0"
+	Help  = "0: Disable / 1: Enable."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_BOOT_FROM_TBT_SUPPORT"
+	Value  = "1"
+	Help  = "0: Disable / 1: Enable."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "CRB_BOARD" "=" "11"
+End
+
+TOKEN
+	Name  = "DEFAULT_BOOT_FROM_TBT_USB_SUPPORT"
+	Value  = "0"
+	Help  = "0: Disable / 1: Enable."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_BOOT_FROM_TBT_USB_SUPPORT"
+	Value  = "1"
+	Help  = "0: Disable / 1: Enable."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "CRB_BOARD" "=" "11"
+End
+
+TOKEN
+	Name  = "DEFAULT_SKIP_TBT_OPTIONROM"
+	Value  = "0"
+	Help  = "Enable:1 / Disable:0  skip Thunderbolt Device Option Rom"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_WAKE_UP_SUPPORT"
+	Value  = "1"
+	Help  = "Enable:1 / Disable:0 system wake from Thunderbolt(TM) devices"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_AIC_LOCATION_GROUP"
+	Value  = "0"
+	Help  = "Thunderbolt host is at 0:SB PCIE slot / 1:NB PCIE slot."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "TBT_UP_PORT_DEV" ">=" "0x1B"
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_AIC_LOCATION_GROUP"
+	Value  = "1"
+	Help  = "Thunderbolt host is at 0:SB PCIE slot / 1:NB PCIE slot."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "TBT_UP_PORT_DEV" "<" "0x1B"
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_AIC_LOCATION"
+	Value  = "$(TBT_UP_PORT_FUN) + 25"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "TBT_UP_PORT_DEV" "<" "0x1B"
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_AIC_LOCATION"
+	Value  = "$(TBT_UP_PORT_FUN) + 17"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "TBT_UP_PORT_DEV" "=" "0x1B"
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_AIC_LOCATION"
+	Value  = "$(TBT_UP_PORT_FUN) + 1"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "TBT_UP_PORT_DEV" "=" "0x1C"
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_AIC_LOCATION"
+	Value  = "$(TBT_UP_PORT_FUN) + 9"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "TBT_UP_PORT_DEV" "=" "0x1D"
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_TEMP_AIC_LOCATION_NB"
+	Value  = "$(DEFAULT_TBT_AIC_LOCATION)"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "TBT_UP_PORT_DEV" "<" "0x1B"
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_TEMP_AIC_LOCATION_NB"
+	Value  = "0x19"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "TBT_UP_PORT_DEV" ">=" "0x1B"
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_TEMP_AIC_LOCATION_SB"
+	Value  = "0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "TBT_UP_PORT_DEV" "<" "0x1B"
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_TEMP_AIC_LOCATION_SB"
+	Value  = "$(DEFAULT_TBT_AIC_LOCATION)"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "TBT_UP_PORT_DEV" ">=" "0x1B"
+	Lock = Yes
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_EXTRA_BUS_RESERVED"
+	Value = "56"
+	Help = "The Default number of extra Bus Reserved for bridges behind this Root Bridge for Thunderbolt."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_EXTRA_BUS_RESERVED"
+	Value = "106"
+	Help = "The Default number of extra Bus Reserved for bridges behind this Root Bridge for Thunderbolt."
+	TokenType = Integer
+	TargetH = Yes
+	TOKEN = "TBT_HOST_ROUTER" "=" "2"
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_PCIE_MEM_RESERVED"
+	Value = "353"
+	Help = "The Default number of reserved memory range for this Root Bridge for Thunderbolt."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_PCIE_MEM_RESERVED"
+	Value = "737"
+	Help = "The Default number of reserved memory range for this Root Bridge for Thunderbolt."
+	TokenType = Integer
+	TargetH = Yes
+	TOKEN = "TBT_HOST_ROUTER" "=" "2"
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_PCIE_MEM_RESERVED_DALIG"
+	Value = "26"
+	Help = "Memory Alignment (0-31 bits)."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_PCIE_PF_MEM_RESERVED"
+	Value = "544"
+	Help = "The Default number of prefetchable memory range for this Root Bridge for Thunderbolt."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_PCIE_PF_MEM_RESERVED"
+	Value = "1184"
+	Help = "The Default number of prefetchable memory range for this Root Bridge for Thunderbolt."
+	TokenType = Integer
+	TargetH = Yes
+	TOKEN = "TBT_HOST_ROUTER" "=" "2"
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_PCIE_PF_MEM_RESERVED_DALIG"
+	Value = "28"
+	Help = "PMemory Alignment (0-31 bits)."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_PCIE_IO_RESERVED"
+	Value = "0"
+	Help = "The Default number of IO range for this Root Bridge."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name = "TBT_PCIE_IO_RESERVED_WHEN_BOOT_ON_SUPPORT"
+	Value = "32"
+	Help = "The number of IO range for this Root Bridge when boot on support."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_PCIE_RP_HOTPLUG_CAP"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_PCIE_RP_HOTPLUG_CAP"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	TOKEN = "DEFAULT_TBT_ENABLE" "=" "1"
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_NATIVE_OS_HOT_PLUG"
+	Value  = "0"
+	Help  = "Enable:1 / Disable:0 Platform Native PCIE support for thunderbolt"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_X_CONNECT_SUPPORT"
+	Value  = "0"
+	Help  = "Enable:1 / Disable:0 ThunderBolt X-Connect Support"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+# AMI_OVERRIDE_START - Restore Default SecurityMode fail. EIP307449 >>
+TOKEN
+	Name  = "DEFAULT_TBT_SECURITY_MODE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+# AMI_OVERRIDE_START - Restore Default SecurityMode fail. EIP307449 <<
+
+TOKEN
+	Name  = "DEFAULT_BEFORE_TBT_BOOT_ON_CMD_DELAY"
+	Value  = "0"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_BEFORE_TBT_BOOT_ON_CMD_DELAY"
+	Value  = "200"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "CRB_BOARD" "=" "11"
+End
+
+TOKEN
+	Name  = "DEFAULT_BEFORE_TBT_USB_ON_CMD_DELAY"
+	Value  = "0"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_BEFORE_TBT_SX_EXIT_CMD_DELAY"
+	Value  = "500"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "====== Thunderbolt Resource Configuration ======"
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "TBT_CLKREQ_NUM_UPDATE"
+	Value  = "{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}"
+	Help  = "{Sb PCIe#0, Sb PCIe#1, Sb PCIe#2, Sb PCIe#3, ..., Sb PCIe#19} If you want to update the ClkReq number for TBT, please modify the token./ 0xFF will skip."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_TOLUD_ONE_PORT"
+	Value = "5"
+	Help = "Update Max Tould. 0:Dynamic / 1:1G / 2:1.25G / 3:1.5G / 4:1.75G / 5:2G / 6:2.25G / 7:2.5G / 8:2.75G / 9:3G / 10:3.25G / 11:3.5G"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name = "TBT_DEFAULT_TOLUD_TWO_PORT"
+	Value = "1"
+	Help = "Update Max Tould. 0:Dynamic / 1:1G / 2:1.25G / 3:1.5G / 4:1.75G / 5:2G / 6:2.25G / 7:2.5G / 8:2.75G / 9:3G / 10:3.25G / 11:3.5G"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+PATH
+	Name  = "Thunderbolt_DIR"
+End
+
+PATH
+	Name  = "TBT_LIBRARY_DIR"
+	Path  = "KabylakePlatSamplePkg/Library"
+End
+
+PATH
+	Name  = "TBT_INCLUDE_DIR"
+	Path  = "KabylakePlatSamplePkg/Include"
+End
+
+PATH
+	Name  = "TBT_INCLUDE_COMMON_DIR"
+	Path  = "$(Thunderbolt_DIR)"
+End
+
+TOKEN
+	Name  = "Thunderbolt_RR_VERSION"
+	Value  = "10"
+	Help  = "Thunderbolt Spec Version for Redwood Ridge chip."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "Thunderbolt_FR_VERSION"
+	Value  = "12"
+	Help  = "Thunderbolt Spec Version for Falcon Ridge chip."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "Thunderbolt_WR_VERSION"
+	Value  = "11"
+	Help  = "Thunderbolt Spec Version for BDW-TBT-LP chip."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "Thunderbolt_AR_VERSION"
+	Value  = "0.8"
+	Help  = "Thunderbolt Spec Version for Alpine Ridge chip."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "TBT_RC_VERSION"
+	Value  = "1.13"
+	Help  = "Thunderbolt RC Version."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "TBT_CRB_CONFIG"
+	Value  = "0"
+	Help  = "Thunderbolt setting for Intel CRB."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_CRB_CONFIG"
+	Value  = "1"
+	Help  = "Thunderbolt setting for Intel CRB."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "CRB_EC_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DEFAULT_TBT_CHIP"
+	Value  = "3"
+	Help  = "0: Redwood Ridge/1: Falcon Ridge/2: BDW-TBT-LP/3: Alpine Ridge."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_UP_PORT_BUS"
+	Value  = "0x00"
+	Help  = "Thunderbolt Host Router Upstream Port Bus Number."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_UP_PORT_DEV"
+	Value  = "0x1D"
+	Help  = "Thunderbolt Host Router Upstream Port Device Number."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_UP_PORT_DEV"
+	Value  = "0x1C"
+	Help  = "Thunderbolt Host Router Upstream Port Device Number."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "CRB_BOARD" "=" "11"
+End
+
+TOKEN
+	Name  = "TBT_UP_PORT_FUN"
+	Value  = "0x00"
+	Help  = "Thunderbolt Host Router Upstream Port Function Number."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_FORCEPWR_GROUP"
+	Value  = "6"
+	Help  = "Thunderbolt Host Router ForcePWR Pin Group. if this pin is at SIO or EC please fill 0xFFFF. Format: GPIO_A:0/GPIO_B:1/GPIO_C:2/GPIO_D:3/GPIO_E:4/GPIO_F:5/GPIO_G:6/GPIO_H:7/GPIO_I:8"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_FORCEPWR_PAD"
+	Value  = "16"
+	Help  = "Thunderbolt Host Router ForcePWR Pin Number."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_FORCEPWR_ACTIVE_LEVEL"
+	Value  = "1"
+	Help  = "Thunderbolt Host Router ForcePWR Pin active levle. 1: active high / 0: active low"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_HOTPLUGEVT_GROUP"
+	Value  = "6"
+	Help  = "Thunderbolt Host Router HotPlugEvt Pin Group. if this pin is at SIO or EC please fill 0xFFFF. Format: GPIO_A:0/GPIO_B:1/GPIO_C:2/GPIO_D:3/GPIO_E:4/GPIO_F:5/GPIO_G:6/GPIO_H:7/GPIO_I:8"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_HOTPLUGEVT_PAD"
+	Value  = "12"
+	Help  = "Thunderbolt Host Router HotPlugEvt Pin Number."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBT_HOST_ROUTER"
+	Value  = "2"
+	Help  = "Thunderbolt Host Router is 4 CIO and 2 phyical Thunderbolt port on board. 1:One Port / 2:Two Port."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "VALID_MMIO_AT_TBT_SMM"
+    Value  = "0"
+    Help  = "The function verifies the buffer to make sure its address range is legal for a MMIO buffer"
+    TokenType = Integer
+    TargetH = Yes
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "VALID_MMIO_AT_TBT_SMM"
+    Value  = "1"
+    Help  = "The function verifies the buffer to make sure its address range is legal for a MMIO buffer"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "USB_DRIVER_MAJOR_VER" ">=" "18"
+    Token = "BDS_START_PCI_BEFORE_END_OF_DXE" "=" "1"
+    Lock = Yes
+End
+
+TOKEN
+	Name  = "====== Chipset PCIE Resource Configuration ======"
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "AMI_PCI_HOST_BRIDGE_COMBINE_MEM_PMEM_MODE"
+	Value  = "0"
+	Help  = "1 = Non-prefetchable, 0 = prefetchable"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PCH_PCIE_TEMP_RP_BUS_NUM_MAX"
+	Value  = "10"
+	Help  = "Temp Root Port Bus Number Max"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Thunderbolt_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "MAX_ADDITIONAL_P2P_BRIDGES"
+	Value  = "0x80"
+	Help  = "The number of P2P bridges that can be processed in addition to the ones defined in BusNumXlat.INC."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1...0FFh"
+	Token = "TBT_HOST_ROUTER" "=" "2"
+End
+
+#
+#EIP300653 - Enable CSM and 1-port HR will cause system assert
+# This patch needs to be duplicated to OEM project
+#
+TOKEN
+	Name  = "MAX_ADDITIONAL_P2P_BRIDGES"
+	Value  = "0x40"
+	Help  = "The number of P2P bridges that can be processed in addition to the ones defined in BusNumXlat.INC."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1...0FFh"
+	Token = "TBT_HOST_ROUTER" "=" "1"
+End
+
+TOKEN
+	Name  = "============== Thunderbolt DXE SETINNG =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "TBUS"
+	Value  = "0xFF"
+	Help  = "Thunderbolt Host BUS number. Don't Change !!! it will be updated by c code"
+	TokenType = Integer
+	TargetASL = Yes
+	Lock = Yes
+End
+
+
+ELINK
+	Name  = "TbtDxeInvokeSmiHandler,"
+	Parent  = "ConnectRootBridgeHandles,"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(TBT_LIBRARY_DIR)/AmiTbtDxeSmmLib/AmiTbtDxeSmmLib.c"
+	Parent  = "AMI_CSP_DXE_SOURCES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PchPcieRpLib"
+	Parent  = "AMI_CSP_DXE_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+#Thunderbolt can't work on NB PCIe slot - EIP215475 >>>
+ELINK
+	Name  = "TbtCommonLib"
+	Parent  = "AMI_CSP_DXE_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+TOKEN
+	Name  = "============== Thunderbolt SMM SETINNG =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "TBT_SWSMI_VALUE"
+	Value  = "0xBC"
+	Help  = "Thunderbolt SWSMI value"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBSW"
+	Value  = "$(TBT_SWSMI_VALUE)"
+	Help  = "Thunderbolt SWSMI value"
+	TokenType = Integer
+	TargetASL = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "TBT_SWSMI_ENUMERATE_FUNCTION"
+	Value  = "21"
+	Help  = "Thunderbolt SWSMI enumerate function"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBEF"
+	Value  = "$(TBT_SWSMI_ENUMERATE_FUNCTION)"
+	Help  = "Thunderbolt SWSMI Function value"
+	TokenType = Integer
+	TargetASL = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "TBT_SWSMI_DISABLE_DEVICE_BRIDGAE_FUNCTION"
+	Value  = "22"
+	Help  = "Thunderbolt SWSMI disable devices and bridges function"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBDB"
+	Value  = "$(TBT_SWSMI_DISABLE_DEVICE_BRIDGAE_FUNCTION)"
+	Help  = "Thunderbolt SWSMI Function value"
+	TokenType = Integer
+	TargetASL = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "TBT_SWSMI_DISABLE_MSI_FUNCTION"
+	Value  = "23"
+	Help  = "Thunderbolt SWSMI disable MSI function"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TBDM"
+	Value  = "$(TBT_SWSMI_DISABLE_MSI_FUNCTION)"
+	Help  = "Thunderbolt SWSMI Function value"
+	TokenType = Integer
+	TargetASL = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "TBT_SWSMI_ENUMERATE_FUNCTION1"
+	Value  = "24"
+	Help  = "Thunderbolt SWSMI enumerate function for second TBT."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TEF1"
+	Value  = "$(TBT_SWSMI_ENUMERATE_FUNCTION1)"
+	Help  = "Thunderbolt SWSMI Function value"
+	TokenType = Integer
+	TargetASL = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "TBT_SWSMI_DISABLE_DEVICE_BRIDGAE_FUNCTION1"
+	Value  = "25"
+	Help  = "Thunderbolt SWSMI disable devices and bridges function for second TBT"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TDB1"
+	Value  = "$(TBT_SWSMI_DISABLE_DEVICE_BRIDGAE_FUNCTION1)"
+	Help  = "Thunderbolt SWSMI Function value"
+	TokenType = Integer
+	TargetASL = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "TBT_SWSMI_ENDOFTBT"
+	Value  = "26"
+	Help  = "Thunderbolt SWSMI EndOfThunderbolt callback function."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TEC0"
+	Value  = "$(TBT_SWSMI_ENDOFTBT)"
+	Help  = "Thunderbolt SWSMI Function value"
+	TokenType = Integer
+	TargetASL = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "TBT_SWSMI_ENDOFTBT1"
+	Value  = "27"
+	Help  = "Thunderbolt SWSMI EndOfThunderbolt callback function for second TBT."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TEC1"
+	Value  = "$(TBT_SWSMI_ENDOFTBT1)"
+	Help  = "Thunderbolt SWSMI Function value"
+	TokenType = Integer
+	TargetASL = Yes
+	Lock = Yes
+End
+
+INFComponent
+	Name  = "PeiTbtInitLib"
+	File  = "PeiTbtInitLib/PeiTbtInitLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+	Path = "TBT_LIBRARY_DIR"
+End
+
+LibraryMapping
+	Class  = "PeiTbtInitLib"
+	Instance  = "KabylakePlatSamplePkg.PeiTbtInitLib"
+	ModuleTypes  = "PEIM"
+End
+
+INFComponent
+	Name  = "TbtCommonLib"
+	File  = "TbtCommonLib/TbtCommonLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+	Path = "TBT_LIBRARY_DIR"
+End
+
+LibraryMapping
+	Class  = "TbtCommonLib"
+	Instance  = "KabylakePlatSamplePkg.TbtCommonLib"
+End
+
+INFComponent
+	Name  = "TbtDxe"
+	File  = "TbtDxe\TbtDxe.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+	Name  = "TbtSmm"
+	File  = "TbtSmm\TbtSmm.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+INFComponent
+	Name  = "AmiTbtDxeSmmLib"
+	File  = "AmiTbtDxeSmmLib/AmiTbtDxeSmmLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+	Path = "TBT_LIBRARY_DIR"
+End
+
+LibraryMapping
+	Class  = "AmiTbtDxeSmmLib"
+	Instance  = "KabylakePlatSamplePkg.AmiTbtDxeSmmLib"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "KabylakePlatSamplePkg.AmiTbtDxeSmmLib"
+	Override  = "AmiModulePkg.Bds"
+End
+
+INFComponent
+	Name  = "AmiTbtOemLib"
+	File  = "AmiTbtOemLib/AmiTbtOemLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+	Path = "TBT_LIBRARY_DIR"
+End
+
+LibraryMapping
+	Class  = "AmiTbtOemLib"
+	Instance  = "KabylakePlatSamplePkg.AmiTbtOemLib"
+End
+
+INFComponent
+	Name  = "AmiTbtInfo"
+	File  = "AmiTbtInfo\AmiTbtInfo.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+ELINK
+	Name  = "-D INTEL_TBT"
+	Parent  = "*_*_*_CC_FLAGS"
+	Type  = "BuildOptions"
+	InvokeOrder = AfterParent
+	Token = "Thunderbolt_SUPPORT" "=" "1"
+End
+
+ELINK
+	Name  = "gTbtInfoHobGuid"
+	Parent  = "AMI_CSP_GUIDS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gAmiTbtHrStatusGuid"
+	Parent  = "AMI_CSP_GUIDS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "GpioExpanderLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+PcdMapping
+	Name  = "PcdSwSmiIoAddress"
+	GuidSpace  = "gPlatformModuleTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "UINT8"
+	Value  = "$(SW_SMI_IO_ADDRESS)"
+	Offset  = 00h
+	Length  = 01h
+	TargetDSC = Yes
+End
+
+PcdMapping
+	Name  = "PcdSwSmiTbtEnumerate"
+	GuidSpace  = "gPlatformModuleTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "UINT8"
+	Value  = "$(TBT_SWSMI_VALUE)"
+	Offset  = 00h
+	Length  = 01h
+	TargetDSC = Yes
+End

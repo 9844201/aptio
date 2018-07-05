@@ -1,0 +1,10 @@
+<component>
+	name = "SmmAccess"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\SmmAccess\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.SmmAccess"
+[files]
+"SmmAccess.sdl"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.SmmAccess.Dxe"
+<endComponent>

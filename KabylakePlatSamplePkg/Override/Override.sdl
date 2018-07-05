@@ -1,0 +1,111 @@
+TOKEN
+	Name  = "SAMPLEPKG_OVERRIDE_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Platform SamplePkg Override support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "=============== HPET Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "HPET_SUPPORT"
+	Value  = "1"
+	Help  = "According to PchSetup.hfr, the HPET should be always enabled in INTEL platform."
+	TokenType = Boolean
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "HPET_PROTOCOL_SUPPORT"
+	Value  = "1"
+	Help  = "Use High Precision Event Timer (HPET) instead of 8254 to support Timer protocol in Project"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "HPET_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "HPET_APIC_INTERRUPT_PIN"
+	Value  = "20"
+	Help  = "Select an APIC interrupt pin for the timer's interrupt.\Notice! Please refer to your HPET F/W porting guide to know which APIC interrupt pins can be used for this timer's interrupt."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "20, 21, 22, 23"
+End
+
+TOKEN
+	Name  = "DEFAULT_TICK_DURATION"
+	Value  = "10000"
+	Help  = "Specifies the default period of the HPET Timer for CSM module."
+	TokenType = Integer64
+	TargetH = Yes
+	Token = "HPET_PROTOCOL_SUPPORT" "=" "1"
+	Token = "CSM_SUPPORT" "=" "1" 
+End
+
+INFComponent
+	Name  = "HpetTimerDxe"
+	File  = "PcAtChipsetPkg/HpetTimerDxe/HpetTimerDxe.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "HPET_PROTOCOL_SUPPORT" "=" "1"
+End
+
+PcdMapping
+	Name  = "PcdHpetBaseAddress"
+	GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "Uint32"
+	Value  = "$(HPET_BASE_ADDRESS)"
+	Arch  = "X64"
+	Offset  = 00h
+	Length  = 04h
+	TargetDSC = Yes
+End
+
+PcdMapping
+	Name  = "PcdHpetDefaultTimerPeriod"
+	GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "Uint64"
+	Value  = "10000"
+	Arch  = "X64"
+	Offset  = 00h
+	Length  = 08h
+	TargetDSC = Yes
+End
+
+PcdMapping
+	Name  = "PcdIoApicBaseAddress"
+	GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "Uint32"
+	Value  = "$(APCB)"
+	Arch  = "X64"
+	Offset  = 00h
+	Length  = 04h
+	TargetDSC = Yes
+End
+
+PcdMapping
+	Name  = "PcdHpetLocalApicVector"
+	GuidSpace  = "gPcAtChipsetPkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "Uint8"
+	Value  = "$(MASTER_INTERRUPT_BASE)+$(HPET_APIC_INTERRUPT_PIN)"
+	Arch  = "X64"
+	Offset  = 00h
+	Length  = 01h
+	TargetDSC = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Integer
+End

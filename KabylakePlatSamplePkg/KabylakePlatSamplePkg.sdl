@@ -1,0 +1,40 @@
+TOKEN
+    Name = "KabylakePlatSamplePkg_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable CRB Setup support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+PATH
+    Name = "PLATFORM_SAMPLE_PKG_DIR"
+End
+
+LibraryMapping
+    Class  = "BasePciLibPciExpress"
+    Instance  = "MdePkg.BasePciLibPciExpress"
+End
+
+ELINK
+    Name  = "-D MDEPKG_NDEBUG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "DEBUG_MODE" "=" "0"
+End
+
+PcdMapping
+    Name  = "PcdIntelGopEnable"
+    GuidSpace  = "gPlatformModuleTokenSpaceGuid"
+    PcdType  = "PcdsFeatureFlag"
+    Value  = "TRUE"
+    TargetDSC = Yes
+End
+
+ELINK
+    Name  = "KabylakePlatSamplePkg/PlatformFdfRules.txt"
+    Parent  = "FdfRules"
+    InvokeOrder = AfterParent
+End

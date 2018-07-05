@@ -1,0 +1,10 @@
+<component>
+	name = "IaslTool"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Override\BpCommonPkg\Tools\Iasl\"
+	RefName = "SkyKabylakePlatSamplePkg.Override.BpCommonPkgBayPkg.Iasl"
+[files]
+"iasl.sdl"	
+"iasl.exe"	
+"iasl"	
+<endComponent>

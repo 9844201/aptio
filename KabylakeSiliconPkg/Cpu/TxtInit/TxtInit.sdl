@@ -1,0 +1,30 @@
+TOKEN
+	Name  = "TxtInit_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling TxtInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "TxtDxe"
+	File  = "Dxe/TxtDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+	Name  = "TxtPeiAp"
+	File  = "Pei\Ia32\TxtPeiAp.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "USER_DEFINED"
+	Skip_Packaging = Yes
+End
+
+
+FFS_FILE
+	Name  = "TxtPeiApFdfFileStatement"
+	FD_AREA  = "FV_BB"
+	Rule_Override  = "Uncompressed"
+	FILE_Stmt  = "KabylakeSiliconPkg\Cpu\TxtInit\Pei\Ia32\TxtPeiApFdfFileStatement.txt"
+End

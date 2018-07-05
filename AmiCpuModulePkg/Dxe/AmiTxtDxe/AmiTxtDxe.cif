@@ -1,0 +1,18 @@
+<component>
+	name = "Ami TxtDxe"
+	category = ModulePart
+	Rank = 28
+	LocalRoot = "AmiCpuModulePkg\Dxe\AmiTxtDxe\"
+	RefName = "AmiCpuModulePkg.AmiTxtDxe"
+[INF]
+"AmiTxtDxe.inf"
+"AmiTxtInfoHook.inf"
+[files]
+"AmiTxtDxe.sdl"	
+"AmiTxtInfoSetup.sd"	
+"AmiTxtInfoSetup.uni"	
+"AmiTxtInfoSetup.c"	
+"Include\Protocol\AmiTxtInfo.h"	
+[parts]
+"AmiCpuModulePkg.AmiTxtDxe.TxtSinitAcm"
+<endComponent>

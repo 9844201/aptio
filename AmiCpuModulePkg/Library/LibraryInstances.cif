@@ -1,0 +1,14 @@
+<component>
+	name = "LibraryInstances"
+	category = ModulePart
+	LocalRoot = "AmiCpuModulePkg\Library\"
+	RefName = "AmiCpuModulePkg.LibraryInstances"
+[INF]
+"CpuCspLib\CpuCspLib.inf"
+"CpuCspLib\CpuCspPeiLib.inf"
+"CpuBoardLib\CpuBoardLib.inf"
+"TscTimerLib\TscTimerLib.inf"
+"SmmCpuPlatformHookLib\SmmCpuPlatformHookLib.inf"
+[parts]
+"AmiCpuModulePkg.ProcessorStartup"
+<endComponent>

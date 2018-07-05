@@ -1,0 +1,32 @@
+<component>
+	name = "Private"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Library\Private\"
+	RefName = "KabylakeSiliconPkg.Pch.Library.Private"
+[INF]
+"BasePchSpiCommonLib\BasePchSpiCommonLib.inf"
+"DxePchHdaLib\DxePchHdaLib.inf"
+"PeiDxeI2cMasterCommonLib\PeiDxeI2cMasterCommonLib.inf"
+"PeiDxeSmmGpioPrivateLib\PeiDxeSmmGpioPrivateLib.inf"
+"PeiDxeSmmPchAlternateAccessModeLib\PeiDxeSmmPchAlternateAccessModeLib.inf"
+"PeiDxeSmmPchInitCommonLib\PeiDxeSmmPchInitCommonLib.inf"
+"PeiDxeSmmPchPciExpressHelpersLib\PeiDxeSmmPchPciExpressHelpersLib.inf"
+"PeiDxeSmmPchSmbusCommonLib\PeiDxeSmmPchSmbusCommonLib.inf"
+"PeiDxeSmmPchXhciLib\PeiDxeSmmPchXhciLib.inf"
+"PeiI2cMasterLib\PeiI2cMasterLib.inf"
+"PeiPchInitLib\PeiPchInitLib.inf"
+"PeiPchInitLib\PeiPchInitLibFsp.inf"
+"PeiPchRcLib\PeiPchRcLib.inf"
+"PeiDxeSmmPchPsfPrivateLib\PeiDxeSmmPchPsfPrivateLib.inf"
+"PeiDxeSmmRstPrivateLib\PeiDxeSmmRstPrivateLib.inf"
+[files]
+"Private.sdl"	
+"PeiPchRcLib\PchRcLibrary.h"	
+"PeiPchInitLib\Wdt.h"	
+"PeiPchInitLib\PchHsioLaneLib.h"	
+"PeiPchInitLib\PchUsb.h"	
+"PeiPchInitLib\PchSpi.h"	
+"PeiPchInitLib\PchSmbus.h"	
+"PeiPchInitLib\PchInitPei.h"	
+"PeiDxeSmmPchPciExpressHelpersLib\PchPciExpressHelpersLibrary.h"	
+<endComponent>

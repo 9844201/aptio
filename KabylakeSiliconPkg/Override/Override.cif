@@ -1,0 +1,11 @@
+<component>
+	name = "Override"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Override\"
+	RefName = "KabylakeSiliconPkg.Override"
+[files]
+"Override.sdl"	
+[parts]
+"KabylakeSiliconPkg.Override.MdePkg"
+"KabylakeSiliconPkg.Override.UefiCpuPkg"
+<endComponent>

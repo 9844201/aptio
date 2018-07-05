@@ -1,0 +1,10 @@
+<component>
+	name = "Ppi"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Include\Ppi\"
+	RefName = "KabylakeSiliconPkg.Pch.Include.Ppi"
+[files]
+"PchReset.h"	
+"Spi.h"	
+"Wdt.h"	
+<endComponent>

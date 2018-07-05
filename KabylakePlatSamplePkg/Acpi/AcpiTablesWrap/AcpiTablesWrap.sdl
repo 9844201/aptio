@@ -1,0 +1,372 @@
+TOKEN
+	Name  = "AcpiTablesWrap_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling AcpiTablesWrap support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+PATH
+    Name  = "ACPI_TABLES_WRAP_DIR"
+End
+
+TOKEN
+    Name  = "ACPIDEBUG_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable AcpiDebug support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+ELINK
+    Name  = "-D ACPI_DEBUG_FLAG"
+    Parent  = "*_*_*_VFRPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "ACPIDEBUG_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "= /nologo /E /TC"
+    Parent  = "MSFT:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Priority = 0
+End
+
+ELINK
+    Name  = "= -x c -E"
+    Parent  = "GCC:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Priority = 0
+End
+
+TOKEN
+    Name  = "RTCWakeup_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable RTC wake up from S5 support in Project"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "RTCWakeup_SUPPORT_FLAG"
+    Value  = "1"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "RTCWakeup_SUPPORT" "=" "1"    
+End
+
+TOKEN
+	Name  = "=== Platform Flavor Definition ======"
+	Help  = "Define Platform Flavor Tokens: Mobile, Desktop etc"
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "Desktop_Platform"
+	Value  = "0"
+	Help  = "This is a tag for MB/DT platform decision. DON NOT CHANGE IT!"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "Mobile_Platform"
+	Value  = "1"
+	Help  = "This is a tag for MB/DT platform decision. DON NOT CHANGE IT!"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "UpServer_Platform"
+	Value  = "2"
+	Help  = "Platform Flavor UP Server"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "FlavorMobile"
+	Value  = "1"
+	Help  = "Platform Flavor Mobile"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FMBL"
+	Value  = "$(FlavorMobile)"
+	Help  = "Platform Flavor - Mobile flavor for ASL code."
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "FlavorDesktop"
+	Value  = "2"
+	Help  = "Platform Flavor Desktop"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FDTP"
+	Value  = "$(FlavorDesktop)"
+	Help  = "Platform Flavor - Desktop flavor for ASL code."
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "FlavorUpServer"
+	Value  = "4"
+	Help  = "Platform Flavor UP Server"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FUPS"
+	Value  = "$(FlavorUpServer)"
+	Help  = "Platform Flavor - UP Server flavor for ASL code."
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "FlavorWorkStation"
+	Value  = "3"
+	Help  = "Platform Flavor UP Server"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FUWS"
+	Value  = "$(FlavorWorkStation)"
+	Help  = "Platform Flavor - WorkStation flavor for ASL code."
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "FEMD"
+	Value  = "0x4"
+	Help  = "Platform Flavor - Embedded flavor for ASL code."
+	TokenType = Integer
+	TargetASL = Yes
+	Range  = "16-bit IO register"
+End
+
+TOKEN
+	Name  = "FlavorPlatformMax"
+	Value  = "6"
+	Help  = "Platform Flavor Max: This is the last entry for Platform Flavor!"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Integer
+End
+
+TOKEN
+	Name  = "DeviceID1"
+	Value  = "0x100"
+	Help  = "Value for CRT Display"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DeviceID2"
+	Value  = "0x400"
+	Help  = "Value for Internal/Integrated Digital Flat Panel"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DeviceID3"
+	Value  = "0x300"
+	Help  = "Value for Digital Display 1"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DeviceID4"
+	Value  = "0x301"
+	Help  = "Value for Digital Display 2"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DeviceID5"
+	Value  = "0x302"
+	Help  = "Value for Digital Display 3"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DeviceID6"
+	Value  = "0x303"
+	Help  = "Value for Digital Display 4"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DeviceID7"
+	Value  = "0x304"
+	Help  = "Value for Digital Display 5"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DeviceID8"
+	Value  = "0x305"
+	Help  = "Value for Digital Display 6"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ValidDeviceIDs"
+	Value  = "0x08"
+	Help  = "Number of Valid Video Device Ids"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+INFComponent
+	Name  = "AcpiDsdtAsl"
+	File  = "AcpiDsdtAsl/AcpiDsdtAsl.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "USER_DEFINED"
+End
+
+INFComponent
+	Name  = "AcpiDebugTable"
+	File  = "AcpiDebug/AcpiDebug.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_DRIVER"
+    Token = "ACPIDEBUG_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "SsdtAcpiDebug"
+    File  = "AcpiTableSsdt/AcpiDebugTable.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "USER_DEFINED"
+    Token = "ACPIDEBUG_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "/FI$(WORKSPACE)\Build\TokenAsl.h"
+    Parent  = "MSFT:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "IFDEF_ASL_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "-include $(WORKSPACE)/Build/TokenAsl.h"
+    Parent  = "GCC:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "IFDEF_ASL_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "/FI$(WORKSPACE)\KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\Include\AcpiIntelRC.h"
+    Parent  = "MSFT:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "-include $(WORKSPACE)/KabylakePlatSamplePkg/Acpi/AcpiTablesWrap/Include/AcpiIntelRC.h"
+    Parent  = "GCC:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "/FI$(WORKSPACE)\KabylakePlatSamplePkg\Include\PlatformBoardId.h"
+    Parent  = "MSFT:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "-include $(WORKSPACE)/KabylakePlatSamplePkg/Include/PlatformBoardId.h"
+    Parent  = "GCC:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "/FI$(WORKSPACE)\MdePkg\Include\Base.h"
+    Parent  = "MSFT:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "-include $(WORKSPACE)/MdePkg/Include/Base.h"
+    Parent  = "GCC:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "MSFT:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = ReplaceParent
+    OutDSC = Yes
+End
+
+ELINK
+    Name  = "GCC:*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = ReplaceParent
+    OutDSC = Yes
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.AcpiPlatformSetupLib"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.AcpiDebugTable"
+    Token = "ACPIDEBUG_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.AcpiGetSetupData"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.AcpiDebugTable"
+    Token = "ACPIDEBUG_SUPPORT" "=" "1"
+End

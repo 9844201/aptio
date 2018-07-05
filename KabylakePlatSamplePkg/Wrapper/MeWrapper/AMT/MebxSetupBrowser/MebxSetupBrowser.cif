@@ -1,0 +1,10 @@
+<component>
+	name = "MebxSetupBrowser"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\AMT\MebxSetupBrowser\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.MebxSetupBrowser"
+[files]
+"MebxSetupBrowser.sdl"	
+"MebxSetupBrowser.efi"	
+"MebxSetupBrowserRuleOverride.txt"	
+<endComponent>

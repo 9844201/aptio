@@ -1,0 +1,9 @@
+<component>
+	name = "Dxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\PchInit\Dxe\"
+	RefName = "KabylakeSiliconPkg.Pch.PchInit.Dxe"
+[INF]
+"PchInitDxe.inf"
+"PchInitDxeFsp.inf"
+<endComponent>

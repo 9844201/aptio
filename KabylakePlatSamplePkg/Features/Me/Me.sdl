@@ -1,0 +1,21 @@
+TOKEN
+	Name  = "PlatSamplePkg_Me_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Platform Icc support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+    Name  = "MeSmbiosDxe"
+    File  = "MeSmbiosDxe\MeSmbiosDxe.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+#INFComponent
+#    Name  = "MeUlvCheckDxe"
+#    File  = "MeUlvCheckDxe\MeUlvCheckDxe.inf"
+#    Package  = "KabylakePlatSamplePkg"
+#    ModuleTypes  = "DXE_DRIVER"
+#End

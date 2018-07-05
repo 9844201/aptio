@@ -1,0 +1,11 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Library\"
+	RefName = "KabylakePlatSamplePkg.Thunderbolt.TbtLib"
+[INF]
+"PeiTbtInitLib\PeiTbtInitLib.inf"
+"TbtCommonLib\TbtCommonLib.inf"
+"AmiTbtDxeSmmLib\AmiTbtDxeSmmLib.inf"
+"AmiTbtOemLib\AmiTbtOemLib.inf"
+<endComponent>

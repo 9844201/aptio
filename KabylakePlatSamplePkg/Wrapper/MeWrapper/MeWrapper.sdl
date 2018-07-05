@@ -1,0 +1,8 @@
+TOKEN
+	Name  = "MeWrapper_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	Master = Yes
+	Help  = "Main switch to enable MeWrapper support in Project"
+End

@@ -1,0 +1,14 @@
+TOKEN
+	Name  = "AlertStandardFormat_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable AlertStandardFormat support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "AlertStandardFormatDxe"
+	File  = "Dxe\AlertStandardFormatDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  ="DXE_DRIVER"
+End

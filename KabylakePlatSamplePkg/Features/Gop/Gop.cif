@@ -1,0 +1,10 @@
+<component>
+	name = "Gop"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Gop\"
+	RefName = "KabylakePlatSamplePkg.Features.Gop"
+[INF]
+"GopOverrideDriver\GopOverrideDriver.inf"
+[files]
+"Gop.sdl"	
+<endComponent>

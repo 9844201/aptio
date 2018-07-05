@@ -1,0 +1,18 @@
+<component>
+	name = "IntelClientCommonPkg"
+	category = eModule
+	LocalRoot = "ClientCommonPkg\"
+	RefName = "ClientCommonPkg"
+[files]
+"ClientCommonPkg.sdl"	
+"ClientCommonPkg.dec"	
+"ClientCommonPkg.ssp"	
+"IntelClientCommonPkg.chm"	
+"ClientCommon_RC_Sample_History.txt"	
+[parts]
+"ClientCommonPkg.Include"
+"ClientCommonPkg.Library"
+"ClientCommonPkg.LegacyUsb"
+"ClientCommonPkg.Tools"
+"ClientCommonPkg.Universal"
+<endComponent>

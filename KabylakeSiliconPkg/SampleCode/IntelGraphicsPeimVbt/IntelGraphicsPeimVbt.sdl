@@ -1,0 +1,37 @@
+TOKEN
+	Name  = "IntelGraphicsPeimVbt_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable IntelGraphicsPeimVbt support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+	Token = "IntelGraphicsPeim_RC_SUPPORT" "=" "1"	
+End
+
+PATH
+	Name  = "IntelGraphicsPeimVbt_DIR"
+End
+
+TOKEN
+	Name  = "INTEL_GRAPHICS_PEIM_VBT_BIN_FILE"
+	Value  = "KabylakeSiliconPkg\SampleCode\IntelGraphicsPeimVbt\PeiVbt.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes
+End
+
+TOKEN
+	Name  = "AMI_PEIM_LOGO_BIN_FILE"
+	Value  = "AmiTsePkg\Core\em\AMITSE\SmLogo.bmp"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes
+End
+
+FFS_FILE
+	Name  = "PeiVbtFdfFileStatements"
+	FD_AREA  = "FV_BB_AFTER_MEMORY"
+	FILE_Stmt  = "KabylakeSiliconPkg\SampleCode\IntelGraphicsPeimVbt\PeiVbtFdfFileStatements.txt"
+End

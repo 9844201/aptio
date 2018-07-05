@@ -1,0 +1,14 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "ClientSiliconPkg\Include\"
+	RefName = "ClientSiliconPkg.Include"
+[files]
+"ConfigBlock.h"	
+"FirmwareVersionInfoHob.h"	
+"Fit.h"	
+"HstiFeatureBit.h"	
+"SmbiosCacheInfoHob.h"	
+"SmbiosProcessorInfoHob.h"	
+"Library\ConfigBlockLib.h"	
+<endComponent>

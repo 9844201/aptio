@@ -1,0 +1,8 @@
+<component>
+	name = "Ppi"
+	category = ModulePart
+	LocalRoot = "SkyBayPkg\Include\Ppi\"
+	RefName = "SkyBayPkg.Ppi"
+[files]
+"CrbInfo.h"	
+<endComponent>

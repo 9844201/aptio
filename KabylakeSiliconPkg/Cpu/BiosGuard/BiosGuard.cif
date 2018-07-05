@@ -1,0 +1,10 @@
+<component>
+	name = "BiosGuard"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Cpu\BiosGuard\"
+	RefName = "KabylakeSiliconPkg.Cpu.BiosGuard"
+[INF]
+"Smm\BiosGuardServices.inf"
+[files]
+"BiosGuard.sdl"	
+<endComponent>

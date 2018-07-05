@@ -1,0 +1,8 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\MdeModulePkg\Include\Protocol\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg.Include.Protocol"
+[files]
+"SmmVariable.h"	
+<endComponent>

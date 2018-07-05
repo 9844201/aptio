@@ -1,0 +1,29 @@
+TOKEN
+	Name  = "ACPI_PLATFORM_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable KabylakePlatSamplePkg Acpi support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+Outputregister
+    Name = "AmiAcpiElinkList"
+    Path = "Build"
+    File = "AmiAcpiElinks.h"
+    Template = "AmiAcpiElinks.txt"
+End
+
+TOKEN
+	Name  = "PNOT_INCLUDE_FILE"
+	Value  = 'Include("KabylakePlatSamplePkg/Acpi/CrbNotifyBat.asl")'
+	Help  = "The ASL file which contains the code which needs to be called in PNOT()."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+OUTPUTREGISTER
+	Name  = "NotifyInPNOT"
+	Path  = "Build"
+	File  = "NotifyInPNOT.asl"
+	Template  = "NotifyInPNOT.txt"
+End

@@ -1,0 +1,32 @@
+<component>
+	name = "AmiCpuModulePkg"
+	category = CPU
+	Rank = 27
+	LocalRoot = "AmiCpuModulePkg\"
+	RefName = "AmiCpuModulePkg"
+[INF]
+"Pei\CpuPei\CpuPei.inf"
+"Pei\CpuPeiBeforeMem\CpuPeiBeforeMem.inf"
+"Pei\AcpiVariableHobOnSmramReserveHobThunk\AcpiVariableHobOnSmramReserveHobThunk.inf"
+"Pei\CpuS3Pei\CpuS3Pei.inf"
+"Dxe\CpuDxe\CpuDxe.inf"
+"Dxe\CpuSpSmi\CpuSpSmi.inf"
+"Dxe\CpuIoDxe\CpuIoDxe.inf"
+[files]
+"AmiCpuModulePkg.sdl"	
+"AmiCpuModulePkg.dec"	
+"AmiCpuModulePkg.chm"	
+"Cpu.mak"	
+[parts]
+"AmiCpuModulePkg.Include"
+"AmiCpuModulePkg.LibraryInstances"
+"AmiCpuModulePkg.AmiTxtDxe"
+"AmiCpuModulePkg.AmiTxtPei"
+"AmiCpuModulePkg.AmiCpuSetup"
+"AmiCpuModulePkg.AmiTxtTcg"
+"AmiCpuModulePkg.SecCore"
+[dependency]
+AmiCompatibilityPkg.Setup >= "SS: AptioV;$/AptioV/Source/Modules/Setup;Setup_04"
+AmiCompatibilityPkg >= "SS: AptioV;$/AptioV/Source/Interfaces/AmiCompatibilityPkg;AmiCompatibilityPkg_18"
+MdePkg >= "SS: AptioV;$/AptioV/Source/Interfaces/MdePkg;MdePkg_07"
+<endComponent>

@@ -1,0 +1,16 @@
+<component>
+	name = "Thunderbolt"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\TBT\"
+	RefName = "KabylakePlatSamplePkg.Features.Thunderbolt"
+[INF]
+"TbtDxe\TbtDxe.inf"
+"TbtSmm\TbtSmm.inf"
+"AmiTbtInfo\AmiTbtInfo.inf"
+[files]
+"Thunderbolt.sdl"
+"ReleaseNotes.chm"
+[parts]
+"KabylakePlatSamplePkg.Thunderbolt.TbtInclude"
+"KabylakePlatSamplePkg.Thunderbolt.TbtLib"
+<endComponent>

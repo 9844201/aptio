@@ -1,0 +1,11 @@
+<component>
+	name = "HstiIbvPlatformDxe"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Hsti\HstiIbvPlatformDxe\"
+	RefName = "KabylakePlatSamplePkg.Features.Hsti.HstiIbvPlatformDxe"
+[INF]
+"HstiIbvPlatformDxe.inf"
+[files]
+"HstiIbvPlatformDxe.sdl"	
+"HstiIbvPlatformDxe.h"	
+<endComponent>

@@ -1,0 +1,4319 @@
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2016, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+
+TOKEN
+    Name  = "CRB_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable Chipset Reference Board support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+TOKEN
+    Name  = "CRB_PROJECT_MAJOR_VERSION"
+    Value  = "0"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "CRB_PROJECT_MINOR_VERSION"
+    Value  = "47"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "CRB_PROJECT_TAG"
+    Value  = "1ATQP"
+    Help  = "This value should only be 5 characters max"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PROJECT_MAJOR_VERSION"
+    Value  = "$(CRB_PROJECT_MAJOR_VERSION)"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PROJECT_MINOR_VERSION"
+    Value  = "$(CRB_PROJECT_MINOR_VERSION)"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PROJECT_TAG"
+    Value  = "$(CRB_PROJECT_TAG)"
+    Help  = "This value should only be 5 characters max"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "BIOS_TAG"
+    Value  = "$(PROJECT_TAG)$(PROJECT_MAJOR_VERSION)$(PROJECT_MINOR_VERSION)"
+    Help  = "BIOS Tag inserted into Firmware ID structure.\9 characters. \5 characters of project tag followed by 3 characters of project version and terminating zero"
+    TokenType = Expression
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM"
+    Value  = "$(PROJECT_TAG)$(PROJECT_MAJOR_VERSION)$(PROJECT_MINOR_VERSION).rom"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Range  = "valid file name"
+End
+
+TOKEN
+    Name  = "PLATFORM_NAME"
+    Value  = "Kabylake"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetDSC = Yes
+End
+
+TOKEN
+    Name  = "PLATFORM_GUID"
+    Value  = "21c06e7c-bd27-8462-0238-61c13de6162c"
+    Help  = "The unique platform GUID that does into the description file.\MUST BE CLONED IN EVERY PROJECT!"
+    TokenType = Expression
+    TargetDSC = Yes
+End
+
+TOKEN
+    Name  = "FW_VERSION_GUID"
+    Value  = "{0x21c06e7c, 0xbd27, 0x8462, {0x02, 0x38, 0x61, 0xc1, 0x3d, 0xe6, 0x16, 0x2c}}"
+    Help  = "FW Version GUID inserted into Firmware ID structure.\FW version has to be overridden for every project."
+    TokenType = Expression
+    TargetH = Yes
+    Range  = "GUID"
+End
+
+TOKEN
+    Name  = "PLATFORM_RC_PACKAGE"
+    Value  = "KabylakeSiliconPkg"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "CHIPSET_REF_DEC_PATH"
+    Value  = "KabylakeSiliconPkg/SiPkg.dec"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "CHIPSET_REF_DEC_NAME"
+    Value  = "ChipsetReference.dec"
+    TokenType = Expression
+    TargetMAK = Yes
+    Lock = Yes    
+End
+
+TOKEN
+    Name  = "CRB_RECOVERY_BIN_STRING"
+    Value  = '"$(FWCAPSULE_FILE_NAME)"'
+    Help  = "Redirect FWCAPSULE_FILE_NAME to DSC for string type PCD"
+    TokenType = Expression
+    TargetDSC = Yes
+    Section  = "Defines"
+    Token = "SecureMod_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "CRB_RECOVERY_BIN_STRING"
+    Value  = '"$(RECOVERY_ROM)"'
+    Help  = "Redirect RECOVERY_ROM to DSC for string type PCD"
+    TokenType = Expression
+    TargetDSC = Yes
+    Section  = "Defines"
+    Token = "SecureMod_SUPPORT" "=" "0"
+End
+
+TOKEN
+    Name  = "CRB_BOARD"
+    Value  = "9"
+    Help  = "Select CRB Broad, 0:RVP3 \ 1:RVP5 \ 2:RVP7 \ 3:RVP8 \ 4:RVP9 \ 5:RVP10 \ 6:ZumbaBeachServerEV \ 7:RVP11 \ 8: SKY-U + DDR4 combination \ 9: KBL-S DDR4 UDIMM CRB \ 11: KBL-Refresh U CRB"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "RTCWakeup_SUPPORT_FLAG"
+    Value  = "1"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_EC_SUPPORT" "=" "1"  
+End
+
+TOKEN
+    Name  = "====== Core Setting ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "MATCH_BOOT_OPTION_BY_LOCATION"
+    Value  = "0"
+    Help  = "Update it for EIP133017. When this option is on, the boot option is matched to the boot device using device location information. The device location is a specific connection point that the device is attached to. \For example: SATA Controller 1 Port 0,  IDE Primary Master,  USB Controller 1 Port 3\"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "Capsule_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable Capsule support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "EdkShellBinPkg_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable EdkShellBinPkg support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "BUILT_IN_SHELL_SUPPORT"
+    Value  = "0"
+    Help  = "This SDL token defines if built-in Shell is supported in the project.\It controls installation of the boot option for a built-in Shell."
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "EdkShellBinPkg_SUPPORT" "=" "0"    
+End
+
+PCIDEVICE
+    Title  = "PciHost (Virtual)"
+    Attribute  = "0x2"
+    Dev_type  = "HostBridge"
+    Dev  = 00h
+    SleepNum  = 03h
+    ASLfile  = "'AmiModulePkg/ACPI/AMLUPD.ASL;Before Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/GloblNvs.asl;Before Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/CPU.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/PCI_DRC.ASL;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Video.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/PCIEDOCK.ASL;After Pci Tree','KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/Pch.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Platform.asl;After Pci Tree','AmiChipsetModulePkg/ASL/RriorDma.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Gpe.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Devices/IVCAM.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/ScsPlatform.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/PchRpPxsxWrapper.asl;After Pci Tree','KabylakePlatSamplePkg/Features/Pep/AcpiTables/Pep.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Psm.asl;Before Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SkyCamSensors.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/WirelessCharge.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/HIDWakeDSM.asl;After Pci Tree','AmiChipsetModulePkg/ASL/SbPcie.asl;After Pci Tree'"
+    ASLdeviceName  = "HST0"
+    DeviceType = OnBoard
+    PCIBusSize = 64bit
+    ROMMain = No
+    Virtual = Yes
+    PCIExpress = Yes
+    ASL_PTS  = "Method;\RPTS(ARG0)"
+    ASL_WAK  = "Method;\RWAK(ARG0)"
+    Enforce = Yes
+    Token = "PCI_FIXED_BUS_ASSIGNMENT" "=" "1"    
+End
+
+PCIDEVICE
+    Title  = "PciHost (Virtual)"
+    Attribute  = "0x2"
+    Dev_type  = "HostBridge"
+    Dev  = 00h
+    SleepNum  = 03h
+    ASLfile  = "'AmiModulePkg/ACPI/AMLUPD.ASL;Before Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/GloblNvs.asl;Before Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/CPU.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/PCI_DRC.ASL;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Video.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/PCIEDOCK.ASL;After Pci Tree','KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/Pch.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Platform.asl;After Pci Tree','AmiChipsetModulePkg/ASL/RriorDma.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Gpe.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Devices/IVCAM.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/ScsPlatform.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/PchRpPxsxWrapper.asl;After Pci Tree','KabylakePlatSamplePkg/Features/Pep/AcpiTables/Pep.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/Psm.asl;Before Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/SkyCamSensors.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/WirelessCharge.asl;After Pci Tree','KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/HIDWakeDSM.asl;After Pci Tree','AmiChipsetModulePkg/ASL/SbPcie.asl;After Pci Tree'"
+    ASLdeviceName  = "HST0"
+    DeviceType = OnBoard
+    PCIBusSize = 64bit
+    ROMMain = No
+    Virtual = Yes
+    PCIExpress = Yes
+    ASL_PTS  = "Method;\RPTS(ARG0)"
+    ASL_WAK  = "Method;\RWAK(ARG0)"
+    Enforce = No
+    Token = "PCI_FIXED_BUS_ASSIGNMENT" "=" "0"    
+End
+
+PCIDEVICE
+    Title  = "PS2MS Container"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'AmiModulePkg/EcPs2Kbd/EcPs2Ms.asl';After Pci Tree'"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+    Disable = Yes
+    Token = "EcPs2Kbd_SUPPORT" "=" "1" 
+    Token = "CRB_EC_SUPPORT" "=" "1"
+    Token = "NO_SIO_SUPPORT" "=" "1"   
+End
+
+PCIDEVICE
+    Title  = "PS2KB Container"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'AmiModulePkg/EcPs2Kbd/EcPs2Kb.asl';After Pci Tree'"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+    Disable = Yes
+    Token = "EcPs2Kbd_SUPPORT" "=" "1" 
+    Token = "CRB_EC_SUPPORT" "=" "1"  
+    Token = "NO_SIO_SUPPORT" "=" "1" 
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Temporary Setting ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "VirtualSerial_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable Virtual Serial Device support in Project"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== I2C HID Settings ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "I2C_HID_SUPPORT"
+    Value  = "0"
+    Help  = "Switch for Enabling I2c support in the project"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "MouseDriver_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable Mouse Driver support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes    
+    Token = "I2C_HID_SUPPORT" "=" "0"
+End
+
+INFComponent
+    Name  = "I2cControllerTemplate.inf"
+    File  = "I2cController/I2cController.inf"
+    Package  = "AmiModulePkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Disable = Yes
+    Token = "I2C_HID_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== UEFI SPEC Configuration ======"
+    TokenType = Expression
+End
+
+PcdMapping
+    Name  = "PcdPropertiesTableEnable"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    Help  = "Publish UEFI PropertiesTable, it is recommended not to use this attribute."
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "FALSE"
+    TargetDSC = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== CPU Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "DESKTOP_MICROCODE"
+    Value  = "1"
+    Help  = "Master Desktop CPU uCode Enable"
+    TokenType = Boolean
+    Range  = "On-Off"
+End
+
+TOKEN
+    Name  = "DESKTOP_506EY"
+    Value = "1"
+    Help  = "Intel(R) KabyLake"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "DESKTOP_506EX"
+    Value = "1"
+    Help  = "Intel(R) SkyLake"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "DESKTOP_M22506E0"
+    Value  = "0"
+    Help  = "Intel(R) SkyLake Processor P-0"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "DESKTOP_M22506E1"
+    Value  = "0"
+    Help  = "Intel(R) SkyLake Processor Q-0"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "DESKTOP_M9750654"
+    Value  = "0"
+    Help  = "Intel(R) Skylake-X Processor U-0 Stepping"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "DESKTOP_906EX"
+    Value = "1"
+    Help  = "Intel(R) CoffeeLake"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "DESKTOP_M22906EA"
+    Value  = "2"
+    Help  = "Intel(R) Coffee Lake-S U-0 Stepping, 0:Disable \ 1:With Cannon Lake PCH \ 2:With Kaby Lake PCH"
+    TokenType = Boolean
+    Token = "NON_PRODUCTION_MICROCODE" "=" "1"
+End
+  
+TOKEN
+    Name  = "NON_PRODUCTION_MICROCODE"
+    Value  = "1"
+    Help  = "Enable Non-production Microcode"
+    TokenType = Boolean
+End
+
+PcdMapping
+    Name  = "PcdCpuMicrocodePatchAddress"
+    GuidSpace  = "gUefiCpuPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "Uint64"
+    Value  = "$(FV_MICROCODE_BINARY_BASE)"
+    Offset  = 00h
+    Length  = 08h
+    TargetDSC = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_MICROCODE_SIZE"
+    Value  = "$(FV_DATA_SIZE) - $(INTEL_FIT_SIZE)"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes   
+    Token = "MICROCODE_SPLIT_BB_UPDATE" "=" "0"    
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+PcdMapping
+    Name  = "PcdCpuMicrocodePatchRegionSize"
+    GuidSpace  = "gUefiCpuPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "Uint64"
+    Value  = "$(FV_MICROCODE_SIZE)"
+    Offset  = 00h
+    Length  = 08h
+    TargetDSC = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Pci Bus Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "BoardPciRes_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable PCI out of Resource support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCI_OUT_OF_RESOURCE_SETUP_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable PCI out of Resource Setup Page support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "BoardPciRes_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "PCI_DEVICE_64BIT_RESOURCE_THRESHOLD"
+    Value  = "0x1000000000"
+    Help  = "Forces PCI Bus driver to disable Device if it's 64bit resource request exceeds this value"
+    TokenType = Expression
+    TargetH = Yes
+    Range  = "Up to 16G"
+    Token = "BoardPciRes_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== CSM Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "PMM_EBDA_LOMEM_SIZE"
+    Value  = "0x40000"
+    Help  = "Amount of memory below 1MB in bytes to be allocated for EBDA and PMM. This size should be a multiple of 32K.\Value should not exceed 512 KB, the remaining part of 640K will be given to IVT, BDA, non-BBS compliant OpROMs. It can also be allocated by other EFI drivers, used for PCI3.0 OpROM execution, etc.\Recommended value is 128 KB."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_CSM_LAUNCH_POLICY"
+	Value  = "0"
+	Help  = "Controls default value of CSM Launch Policy setup control"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 - do not launch CSM, 1 - launch CSM"
+End
+
+TOKEN
+    Name  = "DEFAULT_BOOT_OPTION_FILTERING_POLICY"
+    Value  = "$(CSMSETUP_UEFI_ONLY_BOOT_OPTIONS)"
+    Help  = "Controls default value of Boot Option Filter setup control"
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "$(CSMSETUP_ENABLE_ALL_BOOT_OPTIONS) - Both UEFI and Legacy boot options enabled\$(CSMSETUP_LEGACY_ONLY_BOOT_OPTIONS) - Only Legacy boot options enabled\$(CSMSETUP_UEFI_ONLY_BOOT_OPTIONS) - Only UEFI boot options enabled"
+    Token = "CSM_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "DEFAULT_PXE_OPROM_POLICY"
+    Value  = "$(CSMSETUP_SKIP_OPROMS)"
+    Help  = "Default value of Launch PXE OpROM policy setup control"
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "$(CSMSETUP_SKIP_OPROMS) - Do not launch\$(CSMSETUP_UEFI_ONLY_OPROMS) - Launch UEFI OpROM only\$(CSMSETUP_LEGACY_ONLY_OPROMS) - Launch Legacy OpROM only"
+    Token = "CSM_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DEFAULT_VIDEO_OPROM_POLICY"
+	Value  = "$(CSMSETUP_UEFI_ONLY_OPROMS)"
+	Help  = "Default value of Launch Video OpROM policy setup control"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "$(CSMSETUP_SKIP_OPROMS) - Do not launch\$(CSMSETUP_UEFI_ONLY_OPROMS) - Launch UEFI OpROM only\$(CSMSETUP_LEGACY_ONLY_OPROMS) - Launch Legacy OpROM only"
+	Token = "CSM_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "CSM_VGA_64BITBAR_WORKAROUND"
+    Value  = "1"
+    Help  = "VBE is limited to 32 bit for an address of Video Linear Buffer.\If this token is on, the code will attempt to build the correct 64-bit linear buffer address."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Chipset Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "HOTPLUG_SUPPORT"
+    Value  = "1"
+    Help  = "Enables / Disables Pci Bus Driver Native PCI Hotplug support"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCI_EXPRESS_SUPPORT"
+    Value  = "0"
+    Help  = "Enables / Disables Pci Bus Driver Native PCI Express support"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_SKU"
+    Value  = "0"
+    Help  = "0:Desktop, Workstation\1:Mobile\2:UP Server"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "CLOCK_GENERATOR_ADDRESS"
+    Value  = "0xFF"
+    Help  = "Clock generator address. Set to 0xFF to disable\clock generator programming."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "ULT_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "RTD3_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable RTD3 support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "ULT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "ISA_IRQ_MASK"
+    Value  = "0xE305"
+    Help  = "This is an IRQ mask which may be used by ISA devices\ If BIT == 0 IRQ Available BIT == 1 IRQ Used.\DEFAULT VALUE == 0xE305."
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0...0FFFFh"
+End
+
+TOKEN
+    Name  = "ISA_DMA_MASK"
+    Value  = "0x10"
+    Help  = "This is DEFAULT mask of ISA DMA channels which may be used by ISA devices.\Set BIT=1 means Channel CAN NOT be used, Reset BIT=0 means Channel is AVAILABLE.\Channel 4 of ISA DMA controller is tacken for CASCADE DMA channel. \All the rest are available."
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0...0EFh"
+End
+
+TOKEN
+    Name  = "SRIOV_SUPPORT"
+    Value  = "0"
+    Help  = "Enables Single Root IO Virtualization (SRIOV) Support."
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On/Off"
+End
+
+TOKEN
+    Name  = "SIRQ_DEFAULT_MODE"
+    Value  = "1"
+    Help  = "0:QUIET Mode\ 1:CONTINUOUS Mode"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "CRB_EC_SUPPORT" "!=" "1" 
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Debug Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "RESERVED_PAGE_ROUTE"
+    Value  = "0"
+    Help  = "Off:Enable Port 80 decoding to LPC.\On:Enable Port 80 decoding to PCI."
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "DEBUG_MESSAGES_INTERFACE"
+    Value  = "0"
+    Help  = "0: Legacy UART.\1: Serial IO UART."
+    TokenType = Integer
+    TargetH = Yes
+    Token = "DEBUG_MODE" "=" "1"
+End
+
+ELINK
+    Name  = "SerialOutput,"
+    Parent  = "RtReportStringStatus"
+    Help  = "Serial port string status code"
+    Token = "SERIAL_STATUS_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+    Disable = Yes 
+    Token = "DEBUG_MESSAGES_INTERFACE" "=" "1" 
+End
+
+PcdMapping
+    Name  = "PcdSerialUseHardwareFlowControl"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "FALSE"
+    TargetDSC = Yes
+    Token = "SERIAL_DEBUGGER_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "CRB_AMI_GET_PEI_MEMORY_INFO_SUPPORT"
+    Value  = "0"
+    Help  = "Main token switch to enable the Get Pei Memory information of S3 resume and Normal boot."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiChipsetModulePkg.AmiCspLibPei"
+    Override  = "AmiModulePkg.StatusCodePei"
+    Token = "CRB_AMI_GET_PEI_MEMORY_INFO_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "DumpPeiMemoryInS3,"
+    Parent  = "PeiReportCheckpoint"
+    InvokeOrder = AfterParent
+    Token = "CRB_AMI_GET_PEI_MEMORY_INFO_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "$(CRB_DIR)\Crb.ssp"
+    Parent  = "ADDON_SSP_FILES"
+    Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+    Token = "CRB_AMI_GET_PEI_MEMORY_INFO_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+TOKEN
+    Name  = "CRB_CMOS_GET_FREE_PEI_MEM_SIZE_REG"
+    Value  = "0x80"
+    Help  = "It used 2 bytes[0x81..0x81]"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+    Lock = Yes
+    Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+    Token = "CRB_AMI_GET_PEI_MEMORY_INFO_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "Usb3Statuscode_Support"
+    Value  = "0"
+    Help  = "Main switch to enable Usb3Statuscode support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== IntelGigabitLan Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "GigabitLanDependency"
+    Value  = "1"
+    Help  = "Switch dependency file to \0-IntelGigabitLanBinFdfFileStatement.txt,\1-IntelGigabitLan.inf"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "GBE_EFI_FILE_PATH"
+    Value  = "SkyBayPkg/IntelGigabitLan.efi"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetFDF = Yes
+    Help  = "GBE X64 EFI File name and path"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Serial Debugger Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "SERIAL_DEBUGGER_SUPPORT"
+    Value  = "0"
+    Help  = "Switch for Enabling Serial Debugger support in the project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Debug Rx Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "AMIDEBUG_RX_SUPPORT"
+    Value  = "0"
+    Help  = "Switch for Enabling AMIDebugRxPkg support in the project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+	Name  = "USB_3_DEBUG_SUPPORT"
+	Value  = "1"
+	Help  = "Main token switch to enable the USB 3.0 Debug Port interface\installation into the project.Do Not Change this SDL Token."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "AMI_DEBUGGER_SUPPORT" "=" "1"
+End
+
+
+LibraryMapping
+    Class = "DebugAgentLib"
+    Instance = "MdeModulePkg.DebugAgentLibNull"
+    Override = "MdeModulePkg.CapsulePei"
+End
+
+LibraryMapping
+    Class = "DebugAgentLib"
+    Instance = "MdeModulePkg.DebugAgentLibNull"
+    Override = "MdeModulePkg.CapsuleX64"
+End
+
+LibraryMapping
+    Class = "DebugAgentLib"
+    Instance = "MdeModulePkg.DebugAgentLibNull"
+    Override = "AmiCpuModulePkg.CpuS3Pei"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== AHCI Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "PORT_MULTIPLIER_SUPPORT"
+    Value  = "0"
+    Help  = "Switch to Enable/Disable PM Support"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AHCI_BASE_ADDRESSES"
+    Value  = "0xFE900000"
+    Help  = "Base addresses to be Programmed in ABAR Register"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "AhciRecovery_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== SMBIOS Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "SMBIOS_TABLE_LOCATION"
+    Value  = "0"
+    Help  = "SMBIOS Table location: \0 = Above 1MB only \1 = Auto (E000 Segment, if unable to allocate to E000, then put table above 1MB) Because PAM lock so we need put at above 1MB"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "EXTRA_RESERVED_BYTES"
+    Value  = "4096"
+    Help  = "Number of extra bytes to reserve in addition to the static table."
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PROCESSOR_INFO"
+    Value  = "0"
+    Help  = "ON  -> Processor Information (Type 4) structure will be present\OFF -> Processor Information (Type 4) structure will not be present\The number of CPU is defined in CPU.SDL as NCPU.\Total number of processors will be NCPU ( specified in CPU.SDL) \Currenty there is support for 4 Processors. \To support more processores modify in SMBDESC.DEF and SMBIOS.SDL"
+    TokenType = Boolean
+    TargetEQU = Yes
+End
+
+TOKEN
+    Name  = "NUMBER_OF_PROC_CACHE"
+    Value  = "0"
+    Help  = "Number of Processor Cache Present.\NOTE: DO NOT CHANGE THE VALUE."
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Lock = Yes
+    Range  = "1-8"
+End
+
+TOKEN
+    Name  = "TYPE16_STRUCTURE"
+    Value  = "0"
+    Help  = "ON  -> Physical Memory Array Information structure will be present\OFF -> Physical Memory Array Information structure will not be present"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SMBIOS_TYPE_4_PROC_UPGRADE"
+    Value  = "0x21"
+    Help  = "0x21 - Mobile - Socket rPGA988B\0x22 - Mobile - Socket BGA1023\0x23 - Mobile - Socket LGA1224\0x24 - DT - Socket LGA1155 \0x25 - EN - Socket LGA1356\0x26 - EP  - Socket LGA2011\"
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0-ff"
+End
+
+TOKEN
+    Name  = "BIOS_SIZE"
+    Value  = "0x1000000"
+    TokenType = Integer
+    TargetEQU = Yes
+    Token = "SMBIOS_TABLES_BUILD_TYPE" "=" "0"
+End
+
+TOKEN
+    Name  = "BIOS_SIZE"
+    Value  = "(0x1000000 > 16) - 1"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "SMBIOS_TABLES_BUILD_TYPE" "=" "1"
+End
+
+TOKEN
+    Name  = "VOLTAGE_PROBE_INFO"
+    Value  = "1"
+    Help  = "ON  -> Voltage Probe Information (Type 26) structure will be present\OFF -> Voltage Probe Information (Type 26) structure will not be present"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "COOLING_DEVICE_INFO"
+    Value  = "1"
+    Help  = "ON  -> Cooling Device Information (Type 27) structure will be present\OFF -> Cooling Device Information (Type 27) structure will not be present"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TEMPERATURE_PROBE_INFO"
+    Value  = "1"
+    Help  = "ON  -> Temperature Probe Information (Type 28) structure will be present\OFF -> Temprature Probe Information (Type 28) structure will not be present"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "ELECTRICAL_PROBE_INFO"
+    Value  = "1"
+    Help  = "ON  -> Electrical Probe Information (Type 29) structure will be present\OFF -> Electrical Probe Information (Type 29) structure will not be present"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "MANAGEMENT_DEVICE_INFO"
+    Value  = "1"
+    Help  = "ON  -> Management Device Information (Type 34) structure will be present\OFF -> Management Device Information (Type 34) structure will not be present"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SYSTEM_POWER_SUPPLY_INFO"
+    Value  = "1"
+    Help  = "Type 39 - System Power Supply\OFF -> System Power Supply will not be Present\ON  -> System Power Supply will be Present"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "NO_OF_PORTABLE_BATTERY"
+    Value  = "4"
+    Help  = "Specifies the Total number of Portable Batteries in the System."
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+    Range  = "1 - 5"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== RsdpPlus Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "RsdpPlus_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable RsdpPlus support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "NB_F0000_PAM0"
+    Value  = "3"
+    Help  = "0: Didable. 1: Read Only. 2: Write Only. 3: R/W Enable."
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0 - 3"
+    Token = "RsdpPlus_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Terminal Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "COM0_DEFAULT_CONSOLE_REDIRECTION_ENABLE"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TOTAL_PCI_SERIAL_PORTS"
+    Value  = "1"
+    Help  = "**PORTING NEEDED** Total number of PCI serial ports present."
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+    Range  = "0-4"
+End
+
+TOKEN
+    Name  = "DEFAULT_ACPI_SPCR_CONSOLE_REDIRECTION_ENABLE"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TotalTemporaryRamSize"
+    Value  = "0x80000"
+    Help  = "DO NOT CHANGE THIS VALUE.\Cache-as-RAM physical base location"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+    Token = "PERFORMANCE_MEASUREMENTS_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Flash Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "NVRAM_RT_GARBAGE_COLLECTION_SUPPORT"
+    Value  = "1"
+    Help  = "This token enables/disables support of the NVRAM garbage collection at runtime."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FLASH_BLOCK_SIZE"
+    Value  = "0x1000"
+    Help  = "Size of the Flash Device Block"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FLASH_SIZE_SELECT"
+    Value  = "2"
+    Help  = "flash size switch, 1:4MB, 2:6MB, 3:7MB, 4:8MB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes    
+End
+
+TOKEN
+    Name  = "FLASH_SIZE_SELECT"
+    Value  = "3"
+    Help  = "flash size switch, 1:4MB, 2:6MB, 3:7MB, 4:8MB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"    
+End
+
+TOKEN
+    Name  = "FLASH_SIZE_SELECT"
+    Value  = "3"
+    Help  = "flash size switch, 1:4MB, 2:6MB, 3:7MB, 4:8MB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "DEBUG_MODE" "=" "1"
+#    Token = "USB_3_DEBUG_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "FLASH_SIZE_SELECT"
+    Value  = "4"
+    Help  = "flash size switch, 1:4MB, 2:6MB, 3:7MB, 4:8MB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes    
+    Token = "OPTIMIZATION" "=" "0" 
+    Token = "AMIDEBUG_RX_SUPPORT" "=" "1"
+    Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+    Name  = "FLASH_SIZE"
+    Value  = "0x400000"
+    Help  = "Size of the Flash Device in bytes"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "FLASH_SIZE_SELECT" "=" "1" 
+End
+
+TOKEN
+    Name  = "FLASH_SIZE"
+    Value  = "0x600000"
+    Help  = "Size of the Flash Device in bytes"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "FLASH_SIZE_SELECT" "=" "2" 
+End
+
+TOKEN
+    Name  = "FLASH_SIZE"
+    Value  = "0x700000"
+    Help  = "Size of the Flash Device in bytes"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "FLASH_SIZE_SELECT" "=" "3" 
+End
+
+TOKEN
+    Name  = "FLASH_SIZE"
+    Value  = "0x800000"
+    Help  = "Size of the Flash Device in bytes"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "FLASH_SIZE_SELECT" "=" "4" 
+End
+
+TOKEN
+    Name = "FLASH_START_ADDRESS"
+    Value = "0xFFFFFFFF - $(FLASH_SIZE) + 1"
+    Help  = "ROM start address of the Flash part."    
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "NVRAM_SIZE"
+    Value  = "0x20000"
+    Help  = "Size of NVRAM area"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "NVRAM_BACKUP_ADDRESS"
+    Value  = "$(NVRAM_ADDRESS) + $(NVRAM_SIZE)"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "FAULT_TOLERANT_NVRAM_UPDATE" "=" "1"
+End
+
+TOKEN
+    Name  = "OEM_NCB_ADDRESS"
+    Value = "$(NVRAM_ADDRESS)+$(NVRAM_SIZE)*2"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "OEM_NCB_SIZE"
+    Value = "0x10000"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "OEM_NCB_BLOCKS"
+    Value  = "($(OEM_NCB_SIZE)/$(FLASH_BLOCK_SIZE))"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FV_BB_BLOCKS"
+    Value  = "16*(0x10000/$(FLASH_BLOCK_SIZE))"
+    Help  = "Number of Blocks occupied by the FV_BB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes    
+End
+
+TOKEN
+    Name  = "FV_BB_BLOCKS"
+    Value  = "12*(0x10000/$(FLASH_BLOCK_SIZE))"
+    Help  = "Number of Blocks occupied by the FV_BB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_BB_BLOCKS"
+    Value  = "14*(0x10000/$(FLASH_BLOCK_SIZE))"
+    Help  = "Number of Blocks occupied by the FV_BB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "INTEL_MMA_SUPPORT" "=" "1"
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_BB_BLOCKS"
+    Value  = "20*(0x10000/$(FLASH_BLOCK_SIZE))"
+    Help  = "Number of Blocks occupied by the FV_BB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_BB_BLOCKS"
+    Value  = "24*(0x10000/$(FLASH_BLOCK_SIZE))"
+    Help  = "Number of Blocks occupied by the FV_BB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "DEBUG_MODE" "=" "1"
+    Token = "USB_3_DEBUG_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_BB_BLOCKS"
+    Value  = "30*(0x10000/$(FLASH_BLOCK_SIZE))"
+    Help  = "Number of Blocks occupied by the FV_BB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "OPTIMIZATION" "=" "0"
+    Token = "AMIDEBUG_RX_SUPPORT" "=" "1"
+    Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_BB_SIZE"
+    Value  = "$(FV_BB_BLOCKS) * $(FLASH_BLOCK_SIZE)"
+    Help  = "Size of the FV_BB area"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FV_BB_BASE"
+    Value  = "(0xFFFFFFFF-$(FV_BB_SIZE)+1)"
+    Help  = "Base Address of the FV_BB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FV_BB_AFTER_MEMORY_BLOCKS"
+    Value  = "10*(0x10000/$(FLASH_BLOCK_SIZE))"
+    Help  = "Number of Blocks occupied by the FV_BB_AFTER_MEMORY"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FV_BB_AFTER_MEMORY_BLOCKS"
+    Value  = "14*(0x10000/$(FLASH_BLOCK_SIZE))"
+    Help  = "Number of Blocks occupied by the FV_BB_AFTER_MEMORY"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_BB_AFTER_MEMORY_BLOCKS"
+    Value  = "22*(0x10000/$(FLASH_BLOCK_SIZE))"
+    Help  = "Number of Blocks occupied by the FV_BB_AFTER_MEMORY"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "OPTIMIZATION" "=" "0"
+    Token = "AMIDEBUG_RX_SUPPORT" "=" "1"
+    Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_BB_AFTER_MEMORY_SIZE"
+    Value  = "$(FV_BB_AFTER_MEMORY_BLOCKS) * $(FLASH_BLOCK_SIZE)"
+    Help  = "Size of the FV_BB_AFTER_MEMORY area"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FV_BB_AFTER_MEMORY_BASE"
+    Value  = "(0xFFFFFFFF-$(FV_BB_SIZE)-$(FV_BB_AFTER_MEMORY_SIZE)+1)"
+    Help  = "Base Address of the FV_BB_AFTER_MEMORY"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FV_BB_AFTER_MEMORY_BASE"
+    Value  = "(0xFFFFFFFF - $(FV_BB_SIZE) - $(FV_FSP_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) + 1)"
+    Help  = "Base Address of the FV_BB_AFTER_MEMORY"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_MAIN_OFFSET"
+    Value  = "$(NVRAM_OFFSET)+$(NVRAM_SIZE)*2+$(OEM_NCB_SIZE)"    
+    Help  = "Offset to the start of the FV_MAIN area from the start of the ROM image"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FV_MAIN_SIZE"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_MAIN_OFFSET)"
+    Help  = "Size of the FV_MAIN area"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FV_MAIN_SIZE"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_DATA_SIZE) - $(FV_MAIN_OFFSET)"
+    Help  = "Size of the FV_MAIN area"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_MAIN_SIZE"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_FSP_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_MAIN_OFFSET)"
+    Help  = "Size of the FV_MAIN area"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_MAIN_SIZE"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_FSP_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_DATA_SIZE) - $(FV_MAIN_OFFSET)"
+    Help  = "Size of the FV_MAIN area"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+TOKEN
+    Name  = "OEM_ACTIVATION_TABLE_SIZE"
+    Value  = "$(OEM_NCB_SIZE)"
+    Help  = "OEM Activation Table size in the NCB. Port this token!" 
+    TokenType = Integer
+    TargetH = Yes
+    Token = "OEM_ACTIVATION_TABLE_LOCATION" "=" "1"    
+End
+
+TOKEN
+    Name  = "OEM_ACTIVATION_TABLE_ADDRESS"
+    Value = "$(OEM_NCB_ADDRESS)"
+    Help  = "OEM Activation Table address in the NCB. Port this token!" 
+    TokenType = Integer
+    TargetH = Yes
+    Token = "OEM_ACTIVATION_TABLE_LOCATION" "=" "1"    
+End
+
+TOKEN
+    Name  = "SPI_INITIALIZE_WITH_VSCC"
+    Value  = "1"
+    Help  = "Program Host Lower/Upper Vendor Specific Component Capabilities Register."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FAST_READ_SUPPORT"
+    Value  = "2"
+    Help  = "Fast Read Support(Need Hardware SPI Support). 0 - Read(03), 1 - Fast Read(0B), 2 - Dual Output Fast Read(3B)."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SPI_USE_HARDWARE_SEQUENCE"
+    Value  = "2"
+    Help  = "Sets to use SPI Hardware Sequence.\0 - Use SPI Software Sequence, 1 - ICH/PCH Hardware Sequence, 2 - SKYLAKE-PCH Hardware Sequence or Later ."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Nested Firmware Volume Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "LZMA_SUPPORT"
+    Value  = "1"
+    Help  = "Use this to turn on LZMA compression.\When LZMA compression is disabled, standard UEFI compression is used."
+    TokenType = Boolean
+    TargetFDF = Yes
+End
+
+TOKEN
+    Name  = "NESTED_FV_MAIN"
+    Value  = "1"
+    Help  = "Use this to turn on FV nesting for FV_MAIN"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Range  = "0: Disable FV_MAIN nesting; 1: Enable FV_MAIN nesting"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== ConSplitter Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name = "FORCE_COMMON_MODE_FOR_DEVICES"
+    Value = "1"
+    TokenType = Boolean
+    Help = "As the console splitter binds on top of additional devices this token will force all devices to operate in a common mode.
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== AMITSE Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "SETUP_BBS_POPUP_ENABLE"
+    Value  = "1"
+    Help  = "Enable or disable the SETUP_BBS_POPUP_ENABLE. CAUTION This works only if complete TSE sources are present."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "POPUP_MENU_SHOW_ALL_BBS_DEVICES"
+    Value  = "1"
+    Help  = "1 => Shows all BBS devices in BBS POPup menu. 0 => Shows only the first device of a BBS type in BBS POPUP menu."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SETUP_SHOW_ALL_BBS_DEVICES"
+    Value  = "1"
+    Help  = "1 => Shows all BBS devices in boot override menu. 0 => Shows only the first device of a BBS type in override menu."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TSE_MULTILINE_CONTROLS"
+    Value  = "1"
+    Help  = "Turns on multi line controls. Currently subtitle and static text controls are supported. Default is DISABLE"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SETUP_PASSWORD_NON_CASE_SENSITIVE"
+    Value  = "0"
+    Help  = "Allow to use of case sensitive password. Note:This token should be OFF with SETUP_STORE_KEYCODE_PASSWORD value 1 or 2."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "DEFAULT_QUIET_BOOT"
+    Value  = "1"
+    Help  = "Default value of the Quiet Boot option"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SETUP_HIDE_DISABLE_BOOT_OPTIONS"
+    Value  = "1"
+    Help  = "1 => Hide the disabled boot options in boot override menu. 0 => Shows all boot options boot override menu."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "POPUP_MENU_HIDE_DISABLE_BOOT_OPTIONS"
+    Value  = "1"
+    Help  = "1 => Hide the disabled boot options in BBS POPup menu. 0 => Shows all boot options in BBS POPup menu."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+        Name  = "DEFAULT_CONDITIONAL_EXPRESSION_SUPPORT"
+        Value  = "1"
+        Help  = "0 is Default. 0 => To skip evaluating default value for Conditional Expression 1=> To evaluating default value for Conditional Expression"
+        TokenType = Boolean
+        TargetH = Yes
+End
+
+TOKEN
+    Name  = "TSE_GOP_NOTIFICATION_SUPPORT"
+    Value  = "0"
+    Help  = "1 is Default. 0 => Do not install GOP notification processing.[Assumes GOP won't be updated.] 1=> Install and process GOP notifications"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SETUP_PRINT_EVAL_MSG"
+    Value  = "1"
+    Help  = "Enable/Disable Evaluation message in Post screen"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== ACPI Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "ACPI_SPEC_VERSION"
+    Value  = "60"
+    Help  = "Highest Version of ACPI specification supported. For example 4.0 = 40; 5.0 = 50; 5.1 = 51"
+    TokenType = Integer
+    TargetH = Yes
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_PM_PROFILE"
+    Value  = "2"
+    Help  = "Power Management Profile ACPI 2.0\See acpi20.h"
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0-6 0 = Unspecified; 1 = Desktop; 2 = Modile; 3 = Workstation; 4 = Enterprise Server; 5 = SOHO Server; 6 = Application PC"
+    Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+    Name  = "S3_BASE_MEMORY_SIZE"
+    Value  = "0x300000"
+    Help  = "Number of bytes for S3 resume base memory."
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0x40000 = 256K, increase/decrease it in units of 0x1000 = 4K"
+End
+
+TOKEN
+    Name  = "S3_BASE_MEMORY_SIZE"
+    Value  = "0x400000"
+    Help  = "Number of bytes for S3 resume base memory."
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0x40000 = 256K, increase/decrease it in units of 0x1000 = 4K"
+    Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+    Name  = "S3_BASE_MEMORY_SIZE"
+    Value  = "0x800000"
+    Help  = "Number of bytes for S3 resume base memory."
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0x40000 = 256K, increase/decrease it in units of 0x1000 = 4K"
+    Token = "PERFORMANCE_MEASUREMENTS_SUPPORT" "=" "1" 
+End
+
+TOKEN
+    Name  = "S4_WAKE_FROM_RTC_SUPPORTED"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "REMOTE_POWER_ON_SUPPORTED"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "LOW_POWER_S0_IDLE_CAPABLE"
+    Value  = "1"
+    Help  = "A one informs OSPM that the platform is able to \achieve power savings in S0 similar to or better \than those typically achieved in S3. In effect, when \this bit is set it indicates that the system will \achieve no power benefit by making a sleep transition to S3."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FACP_FLAG_DCK_CAP"
+    Value  = "1"
+    Help  = "A zero indicates that the system cannot support \docking. A one indicates that the system can \support docking. Notice that this flag does not \indicate whether or not a docking station is \currently present; it only indicates that the system \is capable of docking."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "S3_VIDEO_REPOST_SUPPORT"
+    Value  = "1"
+    Help  = "Switch to enable/disable S3 video repost support."
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "CSM_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "MPS_TABLE_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable MPS V 1.4 Table support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CSM_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "ACPI_TIMER_IN_LEGACY_SUPPORT"
+    Value  = "1"  
+    Help  = "Enable - CSM16 fixed_delay function will use ACPI timer.\DISABLE - fixed_delay will use BIT4 of port 61h.\NOTE: generally enabling this token is optional; it must be enabled if the chipset does not implement port 61."
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "ACPI_SUPPORT" "=" "1"
+    Token = "CSM_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "ULT0RTD3_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable RTD3 support for Whitetip Mountain or Sawtooth Peak CRB"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "RTD3_SUPPORT" "=" "1"
+    Token = "CRB_BOARD" ">=" "3"
+End
+
+TOKEN
+    Name  = "ULXRTD3_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable RTD3 support for ULX CRB"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "RTD3_SUPPORT" "=" "1"
+    Token = "CRB_BOARD" ">=" "3"
+End
+
+TOKEN
+    Name  = "FACP_FLAG_PCI_EXP_WAK"
+    Value  = "1"
+    Help  = "If set, indicates the platform supports the \PCIEXP_WAKE_STS bit in the PM1 Status \register and the PCIEXP_WAKE_EN bit in \the PM1 Enable register."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== CMOS Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "CMOS_BANK1_OFFSET"
+    Value  = "0x80"
+    Help  = "Value to be subtracted from the logical CMOS address when CMOS Manager accesses BANK1.\(In some chipsets, bit 7 must not be touched for bank 1.)"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "CMOS_SMM_SUPPORT"
+    Value  = "1"
+    Help  = "Specifies whether or not to the CMOS Access interface is available in SMM."
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Recovery Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "FtRecovery_SUPPORT"
+    Value  = "0"
+    Help  = "Switch to enable Fault tolerant recovery support in Project"
+    TokenType = Boolean
+    TargetH = Yes
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "IdeRecovery_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "ATAPI_RECOVERY_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "ATA_RECOVERY_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PEI_USB_DEVICE_CONNECT_TIMEOUT"
+    Value  = "5"
+    Help  = "Some devices may connect lately, polling process to wait for devices. The unit of timeout is the second."
+    TokenType = Integer
+    TargetH = Yes
+    Token = "USBPEI_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "PEI_USB_KEYBOARD_CONNECT_DELAY_MS"
+    Value  = "120"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "USB_PEI_KEYBOARD_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "{0x00, 0x1C, 0x00}, {0x00, 0x1C, 0x05}, {0x00, 0x1D, 0x00}, {0x00, 0x1B, 0x00}, {-1, -1, -1},"
+    Parent  = "NVME_ROOT_BRIDGE_LIST"
+    Help  = "List of Root Bridge's under which Nvme Device has to be searched \Format - {Bus, Dev, Func}" 
+    InvokeOrder = AfterParent
+    Token = "NvmeRecovery_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "{0x00, 0x1E, 0x04}, {0x00, 0x1E, 0x05}, {0x00, 0x1E, 0x06}, {-1, -1, -1},"
+    Parent  = "SD_ROOT_BRIDGE_LIST"
+    Help  = "List of Root Bridge's under which SD/MMC Device has to be searched \Format - {Bus, Dev, Func}"
+    InvokeOrder = AfterParent
+    Token = "SDIO_DRIVER_SUPPORT" "=" "1"
+    Token = "CRB_BOARD" "<=" "2"
+End
+
+ELINK
+    Name  = "{0x00, 0x1E, 0x04}, {0x00, 0x1E, 0x05}, {0x00, 0x1E, 0x06},"
+    Parent  = "SD_ROOT_BRIDGE_LIST"
+    Help  = "List of Root Bridge's under which SD/MMC Device has to be searched \Format - {Bus, Dev, Func}"
+    InvokeOrder = AfterParent
+    Token = "SDIO_DRIVER_SUPPORT" "=" "1"
+    Token = "CRB_BOARD" "=" "8"
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_BB_ADDRESS"
+    Value  = "$(FV_BB_AFTER_MEMORY_BASE)"
+    Help  = "Address of FV_BB area in flash"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_BB_OFFSET"
+    Value  = "$(FV_BB_AFTER_MEMORY_BASE) - $(FLASH_START_ADDRESS)"
+    Help  = "Offset of FV_BB area in ROM file"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_BB_SIZE"
+    Value  = "$(FV_BB_SIZE) + $(FV_BB_AFTER_MEMORY_SIZE)"
+    Help  = "Size of FV_BB area"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_BB_SIZE"
+    Value  = "$(FV_BB_SIZE) + $(FV_FSP_SIZE) + $(FV_BB_AFTER_MEMORY_SIZE)"
+    Help  = "Size of FV_BB area"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_MAIN_ADDRESS"
+    Value  = "$(FV_MAIN_BASE)"
+    Help  = "Address of FV_MAIN area in flash"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_MAIN_OFFSET"
+    Value  = "$(FV_MAIN_OFFSET)"
+    Help  = "Offset of FV_MAIN area in ROM file"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_MAIN_SIZE"
+    Value  = "$(FV_MAIN_SIZE)"
+    Help  = "Size of FV_MAIN area"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_NVRAM_ADDRESS"
+    Value  = "$(NVRAM_ADDRESS)"
+    Help  = "Address of NVRAM area in flash"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_NVRAM_OFFSET"
+    Value  = "$(NVRAM_OFFSET)"
+    Help  = "Offset of NVRAM area in ROM file"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_NVRAM_SIZE"
+    Value  = "$(NVRAM_SIZE)"
+    Help  = "Size of NVRAM area"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_NVRAM_BACKUP_ADDRESS"
+    Value  = "$(NVRAM_ADDRESS) + $(NVRAM_SIZE)"
+    Help  = "Address of NVRAM area in flash"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "FAULT_TOLERANT_NVRAM_UPDATE" "=" "1" 
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_NVRAM_BACKUP_OFFSET"
+    Value  = "$(NVRAM_OFFSET) + $(NVRAM_SIZE)"
+    Help  = "Offset of NVRAM area in ROM file"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "FAULT_TOLERANT_NVRAM_UPDATE" "=" "1" 
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_DATA_ADDRESS"
+    Value  = "$(FV_DATA_BASE)"
+    Help  = "Address of NVRAM area in flash"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"   
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_DATA_OFFSET"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_DATA_SIZE)"
+    Help  = "Offset of NVRAM area in ROM file"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_DATA_OFFSET"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_FSP_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_DATA_SIZE)"
+    Help  = "Offset of NVRAM area in ROM file"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_DATA_SIZE"
+    Value  = "$(FV_DATA_SIZE)"
+    Help  = "Size of NVRAM area"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_DATA_GUID"
+    Value  = "{ 0xAFDD39F1, 0x19D7, 0x4501, 0xA7, 0x30, 0xCE, 0x5A, 0x27, 0xE1, 0x15, 0x4B }"
+    Help  = "GUID used for DATA area"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "EXTRA_FW_VOLUME"
+    Value  = ",{ AMI_ROM_LAYOUT_FV_DATA_GUID, AMI_ROM_LAYOUT_FV_DATA_ADDRESS, AMI_ROM_LAYOUT_FV_DATA_OFFSET, AMI_ROM_LAYOUT_FV_DATA_SIZE, AmiRomAreaTypeFv, AMI_ROM_AREA_SIGNED}"
+    Help  = "Layout of DATA area"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== On Flash Block Description (APTIO) - Intel ME Update Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+	Name  = "ME_DEFINITIONS"
+	Value  = "{$(SPI_BASE), 0xB4, 0xB8, 0, 0x16, 0, 0x40, 0, 256}"
+	Help  = "ME Relating Registers Configuration (ME 11.0).\{SPI BAR, FDOC, FDOD, HECI Bus, HECI Device, HECI Function, HECI Host FW Status, ME/SeC Disable Bar, Disable Bit}"
+	TokenType = Expression
+	TargetH = Yes
+	Token = "SPI_BASE" "!=" "0"
+	Token = "CSP_MEUD_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Secure Flash and Flash Configuration ======"
+    TokenType = Expression
+End
+
+ELINK
+    Name  = "AmiCspLib"
+    Parent  = "AMI_OFBD_LIBRARIES"
+    InvokeOrder = AfterParent
+    Token = "MEUD_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "CrbLib"
+    File  = "Library/CrbLib/CrbLib.inf"
+    Package  = "SkyBayPkg"
+End
+
+LibraryMapping
+    Class = "NULL"
+    Instance = "SkyBayPkg.CrbLib"
+    Override = "AmiModulePkg.SMIFlash"
+End
+
+TOKEN
+    Name  = "FWCAPSULE_MAX_HDR_SIZE"
+    Value  = "4096"
+    Help  = "Max size of an embedded FwCapsule Header file"
+    TokenType = Integer
+    TargetH = Yes
+    TargetMAK = Yes
+    Range  = "Min FW Capsule Header size is 2048"
+End
+
+TOKEN
+    Name  = "Recovery_Time_Delay"
+    Value  = "8"
+    Help  = "Loop count to calculate the delay for Atapi Recovery"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AUTO_MEUD_SUPPORT"
+    Help  = "Main switch to enable ME Firmware Update support in Project"
+    Value  = "0"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Token = "MEUD_SUPPORT" "=" "1"
+    Token = "SecureMod_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "MEFwUpdLcl_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Help  = "Main switch to enable MEFwUpdLcl support in Project"
+    Token = "AUTO_MEUD_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "ME_FW_UPDATE_API_CONTROL"
+    Value  = "1"
+    Help  = "Switch for FWUpdate API Control.\0 - ME 9.0/10.0 (Sharkbay/Broadwell).\1 - ME 11.0(Skylake).\2 - TXE 2.0(Braswell)."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FV_MEFW_CAPSULE_SIZE"
+    Value  = "0x400000"
+    TokenType = Integer
+    TargetH = Yes
+    TargetMAK = Yes
+    Token = "AUTO_ME_UPDATE_POLICY" "=" "2"
+End
+
+TOKEN
+    Name  = "ME_FW_IMAGE_VERSION"
+    Value  = "{0, 0, 0, 0}"
+    Help  = "File name of the ME FW image to be signed. Skip checking ME FW Version if set MajorVersion to 0."
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "BIOS_ME_FILE"
+    Value  = "$(ROM_IMAGE_DIR)$(PATH_SLASH)ME$(PATH_SLASH)ME_11.8_Consumer_D0_H_Production.bin"
+    Help  = "Use BIOS+ME Full Binary when AUTO_ME_UPDATE_POLICY = 0\Use ME FW Binary when AUTO_ME_UPDATE_POLICY = 1\Use ME FW Binary when AUTO_ME_UPDATE_POLICY = 2"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "FWCAPSULE_IMAGE_SIZE"
+    Value  = "$(FLASH_SIZE)+$(FWCAPSULE_MAX_HDR_SIZE)+$(FV_MEFW_CAPSULE_SIZE)"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "AUTO_ME_UPDATE_POLICY" "=" "2"
+End
+
+TOKEN
+    Name  = "FWCAPSULE_MAX_PAYLOAD_SIZE"
+    Value  = "$(FLASH_SIZE)+$(FV_MEFW_CAPSULE_SIZE)"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "AUTO_ME_UPDATE_POLICY" "=" "2"
+End
+
+TOKEN
+    Name  = "DISABLE_PWR_BUTTON"
+    Value  = "1"
+    Help  = "1 - Disable PWR Button when flashing BIOS in DOS."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "CSLIB_WARM_RESET_SUPPORTED"
+    Value  = "1"
+    Help  = "1 - Chipset provides SBLib_ResetSystem(EfiResetWarm).\0 - Simulate Warm Reset via S3 & RTC resume."
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+#
+# Support Win8 Firmware Update
+#
+TOKEN
+  Name  = "REFLASH_UPDATE_BOOT_BLOCK_CONTROL"
+  Value  = "1"
+  Help  = "Enables/Disables Setup option that controls boot block update"
+  TokenType = Boolean
+  TargetH = Yes
+  Token = "REFLASH_INTERACTIVE" "=" "1"
+End
+
+TOKEN
+  Name  = "REFLASH_UPDATE_BOOT_BLOCK"
+  Value  = "1"
+  Help  = "Enables/Disables update of the boot block flash area.\When REFLASH_INTERACTIVE is on and REFLASH_UPDATE_BOOT_BLOCK_CONTROL is on\this value can be overriden by the user using setup option."
+  TokenType = Boolean
+  TargetH = Yes
+End
+
+TOKEN
+    Name  = "UNSIGNED_BIOS_ROM"
+    Value = "$(BUILD_DIR)$(PATH_SLASH)$(PLATFORM_NAME)$(PATH_SLASH)$(TARGET)_$(TOOL_CHAIN_TAG)$(PATH_SLASH)FV$(PATH_SLASH)AMIROM.fd"
+    Help  = "File name of the BIOS image to be signed."
+    TokenType = Expression
+    TargetMAK = Yes
+    Token = "SECURE_FLASH_MODULE_REVISION" "<=" "18"
+End
+
+TOKEN
+    Name  = "UNSIGNED_BIOS_ROM"
+    Value = $(ROM_FILE_NAME)
+    TokenType = Expression
+    TargetMAK = Yes
+    Token = "AMI_PKG_VERSION" ">=" "11"
+    Token = "SECURE_FLASH_MODULE_REVISION" "<=" "18"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Intel Boot Guard Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "BOOT_GUARD_ACM"
+    Value = "2"
+    Help  = "MUST use the correct ACM binary for the matching CPUs, else platform will not behave as expected. SKL Pre-ES and ES ACM set the token to 0.QS PV ACM set the token to 1.QS PC ACM set the token to 2"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name = "BPM_MIN_CPU_LLC_SIZE"
+        Value = "3 * 1024 * 1024"
+        Help = "Assign the Min LLC size to 3MB, it can't bigger than your CPU LLC(L3 cache)."
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "INTEL_MMA_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name = "BPM_MIN_CPU_LLC_SIZE"
+        Value = "4 * 1024 * 1024"
+        Help = "Assign the Min LLC size to 3MB, it can't bigger than your CPU LLC(L3 cache)."
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "OPTIMIZATION" "=" "0"
+        Token = "AMIDEBUG_RX_SUPPORT" "=" "1"
+        Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== TCG Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "TCG_SKIP_MOR_FULL"
+    Value  = "1"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+# For Add Improvement the Intel PTT Me Hob check,
+# When Intel PTT have been take locality and into ready status
+# we will not set TPM 2.0 into Idle status,
+# So remove the patch.
+TOKEN
+    Name  = "SetReadyStateOnExitBootServices"
+    Value  = "0"
+    Help  = "For SkyLake fTPM Patch."
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name = "PTT_SX_HANG_WRKARND"
+    Value = "1"
+    Help  = "Set to 1 for 236769 Skylake Sightings Alert - Cycling Hang with Intel PTT - Rev. 2.0e"
+    TokenType = BOOLEAN
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "MOR_RESET_S4S5"
+    Value  = "1"
+    Help  = "When OS Reset the systme under S4/S5, we can reset the MOR Bit"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "DEFAULT_SHA256_BANK_ENABLE"
+    Value  = "02"
+    Help  = " 00h: Disable SHA256 Bank, 02h: Enable SHA256 Bank"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PTTHciSmm_SUPPORT"
+    Value  = "0"
+    Help  = " 1 - Send TPM startup and Selftest before Mem. 0 Send  selftest and Startup After Mem Init"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Fast Boot Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "FAST_BOOT_PCI_SKIP_LIST"
+    Value  = "{{0x01,0xFF},{0x03,0xFF},{0x06,0xFF}, {0x08,0xFF}}"
+    Help  = "(EIP85135)When enabled XHCI support difficult into setup menu in fastboot mode'\{ClassCode,SubClassCode}\{0x01,0xFF}  Storage\{0x02,0xFF}  NetWrok\{0x03,0xFF}  VGA\{0x06,0xFF}  Bridge"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "POST_TIME_TUNING_SUPPORT" "=" "1"
+    Token = "CRB_BOARD" "<=" "2"
+End
+
+TOKEN
+    Name  = "FAST_BOOT_PCI_SKIP_LIST"
+    Value  = "{{0x01,0xFF},{0x03,0xFF},{0x06,0xFF}, {0x08,0xFF}}"
+    Help  = "(EIP85135)When enabled XHCI support difficult into setup menu in fastboot mode'\{ClassCode,SubClassCode}\{0x01,0xFF}  Storage\{0x02,0xFF}  NetWrok\{0x03,0xFF}  VGA\{0x06,0xFF}  Bridge"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "POST_TIME_TUNING_SUPPORT" "=" "1"
+    Token = "CRB_BOARD" "=" "8"
+End
+
+TOKEN
+    Name  = "CONNECT_EVERYTHING_IN_FASTBOOT"
+    Value  = "0"
+    Help  = "Connect all Pci Handles on fastboot path except the Pci class in the FAST_BOOT_PCI_SKIP_LIST"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Memory Down Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "TotalTemporaryRamSize"
+    Value  = "0x80000"
+    Help  = "DO NOT CHANGE THIS VALUE.\Cache-as-RAM physical base location"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+    Token = "INTEL_MMA_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Memory Down Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "MRC_MEMORY_DOWN_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "MRC_MEMORY_DOWN_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "1"
+End
+
+ELINK
+    Name  = "-D MEM_DOWN_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "MRC_MEMORY_DOWN_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "OEM_DQS_MAP_CPU2DRAM_SUPPORT"
+    Value  = "0"
+    Help  = "DQS byte swizzling between CPU and DRAM. Format: {{Channel 0[8]}, {Channel 1[8]}}"
+    TokenType = Boolean
+    Token = "MRC_MEMORY_DOWN_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "OEM_DQS_MAP_CPU2DRAM"
+    Value  = "{{ 0, 1, 3, 2, 4, 5, 6, 7 }, { 1, 0, 4, 5, 2, 3, 6, 7 }}"
+    Help  = "DQS byte swizzling between CPU and DRAM. Format: {{Channel 0[8]}, {Channel 1[8]}}"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "OEM_DQS_MAP_CPU2DRAM_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "OEM_DQ_BYTE_MAP_SUPPORT"
+    Value  = "0"
+    Help  = "DQ byte mapping to CMD/CTL/CLK, from the CPU side. Format: {{Channel 0[6][2]}, {Channel 1[6][2]}}"
+    TokenType = Boolean
+    Token = "MRC_MEMORY_DOWN_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "OEM_DQ_BYTE_MAP"
+    Value  = "{{{ 0x0F, 0xF0 }, { 0x00, 0xF0 }, { 0x0F, 0xF0 }, { 0x0F, 0x00 }, { 0xFF, 0x00 }, { 0xFF, 0x00 }}, {{ 0x33, 0xCC }, { 0x00, 0xCC }, { 0x33, 0xCC }, { 0x33, 0x00 }, { 0xFF, 0x00 }, { 0xFF, 0x00 }}}"
+    Help  = "DQ byte mapping to CMD/CTL/CLK, from the CPU side. Format: {{Channel 0[6][2]}, {Channel 1[6][2]}}"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "OEM_DQ_BYTE_MAP_SUPPORT" "=" "1"  
+End
+
+TOKEN
+    Name  = "NB_OEM_DIMM0_SPD_DATA"
+    Value  = "{0x91, 0x20, 0xF1, 0x03, 0x04, 0x11, 0x05, 0x0B, 0x03, 0x11, 0x01, 0x08, 0x0A, 0x00, 0x50, 0x01, 0x78, 0x78, 0x90, 0x50, 0x90, 0x11, 0x50, 0xE0, 0x10, 0x04, 0x3C, 0x3C, 0x01, 0x90, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xA8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}"
+    Help  = "SPD data {0-511} = {Offset0, Offset1, Offset2, Offset3, ....}, {0} = Slot not support."
+    TokenType = Expression
+    TargetH = Yes
+    Range  = "{0-511}"
+    Token = "MRC_MEMORY_DOWN_SUPPORT" "=" "1"    
+End
+
+TOKEN
+    Name  = "NB_OEM_DIMM1_SPD_DATA"
+    Value  = "{0}"
+    Help  = "SPD data {0-511} = {Offset0, Offset1, Offset2, Offset3, ....}, {0} = Slot not support."
+    TokenType = Expression
+    TargetH = Yes
+    Range  = "{0-511}"
+    Token = "MRC_MEMORY_DOWN_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "NB_OEM_DIMM2_SPD_DATA"
+    Value  = "{0x91, 0x20, 0xF1, 0x03, 0x04, 0x11, 0x05, 0x0B, 0x03, 0x11, 0x01, 0x08, 0x0A, 0x00, 0x50, 0x01, 0x78, 0x78, 0x90, 0x50, 0x90, 0x11, 0x50, 0xE0, 0x10, 0x04, 0x3C, 0x3C, 0x01, 0x90, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xA8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}"
+    Help  = "SPD data {0-511} = {Offset0, Offset1, Offset2, Offset3, ....}, {0} = Slot not support."
+    TokenType = Expression
+    TargetH = Yes
+    Range  = "{0-511}"
+    Token = "MRC_MEMORY_DOWN_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "NB_OEM_DIMM3_SPD_DATA"
+    Value  = "{0}"
+    Help  = "SPD data {0-511} = {Offset0, Offset1, Offset2, Offset3, ....}, {0} = Slot not support."
+    TokenType = Expression
+    TargetH = Yes
+    Range  = "{0-511}"
+    Token = "MRC_MEMORY_DOWN_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "OEM_RCOMP_SUPPORT"
+    Value  = "0"
+    Help  = "Support RCOMP data passing for Memory Down Device."
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "MRC_MEMORY_DOWN_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "NB_OEM_RCOMP_RESISTOR"
+    Value  = "{0}"
+    Help  = "Reference RCOMP resistors on motherboard. Format: {Offset0, Offset1, Offset2}"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "NB_OEM_RCOMP_RESISTOR"
+    Value  = "{ 200, 81, 162 }"
+    Help  = "Reference RCOMP resistors on motherboard. Format: {Offset0, Offset1, Offset2}"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "OEM_RCOMP_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "NB_OEM_RCOMP_TARGET"
+    Value  = "{0}"
+    Help  = "RCOMP target values for RdOdt, WrDS, WrDSCmd, WrDSCtl, WrDSClk. Format: {RdOdt, WrDS, WrDSCmd, WrDSCtl, WrDSClk}"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "NB_OEM_RCOMP_TARGET"
+    Value  = "{ 100, 40, 20, 20, 26 }"
+    Help  = "RCOMP target values for RdOdt, WrDS, WrDSCmd, WrDSCtl, WrDSClk. Format: {RdOdt, WrDS, WrDSCmd, WrDSCtl, WrDSClk}"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "OEM_RCOMP_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== TCG2 Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "DONT_SEND_SELFTEST_TILL_READY_TO_BOOT"
+    Value  = "0"
+    Help  = "Main token TCG send selftest on ready to boot"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== KbcEmulation Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "KBCTIMEOUT"
+    Value  = "0xFFFF"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "EMUL6064_SUPPORT" "=" "1"
+End
+
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== SIO Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "CRB_SIO_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "CRB_SIO_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "SIO_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name = "NO_SIO_SUPPORT"
+    Value = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name = "NO_SIO_SUPPORT"
+    Value = "0"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "SIO_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "SioStaticSetup_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable StaticSIO Setup support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Token = "NO_SIO_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "DEBUG_COM_PORT_ADDR"
+    Value  = "0x3F8"
+    Help  = "Debug Address from Serial Port x."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "VIRTUAL_SERIAL_DEVICE1_BASE_ADDRESS"
+    Value  = "0x0"
+    Help  = "Virtual Serial Device 1 Base Address."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "VIRTUAL_SERIAL_DEVICE1_IRQ"
+    Value  = "0"
+    Help  = "Virtual Serial Device 1 IRQ."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "GenericSio_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable AMI Generic SIO support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SioBdsPlugin_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable SioBdsPlugin support in Project"
+    TokenType = Boolean
+    Token = "NO_SIO_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Legacy Serial Redirection Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "UART_POLLING_REDIRECTION"
+    Value  = "1"
+    Help  = "Use polling method redirection to send and receive data from COM Port"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== CRB Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "CRB_SWSMI"
+    Value  = "0xBF"
+    Help  = "Value to write into SMI command register to generate software SMI for CRB"
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0 - 0xff"
+End
+
+TOKEN
+    Name  = "KBC_SUPPORT"
+    Value  = "1"
+    Help  = "Enable/Disable KBC support"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_EC_SUPPORT" "=" "1"    
+End
+
+TOKEN
+    Name  = "USB_RUNTIME_DRIVER_IN_SMM"
+    Value  = "2"
+    Help  = "0 - Native UEFI USB driver.\1 - SMM based USB driver.\2 - Hybrid SMM based and Native UEFI USB drivers."
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "EMUL6064_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable KBC Emulation support in Project"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "USB_RUNTIME_DRIVER_IN_SMM" "!=" "0"     
+End
+
+TOKEN
+    Name  = "DEFAULT_USB_EMUL6064_OPTION"
+    Value  = "0"
+    Help  = "Default value of the I/O port 60h/64h emulation support option"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "INTEL_LEGACY_USB_KBC_EMUL_CONTROL_REG_PCI_DEVICES"
+    Value = "{0xF8, 0x00, 0x01, 0x06, 0x94}"
+    Help  = "List of supported Legacy USB Control register PCI devices in the following format: {dev1, ITF, SCC, BCC, offset}, {dev2, ITF, SCC, BCC, offset},...,{devN, ITF, SCC, BCC, offset}\dev represents the location of Legacy USB control register PCI device on PCI bus: dev = Bus << 8 + Dev << 3 + Func.\ITF represents the interface type of PCI device, for UHCI it must be 0.\SCC represents the sub class code of PCI device, for UHCI it must be 0x03.\BCC represents the base class code of PCI device, for UHCI it must be 0x0C.\offset represents the offset of legacy usb control register, for UHCI it must be 0xC0."
+    TokenType = Expression
+    TargetH = Yes
+    Token = "UHCI_EMUL_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "PEI_XHCI_MMIOBASE"
+    Value  = "0xFE800000"
+    Help  = "MMIO Base Address for first XHCI Controller during PEI phase"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "INCLUDE_CRB_ASM_FILE_IN_SEC"
+    Value  = "1"
+    Help  = "Includes an ASM file and an eLink in SEC build process for CRB code modification."
+    TokenType = Boolean
+End
+
+ELINK
+    Name  = "SECCRB_EarlyInit"
+    Parent  = "SecPlatformLibEntry"
+    Help  = "CRB Early Init in SEC (before Cache as memory enabling)"   
+    Token = "INCLUDE_CRB_ASM_FILE_IN_SEC" "=" "1"    
+    InvokeOrder = AfterParent
+End
+
+TOKEN
+    Name  = "CRB_HDA_VERB_TABLE_PRESENT"
+    Value  = "1"
+    Help  = "0 = Remove all CRB verb tables.\1 = Build up CRB verb tables.\WARNING: Veb might building error if verb table is not exist."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "EXECUTEVBIOS"
+    Value  = "0"
+    Help  = "0 = Do no execute\1 = Execute the secondary display device VBIOS (only if LoadVbios == 1)"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdSkylakeA0Rvp3"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "0"    
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdSkylakeULpddr3Rvp5"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "1"    
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdSkylakeURvp7"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "2"    
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdSkylakeDtRvp8Crb"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "3"    
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdSkylakeAioRvp9Crb"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "4"
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdSkylakeAioRvp10Crb"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "5"
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdZumbaBeachServerEV"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "6"
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdSkylakeHaloDdr4Rvp11"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "7"
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdSkylakeURvp15"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "8"
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdSkylakeDtRvp8Crb"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "9"
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdKabylakeRDdr4"
+    Help  = "KBL-Refresh U CRB Board ID"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "CRB_BOARD" "=" "11"
+End
+
+ELINK
+    Name  = "{{0x8086, 0x2809, 0xFF, 0xFF, 14}, OemHdaVerbTableDisplayAudio},"
+    Parent  = "OEM_HDA_VERB_TABLE"
+    Help  = "CRB HDA Verb Table"
+    InvokeOrder = AfterParent
+    Token = "INTEL_DISPLAY_AUDIO_VERB_TABLE_SUPPORT" "=" "1"    
+End
+
+ELINK
+    Name  = "{{0x10EC, 0x0888, 0xFF, 0xFF, 52}, OemHdaVerbTblSample},"
+    Parent  = "OEM_HDA_VERB_TABLE"
+    Help  = "CRB HDA Verb Table"
+    Token = "CRB_HDA_VERB_TABLE_PRESENT" "=" "1"
+    Token = "CRB_EC_SUPPORT" "=" "0"
+    InvokeOrder = AfterParent
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+PATH
+    Name  = "CRB_DIR"
+End
+
+MODULE
+    Help  = "Includes Crb.mak to Project"
+    File  = "Crb.mak"
+End
+
+ELINK
+    Name  = "$(CRB_DIR)/Library/CrbLib/CrbLib.c"
+    Parent  = "AMI_CSP_PEI_SOURCES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(CRB_DIR)/Library/CrbLib/CrbLib.c"
+    Parent  = "AMI_CSP_DXE_SOURCES"
+    InvokeOrder = AfterParent
+End
+
+#
+# This protocol is used in CsmSetup.c, it should be added in CSM module.
+#
+ELINK
+    Name  = "gEfiPciIoProtocolGuid"
+    Parent  = "AdditionalSetupProtocols"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "KabylakeSiliconPkg/SiPkg.dec"
+    Parent  = "AdditionalSetupPackages"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ClientCommonPkg/ClientCommonPkg.dec"
+    Parent  = "AdditionalSetupPackages"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "CrbSaSetupCallbacks,"
+    Parent  = "NbConfigurationList"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "CrbUsbOverCurrentPinSetupCallbacks,"
+    Parent  = "SbConfigurationList"
+    InvokeOrder = AfterParent
+    TOKEN = "USB_OVERCURRENT_PIN_OVERRIDE_USE_ELINK" "=" "1"
+End
+
+ELINK
+    Name  = "CrbPchPolicyUpdateCallBack,"
+    Parent  = "OemPchPolicyCallbackList"
+    InvokeOrder = AfterParent
+End
+
+#
+# Elink include path to platform.dec
+#
+ELINK
+    Name  = "$(PLATFORM_RC_PACKAGE)"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name = "$(PLATFORM_RC_PACKAGE)/Include"
+    Parent = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PLATFORM_RC_PACKAGE)/Me"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PLATFORM_RC_PACKAGE)/Me/Library"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PLATFORM_RC_PACKAGE)/Pch"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PLATFORM_RC_PACKAGE)/Pch/Include"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PLATFORM_RC_PACKAGE)/SystemAgent/Include"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PLATFORM_RC_PACKAGE)/SystemAgent"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PLATFORM_RC_PACKAGE)/Cpu"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PLATFORM_RC_PACKAGE)/Cpu/Include"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PLATFORM_RC_PACKAGE)/Wrapper/Include"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+#ELINK
+#    Name  = "*_*_*_DLINK_FLAGS"
+#    Type  = "BuildOptions"
+#    Arch  = "common.EDKII.DXE_RUNTIME_DRIVER"
+#    InvokeOrder = ReplaceParent
+#    OutDSC = Yes
+#End
+
+#Override the iasl path defined in CommonDef.txt
+ELINK
+    Name  = "*_*_*_ASL_PATH"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    OutDSC = Yes
+End
+
+#
+# INF and Library
+#
+INFComponent
+    Name  = "CrbPei"
+    File  = "Pei/CrbPei.inf"
+    Package  = "SkyBayPkg"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "CrbDxe"
+    File  = "Dxe/CrbDxe.inf"
+    Package  = "SkyBayPkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "CrbSmi"
+    File  = "Smm/CrbSmi.inf"
+    Package  = "SkyBayPkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+INFComponent
+    Name  = "CrbSecLib"
+    File  = "Library/CrbSecLib/CrbSecLib.inf"
+    Package  = "SkyBayPkg"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "SkyBayPkg.CrbSecLib"
+    Override  = "AmiCpuModulePkg.SecCore"
+End
+
+#INFComponent
+#	Name  = "AfterMemoryDummyDriver"
+#	File  = "Pei/AfterMemoryDummyDriver/AfterMemoryDummyDriver.inf"
+#	Package  = "SkyBayPkg"
+#	ModuleTypes  = "PEIM"
+#End
+
+INFComponent
+    Name  = "BaseSerialPortLib16550"
+    File  = "../MdeModulePkg/Library/BaseSerialPortLib16550/BaseSerialPortLib16550.inf"
+    Package  = "MdeModulePkg"
+End
+
+LibraryMapping
+    Class  = "SerialPortLib"
+    Instance  = "MdeModulePkg.BaseSerialPortLib16550"
+    Token = "SERIAL_DEBUGGER_SUPPORT" "=" "1"
+    Token = "DEBUG_MESSAGES_INTERFACE" "=" "0"
+End
+
+LibraryMapping
+    Class  = "SerialPortLib"
+    Instance  = "MdeModulePkg.BaseSerialPortLib16550"
+    Token = "SerialRecovery_SUPPORT" "=" "1"
+    Token = "DEBUG_MESSAGES_INTERFACE" "=" "0"
+End
+
+INFComponent
+    Name  = "BaseDebugLibNull"
+    File  = "../MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf"
+    Package  = "MdePkg"
+End
+
+LibraryMapping
+    Class  = "DebugLib"
+    Instance  = "MdePkg.BaseDebugLibNull"
+    ModuleTypes  = "SEC"
+End
+
+INFComponent
+    Name  = "PciRootBridge"
+    File  = "PciRootBridge.inf"
+    Package  = "AmiModulePkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Disable = Yes
+End
+
+INFComponent
+    Name  = "DsdtAsl"
+    File  = "DsdtAsl.inf"
+    Package  = "AmiModulePkg"
+    PreProcess = Yes
+    ModuleTypes  = "USER_DEFINED"
+    Token = "DSDT_BUILD" "=" "1"
+    Disable = Yes
+    Lock = Yes  
+End
+
+INFComponent
+    Name  = "BootScriptSaveOnS3SaveStateThunk"
+    File  = "BootScriptSaveOnS3SaveStateThunk.inf"
+    Package  = "EdkCompatibilityPkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Path  = "BootScriptSaveOnS3SaveStateThunk_DIR"
+    Disable = Yes    
+End
+
+INFComponent
+    Name  = "PiSmmCommunciationPei"
+    File  = "PiSmmCommunication\PiSmmCommunicationPei.inf"
+    Package  = "UefiCpuPkg"
+    ModuleTypes  = "PEIM"
+    Path  = "UEFI_CPU_PKG_DIR"    
+    Token = "SMM_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "PiSmmCommunicationSmm"
+    File  = "PiSmmCommunication\PiSmmCommunicationSmm.inf"
+    Package  = "UefiCpuPkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+    Path  = "UEFI_CPU_PKG_DIR"        
+    Token = "SMM_SUPPORT" "=" "1"
+End
+
+#
+# Pcd Setting
+#
+PcdMapping
+    Name  = "PcdFwStsSmbiosType"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0xDB"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdFwStsSmbiosType"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsPatchableInModule"
+    Value  = "0xDB"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdFviSmbiosType"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0xDD"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdDebugPropertyMask"
+    GuidSpace  = "gEfiMdePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x00"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+    Token = "DEBUG_MODE" "=" "0"
+End
+
+PcdMapping
+    Name  = "PcdDebugPropertyMask"
+    GuidSpace  = "gEfiMdePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x27"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+    Token = "DEBUG_MODE" "=" "1"
+End
+
+
+PcdMapping
+    Name  = "PcdDebugPrintErrorLevel"
+    GuidSpace  = "gEfiMdePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x80000044"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdSerialRegisterBase"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "$(DEBUG_COM_PORT_ADDR)"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdPeiCoreMaxPeimPerFv"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "96"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdPeiCoreMaxPpiSupported"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "160"
+    Arch  = "IA32"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdPeiCoreMaxFvSupported"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "12"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdPeiCoreMaxPeiStackSize"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "UINT32"
+    Value  = "0x40000"
+    Offset  = 00h
+    Length  = 04h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdFrameworkCompatibilitySupport"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsFeatureFlag"
+    DataType  = "Boolean"
+    Value  = "TRUE"
+    Offset  = 00h
+    Length  = 01h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdMaxPeiPerformanceLogEntries"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "UINT8"
+    Value  = "255"
+    Offset  = 00h
+    Length  = 01h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdCpuSmmApSyncTimeout"
+    GuidSpace  = "gUefiCpuPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "10000"
+    VarName  = "PcdCpuSmmApSyncTimeout"
+    VarGuid  = "gPlatformModuleTokenSpaceGuid"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdCpuSmmStackSize"
+    GuidSpace  = "gUefiCpuPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x20000"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdUseNewImageOnFlashUpdate"
+    GuidSpace  = "gAmiModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "BOOLEAN"
+    Value  = "FALSE"
+    Offset  = 00h
+    Length  = 01h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdRecoveryImageName"
+    GuidSpace  = "gAmiModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "Pointer"
+    Value  = "$(CRB_RECOVERY_BIN_STRING)"
+    Offset  = 00h
+    Length  = 01ah
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdSerialRegisterBase"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsPatchableInModule"
+    Value  = "$(DEBUG_COM_PORT_ADDR)"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+    Token = "SerialRecovery_SUPPORT" "=" "1"
+End
+
+PcdMapping
+    Name  = "PcdSerialRegisterBase"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsPatchableInModule"
+    Value  = "$(DEBUG_COM_PORT_ADDR)"
+    Offset  = 00h
+    Length  = 00h
+    TargetDSC = Yes
+    Override = "AmiModulePkg.SerialRecovery"
+    Disable = Yes
+    Token = "SerialRecovery_SUPPORT" "=" "1"
+End
+
+PcdMapping
+    Name  = "PcdFlashBiosGuardModuleFvBase"
+    GuidSpace  = "gPlatformModuleTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "UINT32"
+    Value  = "$(FV_BB_BASE)"
+    Offset  = 00h
+    Length  = 04h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdFlashFvRecoveryBase"
+    GuidSpace  = "gPlatformModuleTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "Uint32"
+    Value  = "$(FV_BB_BASE)"
+    Offset  = 00h
+    Length  = 04h
+    TargetDSC = Yes
+    Token = "FSP_WRAPPER_ENABLE" "=" "0"
+End
+
+PcdMapping
+    Name  = "PcdFlashAreaBaseAddress"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "Uint32"
+    Value  = "$(FLASH_ADDRESS)"
+    Offset  = 00h
+    Length  = 04h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdFlashAreaSize"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "Uint32"
+    Value  = "$(FLASH_SIZE)"
+    Offset  = 00h
+    Length  = 04h
+    TargetDSC = Yes
+End
+
+#
+# Apriori Setting
+#
+FFS_FILE
+    Name  = "CpuIoPei"
+    FD_AREA  = "FV_BB"
+    INFComponent  = "UefiCpuPkg.CpuIoPei"
+    Apriori_Index  = "1"
+End
+
+FFS_FILE
+    Name  = "CpuIo2Dxe"
+    FD_AREA  = "FV_Main"
+    INFComponent  = "UefiCpuPkg.CpuIo2Dxe"
+    Apriori_Index  = "1"
+End
+
+FFS_FILE
+    Name  = "PcatSingleSegmentPciCfg2Pei"
+    FD_AREA  = "FV_BB"
+    INFComponent  = "MdeModulePkg.PcatSingleSegmentPciCfg2Pei"
+    Apriori_Index  = "1"
+End
+
+FFS_FILE
+    Name  = "CrbDxe"
+    FD_AREA  = "FV_Main"
+    INFComponent  = "SkyBayPkg.CrbDxe"
+    Apriori_Index  = "3"
+End
+
+TOKEN
+    Name  = "A_S1"
+    Value  = "0"
+    Help  = "S1 Sleep state enabled in BIOS"
+    TokenType = Boolean
+    TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "BEEP_ENABLE"
+	Value  = "0"
+	Help  = "This flag enables/disables all firmware beeps"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "ALWAYS_PUBLISH_HII_RESOURCES"
+	Value  = "0"
+	Help  = "This token controls loading of the Setup related HII resources \(setup screens and strings). If this token is ．0・, setup resources are \only published into HII database if the user enters setup. If \this token is ．1・, setup resources are always published into the HiiDatabase. Keep it off for speed \optimization.  Set it to on if Runtime resources processing support is required."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IntelGraphicsPeim_RC_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable IntelGraphicsPeim support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IntelGraphicsPeimVbt_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable IntelGraphicsPeimVbt support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "FSP_WRAPPER_ENABLE" "=" "1"    
+End
+
+TOKEN
+    Name  = "FD_AREA_FV_BB_AFTER_MEMORY_OFFSET"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE)"
+    Help  = "Size of the FV_DATA"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+FD_AREA
+    Name  = "FV_BB_AFTER_MEMORY"
+    TYPE  = "FV"
+    FD_INFO  = "AMIROM"
+    Offset  = "$(FD_AREA_FV_BB_AFTER_MEMORY_OFFSET)"
+    Size  = "$(FV_BB_AFTER_MEMORY_SIZE)"
+    Layout_Attribute  = "0xd89"
+    Attributes  = "0xffff"
+    Alignment  = "16"
+    Guid  = "14E428FA-1A12-4875-B637-8B3CC87FDF07"
+End
+
+FD_AREA
+    Name  = "FV_BB_AFTER_MEMORY"
+    TYPE  = "FV"
+    FD_INFO  = "AMIROM"
+    Offset  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_FSP_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE)"
+    Size  = "$(FV_BB_AFTER_MEMORY_SIZE)"
+    Layout_Attribute  = "0xd89"
+    Attributes  = "0xffff"
+    Alignment  = "16"
+    Guid  = "14E428FA-1A12-4875-B637-8B3CC87FDF07"
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_DATA_SIZE"
+    Value  = "0xD0000"
+    Help  = "Size of the FV_DATA"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FV_DATA_SIZE"
+    Value  = "0xC0000"
+    Help  = "Size of the FV_DATA"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "DEBUG_MODE" "=" "1"
+    Token = "USB_3_DEBUG_SUPPORT" "=" "1"    
+End
+
+FD_AREA
+    Name  = "FV_DATA"
+    TYPE  = "FV"
+    FD_INFO  = "AMIROM"
+    Offset  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_DATA_SIZE)"
+    Size  = "$(FV_DATA_SIZE)"
+    Alignment  = "16"
+    Guid  = "AFDD39F1-19D7-4501-A730-CE5A27E1154B"
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+FD_AREA
+    Name  = "FV_DATA"
+    TYPE  = "FV"
+    FD_INFO  = "AMIROM"
+    Offset  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_FSP_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_DATA_SIZE)"
+    Size  = "$(FV_DATA_SIZE)"
+    Alignment  = "16"
+    Guid  = "AFDD39F1-19D7-4501-A730-CE5A27E1154B"
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_DATA_BASE"
+    Value  = "$(FV_BB_AFTER_MEMORY_BASE) - $(FV_DATA_SIZE)"
+    Help  = "Base Address of the FV_DATA"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "====== BcpBootOrder Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "BCP_DEFAULT_BOOT_ORDER"
+    Value = "BCP_USB_FDD,BCP_USB_HDD,BCP_PM_HDD,BCP_PS_HDD,BCP_SM_HDD,BCP_SS_HDD,BCP_SATA0_HDD,BCP_SATA1_HDD,BCP_SATA2_HDD,BCP_SATA3_HDD,BCP_SATA4_HDD,BCP_SATA5_HDD,BCP_SATA6_HDD,BCP_SATA7_HDD,BCP_PM_CD,BCP_PS_CD,BCP_SM_CD,BCP_SS_CD,BCP_SATA0_CD,BCP_SATA1_CD,BCP_SATA2_CD,BCP_SATA3_CD,BCP_SATA4_CD,BCP_SATA5_CD,BCP_SATA6_CD,BCP_SATA7_CD,BCP_USB_CD,BCP_EMBEDDED_NETWORK,BCP_UEFI_USB,BCP_UEFI_HDD,BCP_UEFI_CD,BCP_UEFI_NETWORK,BCP_UEFI_FDD,BCP_UEFI_EMBEDDED_SHELL"
+    Help  = "This is default BCP Boot Order /To add support for UEFI Boot Options refer to the BCP Boot Order Porting Guide for details"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "BcpBootOrder_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "====== NVRAM Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "====== SgTpv Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "SgTpv_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+    Help  = "Main switch to enable SwitchableGraphics TPV support in Project"
+    Token = "FSP_WRAPPER_ENABLE" "=" "1" 
+End
+
+TOKEN
+    Name  = "====== BiosGuard Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+        Name  = "FV_BBStartingAddress"
+        Help  = "ROM address"
+        Value  = "$(FV_BB_AFTER_MEMORY_BASE) - $(BIOS_GUARD_FLASH_START_ADDRESS)"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "BiosGuard_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "FV_BBLength"
+        Help  = "ROM address"
+        Value  = "$(FV_BB_SIZE) + $(FV_BB_AFTER_MEMORY_SIZE) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "BiosGuard_SUPPORT" "=" "1"
+        Token = "FSP_WRAPPER_ENABLE" "=" "0"
+End
+
+TOKEN
+        Name  = "FV_BBLength"
+        Help  = "ROM address"
+        Value  = "$(FV_BB_SIZE) + $(FV_FSP_SIZE) + $(FV_BB_AFTER_MEMORY_SIZE) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "BiosGuard_SUPPORT" "=" "1"
+        Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+ELINK
+        Name   = "AppendFvBBAfterMemoryToAFU,"
+        Parent = "SMIFlashEndHandlerList"
+        InvokeOrder = AfterParent
+        Token = "SMIFlash_SUPPORT" "=" "1"
+End
+
+#ELINK
+#        Name   = "FV_BB_AFTER_MEMORY_BASE,"
+#        Parent = "PeiRamBootFvBootBlockList"
+#        InvokeOrder = AfterParent
+#        Token = "PeiRamBootSupport" "=" "1"
+#End
+
+FFS_FILE
+    Name  = "BiosAcmFdfFileStatement"
+    FD_AREA  = "FV_DATA"
+    FILE_Stmt  = "AmiCpuModulePkg/Pei/AmiTxtPei/BiosAcm/BiosAcmFdfFileStatement.txt"
+    Token = "BiosAcm_SUPPORT" "=" "1"
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "====== Platform.fdf layout of FV_BB_AFTER_MEMORY_SUPPORT ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "****** Don't change them ******"
+    TokenType = Expression
+End
+
+FFS_FILE
+    Name  = "PlatformInit"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "KabylakePlatSamplePkg.PlatformInit"
+    Token = "PlatformInit_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "CpuPeiBoard"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiCpuModulePkg.CpuPeiBoard"
+    Index  = '"BEFORE" "PlatformInit"'
+    Token = "CpuPei_Support" "=" "1"
+End
+
+FFS_FILE
+    Name  = "CpuPeiBoard"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiCpuModulePkg.CpuPeiBoard"
+    Index  = '"BEFORE" "BiosGuardCpuPolicyOverride"'
+    Token = "BiosGuard_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "BiosGuardCpuPolicyOverride"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiChipsetModulePkg.BiosGuardCpuPolicyOverride"
+    Index  = '"BEFORE" "PlatformInit"'
+    Token = "BiosGuard_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "S3Resume2Pei"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "UefiCpuPkg.S3Resume2Pei"
+End
+
+FFS_FILE
+    Name  = "DxeIpl"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "MdeModulePkg.DxeIpl"
+End
+
+FFS_FILE
+    Name  = "AcpiVariableHobOnSmramReserveHob"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiCpuModulePkg.AcpiVariableHobOnSmramReserveHob"
+    Token = "EdkCompatibilityPkg_SUPPORT" "=" "0"   
+End
+
+FFS_FILE
+    Name  = "PeiOverClock"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "KabylakePlatSamplePkg.PeiOverClock"
+    Token = "OVER_CLOCK_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "AmiPeiCreateDummyRcHob"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "KabylakePlatSamplePkg.AmiPeiCreateDummyRcHob"
+    Token = "AmiRecoveryRcHobResume_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "CpuMpPei"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "KabylakeSiliconPkg.CpuMpPei"
+    Token = "FSP_WRAPPER_ENABLE" "=" "0"     
+End
+
+FFS_FILE
+    Name  = "SiInit"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "KabylakeSiliconPkg.SiInit"
+    Token = "SI_INIT_RC_SUPPORT" "=" "1"
+    Token = "FSP_WRAPPER_ENABLE" "=" "0"    
+End
+
+FFS_FILE
+    Name  = "CpuS3Pei"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiCpuModulePkg.CpuS3Pei"
+    Token = "IA32FamilyCpuPkg_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "TcgPei"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.TcgPei"
+    Token = "TCG2Support" "=" "1"
+End
+
+FFS_FILE
+    Name  = "TrEEPei"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.TrEEPei"
+    Token = "TCG2Support" "=" "1"
+End
+
+FFS_FILE
+    Name  = "AmiTpm20PlatformPei"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.AmiTpm20PlatformPei"
+    Token = "TCG2Support" "=" "1"
+End
+
+FFS_FILE
+    Name  = "CryptoPPI"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiCryptoPkg.CryptoPPI"
+    Rule_Override  = "Compressed"
+    Token = "CORE_BUILD_NUMBER" ">" "6"
+    Token = "CryptoProtocols_SUPPORT" "=" "1"     
+End
+
+#FFS_FILE
+#    Name  = "PeiRamBootCacheRdy"
+#    FD_AREA  = "FV_BB_AFTER_MEMORY"
+#    INFComponent  = "AmiModulePkg.PeiRamBootCacheRdy"
+#    Token = "PeiRamBootSupport" "=" "1"
+#End
+
+#FFS_FILE
+#    Name  = "PeiRamBootCacheRdy"
+#    FD_AREA  = "FV_BB_AFTER_MEMORY"
+#    INFComponent  = "AmiModulePkg.PeiRamBootCacheRdy"
+#    Rule_Override  = "Compressed"
+#    Token = "COPY_TO_RAM_WHILE_DISPATCH" "=" "1"
+#    Token = "PeiRamBootSupport" "=" "1"
+#End
+
+FFS_FILE
+    Name  = "UsbPei"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.UsbPei"
+    Rule_Override  = "Compressed"
+    Token = "USBPEI_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "AmiTcgPlatformPeiAfterMem"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.AmiTcgPlatformPeiAfterMem"
+    Token = "TCG2Support" "=" "1"
+End
+
+FFS_FILE
+    Name  = "AmiTcgPlatformPeiBeforeMem"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.AmiTcgPlatformPeiBeforeMem"
+    Token = "TCG2Support" "=" "1"
+End
+
+FFS_FILE
+    Name  = "TcgPeiplatform"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.TcgPeiplatform"
+    Token = "TCG2Support" "=" "1"
+End
+
+FFS_FILE
+    Name  = "PiSmmCommunciationPei"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "UefiCpuPkg.PiSmmCommunciationPei"
+    Token = "SMM_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "AhciRecovery"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.AhciRecovery"
+    Token = "FsRecovery_SUPPORT" "=" "1"
+    Token = "AhciRecovery_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "Recovery"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.Recovery"
+    Rule_Override  = "Compressed"
+    Token = "Recovery_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "FsRecovery"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.FsRecovery"
+    Rule_Override  = "Compressed"
+    Token = "FsRecovery_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "SerialRecovery"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.SerialRecovery"
+    Rule_Override  = "Compressed"
+    Token = "SerialRecovery_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "NvmeRecovery"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.NvmeRecovery"
+    Token = "FsRecovery_SUPPORT" "=" "1"
+    Token = "NvmeRecovery_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "SdioRecovery"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiModulePkg.SdioRecovery"
+    Token = "SDIO_DRIVER_SUPPORT" "=" "1"
+    Token = "SdioRecovery_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "BiosGuardRecovery"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "AmiChipsetModulePkg.BiosGuardRecovery"
+    Token = "BIOS_GUARD_RECOVERY_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+   Name  = "BiosGuardBinary"
+   FD_AREA  = "FV_BB"
+   FILE_Stmt  = "AmiChipsetModulePkg/BiosGuard/BiosGuardBinary/BiosGuardBinary_FdfFileStatement.txt"
+   Index  = '"BEFORE" "AnCACM"'
+   Token = "BiosGuard_SUPPORT" "=" "1"
+   Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "====== ThunderBolt Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "TBT_UP_PORT_DEV"
+    Value  = "0x1C"
+    Help  = "Thunderbolt Host Router Upstream Port Device Number."
+    TokenType = Integer
+    TargetH = Yes
+    Token = "Thunderbolt_SUPPORT" "=" "1"
+    Token = "CRB_BOARD" "=" "11"
+End
+
+TOKEN
+    Name  = "SGOEMSSDT_SUPPORT"
+    Value  = "1"
+    Help  = "Add an OEM SSDT for discrete VGA card. When Primarydisplay = Auto or PEG, the system can report OEM SSDT talbes for AMD or nVidia dGPU VGA card."
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "TBT_DETACHABLE_GFX_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "SGOEMSSDT_ATI_SUPPORT"
+    Value  = "1"
+    Help  = " This token is for ATI detachable graphics feature. It will always Install this ACPI table.And Set primary disaply to IGD."
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "TBT_DETACHABLE_GFX_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "====== Intel Trace Hub Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name = "TRACE_HUB_STATUS_CODE_SUPPORT"
+    Value = "0"
+    Help  = "Enables/Disables Trace Hub Status Code support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "SERIAL_DEBUGGER_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== SMBIOS_DMIEDIT_DATA_LOC = 1 Rom Layout ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "FV_SMBIOS_BASE"
+    Value  = "$(FV_BB_AFTER_MEMORY_BASE) - $(FV_SMBIOS_SIZE)"
+    Help  = "Smbios FV Base Address"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "SMBIOS_DMIEDIT_DATA_LOC" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_SMBIOS_BASE"
+    Value  = "$(FV_BB_AFTER_MEMORY_BASE) - $(FV_DATA_SIZE) - $(FV_SMBIOS_SIZE)"
+    Help  = "Smbios FV Base Address"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+    Token = "SMBIOS_DMIEDIT_DATA_LOC" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_SMBIOS_OFFSET"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_SMBIOS_SIZE)"
+    Help  = "Smbios FV Offset"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "SMBIOS_DMIEDIT_DATA_LOC" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_SMBIOS_OFFSET"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_DATA_SIZE) - $(FV_SMBIOS_SIZE)"
+    Help  = "Smbios FV Offset"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+    Token = "SMBIOS_DMIEDIT_DATA_LOC" "=" "1"
+End
+
+
+TOKEN
+    Name  = "FV_MAIN_SIZE"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_SMBIOS_SIZE) - $(FV_MAIN_OFFSET)"
+    Help  = "Size of the FV_MAIN area"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "SMBIOS_DMIEDIT_DATA_LOC" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_MAIN_SIZE"
+    Value  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) - $(FV_DATA_SIZE) - $(FV_SMBIOS_SIZE) - $(FV_MAIN_OFFSET)"
+    Help  = "Size of the FV_MAIN area"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+    Token = "SMBIOS_DMIEDIT_DATA_LOC" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Firmware Guid for ESRT table ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "OEM_ESRT_FIRMWARE_GUID"
+    Value = "{0x00000000, 0x0000, 0x0000, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}}"
+    Help  = "This is an invalid GUID, it can't be used for Windows Logo certification.\IT MUST BE CLONED TO OEM/ODM PROJECT AND UPDATE IT!"
+    TokenType = Expression
+    TargetH = Yes
+    Range  = "GUID"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Bios Acm Version ======"
+    TokenType = Expression
+End
+
+TOKEN
+	Name  = "BiosAc_Version"
+	Value  = "2"
+	Help  = "Selection of BIOS AC version. 0:Debug version\1:Production Npw version\2:Production version."
+	TokenType = Integer
+	TargetMAK = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Smbus settings ======"
+    TokenType = Expression
+End
+
+LibraryMapping
+    Class  = "SmbusLib"
+    Instance  = "AmiChipsetModulePkg.SbSmbusLib"
+    Override  = "MdeModulePkg.BootScriptExecutorDxe"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "====== Source level debug settings ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "RELEASE_MODE_SYMBOL_SUPPORT"
+    Value  = "0"
+    Help  = "Support source level debug (PDB files) in release mode"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "RELEASE_MODE_SYMBOL_SUPPORT"
+    Value  = "0"
+    Help  = "Support source level debug (PDB files) in release mode"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "DEBUG_MODE" "=" "1"
+End
+
+ELINK
+    Name  = "/Zi"
+    Parent  = "MSFT:*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    Token = "RELEASE_MODE_SYMBOL_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "/Zi"
+    Parent  = "MSFT:*_*_*_ASM_FLAGS"
+    Type  = "BuildOptions"
+    Token = "RELEASE_MODE_SYMBOL_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "/DEBUG /PDB:$(DEBUG_DIR)/$(BASE_NAME).pdb"
+    Parent  = "MSFT:*_*_IA32_DLINK_FLAGS"
+    Type  = "BuildOptions"
+    Token = "RELEASE_MODE_SYMBOL_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "/DEBUG"
+    Parent  = "MSFT:*_*_X64_DLINK_FLAGS"
+    Type  = "BuildOptions"
+    Token = "RELEASE_MODE_SYMBOL_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "MSFT:*_*_X64_DLINK_FLAGS"
+    Type  = "BuildOptions"
+    Token = "RELEASE_MODE_SYMBOL_SUPPORT" "=" "1"
+    InvokeOrder = ReplaceParent
+    OutDSC = Yes
+End
+
+ELINK
+    Name  = "MSFT:*_*_IA32_DLINK_FLAGS"
+    Type  = "BuildOptions"
+    Token = "RELEASE_MODE_SYMBOL_SUPPORT" "=" "1"
+    InvokeOrder = ReplaceParent
+    OutDSC = Yes
+End
+
+ELINK
+    Name  = "MSFT:*_*_*_ASM_FLAGS"
+    Type  = "BuildOptions"
+    Token = "RELEASE_MODE_SYMBOL_SUPPORT" "=" "1"
+    InvokeOrder = ReplaceParent
+    OutDSC = Yes
+End
+
+ELINK
+    Name  = "MSFT:*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    Token = "RELEASE_MODE_SYMBOL_SUPPORT" "=" "1"
+    InvokeOrder = ReplaceParent
+    OutDSC = Yes
+End
+
+ELINK
+    Name  = "MSFT:*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    Token = "RELEASE_MODE_SYMBOL_SUPPORT" "=" "1"
+    InvokeOrder = ReplaceParent
+    OutDSC = Yes
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+    Name  = "USE_NEW_MPACK"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+End

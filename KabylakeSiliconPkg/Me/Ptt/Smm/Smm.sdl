@@ -1,0 +1,37 @@
+TOKEN
+	Name  = "PttHciSmm_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable PttHciSmm support in Project"
+	TokenType = Boolean
+	Master = Yes
+	Token = "PTT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "Tpm2AcpiTables_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Tpm2AcpiTables support in Project"
+	TokenType = Boolean
+End
+
+INFComponent
+	Name  = "PttHciSmm"
+	File  = "PttHciSmm.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_RUNTIME_DRIVER"
+	EDK_Module = Yes
+End
+
+INFComponent
+	Name  = "Tpm2AcpiTables"
+	File  = "Tpm2AcpiTables.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes="USER_DEFINED"
+End
+
+FFS_FILE
+	Name  = "Tpm2AcpiTables"
+	FD_AREA  = "FV_MAIN"
+	INFComponent  = "KabylakeSiliconPkg.Tpm2AcpiTables"
+	Rule_Override  = "ACPITABLE"
+End

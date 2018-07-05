@@ -1,0 +1,11 @@
+<component>
+	name = "SecCore"
+	category = ModulePart
+	LocalRoot = "AmiCpuModulePkg\SecCore\"
+	RefName = "AmiCpuModulePkg.SecCore"
+[INF]
+"SecCore.inf"
+[files]
+"SecCore.sdl"	
+"Stack.nasm"
+<endComponent>

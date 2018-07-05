@@ -1,0 +1,10 @@
+<component>
+	name = "AlertStandardFormat"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\ActiveManagement\AlertStandardFormat\"
+	RefName = "KabylakeSiliconPkg.AlertStandardFormat"
+[INF]
+"Dxe\AlertStandardFormatDxe.inf"
+[files]
+"AlertStandardFormat.sdl"	
+<endComponent>

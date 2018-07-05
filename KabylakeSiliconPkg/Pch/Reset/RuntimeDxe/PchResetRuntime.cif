@@ -1,0 +1,8 @@
+<component>
+	name = "Dxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Reset\RuntimeDxe\"
+	RefName = "KabylakeSiliconPkg.Pch.Reset.RuntimeDxe"
+[INF]
+"PchResetRuntime.inf"
+<endComponent>

@@ -1,0 +1,15 @@
+<component>
+	name = "SecurityPkg"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\SecurityPkg\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.SecurityPkg"
+[INF]
+"Library\Tpm2CommandLib\Tpm2CommandLib.inf"
+"Library\Tpm2DeviceLibTrEE\Tpm2DeviceLibTrEE.inf"
+[files]
+"SecurityPkg.sdl"	
+"Library\Tpm2CommandLib\Tpm2CommandLib.uni"	
+"Library\Tpm2DeviceLibTrEE\Tpm2DeviceLibTrEE.uni"	
+[parts]
+"KabylakeSiliconPkg.Common.SampleCode.SecurityPkg.Include"
+<endComponent>

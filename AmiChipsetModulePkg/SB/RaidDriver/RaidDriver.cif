@@ -1,0 +1,15 @@
+<component>
+	name = "RaidDriver"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\SB\RaidDriver\"
+	RefName = "AmiChipsetModulePkg.RaidDriver"
+[INF]
+"RaidDriver.inf"
+"CflRaidDriver.inf"
+[files]
+"RaidDriver.sdl"	
+"RaidDriver.dxs"	
+"RaidDriverSmm_FdfFileStatement.txt"
+"RaidDriverSmm.efi"
+"RaidDriverSmm.depex"
+<endComponent>

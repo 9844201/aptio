@@ -1,0 +1,15 @@
+TOKEN
+	Name  = "BiosGuard_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Pfat support in the project"
+	TokenType = Boolean
+	Master = Yes
+        Token = "BiosGuard_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "BiosGuardServices"
+	File  = "Smm/BiosGuardServices.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+End

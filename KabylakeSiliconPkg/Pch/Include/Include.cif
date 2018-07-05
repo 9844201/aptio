@@ -1,0 +1,25 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Include\"
+	RefName = "KabylakeSiliconPkg.Pch.Include"
+[files]
+"PchAccess.h"	
+"GpioConfig.h"	
+"GpioPinsSklH.h"	
+"GpioPinsSklLp.h"	
+"PchLimits.h"	
+"PchPolicyCommon.h"	
+"PchReservedResources.h"	
+"ChipsetInfoHob.h"	
+"PchPreMemPolicyCommon.h"	
+"PchPcieStorageDetectHob.h"	
+"PchResetPlatformSpecific.h"	
+[parts]
+"KabylakeSiliconPkg.Pch.Include.ConfigBlock"
+"KabylakeSiliconPkg.Pch.Include.Library"
+"KabylakeSiliconPkg.Pch.Include.Ppi"
+"KabylakeSiliconPkg.Pch.Include.Protocol"
+"KabylakeSiliconPkg.Pch.Include.Register"
+"KabylakeSiliconPkg.Pch.Include.Private"
+<endComponent>

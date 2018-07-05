@@ -1,0 +1,17 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Library\"
+	RefName = "KabylakeSiliconPkg.Common.Library"
+[INF]
+"BaseSiConfigBlockLib\BaseSiConfigBlockLib.inf"
+"DxeAslUpdateLib\DxeAslUpdateLib.inf"
+"DxeSiFviLib\DxeSiFviLib.inf"
+"PeiDxeSmmMmPciLib\PeiDxeSmmMmPciLib.inf"
+"PeiSiPolicyLib\PeiSiPolicyLib.inf"
+"DxeAslUpdateLibNull\DxeAslUpdateLibNull.inf"
+[files]
+"Library.sdl"	
+[parts]
+"KabylakeSiliconPkg.Common.Library.Private"
+<endComponent>

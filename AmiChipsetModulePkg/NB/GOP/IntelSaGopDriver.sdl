@@ -1,0 +1,160 @@
+TOKEN
+	Name  = "IntelSaGopDriver_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable IntelSaGopDriver support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+End
+
+PATH
+	Name  = "IntelSaGopDriver_DIR"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP_8.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes	
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP3_RVP7.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes	
+	Token = "CRB_BOARD" "<=" "2" #For RVP3 and RVP7
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP3_RVP7.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes	
+	Token = "CRB_BOARD" "=" "8" #For RVP3 and RVP7
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP3_RVP7.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes 
+	Token = "CRB_BOARD" "=" "11" #For KBL-Refresh U CRB
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP_8.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes	
+	Token = "CRB_BOARD" "=" "3" #For RVP8
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_KBL_S_uDIMM_RVP.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes	
+	Token = "CRB_BOARD" "=" "9" #For KBL-S DDR4 UDIMM CRB
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP_10.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes	
+	Token = "CRB_BOARD" "=" "5" #For RVP10
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP_11.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes	
+	Token = "CRB_BOARD" "=" "7" #For RVP11
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_RVP3_RVP7_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP3_RVP7.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes 
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_RVP8_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP_8.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes 
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_RVP10_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP_10.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes 
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_RVP11_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_RVP_11.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes 
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_KBL_S_UDIMM_RVP_VBT_BIN_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/Vbt_KBL_S_uDIMM_RVP.bin"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes 
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "OEM_INTEL_GOP_EFI_DRIVER_FILE"
+	Value  = "AmiChipsetModulePkg/NB/GOP/Skylake/x64/IntelGopDriver.efi"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes
+End
+
+ELINK
+	Name  = "-D AMI_SKYLAKE_ALL_VBT_SUPPORT_FLAG"
+	Parent  = "*_*_*_CC_FLAGS"
+	Type  = "BuildOptions"
+	InvokeOrder = AfterParent
+	Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+	Name  = "GopFileStatements"
+	FD_AREA  = "FV_MAIN"
+	FILE_Stmt  = "AmiChipsetModulePkg\NB\GOP\GopFdfFileStatements.txt"
+End

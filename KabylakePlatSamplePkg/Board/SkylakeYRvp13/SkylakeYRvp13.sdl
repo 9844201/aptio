@@ -1,0 +1,50 @@
+TOKEN
+    Name  = "SkylakeYRvp13_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SkylakeYRvp13 support in Project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "PeiSkylakeYRvp13BoardInitLib"
+    File  = "PeiBoardInitLib\PeiSkylakeYRvp13InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeYRvp13BoardInitLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PeiBoardConfigInit"
+End
+
+INFComponent
+    Name  = "PeiSkylakeYRvp13BoardInitPreMemLib"
+    File  = "PeiBoardInitLib\PeiSkylakeYRvp13InitPreMemLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeYRvp13BoardInitPreMemLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.BoardConfigInitPreMem"
+End
+
+INFComponent
+    Name  = "DxeSkylakeYRvp13InitLib"
+    File  = "DxeBoardInitLib\SkylakeYRvp13InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.DxeSkylakeYRvp13InitLib"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.DxeBoardConfigInit"
+End

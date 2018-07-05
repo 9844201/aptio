@@ -1,0 +1,50 @@
+TOKEN
+    Name  = "SkylakeURvp15_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SkylakeURvp15 support in Project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "PeiSkylakeURvp15BoardInitLib"
+    File  = "PeiBoardInitLib\PeiSkylakeURvp15InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeURvp15BoardInitLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PeiBoardConfigInit"
+End
+
+INFComponent
+    Name  = "PeiSkylakeURvp15BoardInitPreMemLib"
+    File  = "PeiBoardInitLib\PeiSkylakeURvp15InitPreMemLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeURvp15BoardInitPreMemLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.BoardConfigInitPreMem"
+End
+
+INFComponent
+    Name  = "DxeSkylakeURvp15InitLib"
+    File  = "DxeBoardInitLib\SkylakeURvp15InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.DxeSkylakeURvp15InitLib"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.DxeBoardConfigInit"
+End

@@ -1,0 +1,21 @@
+<component>
+	name = "Private"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\MemoryInit\Library\Private\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.MemoryInit.Library.Private"
+[INF]
+"PeiEvLoaderLib\PeiEvLoaderLib.inf"
+"PeiEvLoaderLibNull\PeiEvLoaderLibNull.inf"
+"PeiMemoryInitLib\PeiMemoryInitLib.inf"
+"PeiMemoryInitLib\PeiMemoryInitLibFsp.inf"
+[files]
+"Library.sdl"	
+"PeiEvLoaderLib\MrcMiniBiosLoaderEntryPoint.c"	
+"PeiEvLoaderLib\README"	
+"PeiMemoryInitLib\Source\Api\MrcInterpreter.c"	
+"PeiMemoryInitLib\Source\Api\MrcInterpreter.h"	
+"PeiMemoryInitLib\Source\Ssa\BiosSsaMemoryServerConfig.h"	
+"PeiMemoryInitLib\Source\Ssa\BiosSsaMemoryServerConfig.c"	
+"PeiMemoryInitLib\Source\Ssa\BiosSsaMemoryDdrtConfig.c"	
+"PeiMemoryInitLib\Source\Ssa\BiosSsaMemoryDdrtConfig.h"	
+<endComponent>

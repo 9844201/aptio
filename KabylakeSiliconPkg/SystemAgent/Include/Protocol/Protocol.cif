@@ -1,0 +1,16 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\Include\Protocol\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.Include.Protocol"
+[files]
+"BdatAccess.h"	
+"GopComponentName2.h"	
+"GopPolicy.h"	
+"IgdOpRegion.h"	
+"MemInfo.h"	
+"SaPolicy.h"	
+"SaGlobalNvsArea.h"	
+"SaNvs.h"	
+"MemoryAddressEncodeDecode.h"	
+<endComponent>

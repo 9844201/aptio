@@ -1,0 +1,69 @@
+TOKEN
+	Name  = "AcpiWrapLibrary_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Acpi Library support in the project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+INFComponent
+	Name  = "DxeKscLib"
+	File  = "DxeKscLib/DxeKscLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+End
+
+INFComponent
+	Name  = "AcpiPlatformSetupLib"
+	File  = "AcpiPlatformSetupLib/AcpiPlatformSetupLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+End
+
+INFComponent
+	Name  = "AcpiGetSetupData"
+	File  = "AcpiGetSetupData/AcpiGetSetupData.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+	Name  = "AmiPlatformInfoPeiLib"
+	File  = "AmiPlatformInfoPeiLib/AmiPlatformInfoPeiLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+	Class  = "DxeKscLib"
+	Instance  = "KabylakePlatSamplePkg.DxeKscLib"
+	ModuleTypes  = "DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SAL_DRIVER UEFI_APPLICATION UEFI_DRIVER"
+End
+
+LibraryMapping
+	Class  = "AmiPlatformInfoPeiLib"
+	Instance  = "KabylakePlatSamplePkg.AmiPlatformInfoPeiLib"
+	ModuleTypes  = "PEIM"
+End
+
+ELINK
+    Name  = "AcpiConfigurationList"
+    InvokeOrder = ReplaceParent
+End
+
+ELINK
+    Name  = "AcpiSetupCallbacks,"
+    Parent  = "AcpiConfigurationList"
+    InvokeOrder = AfterParent
+End
+
+LibraryMapping
+    Class  = "AcpiPlatformSetupLib"
+    Instance  = "KabylakePlatSamplePkg.AcpiPlatformSetupLib"
+    ModuleTypes  = "DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SMM_DRIVER"
+End
+
+LibraryMapping
+    Class  = "AcpiGetSetupData"
+    Instance  = "KabylakePlatSamplePkg.AcpiGetSetupData"
+    ModuleTypes  = "DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SMM_DRIVER"
+End

@@ -1,0 +1,10 @@
+<component>
+	name = "PchAnOddDetect"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Pch\PchAnOddDetect\"
+	RefName = "KabylakeSiliconPkg.Wrapper.PchAnOddDetect"
+[INF]
+"PchAnOddDetect.inf"
+[files]
+"PchAnOddDetect.sdl"	
+<endComponent>

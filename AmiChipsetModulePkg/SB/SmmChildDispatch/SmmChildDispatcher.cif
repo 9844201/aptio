@@ -1,0 +1,10 @@
+<component>
+	name = "SmmChildDispatcher"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\SB\SmmChildDispatch\"
+	RefName = "AmiChipsetModulePkg.SmmChildDispatcher"
+[INF]
+"SmmChildDispatcher.inf"
+[files]
+"SmmChildDispatcher.sdl"	
+<endComponent>

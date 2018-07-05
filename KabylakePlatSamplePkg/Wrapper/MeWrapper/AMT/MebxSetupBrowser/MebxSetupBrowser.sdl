@@ -1,0 +1,28 @@
+TOKEN
+	Name  = MebxSetupBrowser_SUPPORT
+	Value  = 1
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Help  = "Main switch to enable MebxSetupBrowser support in Project"
+End
+
+PATH
+  NAME = "MEBX_SETUP_PATH"
+End
+
+TOKEN
+    Name  = "EFIMebxSetup_FILE_PATH"
+    Value  = "KabylakePlatSamplePkg/Wrapper/MeWrapper/AMT/MebxSetupBrowser/MebxSetupBrowser.efi"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetFDF = Yes
+    Help  = "Mebx File name and path"
+End
+
+FFS_FILE
+    Name  = "MebxSetupBrowser"
+    FD_AREA  = "FV_MAIN"
+    FILE_Stmt  = "KabylakePlatSamplePkg/Wrapper/MeWrapper/AMT/MebxSetupBrowser/MebxSetupBrowserRuleOverride.txt"
+End

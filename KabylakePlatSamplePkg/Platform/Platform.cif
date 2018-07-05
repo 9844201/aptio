@@ -1,0 +1,17 @@
+<component>
+	name = "Platform"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Platform\"
+	RefName = "KabylakePlatSamplePkg.Platform"
+[INF]
+"PlatformInfo\Dxe\PlatformInfoDxe.inf"
+"SavePegConfig\Dxe\SavePegConfig.inf"
+"SaveMemoryConfig\Dxe\SaveMemoryConfig.inf"
+"PlatformSetup\Dxe\PlatformSetup.inf"
+"SmramSaveInfoHandlerSmm\SmramSaveInfoHandlerSmm.inf"
+[files]
+"Platform.sdl"	
+"PlatformInfo\Dxe\PlatformInfoDxe.h"	
+[parts]
+"KabylakePlatSamplePkg.Platform.SmmPlatform"
+<endComponent>

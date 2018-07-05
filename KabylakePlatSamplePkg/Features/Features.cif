@@ -1,0 +1,27 @@
+<component>
+	name = "Features"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\"
+	RefName = "KabylakePlatSamplePkg.Features"
+[files]
+"Features.sdl"	
+[parts]
+"KabylakePlatSamplePkg.Features.AcpiTables"
+"KabylakePlatSamplePkg.Features.AMT"
+"KabylakePlatSamplePkg.Features.Dptf"
+"KabylakePlatSamplePkg.Features.Gop"
+"KabylakePlatSamplePkg.Features.Hsti"
+"KabylakePlatSamplePkg.Features.I2c"
+"KabylakePlatSamplePkg.Features.Icc"
+"KabylakePlatSamplePkg.Features.Me"
+"KabylakePlatSamplePkg.Features.OverClocking"
+"KabylakePlatSamplePkg.Features.Pep"
+"KabylakePlatSamplePkg.Features.Rst"
+"KabylakePlatSamplePkg.Features.SecureErase"
+"KabylakePlatSamplePkg.Features.Smbios"
+"KabylakePlatSamplePkg.Features.Thunderbolt"
+"KabylakePlatSamplePkg.Features.Touch"
+"KabylakePlatSamplePkg.Features.Usb"
+"KabylakePlatSamplePkg.Features.UsbTypeC"
+"KabylakePlatSamplePkg.Features.Wdt"
+<endComponent>

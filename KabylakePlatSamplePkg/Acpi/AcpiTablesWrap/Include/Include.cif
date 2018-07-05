@@ -1,0 +1,12 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\Include\"
+	RefName = "KabylakePlatSamplePkg.Acpi.AcpiTablesWrap.Include"
+[files]
+"AcpiIntelRC.h"	
+"Guid\AcpiRcSsdtStorageGuid.h"	
+"Guid\AcpiTableSsdtStorageGuid.h"	
+"Guid\AmiPlatformInfoHob.h"	
+"Library\DxeKscLib.h"	
+<endComponent>

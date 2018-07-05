@@ -1,0 +1,8 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\MdeModulePkg\Include\Library\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg.Include.Library"
+[files]
+"ResetSystemLib.h"	
+<endComponent>

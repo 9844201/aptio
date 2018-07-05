@@ -1,0 +1,21 @@
+TOKEN
+	Name  = "BaseFuncLib_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable BaseFuncLib support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+    Name  = "BaseBoardFuncInitLib"
+    File  = "BaseFuncLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.BaseBoardFuncInitLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.BoardConfigInitPreMem"
+End

@@ -1,0 +1,12 @@
+<component>
+	name = "ActiveManagement"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\ActiveManagement\"
+	RefName = "KabylakeSiliconPkg.Me.ActiveManagement"
+[files]
+"ActiveManagement.sdl"	
+[parts]
+"KabylakeSiliconPkg.AlertStandardFormat"
+"KabylakeSiliconPkg.AmtBootOptions"
+"KabylakeSiliconPkg.Sol"
+<endComponent>

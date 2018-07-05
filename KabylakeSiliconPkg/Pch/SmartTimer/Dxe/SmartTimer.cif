@@ -1,0 +1,8 @@
+<component>
+	name = "Dxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\SmartTimer\Dxe\"
+	RefName = "KabylakeSiliconPkg.Pch.SmartTimer.Dxe"
+[INF]
+"SmartTimer.inf"
+<endComponent>

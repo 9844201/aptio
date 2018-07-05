@@ -1,0 +1,14 @@
+TOKEN
+	Name  = "HSTI_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling HSTI support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "HstiSiliconDxe"
+	File  = "Dxe\HstiSiliconDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End

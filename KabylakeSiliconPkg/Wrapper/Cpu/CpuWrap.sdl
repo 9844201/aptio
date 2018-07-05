@@ -1,0 +1,9 @@
+TOKEN
+	Name  = "CpuWrap_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling CpuWrap support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+

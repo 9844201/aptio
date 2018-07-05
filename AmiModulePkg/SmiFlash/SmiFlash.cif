@@ -1,0 +1,20 @@
+<component>
+	name = "SmiFlash"
+	category = eModule
+	LocalRoot = "AmiModulePkg\SmiFlash\"
+	RefName = "SmiFlash"
+[INF]
+"SmiFlash.inf"
+"SmiFlashDxe.inf"
+"SmiFlashLibs.inf"
+[files]
+"SmiFlash.sdl"	
+"SmiFlash.chm"	
+"SmiFlash.mak"	
+[dependency]
+AmiModulePkg >= "SS: AptioV;$/AptioV/Source/Interfaces/AmiModulePkg;AmiModulePkg_38"
+MdePkg >= "SS: AptioV;$/AptioV/Source/Interfaces/MdePkg;MdePkg_08"
+AmiCompatibilityPkg >= "SS: AptioV;$/AptioV/Source/Interfaces/AmiCompatibilityPkg;AmiCompatibilityPkg_28"
+[dependency.optional]
+Smbios >= "SS: AptioV;$/AptioV/Source/Modules/Smbios;Smbios_15"
+<endComponent>

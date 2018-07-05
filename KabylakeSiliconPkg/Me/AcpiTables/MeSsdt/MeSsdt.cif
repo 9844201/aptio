@@ -1,0 +1,11 @@
+<component>
+	name = "MeSsdt"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\AcpiTables\MeSsdt\"
+	RefName = "KabylakeSiliconPkg.Me.AcpiTables.MeSsdt"
+[INF]
+"MeSsdt.inf"
+[files]
+"MeSsdt.sdl"	
+"MeNvs.asl"	
+<endComponent>

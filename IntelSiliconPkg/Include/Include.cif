@@ -1,0 +1,8 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "IntelSiliconPkg\Include\"
+	RefName = "IntelSiliconPkg.Include"
+[files]
+"IndustryStandard\IgdOpRegion.h"	
+<endComponent>

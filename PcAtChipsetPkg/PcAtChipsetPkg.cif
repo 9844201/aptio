@@ -1,0 +1,12 @@
+<component>
+	name = "PcAtChipsetPkg"
+	category = ModulePart
+	LocalRoot = "PcAtChipsetPkg\"
+	RefName = "PcAtChipsetPkg"
+[files]
+"PcAtChipsetPkg.dec"	
+"PcAtChipsetPkg.uni"	
+[parts]
+"PcAtChipsetPkg.Include"
+"PcAtChipsetPkg.Library"
+<endComponent>

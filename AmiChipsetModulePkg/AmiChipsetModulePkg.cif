@@ -1,0 +1,14 @@
+<component>
+	name = "AmiChipsetModulePkg"
+	category = eChipset
+	LocalRoot = "AmiChipsetModulePkg\"
+	RefName = "AmiChipsetModulePkg"
+[files]
+"AmiChipsetModulePkg.sdl"	
+"AmiChipsetModulePkg.dec"	
+"AmiChipsetModulePkg.chm"	
+[parts]
+"AmiChipsetModulePkg.AmiCspLib"
+"AmiChipsetModulePkg.NorthBridge"
+"AmiChipsetModulePkg.SouthBridge"
+<endComponent>

@@ -1,0 +1,379 @@
+TOKEN
+	Name  = "Pch_Library_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Pch Library support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "OC_WDT_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchCycleDecodingLib"
+	File  = "PeiDxeSmmPchCycleDecodingLib\PeiDxeSmmPchCycleDecodingLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchCycleDecodingLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchCycleDecodingLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchEspiLib"
+	File  = "PeiDxeSmmPchEspiLib\PeiDxeSmmPchEspiLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchEspiLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchEspiLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchGbeLib"
+	File  = "PeiDxeSmmPchGbeLib\PeiDxeSmmPchGbeLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchGbeLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchGbeLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchHsioLib"
+	File  = "PeiDxeSmmPchHsioLib\PeiDxeSmmPchHsioLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchHsioLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchHsioLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchInfoLib"
+	File  = "PeiDxeSmmPchInfoLib\PeiDxeSmmPchInfoLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchInfoLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchInfoLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchP2sbLib"
+	File  = "PeiDxeSmmPchP2sbLib\PeiDxeSmmPchP2sbLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchP2sbLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchP2sbLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchPcieRpLib"
+	File  = "PeiDxeSmmPchPcieRpLib\PeiDxeSmmPchPcieRpLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchPcieRpLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchPcieRpLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchPcrLib"
+	File  = "PeiDxeSmmPchPcrLib\PeiDxeSmmPchPcrLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchPcrLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchPcrLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchPmcLib"
+	File  = "PeiDxeSmmPchPmcLib\PeiDxeSmmPchPmcLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchPmcLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchPmcLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmGpioLib"
+	File  = "PeiDxeSmmGpioLib\PeiDxeSmmGpioLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "GpioLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmGpioLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchSbiAccessLib"
+	File  = "PeiDxeSmmPchSbiAccessLib\PeiDxeSmmPchSbiAccessLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchSbiAccessLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchSbiAccessLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchSerialIoLib"
+	File  = "PeiDxeSmmPchSerialIoLib\PeiDxeSmmPchSerialIoLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchSerialIoLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchSerialIoLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchSerialIoUartLib"
+	File  = "PeiDxeSmmPchSerialIoUartLib\PeiDxeSmmPchSerialIoUartLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchSerialIoUartLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchSerialIoUartLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmTraceHubInitLib"
+	File  = "PeiDxeSmmTraceHubInitLib\PeiDxeSmmTraceHubInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "TraceHubInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmTraceHubInitLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmTraceHubLib"
+	File  = "PeiDxeSmmTraceHubLib\PeiDxeSmmTraceHubLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "TraceHubHookLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmTraceHubLib"
+End
+
+INFComponent
+	Name  = "PeiPchPolicyLib"
+	File  = "PeiPchPolicyLib\PeiPchPolicyLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchPolicyLib"
+	Instance  = "KabylakeSiliconPkg.PeiPchPolicyLib"
+End
+
+INFComponent
+	Name  = "PeiPchSmmControlLib"
+	File  = "PeiPchSmmControlLib\PeiPchSmmControlLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchSmmControlLib"
+	Instance  = "KabylakeSiliconPkg.PeiPchSmmControlLib"
+End
+
+INFComponent
+	Name  = "PeiPchSmmControlLibNull"
+	File  = "PeiPchSmmControlLibNull\PeiPchSmmControlLibNull.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+INFComponent
+	Name  = "SecPchLib"
+	File  = "SecPchLib\SecPchLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+LibraryMapping
+	Class  = "SecPchLib"
+	Instance  = "KabylakeSiliconPkg.SecPchLib"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"		
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchPsfLib"
+	File  = "PeiDxeSmmPchPsfLib\PeiDxeSmmPchPsfLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchPsfLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchPsfLib"
+End
+
+INFComponent
+	Name  = "SecPchLibFsp"
+	File  = "SecPchLib\SecPchLibFsp.inf"
+	Package  = "KabylakeSiliconPkg"  
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"        
+End
+
+LibraryMapping
+	Class  = "SecPchLib"
+	Instance  = "KabylakeSiliconPkg.SecPchLibFsp"
+	Arch  = "IA32"
+	ModuleTypes  = "PEI_CORE PEIM SEC"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"        
+End
+
+INFComponent
+    Name  = "PeiDxeSmmPchWdtCommonLib"
+    File  = "PeiDxeSmmPchWdtCommonLib\PeiDxeSmmPchWdtCommonLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "PchWdtCommonLib"
+    Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchWdtCommonLib"
+End
+
+INFComponent
+	Name  = "PeiOcWdtLib"
+	File  = "PeiOcWdtLib\PeiOcWdtLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "OcWdtLib"
+	Instance  = "KabylakeSiliconPkg.PeiOcWdtLib"
+	Token = "OC_WDT_ENABLE" "=" "1"
+End
+
+INFComponent
+	Name  = "PeiOcWdtLibNull"
+	File  = "PeiOcWdtLibNull\PeiOcWdtLibNull.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "OcWdtLib"
+	Instance  = "KabylakeSiliconPkg.PeiOcWdtLibNull"
+	Token = "OC_WDT_ENABLE" "=" "0"
+End
+
+INFComponent
+	Name  = "BaseResetSystemLib"
+	File  = "BaseResetSystemLib\BaseResetSystemLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "ResetSystemLib"
+	Instance  = "KabylakeSiliconPkg.BaseResetSystemLib"
+End
+
+INFComponent
+	Name  = "DxeResetSystemLib"
+	File  = "DxeResetSystemLib\DxeResetSystemLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+	Class  = "ResetSystemLib"
+	Instance  = "KabylakeSiliconPkg.DxeResetSystemLib"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+	Name  = "DxeRuntimeResetSystemLib"
+	File  = "DxeRuntimeResetSystemLib\DxeRuntimeResetSystemLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_RUNTIME_DRIVER"
+End
+
+LibraryMapping
+	Class  = "ResetSystemLib"
+	Instance  = "KabylakeSiliconPkg.DxeRuntimeResetSystemLib"
+	ModuleTypes  = "DXE_RUNTIME_DRIVER"
+End
+
+INFComponent
+	Name  = "PeiResetSystemLib"
+	File  = "PeiResetSystemLib\PeiResetSystemLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+LibraryMapping
+	Class  = "ResetSystemLib"
+	Instance  = "KabylakeSiliconPkg.PeiResetSystemLib"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+INFComponent
+	Name  = "PeiResetSystemLib"
+	File  = "PeiResetSystemLib\PeiResetSystemLibFsp.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"
+End
+
+LibraryMapping
+	Class  = "ResetSystemLib"
+	Instance  = "KabylakeSiliconPkg.PeiResetSystemLib"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"
+End
+
+INFComponent
+	Name  = "PeiPchResetLib"
+	File  = "PeiPchResetLib\PeiPchResetLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+	Class  = "PchResetLib"
+	Instance  = "KabylakeSiliconPkg.PeiPchResetLib"
+	ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+	Class  = "PchResetLib"
+	Instance  = "KabylakeSiliconPkg.PeiPchResetLib"
+	Override  = "UefiCpuPkg.SecCore"
+	Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+INFComponent
+    Name  = "BaseSmbusLib"
+    File  = "BaseSmbusLib/BaseSmbusLib.inf"
+    Package  = "KabylakeSiliconPkg"
+    Token = "SmBus_SUPPORT" "=" "0"
+End
+
+LibraryMapping
+    Class  = "SmbusLib"
+    Instance  = "KabylakeSiliconPkg.BaseSmbusLib"
+    Token = "SmBus_SUPPORT" "=" "0"
+End

@@ -1,0 +1,11 @@
+<component>
+	name = "MemoryInit"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\MemoryInit\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.MemoryInit"
+[files]
+"MemoryInit.sdl"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.MemoryInit.Include"
+"KabylakeSiliconPkg.SystemAgent.MemoryInit.Library"
+<endComponent>

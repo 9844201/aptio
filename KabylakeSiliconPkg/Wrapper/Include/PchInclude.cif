@@ -1,0 +1,10 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Include\"
+	RefName = "KabylakeSiliconPkg.Wrapper.Include.PchInclude"
+[files]
+"PchSetupData.h"	
+"Library\PchHookPeiLib.h"	
+"Library\PchHookDxeLib.h"	
+<endComponent>

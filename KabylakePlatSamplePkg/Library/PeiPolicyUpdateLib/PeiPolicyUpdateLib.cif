@@ -1,0 +1,16 @@
+<component>
+	name = "PeiPolicyUpdateLib"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Library\PeiPolicyUpdateLib\"
+	RefName = "KabylakePlatSamplePkg.Library.PeiPolicyUpdateLib"
+[INF]
+"PeiPolicyUpdateLib.inf"
+[files]
+"PchHsioPtssTables.h"	
+"PeiAmtPolicyUpdate.h"	
+"PeiCpuPolicyUpdate.h"	
+"PeiMePolicyUpdate.h"	
+"PeiPchPolicyUpdate.h"	
+"PeiSaPolicyUpdate.h"	
+"PeiSiPolicyUpdate.h"	
+<endComponent>

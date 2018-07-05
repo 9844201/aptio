@@ -1,0 +1,14 @@
+<component>
+	name = "PlatformInit"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\PlatformInit\"
+	RefName = "KabylakePlatSamplePkg.PlatformInit"
+[INF]
+"PlatformInitPei\PlatformInit.inf"
+"PlatformInitPei\PlatformInitPreMem.inf"
+"PlatformInitDxe\PlatformInitDxe.inf"
+[files]
+"PlatformInit.sdl"	
+[parts]
+"KabylakePlatSamplePkg.PlatformInit.PolicyInitDxe"
+<endComponent>

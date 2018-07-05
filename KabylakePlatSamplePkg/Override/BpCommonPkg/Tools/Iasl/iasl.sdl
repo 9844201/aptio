@@ -1,0 +1,24 @@
+TOKEN
+	Name  = "TOOLS_IASL_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Platform SamplePkg IASL support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+	Master = Yes
+End
+
+TOKEN
+    Name  = "PLATFORM_ASL_COMPILER"
+    Value  = "$(WORKSPACE)/KabylakePlatSamplePkg/Override/BpCommonPkg/Tools/Iasl/iasl"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetDSC = Yes
+End
+
+ELINK
+    Name  = "=$(PLATFORM_ASL_COMPILER)"
+    Parent  = "*_*_*_ASL_PATH"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+

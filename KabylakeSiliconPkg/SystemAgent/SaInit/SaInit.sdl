@@ -1,0 +1,54 @@
+TOKEN
+	Name  = "SaInit_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "DETECT_PCH_PCIE_VGA"
+	Value  = "1"
+	Help  = "0: Skip External Gfx Device Scan under PCH; 1: Scan for external graphics devices under PCH."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DETECT_SA_PEG_VGA"
+	Value  = "1"
+	Help  = "0: Skip External Gfx Device Scan under SA; 1: Scan for external graphics devices under SA."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+INFComponent
+	Name  = "SaInitDxe"
+	File  = "Dxe/SaInitDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+INFComponent
+	Name  = "SaInitFsp"
+	File  = "Dxe/SaInitFsp.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"		
+End
+
+INFComponent
+	Name  = "SaLateInitSmm"
+	File  = "Smm/SaLateInitSmm.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"   	
+End
+
+FFS_FILE
+	Name  = "SaInitDxe"
+	FD_AREA  = "FV_MAIN"
+	INFComponent  = "KabylakeSiliconPkg.SaInitDxe"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"       
+End

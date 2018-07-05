@@ -1,0 +1,8 @@
+<component>
+	name = "LibraryWrapper"
+	category = ModulePart
+	LocalRoot = "MdeModulePkg\Library\"
+	RefName = "MdeModulePkg.LibraryWrapper"
+[files]
+"LibraryWrapper.sdl"	
+<endComponent>

@@ -1,0 +1,29 @@
+TOKEN
+	Name  = "SA_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SystemAgent RefCode support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+PATH
+    Name  = "Kabylake_SA_DIR"
+End
+
+ELINK
+    Name = "$(Kabylake_SA_DIR)/Include"
+    Parent = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+#ELINK
+#	Name  = "gSaInfoProtocolGuid"
+#	Parent  = "AdditionalSetupProtocols"
+#	InvokeOrder = AfterParent
+#End
+
+ELINK
+	Name  = "gMemInfoProtocolGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End

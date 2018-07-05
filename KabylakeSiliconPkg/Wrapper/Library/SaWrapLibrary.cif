@@ -1,0 +1,12 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Library\"
+	RefName = "KabylakeSiliconPkg.SaWrapLibrary"
+[INF]
+"SaLinkLib\SaLinkLib.inf"
+"SystemAgentHookLib\SystemAgentHookPeiLib.inf"
+"SystemAgentHookLib\SystemAgentHookDxeLib.inf"
+[files]
+"SaWrapLibrary.sdl"	
+<endComponent>

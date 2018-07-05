@@ -1,0 +1,12 @@
+<component>
+	name = "IntelSiliconPkg"
+	category = eChipset
+	LocalRoot = "IntelSiliconPkg\"
+	RefName = "IntelSiliconPkg"
+[files]
+"IntelSiliconPkg.chm"
+"IntelSiliconPkg.sdl"	
+"IntelSiliconPkg.dec"	
+[parts]
+"IntelSiliconPkg.Include"
+<endComponent>

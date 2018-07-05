@@ -1,0 +1,39 @@
+TOKEN
+	Name  = "I2C_PLATFORM_SAMPLE_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable KabylakePlatSamplePkg I2C support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "I2C_TOUCH_DRIVER_ENABLE"
+	Value  = "0"
+	Help  = "Follow PlatformPkg.dsc and PlatformPkgConfig.dsc to switch this token."
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "PI_I2C_STACK_ENABLE"
+	Value  = "0"
+	Help  = "Follow PlatformPkgConfig.dsc to switch this token."
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+INFComponent
+	Name  = "I2cTouchPanelDxe"
+	File  = "I2cTouchPanelDxe\I2cTouchPanelDxe.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "UEFI_DRIVER"
+	Token = "I2C_TOUCH_DRIVER_ENABLE" "=" "1"    
+End
+
+INFComponent
+	Name  = "I2cPlatformDxe"
+	File  = "I2cPlatformDxe\I2cPlatformDxe.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "PI_I2C_STACK_ENABLE" "=" "1" 
+End

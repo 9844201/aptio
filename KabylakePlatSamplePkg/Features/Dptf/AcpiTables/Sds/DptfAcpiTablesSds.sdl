@@ -1,0 +1,246 @@
+TOKEN
+	Name  = DptfAcpiTablesSds_SUPPORT
+	Value  = 1
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Help  = "Main switch to enable DptfAcpiTablesSds support in Project"
+End
+
+TOKEN
+	Name  = "BIOS_DATA_VAULT_SDS_FILE"
+	Value  = 'Include("BiosDataVault.asl")'
+	Help  = "The ASL file which contains the data vault of Method GDDV."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+OUTPUTREGISTER
+	Name  = "BiosDataVaultSdsFile"
+	Path  = "Build"
+	File  = "BiosDataVaultSdsFile.asl"
+	Template  = "BiosDataVaultSdsFile.txt"
+End
+
+ELINK
+	Name  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	InvokeOrder = ReplaceParent
+End
+
+OUTPUTREGISTER
+	Name  = "DptfSdsIncludeFileList"
+	Path  = "Build"
+	File  = "DptfSdsIncludeFile.asl"
+	Template  = "DptfSdsIncludeFile.txt"
+End
+
+ELINK
+	Name  = "B0d4Participant.asl"
+	Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	Help  = "Link the Participant ASL file into DptfSds.asl."
+	InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "B0d4Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK    
+     Name  = "B0d4CtdpPolicy.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK    
+     Name  = "B0d4LpmPolicy.asl"
+     Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+     Help  = "Link the Participant ASL file into DptfSds.asl."
+     InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "TFN1Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "DplyParticipant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "ChrgParticipant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "TPwrParticipant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "WWANParticipant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "WrlsParticipant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "PerCParticipant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "StrgParticipant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "IVCamParticipant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "Vir1Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "Vir2Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End	 
+
+ELINK
+     Name  = "Sen1Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+	 
+ELINK
+     Name  = "Sen2Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End	
+
+ELINK
+     Name  = "Sen3Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+	 
+ELINK
+     Name  = "Sen4Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "Gen1Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+	 
+ELINK
+     Name  = "Gen2Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End	 
+
+ELINK
+     Name  = "Gen3Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End	 
+
+ELINK
+     Name  = "Gen4Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End 
+
+ELINK
+     Name  = "Gen5Participant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+
+ELINK
+     Name  = "IVCamParticipant.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End 
+
+ELINK
+     Name  = "Etrm.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End
+	
+ELINK
+     Name  = "Trt.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End	 
+
+ELINK
+     Name  = "Psvt.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End	 
+
+ELINK
+     Name  = "Art.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End	 
+
+ELINK
+     Name  = "Dppm.asl"
+	 Parent  = "DPTF_SDS_INCLUDE_FILE_LIST"
+	 Help  = "Link the Participant ASL file into DptfSds.asl."
+	 InvokeOrder = AfterParent
+End

@@ -1,0 +1,17 @@
+<component>
+	name = "AMT"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\AMT\"
+	RefName = "KabylakePlatSamplePkg.Features.AMT"
+[INF]
+"AmtWrapperDxe\AmtWrapperDxe.inf"
+"AsfTable\AsfTable.inf"
+"AmtStatusCodePei\AmtStatusCodePei.inf"
+"AmtPetAlertDxe\AmtPetAlertDxe.inf"
+"AmtSetupDxe\AmtSetupDxe.inf"
+[files]
+"AMT.sdl"	
+"AsfTable\AsfTable.h"	
+[parts]
+"KabylakePlatSamplePkg.Features.AMT.Sample"
+<endComponent>

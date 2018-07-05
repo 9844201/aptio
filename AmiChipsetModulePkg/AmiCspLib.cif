@@ -1,0 +1,10 @@
+<component>
+	name = "AmiCspLib"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\"
+	RefName = "AmiChipsetModulePkg.AmiCspLib"
+[files]
+"AmiCspLib.sdl"	
+"AmiCspLib.mak"
+"Include\AmiCspLib.txt"
+<endComponent>

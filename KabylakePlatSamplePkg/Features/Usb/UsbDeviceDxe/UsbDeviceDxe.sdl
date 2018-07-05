@@ -1,0 +1,15 @@
+TOKEN
+	Name  = "PlatSamplePkg_UsbDeviceDxe_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable KabylakePlatSamplePkg UsbDeviceDxe support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "UsbDeviceDxe"
+	File  = "UsbDeviceDxe.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "UEFI_DRIVER"
+End
+

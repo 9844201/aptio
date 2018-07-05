@@ -1,0 +1,14 @@
+TOKEN
+	Name  = "PchSerialGpio_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "PchSerialGpio"
+	File  = "Dxe/PchSerialGpio.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End

@@ -1,0 +1,12 @@
+<component>
+	name = "MsiRomImage"
+	category = ModulePart
+	LocalRoot = "AmiMsiPkg\RomImage\"
+	RefName = "MsiRomImage"
+[files]
+"MsiRomImage.sdl"	
+"RomImage.mak"	
+"Crb.mak"	
+"Msi.map"	
+"MsiImage.bin"	
+<endComponent>

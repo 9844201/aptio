@@ -1,0 +1,21 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\Include\Private\Library\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.Include.Private.Library"
+[files]
+"GmmInitLib.h"	
+"GraphicsInitLib.h"	
+"SaDmiInitLib.h"	
+"SaInitLib.h"	
+"SaOcInitLib.h"	
+"SaPcieDmiLib.h"	
+"SaPcieInitLib.h"	
+"SaPcieLib.h"	
+"SkyCamInitLib.h"	
+"SmbiosMemoryLib.h"	
+"SwitchableGraphicsInitLib.h"	
+"VtdInitLib.h"	
+"DisplayInitLib.h"	
+"LegacyRegion.h"	
+<endComponent>

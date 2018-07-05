@@ -1,0 +1,10 @@
+<component>
+	name = "Mebx"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\AMT\Mebx\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.Mebx"
+[files]
+"Mebx.efi"	
+"Mebx.sdl"	
+"MebxRuleOverride.txt"	
+<endComponent>

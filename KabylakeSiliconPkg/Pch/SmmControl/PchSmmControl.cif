@@ -1,0 +1,10 @@
+<component>
+	name = "SmmControl"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\SmmControl\"
+	RefName = "KabylakeSiliconPkg.Pch.SmmControl"
+[files]
+"PchSmmControl.sdl"	
+[parts]
+"KabylakeSiliconPkg.Pch.SmmControl.RuntimeDxe"
+<endComponent>

@@ -1,0 +1,12 @@
+<component>
+	name = "Pep"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Pep\"
+	RefName = "KabylakePlatSamplePkg.Features.Pep"
+[INF]
+"Smm\PepBccdSmm.inf"
+[files]
+"Pep.sdl"	
+"AcpiTables\Pep.asl"	
+"AcpiTables\PepPcieSsd.asl"	
+<endComponent>

@@ -1,0 +1,10 @@
+<component>
+	name = "Private"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Library\Private\"
+	RefName = "KabylakeSiliconPkg.Common.Library.Private"
+[INF]
+"DxeSiFviInitLib\DxeSiFviInitLib.inf"
+[files]
+"Private.sdl"	
+<endComponent>

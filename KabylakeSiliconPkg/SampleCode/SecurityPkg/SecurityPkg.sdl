@@ -1,0 +1,29 @@
+TOKEN
+	Name  = "SecurityPkg_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SecurityPkg support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "Tpm2CommandLib"
+	File  = "Library\Tpm2CommandLib\Tpm2CommandLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "Tpm2CommandLib"
+    Instance  = "KabylakeSiliconPkg.Tpm2CommandLib"
+End
+
+INFComponent
+	Name  = "Tpm2DeviceLib"
+	File  = "Library\Tpm2DeviceLibTrEE\Tpm2DeviceLibTrEE.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "Tpm2DeviceLib"
+    Instance  = "KabylakeSiliconPkg.Tpm2DeviceLib"  
+End

@@ -1,0 +1,85 @@
+TOKEN
+	Name  = "AMI_TXT_DXE_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable AMI TXT DXE support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "AMI_TXT_INFO_IN_SETUP"
+	Value  = "1"
+	TokenType = Boolean
+End
+
+TOKEN
+    Name  = "AMI_POSE_SHOW_TXT_INFO"
+    Value  = "0"
+    Help  = "Show txt information in pose time when quiet boot disable."
+    TokenType = Integer
+    TargetH = Yes
+    Token = "AMI_TXT_INFO_IN_SETUP" "=" "1"
+End
+
+PATH
+        Name  = "AmiTxtDxe_DIR"
+End
+
+INFComponent
+    Name = "AmiTxtDxe"
+    File = "AmiTxtDxe.inf"
+    Package = "SharkBayPkg"
+    ModuleTypes = "DXE_DRIVER"
+End
+
+INFComponent
+	Name  = "AmiTxtInfoHookLib"
+	File  = "AmiTxtInfoHook.inf"
+	Package  = "AmiCpuModulePkg"
+End
+
+ELINK
+	Name  = "$(AmiTxtDxe_DIR)/AmiTxtInfoSetup.sd"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+	Token = "AMI_TXT_INFO_IN_SETUP" "=" "1"
+End
+
+ELINK
+	Name  = "$(AmiTxtDxe_DIR)/AmiTxtInfoSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+	Token = "AMI_TXT_INFO_IN_SETUP" "=" "1"
+End
+
+ELINK
+	Name  = "$(AmiTxtDxe_DIR)/AmiTxtInfoSetup.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+	Token = "AMI_TXT_INFO_IN_SETUP" "=" "1"
+End
+
+ELINK
+	Name  = "InitAmiTxtInfoStrings,"
+	Parent  = "SetupStringInit"
+	InvokeOrder = AfterParent
+	Token = "AMI_TXT_INFO_IN_SETUP" "=" "1"
+End
+
+ELINK
+    Name  = "AmiTxtHook,"
+    Parent  = "InitConVars,"
+    InvokeOrder = AfterParent
+    Token = "AMI_TXT_INFO_IN_SETUP" "=" "1"
+    Token = "AMI_POSE_SHOW_TXT_INFO" "=" "1"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiCpuModulePkg.AmiTxtInfoHookLib"
+    Override  = "AmiModulePkg.Bds"
+    Token = "AMI_TXT_INFO_IN_SETUP" "=" "1"
+    Token = "AMI_POSE_SHOW_TXT_INFO" "=" "1"
+End

@@ -1,0 +1,631 @@
+TOKEN
+	Name  = "RC_SETUP_SUPPORT"
+	Value  = "1"
+	Help  = "This is a master token that enables/disables the RC Setup in the project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+	Token = "Setup_SUPPORT" "=" "1"	
+End
+
+PATH
+	Name  = "RC_SETUP_DIR"
+End
+
+TOKEN
+    Name  = "RC_SETUP_OEM_DEFINED_FORMS"
+    Value  = "1"
+    Help  = "This is a master token that enables/disables the OEM defined forms in the project"
+    TokenType = Boolean
+End
+
+TOKEN
+        Name  = "PS2_KB_MS_ENABLE"
+        Value  = "1"
+        Help  = "PS2 Keyboard and Mouse control."
+        TokenType = Boolean
+        TargetH = Yes
+End
+
+ELINK
+    Name  = "FORMS_BY_OEM_DEFINED"
+    InvokeOrder = ReplaceParent
+End
+
+# Setup variable items
+ELINK
+	Name  = "$(RC_SETUP_DIR)/SetupItems.h"
+	Parent  = "SETUP_DEFINITIONS"
+	Priority  = 0	
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/HiiConfigAccess.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+End
+
+# Defined Forms by OEM 
+ELINK
+    Name  = "$(BUILD_DIR)/AmiOemDefinedForm.hfr"
+    Parent  = "SETUP_DEFINITIONS"
+    InvokeOrder = AfterParent
+    Token = "RC_SETUP_OEM_DEFINED_FORMS" "=" "1"
+End
+
+# Main Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/Main.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+# Acpi Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/AcpiSetup.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/AcpiSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+# CPU Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/CpuSetup.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/CpuSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/CpuSetup.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "InitCPUStrings,"
+	Parent  = "SetupStringInit"
+	InvokeOrder = AfterParent
+End
+
+# SA Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/SaSetup.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/SaSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/SaSetup.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "InitSaStrings,"
+	Parent  = "SetupStringInit"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gEfiLegacyBiosProtocolGuid"
+    Parent  = "AdditionalSetupProtocols"
+    InvokeOrder = AfterParent
+End
+
+# PCH Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/PchSetup.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/PchSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/PchSetup.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "InitSBStrings,"
+	Parent  = "SetupStringInit"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gEfiDiskInfoProtocolGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+# ME Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/MeSetup.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/MeSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/MeSetup.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "InitMeInfo,"
+	Parent  = "SetupStringInit"
+	InvokeOrder = AfterParent
+End
+
+# Platform Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/PlatformSetup.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/PlatformSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/FwConfig.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/PlatformSetup.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "InitPlatformStrings,"
+	Parent  = "SetupStringInit"
+	InvokeOrder = AfterParent
+End
+
+# OverClock Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/OverClockSetup.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	Token = "OVER_CLOCK_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/OverClockSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/OverClockSetup.c"
+	Parent  = "SetupCallbackFiles"
+	Token = "OVER_CLOCK_SUPPORT" "=" "1"	
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "InitOverClockStrings,"
+	Parent  = "SetupStringInit"
+	Token = "OVER_CLOCK_SUPPORT" "=" "1"	
+	InvokeOrder = AfterParent
+End
+
+# AMT Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/AmtSetup.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/AmtSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+# ICC Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/IccSetup.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/IccSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/IccSetup.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "InitIccStrings,"
+	Parent  = "SetupStringInit"
+	InvokeOrder = AfterParent
+End
+
+# TBT Setup
+ELINK
+	Name  = "$(RC_SETUP_DIR)/TbtSetup.hfr"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+	Token = "Thunderbolt_SUPPORT" "=" "1"
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/TbtSetup.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+        Token = "Thunderbolt_SUPPORT" "=" "1"
+End
+
+ELINK
+	Name  = "$(RC_SETUP_DIR)/TbtSetup.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+        Token = "Thunderbolt_SUPPORT" "=" "1"
+End
+
+ELINK
+	Name  = "InitTbtStrings,"
+	Parent  = "SetupStringInit"
+	InvokeOrder = AfterParent
+	Token = "Thunderbolt_SUPPORT" "=" "1"
+End
+# AdditionalSetupPackages
+ELINK
+	Name  = "KabylakePlatSamplePkg/PlatformPkg.dec"
+	Parent  = "AdditionalSetupPackages"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "BpCommonPkg/BpCommonPkg.dec"
+	Parent  = "AdditionalSetupPackages"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "ClientSiliconPkg/ClientSiliconPkg.dec"
+	Parent  = "AdditionalSetupPackages"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "MdePkg/MdePkg.dec"
+	Parent  = "AdditionalSetupPackages"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiTsePkg/AmiTsePkg.dec"
+	Parent  = "AdditionalSetupPackages"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "UefiCpuPkg/UefiCpuPkg.dec"
+	Parent  = "AdditionalSetupPackages"
+	InvokeOrder = AfterParent
+End
+
+# AdditionalSetupLibraryClasses
+ELINK
+	Name  = "AmiCspLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "BootGuardLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "DimmInfoLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PchGbeLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "CmosAccessLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "DxeMeLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PttHeciLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "RngLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+#ELINK
+#    Name  = "BoardConfigLib"
+#    Parent  = "AdditionalSetupLibraryClasses"
+#    InvokeOrder = AfterParent
+#End
+
+ELINK
+    Name  = "CpuMailboxLib"
+    Parent  = "AdditionalSetupLibraryClasses"
+    InvokeOrder = AfterParent
+End
+
+# AdditionalSetupProtocols
+ELINK
+	Name  = "gEfiSmbiosProtocolGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gPchSpiProtocolGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gCpuInfoProtocolGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gSaPolicyProtocolGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gPlatformInfoProtocolGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gPchInfoProtocolGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gWdtAppProtocolGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gDxeMePolicyGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gMePlatformGetResetTypeGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gEfiAmtWrapperProtocolGuid"
+	Parent  = "AdditionalSetupProtocols"
+	InvokeOrder = AfterParent
+End
+
+# AdditionalSetupGuids
+ELINK
+    Name  = "gGraphicsDxeConfigGuid"
+    Parent  = "AdditionalSetupGuids"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gEfiEndOfDxeEventGroupGuid"
+	Parent  = "AdditionalSetupGuids"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gSetupEnterGuid"
+	Parent  = "AdditionalSetupGuids"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gSystemConfigGuid"
+	Parent  = "AdditionalSetupGuids"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gMeInfoSetupGuid"
+	Parent  = "AdditionalSetupGuids"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gSetupVariableGuid"
+	Parent  = "AdditionalSetupGuids"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gIccGuid"
+	Parent  = "AdditionalSetupGuids"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gMeSetupVariableGuid"
+	Parent  = "AdditionalSetupGuids"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gBootStateGuid"
+	Parent  = "AdditionalSetupGuids"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gAmiTseNVRAMUpdateGuid"
+	Parent  = "AdditionalSetupGuids"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gPlatformBoardConfigGuid"
+    Parent  = "AdditionalSetupGuids"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gPchPcieStorageDetectHobGuid"
+    Parent  = "AdditionalSetupGuids"
+    InvokeOrder = AfterParent
+End
+
+OUTPUTREGISTER
+    Name = "AmiOemDefinedForm"
+    Path = "Build"
+    File = "AmiOemDefinedForm.hfr"
+    Template = "AmiOemDefinedForm.txt"
+    Token = "RC_SETUP_OEM_DEFINED_FORMS" "=" "1"
+End
+
+# AdditionalSetupPcds
+ELINK
+	Name  = "gBoardModuleTokenSpaceGuid.PcdSensorHubSupport"
+	Parent  = "AdditionalSetupPcds"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress"
+	Parent  = "AdditionalSetupPcds"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gSiPkgTokenSpaceGuid.PcdMchBaseAddress"
+	Parent  = "AdditionalSetupPcds"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gPlatformModuleTokenSpaceGuid.PcdDmiBaseAddress"
+	Parent  = "AdditionalSetupPcds"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gSiPkgTokenSpaceGuid.PcdSerialIoUartDebugEnable"
+	Parent  = "AdditionalSetupPcds"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gSiPkgTokenSpaceGuid.PcdSerialIoUartNumber"
+	Parent  = "AdditionalSetupPcds"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gClientCommonModuleTokenSpaceGuid.PcdSmbiosOemTypeFirmwareVersionInfo"
+	Parent  = "AdditionalSetupPcds"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gBoardModuleTokenSpaceGuid.PcdBoardPrivateData"
+	Parent  = "AdditionalSetupPcds"
+	InvokeOrder = AfterParent
+End
+
+INFComponent
+	Name  = "DimmInfoLib"
+	File  = "DimmInfoLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+	Class  = "DimmInfoLib"
+	Instance  = "KabylakePlatSamplePkg.DimmInfoLib"
+End
+
+ELINK
+    Name  = "$(RC_SETUP_DIR)/AmiLoadDefaultSetupHook.c"
+    Parent  = "TSE_SOURCE_FILES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AmiProcessEnterSetup,"
+    Parent  = "ProcessEnterSetup,"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AmiLoadDefaultSetupHook,"
+    Parent  = "LoadedConfigDefaultsHook,"
+    InvokeOrder = AfterParent
+End

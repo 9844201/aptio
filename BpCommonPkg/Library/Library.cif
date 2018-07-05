@@ -1,0 +1,15 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "BpCommonPkg\Library\"
+	RefName = "BpCommonPkg.Library"
+[INF]
+"BiosIdLib\DxeBiosIdLib.inf"
+"CmosAccessLib\CmosAccessLib.inf"
+"BiosIdLib\PeiBiosIdLib.inf"
+"PlatformCmosAccessLibNull\PlatformCmosAccessLibNull.inf"
+[files]
+"Library.sdl"	
+[parts]
+"BpCommonPkg.BaseTraceHubDebugLib"
+<endComponent>

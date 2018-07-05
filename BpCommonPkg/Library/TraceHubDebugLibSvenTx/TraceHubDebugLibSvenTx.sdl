@@ -1,0 +1,78 @@
+TOKEN
+	Name  = "TraceHubDebugLibSvenTx_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Help  = "Main switch to enable TraceHubDebugLibSvenTx support in Project"
+End
+
+INFComponent
+    Name  = "BaseTraceHubDebugLibSvenTx"
+    File  = "BaseTraceHubDebugLibSvenTx.inf"
+    Package  = "BpCommonPkg"
+End
+
+LibraryMapping
+    Class  = "TraceHubDebugLib"
+    Instance  = "BpCommonPkg.BaseTraceHubDebugLibSvenTx"   
+    Token = "FSP_WRAPPER_ENABLE" "=" "1" 
+End      
+
+LibraryMapping
+    Class  = "TraceHubDebugLib"
+    Instance  = "BpCommonPkg.BaseTraceHubDebugLibSvenTx"   
+    Override  = "AmiCpuModulePkg.SecCore"    
+End
+
+INFComponent
+    Name  = "DxeTraceHubDebugLibSvenTx"
+    File  = "DxeTraceHubDebugLibSvenTx.inf"
+    Package  = "BpCommonPkg"
+End
+
+LibraryMapping
+    Class  = "TraceHubDebugLib"
+    Instance  = "BpCommonPkg.DxeTraceHubDebugLibSvenTx" 
+    Arch  = "X64"      
+End
+
+INFComponent
+    Name  = "PeiTraceHubDebugLibSvenTx"
+    File  = "PeiTraceHubDebugLibSvenTx.inf"
+    Package  = "BpCommonPkg"
+End
+
+LibraryMapping
+    Class  = "TraceHubDebugLib"
+    Instance  = "BpCommonPkg.PeiTraceHubDebugLibSvenTx"   
+    Arch  = "IA32" 
+    Token = "FSP_WRAPPER_ENABLE" "=" "0"       
+End
+
+LibraryMapping
+    Class  = "TraceHubDebugLib"
+    Instance  = "BpCommonPkg.BaseTraceHubDebugLibSvenTx"   
+    Override  = "MdeModulePkg.CapsuleX64"    
+End
+
+PcdMapping
+    Name  = "PcdTraceHubDebugLibMaster"
+    GuidSpace  = "gEfiBpCommonPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0x20"
+    Offset  = 00h
+    Length  = 04h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdTraceHubDebugLibChannel"
+    GuidSpace  = "gEfiBpCommonPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "0xE"
+    Offset  = 00h
+    Length  = 04h
+    TargetDSC = Yes
+End

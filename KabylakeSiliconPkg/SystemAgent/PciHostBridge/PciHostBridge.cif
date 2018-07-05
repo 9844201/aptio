@@ -1,0 +1,10 @@
+<component>
+	name = "PciHostBridge"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\PciHostBridge\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.PciHostBridge"
+[files]
+"PciHostBridge.sdl"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.PciHostBridge.Dxe"
+<endComponent>

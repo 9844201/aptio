@@ -1,0 +1,8 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "SkyBayPkg\Include\Library\"
+	RefName = "SkyBayPkg.Library"
+[files]
+"CrbLib.h"	
+<endComponent>

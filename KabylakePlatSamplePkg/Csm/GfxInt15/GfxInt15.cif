@@ -1,0 +1,11 @@
+<component>
+	name = "Int15Asm"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Csm\GfxInt15\"
+	RefName = "KabylakePlatSamplePkg.Csm.Int15"
+[files]
+"GfxInt15.sdl"	
+"GfxInt15Legacy.inf"	
+"GfxInt15.asm16"	
+"GfxInt15.nasmb"	
+<endComponent>

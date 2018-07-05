@@ -1,0 +1,13 @@
+<component>
+	name = "Sample"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\AMT\"
+	RefName = "KabylakePlatSamplePkg.Features.AMT.Sample"
+[files]
+"AmtInt16\AmtInt16.c"	
+"AmtInt16\AmtInt16.h"	
+"AmtInt16\AmtInt16.inf"	
+"AmtInt16\AmtInt16Csm.asm16"	
+"AmtInt16\AmtInt16Csm.nasmb"	
+"AmtInt16\AmtInt16Csm.inf"	
+<endComponent>

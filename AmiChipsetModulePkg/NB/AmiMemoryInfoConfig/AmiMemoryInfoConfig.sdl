@@ -1,0 +1,30 @@
+TOKEN
+    Name = "NB_AMI_MEMORY_INFO_CONFIG"
+    Value = "1"
+    Help  = "Main switch to enable AmiMemoryInfo protocol in project"
+    TokenType = Boolean
+    TargetH = Yes
+    Master = Yes
+End
+
+TOKEN
+    Name = "NB_AMI_MEMORY_INFO_SAMPLE_APP"
+    Value = "0"
+    Help  = "Main switch to enable AmiMemoryInfoSample support in shell"
+    TokenType = Boolean
+End
+
+INFComponent
+    Name  = "AmiMemoryInfoConfig"
+    File  = "AmiMemoryInfoConfig.inf"
+    Package  = "AmiChipsetModulePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "AmiMemoryInfoSample"
+    File  = "AmiMemoryInfoSample/AmiMemoryInfoSample.inf"
+    Package  = "AmiChipsetModulePkg"
+    ModuleTypes  = "UEFI_APPLICATION"
+    Token = "NB_AMI_MEMORY_INFO_SAMPLE_APP" "=" "1"
+End

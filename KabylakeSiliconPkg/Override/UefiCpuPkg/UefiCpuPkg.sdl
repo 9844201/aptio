@@ -1,0 +1,15 @@
+TOKEN
+	Name  = "SI_OVERRIDE_UEFICPUPKG_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SiPkg Override UefiCpuPkg support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "CpuMpPei"
+	File  = "CpuMpPei\CpuMpPei.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_WRAPPER_ENABLE" "=" "0" 	
+End

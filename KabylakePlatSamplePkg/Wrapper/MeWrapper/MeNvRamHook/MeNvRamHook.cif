@@ -1,0 +1,11 @@
+<component>
+	name = "MeNvRamHook"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\MeNvRamHook\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper.MeNvRamHook"
+[INF]
+"MeNvRamHook.inf"
+"MeNvRamPeiHook.inf"
+[files]
+"MeNvRamHook.sdl"	
+<endComponent>

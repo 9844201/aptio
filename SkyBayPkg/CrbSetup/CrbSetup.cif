@@ -1,0 +1,11 @@
+<component>
+	name = "CRB Setup"
+	category = ModulePart
+	LocalRoot = "SkyBayPkg\CrbSetup\"
+	RefName = "SkyBayPkg.Setup"
+[files]
+"CrbSetup.sdl"	
+"Crb.sd"	
+"Crb.uni"	
+"CrbSetup.c"	
+<endComponent>

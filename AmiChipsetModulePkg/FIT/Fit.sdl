@@ -1,0 +1,997 @@
+TOKEN
+        Name  = "INTEL_FIT_SUPPORT"
+        Value  = "1"
+        Help  = "Main switch to enable Intel FIT in Project"
+        TokenType = Boolean
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Master = Yes
+End
+
+TOKEN
+        Name  = "INTEL_BOOT_GUARD_SUPPORT"
+        Value = "1"
+        Help  = "Main switch to enable Intel Boot Guard in Project"
+        TokenType = Boolean
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+End
+
+TOKEN
+	Name  = "MICROCODE_SPLIT_BB_UPDATE"
+	Value  = "0"
+	Help  = "Does not support when Boot Guard enable. Once enable Microcode will update to FV_MAIN by INT15h than BootGuard fail."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes 
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name = "INTEL_FIT_SIZE"
+        Value = "0X400"
+        Help = "Size of the FIT"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes 
+	Lock = Yes        
+End
+
+TOKEN
+        Name  = "FV_MICROCODE_BASE"
+        Value  = "$(FV_DATA_BASE)"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetFDF = Yes
+        Lock = Yes
+End
+
+TOKEN
+        Name  = "FV_MICROCODE_BINARY_BASE"
+        Value  = "$(FV_DATA_BASE)+ $(INTEL_FIT_SIZE)"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetFDF = Yes
+	Lock = Yes        
+End
+
+TOKEN
+        Name  = "INTEL_BOOT_GUARD_CHAIN_OF_TRUST_SUPPORT"
+        Value = "1"
+        Help  = "If enable, FV_MAIN will protect by BootGuard, if disable, FV_MAIN will not be protect by BootGuard."
+        TokenType = Boolean
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+        
+TOKEN
+        Name  = "INTEL_BOOT_GUARD_CHAIN_OF_TRUST_VERIFY_FAILED_FUNCTION"
+        Value = "0"
+        Help  = "This token can select the behavior when FV_MAIN verify. It should input value 0-2. If set 0, the BootGuard will entry recovery mode. If set 1, BootGuard will hung at PEI phase and show post code."
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "INTEL_BOOT_GUARD_CHAIN_OF_TRUST_SUPPORT" "=" "1"
+End
+        
+TOKEN
+        Name  = "INTEL_BOOT_GUARD_CHAIN_OF_TRUST_VERIFY_FAILED_POSTCODE"
+        Value = "0x88"
+        Help  = "This token is useful when INTEL_BOOT_GUARD_CHAIN_OF_TRUST_VERIFY_FAILED_FUNCTION set 1."
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "INTEL_BOOT_GUARD_CHAIN_OF_TRUST_VERIFY_FAILED_FUNCTION" "=" "1"
+End
+
+TOKEN
+        Name  = "INTEL_BOOT_GUARD_SIGNING_SERVER_SUPPORT"
+        Value  = "1"
+        Help  = "If enable it not need the BIOS info (EX: FV_BB_SIZE, FV_BB_BASE...)to update at the server, if disable have input the BIOS info when update BIOS by sever."
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"        
+End
+
+TOKEN
+        Name  = "BOOT_GUARD_SIGNING_SERVER_TIMEOUT"
+        Value  = "0"
+        Help  = "Wait Signing Server response time. The unit of timeout is the second"
+        TokenType = Integer
+        TargetMAK = Yes
+End
+
+
+TOKEN
+        Name  = "BOOT_GUARD_ACM"
+        Value = "2"
+        Help  = "Must use the correct ACM binary for the matching CPUs, else platform will not behave as expected. You can check the Token AncACM to set value 0-3."
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "FV_BOOT_GUARD_ACM_BASE"
+        Value  = "$(FV_BB_BASE) + 0x10000"
+        TokenType = Integer
+        TargetH = Yes
+        TargetFDF = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"                   
+End
+
+FFS_FILE
+        Name  = "AnCACM"
+        FD_AREA  = "FV_BB"
+        FILE_Stmt  = "AmiChipsetModulePkg/FIT/Boot_Guard_KBL_ACM_ES_PC_FdfFileStatement.txt"
+        Help  = "This ACM bin is for Kabylake ES CPU and PCH ACM_SVN is 0."
+        Token = "BOOT_GUARD_ACM" "=" "0"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+        Name  = "AnCACM"
+        FD_AREA  = "FV_BB"
+        FILE_Stmt  = "AmiChipsetModulePkg/FIT/Boot_Guard_KBL_ACM_QS_PV_FdfFileStatement.txt"
+        Help  = "This ACM bin is for Kabylake ES CPU and PCH ACM_SVN is 1."
+        Token = "BOOT_GUARD_ACM" "=" "3"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+        Name  = "AnCACM"
+        FD_AREA  = "FV_BB"
+        FILE_Stmt  = "AmiChipsetModulePkg/FIT/Boot_Guard_KBL_ACM_QS_PV_FdfFileStatement.txt"
+        Help  = "This ACM bin is for Kabylake QS CPU and PCH ACM_SVN is 2."
+        Token = "BOOT_GUARD_ACM" "=" "1"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+        Name  = "AnCACM"
+        FD_AREA  = "FV_BB"
+        FILE_Stmt  = "AmiChipsetModulePkg/FIT/Boot_Guard_KBL_ACM_QS_FdfFileStatement.txt"
+        Help  = "This ACM bin is for Kabylake QS CPU and PCH ACM_SVN is 0."
+        Token = "BOOT_GUARD_ACM" "=" "2"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "FV_BB_VERIFY_FV_AFTER_MEMORY"
+        Value = "0"
+        Help  = "Main switch to enable two Parts's security check. BootGuard ACM ->(check by ACM ) FV_BB -> (check by BIOS ) FV_BB_AFTER_MEMORY ->(check by BIOS ) FV_MAIN"
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes    
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "BOOT_GUARD_ACMSVN"
+        Value = "0"
+        Help  = "The ACM version of Boot Guard ACM."
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "BOOT_GUARD_ACM" "=" "0"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "BOOT_GUARD_ACMSVN"
+        Value = "2"
+        Help  = "The ACM version of Boot Guard ACM."
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "BOOT_GUARD_ACM" "=" "1"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "BOOT_GUARD_ACMSVN"
+        Value = "0"
+        Help  = "The ACM version of Boot Guard ACM."
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "BOOT_GUARD_ACM" "=" "2"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "BOOT_GUARD_BPMSVN"
+        Value = "0"
+        Help  = "The BPM version of Boot Guard."
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "BOOT_GUARD_KMSVN"
+        Value = "0"
+        Help  = "The KM version of Boot Guard."
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+
+TOKEN
+        Name  = "BOOT_GUARD_PBULIC_KEY_EXPONENT"
+        Help  = "The token for the KeyGen.exe"
+        Value  = "0x10001"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "BPM_IBB_MCHBAR"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(NB_MCH_BASE_ADDRESS) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes        
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "BPM_IBB_VARIOUS_FLAGS"
+        Help  = "The Various Flags for IBB Element. Please input decimal value. If want to enable AuthorityMeasure, please input 4."
+        Value  = "0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes       
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "BPM_VTD_BAR"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(NB_VTD_BASE_ADDRESS) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes        
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "BPM_IBB_SEGMENT_BASE"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(FV_BB_BASE) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes        
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+	Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "1"
+End
+
+TOKEN
+        Name  = "BPM_IBB_SEGMENT_BASE"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(FV_BB_AFTER_MEMORY_BASE) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes        
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "0"
+End
+
+TOKEN
+        Name  = "BPM_IBB_SEGMENT_SIZE"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(FV_BB_SIZE) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes        
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+	Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "1"
+        Token = "FSP_WRAPPER_ENABLE" "=" "0"      
+End
+
+TOKEN
+        Name  = "BPM_IBB_SEGMENT_SIZE"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(FV_BB_SIZE) + $(FV_BB_AFTER_MEMORY_SIZE) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes        
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "0"
+        Token = "FSP_WRAPPER_ENABLE" "=" "0"         
+End
+
+TOKEN
+        Name  = "BPM_IBB_SEGMENT_SIZE"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(FV_BB_SIZE) +$(FV_FSP_SIZE) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes        
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "1"
+        Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+TOKEN
+        Name  = "BPM_IBB_SEGMENT_SIZE"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(FV_BB_SIZE) +$(FV_FSP_SIZE)+ $(FV_BB_AFTER_MEMORY_SIZE) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes        
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "0"
+        Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+TOKEN
+        Name  = "BPM_PBET"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "15"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+	Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+
+TOKEN
+        Name  = "KM_KEY_MANIFEST_ID"
+        Help  = "BpmKmGen.exe only support the decimal value, and this field must match the Key Manifest ID of Secure boot of FITC."
+        Value  = "1"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "FV_BB_AFTER_MEMORY_SEGMENT_BASE"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(FV_BB_AFTER_MEMORY_BASE) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes        
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "1"
+End
+
+TOKEN
+        Name  = "FV_BB_AFTER_MEMORY_SEGMENT_SIZE"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(FV_BB_AFTER_MEMORY_BLOCKS) * $(FLASH_BLOCK_SIZE)"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes        
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "1"
+End
+
+TOKEN
+        Name  = "DXE_SEGMENT_BASE"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(FV_MAIN_BASE) + 0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "DXE_SEGMENT_SIZE"
+        Help  = "BpmKmGen.exe only support the decimal value"
+        Value  = "$(FV_MAIN_BLOCKS) * $(FLASH_BLOCK_SIZE)"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name = "BPM_MIN_CPU_LLC_SIZE"
+        Value = "2 * 1024 * 1024"
+        Help = "Assign the Min LLC size to 2MB, it can't bigger than your CPU LLC(L3 cache)."
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FSP_WRAPPER_ENABLE" "=" "0" 
+        Token = "DEBUG_MODE" "=" "0"
+End
+
+TOKEN
+        Name = "BPM_MIN_CPU_LLC_SIZE"
+        Value = "4 * 1024 * 1024"
+        Help = "Assign the Min LLC size to 4MB, it can't bigger than your CPU LLC(L3 cache)."
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FSP_WRAPPER_ENABLE" "=" "1" 
+        Token = "DEBUG_MODE" "=" "0"
+End
+ 
+TOKEN
+        Name = "BPM_MIN_CPU_LLC_SIZE"
+        Value = "4 * 1024 * 1024"
+        Help = "Assign the Min LLC size to 4MB, it can't bigger than your CPU LLC(L3 cache)."
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"        
+        Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+        Name = "BPM_LLC_SIZE_TOO_SMALL_FLAG"
+        Value = "0"
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name = "BPM_LLC_SIZE_TOO_SMALL_FLAG"
+        Value = "1"
+        Help = "Assign the Min LLC size to 2MB"
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "FV_BB_SIZE" ">" "1568768"
+        Token = "BPM_MIN_CPU_LLC_SIZE" "=" "2097152"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name = "BPM_LLC_SIZE_TOO_SMALL_FLAG"
+        Value = "1"
+        Help = "Assign the Min LLC size to 3MB"
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "FV_BB_SIZE" ">" "2617344"
+        Token = "BPM_MIN_CPU_LLC_SIZE" "=" "3145728"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name = "BPM_LLC_SIZE_TOO_SMALL_FLAG"
+        Value = "1"
+        Help = "Assign the Min LLC size to 4MB"
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "FV_BB_SIZE" ">" "3665920"
+        Token = "BPM_MIN_CPU_LLC_SIZE" "=" "4194304"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name = "BPM_NEM_DATA_STACK_SIZE"
+        Value = "( $(BPM_MIN_CPU_LLC_SIZE) - (512 *1024) - $(FV_BB_SIZE) ) / 4096"
+        Help = "Size of Hashed IBB <= LLC -  0.5MB - sizeof (Boot Guard ACM) -  sizeof (DataStack) - sizeof (FIT) - sizeof (BPM)"
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "BPM_LLC_SIZE_TOO_SMALL_FLAG" "!=" "1"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "1"
+        Token = "FSP_WRAPPER_ENABLE" "=" "0"
+End
+
+TOKEN
+        Name = "BPM_NEM_DATA_STACK_SIZE"
+        Value = "( $(BPM_MIN_CPU_LLC_SIZE) - (512 *1024) - $(FV_BB_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) ) / 4096"
+        Help = "Size of Hashed IBB <= LLC -  0.5MB - sizeof (Boot Guard ACM) -  sizeof (DataStack) - sizeof (FIT) - sizeof (BPM)"
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "BPM_LLC_SIZE_TOO_SMALL_FLAG" "!=" "1"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "0"
+        Token = "FSP_WRAPPER_ENABLE" "=" "0"
+End
+
+TOKEN
+        Name = "BPM_NEM_DATA_STACK_SIZE"
+        Value = "( $(BPM_MIN_CPU_LLC_SIZE) - (512 *1024) - $(FV_BB_SIZE) - $(FV_FSP_SIZE) ) / 4096"
+        Help = "Size of Hashed IBB <= LLC -  0.5MB - sizeof (Boot Guard ACM) -  sizeof (DataStack) - sizeof (FIT) - sizeof (BPM)"
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "BPM_LLC_SIZE_TOO_SMALL_FLAG" "!=" "1"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "1"
+        Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+TOKEN
+        Name = "BPM_NEM_DATA_STACK_SIZE"
+        Value = "( $(BPM_MIN_CPU_LLC_SIZE) - (512 *1024) - $(FV_BB_SIZE) - $(FV_FSP_SIZE) - $(FV_BB_AFTER_MEMORY_SIZE) ) / 4096"
+        Help = "Size of Hashed IBB <= LLC -  0.5MB - sizeof (Boot Guard ACM) -  sizeof (DataStack) - sizeof (FIT) - sizeof (BPM)"
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "BPM_LLC_SIZE_TOO_SMALL_FLAG" "!=" "1"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "0"
+        Token = "FSP_WRAPPER_ENABLE" "=" "1"
+End
+
+TOKEN
+        Name  = "BIOS_STARTING_ADDRESS"
+        Help  = "Support the decimal value"
+        Value  = "0xFFFFFFFF - $(FLASH_SIZE) + 1"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+End
+
+TOKEN
+        Name  = "FITEntryPointToOtherFVBBRomAddress"
+        Help  = "FitUtil.exe only support the decimal value. If you don't have other FV_BB, please set the OtherFVBBRomAddress to 0."
+        Value  = "0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+End
+
+TOKEN
+        Name  = "FIT_BPM_FIT_SIZE_2F7"
+        Value = "0"
+        Help  = "If you have FIT_ACM_GUID/FIT_MICROCODE_GUID/FIT_TABLE_GUID, please enter the skip GUID number in here."
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+
+TOKEN
+        Name  = "FIT_BPM_FIT_SIZE_2F7"
+        Value = "1"
+        Help  = "If you have FIT_ACM_GUID/FIT_MICROCODE_GUID/FIT_TABLE_GUID, please enter the skip GUID number in here."
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FIT_TABLE_GUID" "!=" "0" 
+        Token = "FIT_ACM_GUID" "!=" "0"
+        Token = "FIT_MICROCODE_GUID" "!=" "0" 
+End
+
+TOKEN
+        Name  = "FIT_BPM_FIT_SIZE_2EB"
+        Value = "0"
+        Help  = "If you have FIT_ACM_GUID/FIT_MICROCODE_GUID/FIT_TABLE_GUID, please enter the skip GUID number in here."
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "FIT_BPM_FIT_SIZE_2EB"
+        Value = "1"
+        Help  = "If you have FIT_ACM_GUID/FIT_MICROCODE_GUID/FIT_TABLE_GUID, please enter the skip GUID number in here."
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FIT_TABLE_GUID" "!=" "0" 
+        Token = "FIT_MICROCODE_GUID" "!=" "0"
+        Token = "FIT_ACM_GUID" "=" "0"    
+End
+
+TOKEN
+        Name  = "FIT_BPM_FIT_SIZE_2EB"
+        Value = "1"
+        Help  = "If you have FIT_ACM_GUID/FIT_MICROCODE_GUID/FIT_TABLE_GUID, please enter the skip GUID number in here."
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FIT_TABLE_GUID" "!=" "0" 
+        Token = "FIT_MICROCODE_GUID" "=" "0"
+        Token = "FIT_ACM_GUID" "!=" "0"    
+End
+
+TOKEN
+        Name  = "FIT_BPM_FIT_SIZE_2EB"
+        Value = "1"
+        Help  = "If you have FIT_ACM_GUID/FIT_MICROCODE_GUID/FIT_TABLE_GUID, please enter the skip GUID number in here."
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FIT_TABLE_GUID" "=" "0" 
+        Token = "FIT_MICROCODE_GUID" "!=" "0"
+        Token = "FIT_ACM_GUID" "!=" "0" 
+End
+
+TOKEN
+        Name  = "FIT_BPM_FIT_SIZE_2DF"
+        Value = "0"
+        Help  = "If you have FIT_ACM_GUID/FIT_MICROCODE_GUID/FIT_TABLE_GUID, please enter the skip GUID number in here."
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "FIT_BPM_FIT_SIZE_2DF"
+        Value = "1"
+        Help  = "If you have FIT_ACM_GUID/FIT_MICROCODE_GUID/FIT_TABLE_GUID, please enter the skip GUID number in here."
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FIT_MICROCODE_GUID" "=" "0"
+        Token = "FIT_ACM_GUID" "=" "0" 
+        Token = "FIT_TABLE_GUID" "!=" "0"
+End
+
+TOKEN
+        Name  = "FIT_BPM_FIT_SIZE_2DF"
+        Value = "1"
+        Help  = "If you have FIT_ACM_GUID/FIT_MICROCODE_GUID/FIT_TABLE_GUID, please enter the skip GUID number in here."
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "FIT_TABLE_GUID" "=" "0"
+        Token = "FIT_MICROCODE_GUID" "=" "0"
+        Token = "FIT_ACM_GUID" "!=" "0"
+End
+
+TOKEN
+        Name  = "FIT_ACM_GUID"
+        Value = "6520F532-2A27-4195-B331-C0854683E0BA"
+        Help  = "If you want to skip the area of ACM in FV_BB, input the ACM GUID or enter the '0'."
+        TokenType = Expression
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "FIT_MICROCODE_GUID"
+        Value = "0"
+        Help  = "If you want to skip the area of MICROCODE in FV_BB, input the MICROCODE GUID or enter the '0'."
+        TokenType = Expression
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "FIT_MICROCODE_GUID"
+        Value = "17088572-377F-44ef-8F4E-B09FFF46A070"
+        Help  = "When TopSwap is Enabled/Supported, Microcode will be included in FV_BB. So we must skip Microcode hash."
+        TokenType = Expression
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+	Token = "FtRecovery_SUPPORT" "=" "1" 	
+End
+
+TOKEN
+        Name  = "FIT_TABLE_GUID"
+        Value = "0"
+        Help  = "If you want to skip the area of Fit Table in FV_BB, input the Fit Table GUID or enter the '0'."
+        TokenType = Expression
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "FIT_TABLE_GUID"
+        Value = "B52282EE-9B66-44B9-B1CF-7E5040F787C1"
+        Help  = "When TopSwap is Enabled/Supported, FIT table will be included in FV_BB. So we must skip FIT table hash."
+        TokenType = Expression
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+	Token = "FtRecovery_SUPPORT" "=" "1" 
+End
+
+TOKEN
+        Name  = "BootGuardTokens"
+        Value  = "$(BPM_IBB_MCHBAR) $(BPM_VTD_BAR) $(BPM_IBB_SEGMENT_BASE) $(BPM_IBB_SEGMENT_SIZE) $(BPM_PBET) $(BIOS_STARTING_ADDRESS) $(KM_KEY_MANIFEST_ID) $(BOOT_GUARD_ACMSVN) $(BPM_NEM_DATA_STACK_SIZE) $(BOOT_GUARD_BPMSVN) $(BOOT_GUARD_KMSVN) $(BPM_IBB_VARIOUS_FLAGS) $(BOOT_GUARD_SIGNING_SERVER_TIMEOUT) $(FIT_ACM_GUID) $(FIT_MICROCODE_GUID) $(FIT_TABLE_GUID)"
+        Help  = "Support the decimal value"
+        TokenType = Expression
+        TargetMAK = Yes
+        Lock = Yes
+End
+
+TOKEN
+    Name  = "====== Boot Guard Signing Interlock Support ======"
+    TokenType = Expression
+End
+
+TOKEN
+        Name  = "BOOT_GUARD_SIGNING_INTERLOCK_SUPPORT"
+        Value = "0"
+        Help  = "The feature is for OEM to change the sign tool for lock the private key. If enable this feature, please input BPMPublic.key, KmPublic.key, the sign tool name, the sign tool path and the comment for sign tool signing KM and BPM."
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+        TargetEQU = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "SIGN_TOOL_NAME_PATH"
+        Value  = "AmiChipsetModulePkg\FIT\CryptoCon.exe"
+        Help  = "Please input the path and the name of sign tool which you want to use. ex: (AmiChipsetModulePkg/FIT/CryptoCon.exe)"
+        TokenType = Expression
+        TargetMAK = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "BOOT_GUARD_SIGNING_INTERLOCK_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "SIGN_TOOL_INPUT_BPM_COMMENT"
+        Value  = " -s -k AmiChipsetModulePkg\FIT\BootGuardKeys\BPEM.key -f "
+        Help  = "Please input the BPM comment of sign tool use. If the comment is: AmiChipsetModulePkg\FIT\CryptoCon.exe -s -k AmiChipsetModulePkg\FIT\BootGuardKeys\BpmPrivate.key -f sign.file -o output.file. Please input: -s -k AmiChipsetModulePkg\FIT\BootGuardKeys\BpmPrivate.key -f "
+        TokenType = Expression
+        TargetMAK = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "BOOT_GUARD_SIGNING_INTERLOCK_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "SIGN_TOOL_INPUT_SEPARATE"
+        Value  = "*"
+        Help  = "Please don't change this token. This symbol is separate BPM and KM comment."
+        TokenType = Expression
+        TargetMAK = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "BOOT_GUARD_SIGNING_INTERLOCK_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "SIGN_TOOL_INPUT_KM_COMMENT"
+        Value  = " -s -k AmiChipsetModulePkg\FIT\BootGuardKeys\KPEM.key -f "
+        Help  = "Please input the KM comment of sign tool use. If the comment is: AmiChipsetModulePkg\FIT\CryptoCon.exe -s -k AmiChipsetModulePkg\FIT\BootGuardKeys\KmPrivate.key -f sign.file -o output.file. Please input: -s -k AmiChipsetModulePkg\FIT\BootGuardKeys\BpmPrivate.key -f "
+        TokenType = Expression
+        TargetMAK = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "BOOT_GUARD_SIGNING_INTERLOCK_SUPPORT" "=" "1"
+End
+
+TOKEN
+        Name  = "BootGuardSignInterLockTokens"
+        Value  = "$(SIGN_TOOL_NAME_PATH) $(SIGN_TOOL_INPUT_BPM_COMMENT) $(SIGN_TOOL_INPUT_SEPARATE) $(SIGN_TOOL_INPUT_KM_COMMENT)"
+        Help  = "Support the decimal value"
+        TokenType = Expression
+        TargetMAK = Yes
+        Lock = Yes
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+        Token = "BOOT_GUARD_SIGNING_INTERLOCK_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End
+
+TOKEN
+        Name  = "FitFirstEndPatchBIOSRomPath"
+        Value = "$(ROM_FILE_NAME)"
+        Help  = "Patch BIOS ROM Path"
+        TokenType = Expression
+        TargetMAK = Yes
+        Lock = Yes
+End
+     
+PcdMapping
+    Name  = "AmiPcdForceShutdownOnFailedRecovery"
+    GuidSpace  = "gAmiModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsDynamicDefault"
+    DataType  = "Boolean"
+    Value  = "FALSE"
+    TargetDSC = Yes
+    Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+    Token = "INTEL_BOOT_GUARD_CHAIN_OF_TRUST_VERIFY_FAILED_FUNCTION" "=" "0"
+End
+
+INFComponent
+        Name  = "FitTable"
+        File  = "FitTable.inf"
+        Package  = "AmiChipsetModulePkg"
+        ModuleTypes  = "USER_DEFINED"
+        Skip_Packaging = Yes
+End
+
+FFS_FILE
+        Name = "FitTable"
+        FD_AREA = "FV_DATA"
+        FILE_Stmt = "AmiChipsetModulePkg/FIT/FitTableFdfFileStatement.txt"
+        Rule_Override  = "UncompressedNoChecksum" 
+        Apriori_Index  = "1"       
+End
+
+FFS_FILE
+        Name  = "Microcode"
+        FD_AREA  = "FV_DATA"
+        FILE_Stmt  = "AmiChipsetModulePkg/FIT/FitMicrocodeFdfFileStatement.txt"
+        Token = "MICROCODE_SPLIT_BB_UPDATE" "=" "0" 
+End
+
+FFS_FILE
+        Name = "ReserveBpmTable"
+        FD_AREA = "FV_BB"
+        FILE_Stmt = "AmiChipsetModulePkg/FIT/BpmTableFdfFileStatement.txt"
+        Rule_Override  = "UncompressedNoChecksum"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"      
+End
+
+FFS_FILE
+        Name = "ReserveKmTable"
+        FD_AREA = "FV_BB"
+        FILE_Stmt = "AmiChipsetModulePkg/FIT/KmTableFdfFileStatement.txt"
+        Rule_Override  = "UncompressedNoChecksum"
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"        
+End
+
+INFComponent
+        Name  = "ReserveBootGuardSigningServer"
+        File  = "ReserveBootGuardSigningServer.inf"
+        Package  = "AmiChipsetModulePkg"
+        ModuleTypes  = "USER_DEFINED"
+        Token = "INTEL_BOOT_GUARD_SIGNING_SERVER_SUPPORT" "=" "1"        
+End
+
+FFS_FILE
+        Name  = "ReserveBootGuardSigningServer"
+        FD_AREA  = "FV_BB"
+        INFComponent  = "AmiChipsetModulePkg.ReserveBootGuardSigningServer"
+        Rule_Override  = "UncompressedBinaryNoChecksum"
+        Token = "INTEL_BOOT_GUARD_SIGNING_SERVER_SUPPORT" "=" "1"
+End
+
+INFComponent
+        Name  = "ReserveBootGuardFvMainHashKey"
+        File  = "ReserveBootGuardFvMainHashKey.inf"
+        Package  = "AmiChipsetModulePkg"
+        ModuleTypes  = "USER_DEFINED"
+        Token = "INTEL_BOOT_GUARD_CHAIN_OF_TRUST_SUPPORT" "=" "1"        
+End
+
+FFS_FILE
+        Name  = "ReserveBootGuardFvMainHashKey"
+        FD_AREA  = "FV_BB"
+        INFComponent  = "AmiChipsetModulePkg.ReserveBootGuardFvMainHashKey"
+        Rule_Override  = "UncompressedBinaryNoChecksum"
+        Token = "INTEL_BOOT_GUARD_CHAIN_OF_TRUST_SUPPORT" "=" "1"
+End
+
+INFComponent
+        Name  = "ReserveBootGuardFvBbAfterMemKey"
+        File  = "ReserveBootGuardFvBbAfterMemKey.inf"
+        Package  = "AmiChipsetModulePkg"
+        ModuleTypes  = "USER_DEFINED"
+        Token = "INTEL_BOOT_GUARD_CHAIN_OF_TRUST_SUPPORT" "=" "1"
+        Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "1"          
+End
+
+FFS_FILE
+        Name  = "ReserveBootGuardFvBbAfterMemKey"
+        FD_AREA  = "FV_BB"
+        INFComponent  = "AmiChipsetModulePkg.ReserveBootGuardFvBbAfterMemKey"
+        Rule_Override  = "UncompressedBinaryNoChecksum"
+        Token = "INTEL_BOOT_GUARD_CHAIN_OF_TRUST_SUPPORT" "=" "1"
+	Token = "FV_BB_VERIFY_FV_AFTER_MEMORY" "=" "1"  
+End
+
+PATH
+        Name  = "FIT_DIR"
+End
+
+MODULE
+        Help  = "Includes Fit.mak to Project"
+        File  = "Fit.mak"
+End

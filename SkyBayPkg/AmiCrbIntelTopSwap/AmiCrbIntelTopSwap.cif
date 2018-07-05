@@ -1,0 +1,9 @@
+<component>
+	name = "AmiCrbIntelTopSwap"
+	category = ModulePart
+	LocalRoot = "SkyBayPkg\AmiCrbIntelTopSwap\"
+	RefName = "AmiCrbIntelTopSwap"
+[files]
+"AmiCrbIntelTopSwap.sdl"	
+"MicrocodeFdfFileStatement.txt"
+<endComponent>

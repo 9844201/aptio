@@ -1,0 +1,11 @@
+<component>
+	name = "Hsti"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Hsti\"
+	RefName = "KabylakeSiliconPkg.Hsti"
+[INF]
+"Dxe\HstiSiliconDxe.inf"
+[files]
+"Hsti.sdl"	
+"Dxe\HstiSiliconDxe.h"	
+<endComponent>

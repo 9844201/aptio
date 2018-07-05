@@ -1,0 +1,12 @@
+<component>
+	name = "UefiCpuPkg"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Override\UefiCpuPkg\"
+	RefName = "KabylakeSiliconPkg.Override.UefiCpuPkg"
+[INF]
+"CpuMpPei\CpuMpPei.inf"
+[files]
+"UefiCpuPkg.sdl"	
+"CpuMpPei\CpuMpPei.uni"	
+"CpuMpPei\CpuMpPeiExtra.uni"	
+<endComponent>

@@ -1,0 +1,8 @@
+<component>
+	name = "Pch"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\Pch\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.Pch"
+[parts]
+"KabylakeSiliconPkg.Common.SampleCode.Pch.AcpiTables"
+<endComponent>

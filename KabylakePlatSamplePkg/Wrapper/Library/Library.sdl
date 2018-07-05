@@ -1,0 +1,71 @@
+TOKEN
+    Name  = "Platform_Wrapper_Library_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Platform Wrapper Library support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "AmiBdsPlatformLib"
+    File  = "AmiBdsPlatformLib/AmiBdsPlatformLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.AmiBdsPlatformLib"
+    Override  = "AmiModulePkg.Bds"
+End
+
+#ELINK
+#    Name  = "SignalConnectDriversEventForIntelPlatform,"
+#    Parent  = "SignalConnectDriversEvent,"
+#    InvokeOrder = ReplaceParent
+#End
+
+#ELINK
+#    Name  = "SignalEventsForIntelPlatform,"
+#    Parent  = "InstallConOutStartedProtocol,"
+#    InvokeOrder = AfterParent
+#End
+
+#ELINK
+#    Name  = "SignalEventsForIntelPlatform,"
+#    Parent  = "BeforeConnectFastBootDeviceHook"
+#    Token = "FAST_BOOT_SUPPORT" "=" "1"
+#    InvokeOrder = AfterParent
+#End
+
+#ELINK
+#    Name  = "InstallFwLoadFile2,"
+#    Parent  = "InstallFwLoadFile,"
+#    Token = "BUILT_IN_SHELL_SUPPORT" "=" "1"    
+#    InvokeOrder = ReplaceParent
+#End
+
+ELINK
+    Name  = "DisableOCWdt,"
+    Parent  = "BeforeConnectFastBootDeviceHook"
+    Token = "FAST_BOOT_SUPPORT" "=" "1"
+    Token = "CONNECT_EVERYTHING_IN_FASTBOOT" "=" "1"
+    InvokeOrder = AfterParent
+    Token = "OVER_CLOCK_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "DisableOCWdt,"
+    Parent  = "BeforeConnectFastBootDeviceHook"
+    Token = "FAST_BOOT_SUPPORT" "=" "1"
+    Token = "CONNECT_EVERYTHING_IN_FASTBOOT" "=" "0"
+    InvokeOrder = AfterParent
+    Token = "OVER_CLOCK_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "FastbootConnectEverything,"
+    Parent  = "BeforeConnectFastBootDeviceHook"
+    Token = "FAST_BOOT_SUPPORT" "=" "1"
+    Token = "CONNECT_EVERYTHING_IN_FASTBOOT" "=" "0"
+    InvokeOrder = AfterParent
+End

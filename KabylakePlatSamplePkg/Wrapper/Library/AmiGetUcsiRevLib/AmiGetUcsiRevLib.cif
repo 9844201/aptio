@@ -1,0 +1,11 @@
+<component>
+	name = "AmiGetUcsiRevLib"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg/Wrapper/Library/AmiGetUcsiRevLib"
+	RefName = "KabylakePlatSamplePkg.Wrapper.Library.AmiGetUcsiRevLib"
+[INF]
+"AmiGetUcsiRevLibNull.inf"
+[files]
+"../../../Include/Library/AmiGetUcsiRevLib.h"
+"AmiGetUcsiRevLib.sdl"	
+<endComponent>

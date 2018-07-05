@@ -1,0 +1,13 @@
+<component>
+	name = "AmtLockKBD"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\AMT\AmtLockKBD\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.AmtLockKBD"
+[INF]
+"AmtLockKBD.inf"
+"AmtLockUsbKBD.inf"
+"AmtLockPbtn.inf"
+[files]
+"AmtLockKBD.sdl"	
+"AmtInt9.csm16"	
+<endComponent>

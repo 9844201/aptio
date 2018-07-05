@@ -1,0 +1,9 @@
+<component>
+	name = "Wrapper"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\"
+	RefName = "KabylakeSiliconPkg.Common.Wrapper"
+[parts]
+"KabylakeSiliconPkg.Common.Wrapper.Include"	
+"KabylakeSiliconPkg.Common.Wrapper.Library"	
+<endComponent>

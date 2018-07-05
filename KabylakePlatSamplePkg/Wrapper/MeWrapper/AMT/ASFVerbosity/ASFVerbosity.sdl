@@ -1,0 +1,20 @@
+TOKEN
+	Name  = ASFVerbosity_SUPPORT
+	Value  = 1
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Help  = "Main switch to enable ASFVerbosity support in Project"
+End
+
+PATH
+    Name  = "ASF_VERBOSITY_DIR"
+End
+
+INFComponent
+    Name  = "ASFVerbosity"
+    File  = "ASFVerbosity.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End

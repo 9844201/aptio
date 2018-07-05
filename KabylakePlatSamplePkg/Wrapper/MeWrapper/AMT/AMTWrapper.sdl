@@ -1,0 +1,8 @@
+TOKEN
+	Name  = "PlatSamplePkg_AMT_WRAPPER_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Platform AMT support in Project"
+	TokenType = Boolean
+	Master = Yes
+	Token = "iAMT_SUPPORT" "=" "1"
+End

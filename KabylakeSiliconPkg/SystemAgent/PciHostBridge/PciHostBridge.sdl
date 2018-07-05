@@ -1,0 +1,49 @@
+TOKEN
+	Name  = "PciHostBridge_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "TOP_LOW_MEM_GRANULARITY"
+	Value  = "0x10000000"
+	Help  = "Adjust the MMIO granularity size 256MB."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_PCI_HOST_BRIDGE_COMBINE_MEM_PMEM_MODE"
+    Value  = "1"
+    Help  = "1 = Non-prefetchable, 0 = prefetchable"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+PcdMapping
+    Name  = "PcdEfiGcdAllocateType"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "UINT8"
+    Value  = "0x04"
+    Offset  = 00h
+    Length  = 01h
+    TargetDSC = Yes
+    Lock = Yes
+End
+
+INFComponent
+	Name  = "PciHostBridge"
+	File  = "Dxe/PciHostBridge.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiChipsetModulePkg.AmiCspLibDxe"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakeSiliconPkg.PciHostBridge"
+End

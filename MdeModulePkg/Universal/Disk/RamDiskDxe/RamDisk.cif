@@ -1,0 +1,12 @@
+<component>
+	name = "RamDisk"
+	category = eModule
+	LocalRoot = "MdeModulePkg/Universal/Disk/RamDiskDxe"
+	RefName = "RamDisk"
+[INF]
+"RamDiskDxe.inf"
+[files]
+"RamDisk.sdl"
+"RamDisk.chm"
+"RamDiskSsdtRule.txt"
+<endComponent>

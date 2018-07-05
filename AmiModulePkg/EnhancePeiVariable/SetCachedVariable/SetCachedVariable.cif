@@ -1,0 +1,10 @@
+<component>
+    name = "SetCachedVariable"
+    category = ModulePart
+    LocalRoot = "AmiModulePkg\EnhancePeiVariable\SetCachedVariable\"
+    RefName = "SetCachedVariable"
+[files]
+"SetCachedVariable.sdl"
+[INF]
+"SetCachedVariable.inf"
+<endComponent>

@@ -1,0 +1,13 @@
+<component>
+	name = "PchWrap"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Pch\"
+	RefName = "KabylakeSiliconPkg.PchWrap"
+[files]
+"PchWrap.sdl"	
+[parts]
+"KabylakeSiliconPkg.PchWrapLibrary"
+"KabylakeSiliconPkg.Wrapper.Include.PchInclude"
+"KabylakeSiliconPkg.Wrapper.PchNvRamHook"
+"KabylakeSiliconPkg.Wrapper.PchAnOddDetect"
+<endComponent>

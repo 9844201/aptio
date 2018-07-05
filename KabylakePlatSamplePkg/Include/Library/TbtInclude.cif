@@ -1,0 +1,13 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Include\Library\"
+	RefName = "KabylakePlatSamplePkg.Thunderbolt.TbtInclude"
+[files]
+"TbtCommonLib.h"	
+"PeiTbtInitLib.h"	
+"AmiTbtDxeSmmLib.h"	
+"AmiTbtOemLib.h"	
+[parts]
+"KabylakePlatSamplePkg.Include.TbtCommon"
+<endComponent>

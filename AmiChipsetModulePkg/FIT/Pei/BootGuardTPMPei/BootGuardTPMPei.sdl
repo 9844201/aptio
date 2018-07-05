@@ -1,0 +1,67 @@
+#**********************************************************************
+#**********************************************************************
+#**                                                                  **
+#**        (C)Copyright 1985-2014, American Megatrends, Inc.         **
+#**                                                                  **
+#**                       All Rights Reserved.                       **
+#**                                                                  **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+#**                                                                  **
+#**                       Phone: (770)-246-8600                      **
+#**                                                                  **
+#**********************************************************************
+#**********************************************************************
+#<AMI_FHDR_START>
+#
+# Name: BootGuardTPMPei.sdl
+#
+# Description: SDL file for BootGuardTPMPei
+#
+#<AMI_FHDR_END>
+#**********************************************************************
+
+TOKEN
+        Name = "BootGuardTPMPei_SUPPORT"
+        Value = "1"
+        Help = "Main switch to enable BootGuardTPMPei support in Project"
+        TokenType = Boolean
+        TargetEQU = Yes
+        TargetMAK = Yes
+        Master = Yes
+        Token = "TCG_SUPPORT" "=" "1"
+        Token = "BOOT_GUARD_TPM_CHAIN_OF_TRUST" "=" "1"
+End
+
+INFComponent
+        Name  = "BootGuardTPMPei"
+        File  = "BootGuardTPMPei.inf"
+        Package = "AmiChipsetModulePkg"
+End
+
+LibraryMapping
+        Class = "CspTcgLib"
+        Instance = "AmiChipsetModulePkg.BootGuardTPMPei"
+        ModuleTypes = "PEIM"
+End
+
+TOKEN
+        Name = "MEASURE_CRTM_VERSION_PEI_FUNCTION"
+        Value = "BootGuardMeasureCRTMVersion"
+        Help = "Function to measure crtm version. Input:EFI_PEI_SERVICES **. AMI function Modified Pcr 0"
+        TokenType = Expression
+        TargetH = Yes
+End
+
+#**********************************************************************
+#**********************************************************************
+#**                                                                  **
+#**        (C)Copyright 1985-2014, American Megatrends, Inc.         **
+#**                                                                  **
+#**                       All Rights Reserved.                       **
+#**                                                                  **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+#**                                                                  **
+#**                       Phone: (770)-246-8600                      **
+#**                                                                  **
+#**********************************************************************
+#**********************************************************************

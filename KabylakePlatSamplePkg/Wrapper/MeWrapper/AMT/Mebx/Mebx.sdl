@@ -1,0 +1,28 @@
+TOKEN
+	Name  = Mebx_SUPPORT
+	Value  = 1
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Help  = "Main switch to enable Mebx support in Project"
+End
+
+PATH
+  Name = "MEBX_PATH"
+End
+
+TOKEN
+    Name  = "EFIMebx_FILE_PATH"
+    Value  = "KabylakePlatSamplePkg/Wrapper/MeWrapper/AMT/Mebx/Mebx.efi"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetFDF = Yes
+    Help  = "Mebx File name and path"
+End
+
+FFS_FILE
+    Name  = "Mebx"
+    FD_AREA  = "FV_MAIN"
+    FILE_Stmt  = "KabylakePlatSamplePkg/Wrapper/MeWrapper/AMT/Mebx/MebxRuleOverride.txt"
+End

@@ -1,0 +1,10 @@
+<component>
+	name = "Reset"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Reset\"
+	RefName = "KabylakeSiliconPkg.Pch.Reset"
+[files]
+"PchReset.sdl"	
+[parts]
+"KabylakeSiliconPkg.Pch.Reset.RuntimeDxe"
+<endComponent>

@@ -1,0 +1,26 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Cpu\Library\"
+	RefName = "KabylakeSiliconPkg.Cpu.Library"
+[INF]
+"BaseCpuMailboxLibNull\BaseCpuMailboxLibNull.inf"
+"PeiCpuPolicyLib\PeiCpuPolicyLib.inf"
+"PeiCpuPolicyLibPreMem\PeiCpuPolicyLibPreMem.inf"
+"PeiDxeSmmBootGuardLib\PeiDxeSmmBootGuardLib.inf"
+"PeiDxeSmmBootGuardLibNull\PeiDxeSmmBootGuardLibNull.inf"
+"PeiDxeSmmCpuMailboxLib\PeiDxeSmmCpuMailboxLib.inf"
+"PeiDxeSmmCpuPlatformLib\PeiDxeSmmCpuPlatformLib.inf"
+"PeiDxeTxtLib\PeiDxeTxtLib.inf"
+"SecCpuLib\SecCpuLib.inf"
+"SecCpuLib\SecCpuLibFsp.inf"
+[files]
+"Library.sdl"	
+"SecCpuLib\Ia32\SecCpuLib.inc"	
+"SecCpuLib\Ia32\SecCpuLibGcc.inc"	
+"SecCpuLib\Ia32\SecCpuLib.nasm"	
+"SecCpuLib\Ia32\SecCpuLibNasm.inc"	
+"PeiDxeTxtLib\Ia32\TxtPeiLib.nasm"	
+[parts]
+"KabylakeSiliconPkg.Cpu.Library.Private"
+<endComponent>

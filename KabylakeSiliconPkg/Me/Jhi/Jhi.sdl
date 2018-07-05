@@ -1,0 +1,15 @@
+TOKEN
+	Name  = "JHI_ENABLE"
+	Value  = "0"
+	Help  = "Main switch to enable Jhi support in Project, refer to JHI_ENABLE in PlatformPkgConfig.dsc."
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "JhiDxe"
+	File  = "Dxe\JhiDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes="DXE_DRIVER"
+End
+

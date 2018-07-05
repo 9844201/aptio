@@ -1,0 +1,16 @@
+<component>
+	name = "Guid"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Include\Guid\"
+	RefName = "KabylakePlatSamplePkg.Include.Guid"
+[files]
+"AcpiVariable.h"	
+"TcoWdtHob.h"	
+"CapsuleProcessingResult.h"	
+"PlatformEmmcHs400Info.h"	
+"PttInstance.h"	
+"SystemNvDataGuid.h"	
+"PlatformGlobalVariable.h"	
+"PttPTPInstanceGuid.h"	
+"TxtOneTouch.h"	
+<endComponent>

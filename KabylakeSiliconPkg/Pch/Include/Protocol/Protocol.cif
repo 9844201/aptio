@@ -1,0 +1,23 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Include\Protocol\"
+	RefName = "KabylakeSiliconPkg.Pch.Include.Protocol"
+[files]
+"ActiveBios.h"	
+"PchAcpiSmiDispatch.h"	
+"PchEmmcTuning.h"	
+"PchEspiSmiDispatch.h"	
+"PchGpioUnlockSmiDispatch.h"	
+"PchInfo.h"	
+"PchPcieSmiDispatch.h"	
+"PchReset.h"	
+"PchSmiDispatch.h"	
+"PchSmmIoTrapControl.h"	
+"PchSmmPeriodicTimerControl.h"	
+"PchTcoSmiDispatch.h"	
+"SerialGpio.h"	
+"SmmSmbus.h"	
+"Spi.h"	
+"Wdt.h"	
+<endComponent>

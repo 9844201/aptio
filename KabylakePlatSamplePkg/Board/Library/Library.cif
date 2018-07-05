@@ -1,0 +1,10 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Board\Library\"
+	RefName = "KabylakePlatSamplePkg.Board.Library"
+[INF]
+"PeiBoardConfigLib\PeiBoardConfigLib.inf"
+[files]
+"Library.sdl"	
+<endComponent>

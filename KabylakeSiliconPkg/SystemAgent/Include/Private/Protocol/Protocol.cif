@@ -1,0 +1,8 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\Include\Private\Protocol\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.Include.Private.Protocol"
+[files]
+"SaIotrapSmi.h"	
+<endComponent>

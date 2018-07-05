@@ -1,0 +1,18 @@
+<component>
+	name = "Intel SA GOP Driver"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\NB\GOP\"
+	RefName = "AmiChipsetModulePkg.IntelSaGopDriver"
+[files]
+"IntelSaGopDriver.sdl"	
+"Skylake\x64\IntelGopDriver.efi"
+"Skylake\Vbt.bin"
+"Skylake\Vbt_RVP_8.bin"
+"Skylake\Vbt_RVP_10.bin"
+"Skylake\Vbt_RVP_11.bin"
+"Skylake\Vbt_RVP3_RVP7.bin"
+"Skylake\Vbt_KBL_S_uDIMM_RVP.bin"
+"GopFdfFileStatements.txt"	
+[parts]
+"IntelSaGopSetup"
+<endComponent>

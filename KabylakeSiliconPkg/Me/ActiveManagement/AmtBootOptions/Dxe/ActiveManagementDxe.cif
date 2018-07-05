@@ -1,0 +1,10 @@
+<component>
+	name = "ActiveManagementDxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\ActiveManagement\AmtBootOptions\Dxe\"
+	RefName = "KabylakeSiliconPkg.Me.ActiveManagement.AmtBootOptions.ActiveManagementDxe"
+[INF]
+"ActiveManagement.inf"
+[files]
+"ActiveManagementDxe.sdl"	
+<endComponent>

@@ -1,0 +1,14 @@
+<component>
+	name = "VfrParser"
+	category = ModulePart
+	Rank = 1
+	LocalRoot = "KabylakePlatSamplePkg\Setup\VfrParser\"
+	RefName = "VfrParser"
+[files]
+"VfrParser.sdl"	
+"VfrParser.mak"	
+"linux/VfrGen.sh"
+"linux/VfrParser.exe" 
+"win/VfrGen.bat"
+"win/VfrParser.exe"
+<endComponent>

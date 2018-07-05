@@ -1,0 +1,5904 @@
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2017, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+#
+#*************************************************************************
+# $Header: $
+#
+# $Revision: $
+#
+# $Date: $
+#*************************************************************************
+#<AMI_FHDR_START>
+#
+# Name:  <SB.SDL>
+#
+# Description:     
+#
+#<AMI_FHDR_END>
+#*************************************************************************
+
+IRQLINK
+	Name  = "LNKA"
+	Reg  = 01h
+	IrqList  = 3,4,5,6,10,11,12,14,15
+	InterruptType = LevelLow
+End
+
+IRQLINK
+	Name  = "LNKB"
+	Reg  = 02h
+	IrqList  = 3,4,5,6,10,11,12,14,15
+	InterruptType = LevelLow
+End
+
+IRQLINK
+	Name  = "LNKC"
+	Reg  = 03h
+	IrqList  = 3,4,5,6,10,11,12,14,15
+	InterruptType = LevelLow
+End
+
+IRQLINK
+	Name  = "LNKD"
+	Reg  = 04h
+	IrqList  = 3,4,5,6,10,11,12,14,15
+	InterruptType = LevelLow
+End
+
+IRQLINK
+	Name  = "LNKE"
+	Reg  = 05h
+	IrqList  = 3,4,5,6,10,11,12,14,15
+	InterruptType = LevelLow
+End
+
+IRQLINK
+	Name  = "LNKF"
+	Reg  = 06h
+	IrqList  = 3,4,5,6,10,11,12,14,15
+	InterruptType = LevelLow
+End
+
+IRQLINK
+	Name  = "LNKG"
+	Reg  = 07h
+	IrqList  = 3,4,5,6,10,11,12,14,15
+	InterruptType = LevelLow
+End
+
+IRQLINK
+	Name  = "LNKH"
+	Reg  = 08h
+	IrqList  = 3,4,5,6,10,11,12,14,15
+	InterruptType = LevelLow
+End
+
+PCIDEVICE
+	Title  = "LpcBridge"
+	Parent  = "PciRoot"
+	Attribute  = "0x60003"
+	Dev_type  = "LpcBridge"
+	Dev  = 01fh
+	Fun  = 00h
+	GPEbit  = 00h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakePlatSamplePkg/Acpi/AcpiTables/Dsdt/LpcB.asl','AmiChipsetModulePkg/ASL/Sb.asl'"
+	ASLdeviceName  = "LPCB"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	ASL_PTS  = "Method;\_SB.PCI0.LPCB.SPTS(Arg0)"
+	ASL_WAK  = "Method;\_SB.PCI0.LPCB.SWAK(Arg0)"
+End
+
+PCIDEVICE
+	Title  = "Primary To Sideband Bridge Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01fh
+	Fun  = 01h
+	SleepNum  = 01h
+	Disable = Yes
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "Power Management Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01fh
+	Fun  = 02h
+	SleepNum  = 01h
+	IntA = 	LNKA; 16
+	Disable = Yes
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "High Definition Audio"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01fh
+	Fun  = 03h
+	SleepNum  = 01h
+	IntA = 	LNKA; 16
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "SMBus"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01fh
+	Fun  = 04h
+	SleepNum  = 01h
+	IntA = 	LNKA; 16
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "SPI Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01fh
+	Fun  = 05h
+	SleepNum  = 01h
+	Disable = Yes
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "Gbe Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01fh
+	Fun  = 06h
+	SleepNum  = 01h
+	ROMFile  = "AmiChipsetModulePkg/LegacyRom/Pxe/GbE_OR.BIN"
+	IntA = 	LNKA; 16
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	LegacyRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "50339d20-c90a-4bb2-9aff-d8a11b23bc15"
+End
+
+PCIDEVICE
+	Title  = "Trace Hub"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01fh
+	Fun  = 07h
+	SleepNum  = 01h
+	IntA = 	LNKA; 16
+#	Disable = Yes
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "LPSS UART Controller #0"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01eh
+	Fun  = 00h
+	SleepNum  = 01h
+	IntA = 	LNKA; 20
+	IntB = 	LNKB; 21
+	IntC = 	LNKC; 22
+	IntD = 	LNKD; 23
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "LPSS UART Controller #1"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01eh
+	Fun  = 01h
+	SleepNum  = 01h
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "LPSS SPI Controller #0"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01eh
+	Fun  = 02h
+	SleepNum  = 01h
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "LPSS SPI Controller #1"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01eh
+	Fun  = 03h
+	SleepNum  = 01h
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "SCS eMMC Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01eh
+	Fun  = 04h
+	SleepNum  = 01h
+	IntB = 	LNKB; 21
+	Token = "ULT_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	InitRoutine  = "CspSbBadPciDevOverride"
+End
+
+PCIDEVICE
+	Title  = "SCS SDIO Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01eh
+	Fun  = 05h
+	SleepNum  = 01h
+	IntC = 	LNKC; 22
+	Token = "ULT_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	InitRoutine  = "CspSbBadPciDevOverride"	
+End
+
+PCIDEVICE
+	Title  = "SCS SD Card Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01eh
+	Fun  = 06h
+	SleepNum  = 01h
+	IntD = 	LNKD; 23
+	Token = "ULT_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	InitRoutine  = "CspSbBadPciDevOverride"
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #9"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01dh
+	Fun  = 00h
+	BridgeBusNum  = 0ch
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP09"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "CspSbPciInitPcieSwapping"
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #10"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01dh
+	Fun  = 01h
+	BridgeBusNum  = 0dh
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP10"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #11"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01dh
+	Fun  = 02h
+	BridgeBusNum  = 0eh
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP11"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #12"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01dh
+	Fun  = 03h
+	BridgeBusNum  = 0fh
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP12"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #13"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01dh
+	Fun  = 04h
+	BridgeBusNum  = 010h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP13"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #1"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01ch
+	Fun  = 00h
+	BridgeBusNum  = 04h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP01"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "CspSbPciInitPcieSwapping"
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #2"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01ch
+	Fun  = 01h
+	BridgeBusNum  = 05h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP02"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #3"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01ch
+	Fun  = 02h
+	BridgeBusNum  = 06h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP03"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #4"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01ch
+	Fun  = 03h
+	BridgeBusNum  = 07h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP04"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #5"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01ch
+	Fun  = 04h
+	BridgeBusNum  = 08h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP05"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #6"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01ch
+	Fun  = 05h
+	BridgeBusNum  = 09h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP06"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #7"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01ch
+	Fun  = 06h
+	BridgeBusNum  = 0ah
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP07"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #8"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01ch
+	Fun  = 07h
+	BridgeBusNum  = 0bh
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP08"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #17"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01bh
+	Fun  = 00h
+	BridgeBusNum  = 014h
+	SleepNum  = 04h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP17"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "CspSbPciInitPcieSwapping"
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #18"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01bh
+	Fun  = 01h
+	BridgeBusNum  = 015h
+	SleepNum  = 04h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP18"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #19"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01bh
+	Fun  = 02h
+	BridgeBusNum  = 016h
+	SleepNum  = 04h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP19"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #20"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01bh
+	Fun  = 03h
+	BridgeBusNum  = 017h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP20"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+    Title  = "PCIE Root Port #21"
+    Parent  = "PciRoot"
+    Attribute  = "0x0"
+    Dev_type  = "Pci2PciBridge"
+    Bus  = 00h
+    Dev  = 01bh
+    Fun  = 04h
+    BridgeBusNum  = 018h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+    ASLdeviceName  = "RP21"
+    IntA =  LNKA; 16
+    IntB =  LNKB; 17
+    IntC =  LNKC; 18
+    IntD =  LNKD; 19
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    FixedBus = Yes
+    PCIExpress = Yes
+End
+
+PCIDEVICE
+    Title  = "PCIE Root Port #22"
+    Parent  = "PciRoot"
+    Attribute  = "0x0"
+    Dev_type  = "Pci2PciBridge"
+    Bus  = 00h
+    Dev  = 01bh
+    Fun  = 05h
+    BridgeBusNum  = 019h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+    ASLdeviceName  = "RP22"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    FixedBus = Yes
+    PCIExpress = Yes
+End
+
+PCIDEVICE
+    Title  = "PCIE Root Port #23"
+    Parent  = "PciRoot"
+    Attribute  = "0x0"
+    Dev_type  = "Pci2PciBridge"
+    Bus  = 00h
+    Dev  = 01bh
+    Fun  = 06h
+    BridgeBusNum  = 01ah
+    SleepNum  = 01h
+    ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+    ASLdeviceName  = "RP23"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    FixedBus = Yes
+    PCIExpress = Yes
+End
+
+PCIDEVICE
+    Title  = "PCIE Root Port #24"
+    Parent  = "PciRoot"
+    Attribute  = "0x0"
+    Dev_type  = "Pci2PciBridge"
+    Bus  = 00h
+    Dev  = 01bh
+    Fun  = 07h
+    BridgeBusNum  = 01bh
+    SleepNum  = 01h
+    ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+    ASLdeviceName  = "RP24"
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    FixedBus = Yes
+    PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "LPSS UART Controller #2"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 019h
+	Fun  = 00h
+	SleepNum  = 01h
+	IntA = ; 32
+	IntB = ; 33
+	IntC = ; 34
+	Token = "ULT_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "I2C Controller #5"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 019h
+	Fun  = 01h
+	SleepNum  = 01h
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	InitRoutine  = "CspSbBadPciDevOverride"
+End
+
+PCIDEVICE
+	Title  = "I2C Controller #4"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 019h
+	Fun  = 02h
+	SleepNum  = 01h
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	InitRoutine  = "CspSbBadPciDevOverride"
+End
+
+PCIDEVICE
+	Title  = "SATA Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 017h
+	Fun  = 00h
+	SleepNum  = 01h
+	ROMFile  = "AmiChipsetModulePkg/LegacyRom/Raid/RaidOrom.bin"
+	IntA = 	LNKA; 16
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	LegacyRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "d46346ca-82a1-4cde-9546-77c86f893888"
+	Token = "CFL_RAID_DRIVER_SUPPORT" "=" "0"
+End
+
+PCIDEVICE
+    Title  = "SATA Controller"
+    Parent  = "PciRoot"
+    Attribute  = "0x0"
+    Dev_type  = "PciDevice"
+    Dev  = 017h
+    Fun  = 00h
+    SleepNum  = 01h
+    ROMFile  = "AmiChipsetModulePkg/LegacyRom/Raid/CflRaidOrom.bin"
+    IntA =  LNKA; 16
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    OptionROM = Yes
+    ROMMain = No
+    SuppressDeviceGeneration = Yes
+    LegacyRom = Yes
+    FFSFileName  = "ROM Storage"
+    ROMSectionGuid  = "d46346ca-82a1-4cde-9546-77c86f893888"
+    Token = "CFL_RAID_DRIVER_SUPPORT" "=" "1"
+End
+
+PCIDEVICE
+	Title  = "ME"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 016h
+	Fun  = 00h
+	SleepNum  = 01h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "I2C Controller #0"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 015h
+	Fun  = 00h
+	SleepNum  = 01h
+	ASLdeviceName  = "I2C0"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	InitRoutine  = "CspSbBadPciDevOverride"
+End
+
+PCIDEVICE
+	Title  = "I2C Controller #1"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 015h
+	Fun  = 01h
+	SleepNum  = 01h
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	InitRoutine  = "CspSbBadPciDevOverride"
+End
+
+PCIDEVICE
+	Title  = "I2C Controller #2"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 015h
+	Fun  = 02h
+	SleepNum  = 01h
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	InitRoutine  = "CspSbBadPciDevOverride"
+End
+
+PCIDEVICE
+	Title  = "I2C Controller #3"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 015h
+	Fun  = 03h
+	SleepNum  = 01h
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	InitRoutine  = "CspSbBadPciDevOverride"
+End
+
+PCIDEVICE
+	Title  = "XHCI Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 014h
+	Fun  = 00h
+	SleepNum  = 01h
+	IntA = 	LNKA; 16
+	IntD = 	LNKD; 19
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "XDCI Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 014h
+	Fun  = 01h
+	SleepNum  = 01h
+	IntB = 	LNKB; 17
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "Thermal Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 014h
+	Fun  = 02h
+	SleepNum  = 01h
+	IntC = 	LNKC; 18
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "CSI-2 Interface"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 014h
+	Fun  = 03h
+	SleepNum  = 01h
+	IntA = 	LNKA; 16
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "Integrated Sensor Hub"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 013h
+	Fun  = 00h
+	SleepNum  = 01h
+	IntA = 	LNKA; 20
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #14"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01dh
+	Fun  = 05h
+	BridgeBusNum  = 011h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP14"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #15"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01dh
+	Fun  = 06h
+	BridgeBusNum  = 012h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP15"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Root Port #16"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Bus  = 00h
+	Dev  = 01dh
+	Fun  = 07h
+	BridgeBusNum  = 013h
+	SleepNum  = 01h
+	ASLfile  = "'KabylakeSiliconPkg/Pch/AcpiTables/Dsdt/PchPcie.asl'"
+	ASLdeviceName  = "RP16"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #1 Slot"
+	Parent  = "PCIE Root Port #1"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 020h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #2 Slot"
+	Parent  = "PCIE Root Port #2"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 021h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKB; 17
+	IntB = 	LNKC; 18
+	IntC = 	LNKD; 19
+	IntD = 	LNKA; 16
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #3 Slot"
+	Parent  = "PCIE Root Port #3"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 022h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKC; 18
+	IntB = 	LNKD; 19
+	IntC = 	LNKA; 16
+	IntD = 	LNKB; 17
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #4 Slot"
+	Parent  = "PCIE Root Port #4"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 023h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKD; 19
+	IntB = 	LNKA; 16
+	IntC = 	LNKB; 17
+	IntD = 	LNKC; 18
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #5 Slot"
+	Parent  = "PCIE Root Port #5"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 024h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #6 Slot"
+	Parent  = "PCIE Root Port #6"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 025h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKB; 17
+	IntB = 	LNKC; 18
+	IntC = 	LNKD; 19
+	IntD = 	LNKA; 16
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #7 Slot"
+	Parent  = "PCIE Root Port #7"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 026h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKC; 18
+	IntB = 	LNKD; 19
+	IntC = 	LNKA; 16
+	IntD = 	LNKB; 17
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #8 Slot"
+	Parent  = "PCIE Root Port #8"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 027h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKD; 19
+	IntB = 	LNKA; 16
+	IntC = 	LNKB; 17
+	IntD = 	LNKC; 18
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #9 Slot"
+	Parent  = "PCIE Root Port #9"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 028h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #10 Slot"
+	Parent  = "PCIE Root Port #10"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 029h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKB; 17
+	IntB = 	LNKC; 18
+	IntC = 	LNKD; 19
+	IntD = 	LNKA; 16
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #11 Slot"
+	Parent  = "PCIE Root Port #11"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 02ah
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKC; 18
+	IntB = 	LNKD; 19
+	IntC = 	LNKA; 16
+	IntD = 	LNKB; 17
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #12 Slot"
+	Parent  = "PCIE Root Port #12"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 02bh
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKD; 19
+	IntB = 	LNKA; 16
+	IntC = 	LNKB; 17
+	IntD = 	LNKC; 18
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #13 Slot"
+	Parent  = "PCIE Root Port #13"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 02ch
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #14 Slot"
+	Parent  = "PCIE Root Port #14"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 02dh
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKB; 17
+	IntB = 	LNKC; 18
+	IntC = 	LNKD; 19
+	IntD = 	LNKA; 16
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #15 Slot"
+	Parent  = "PCIE Root Port #15"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 02eh
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKC; 18
+	IntB = 	LNKD; 19
+	IntC = 	LNKA; 16
+	IntD = 	LNKB; 17
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #16 Slot"
+	Parent  = "PCIE Root Port #16"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 02fh
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKD; 19
+	IntB = 	LNKA; 16
+	IntC = 	LNKB; 17
+	IntD = 	LNKC; 18
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #17 Slot"
+	Parent  = "PCIE Root Port #17"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 030h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #18 Slot"
+	Parent  = "PCIE Root Port #18"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 031h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKB; 17
+	IntB = 	LNKC; 18
+	IntC = 	LNKD; 19
+	IntD = 	LNKA; 16
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #19 Slot"
+	Parent  = "PCIE Root Port #19"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 032h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKC; 18
+	IntB = 	LNKD; 19
+	IntC = 	LNKA; 16
+	IntD = 	LNKB; 17
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #20 Slot"
+	Parent  = "PCIE Root Port #20"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 033h
+	Fun  = 0ffh
+	SleepNum  = 09h
+	IntA = 	LNKD; 19
+	IntB = 	LNKA; 16
+	IntC = 	LNKB; 17
+	IntD = 	LNKC; 18
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+    Title  = "PCIE Port #21 Slot"
+    Parent  = "PCIE Root Port #21"
+    Attribute  = "0x0"
+    Dev_type  = "PciDevice"
+    Dev  = 00h
+    Slot  = 034h
+    Fun  = 0ffh
+    SleepNum  = 09h
+    IntA =  LNKA; 16
+    IntB =  LNKB; 17
+    IntC =  LNKC; 18
+    IntD =  LNKD; 19
+    DeviceType = Slot
+    PCIBusSize = 32bit
+    ROMMain = No
+    PCIExpress = Yes
+    SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+    Title  = "PCIE Port #22 Slot"
+    Parent  = "PCIE Root Port #22"
+    Attribute  = "0x0"
+    Dev_type  = "PciDevice"
+    Dev  = 00h
+    Slot  = 035h
+    Fun  = 0ffh
+    SleepNum  = 09h
+    IntA =  LNKB; 17
+    IntB =  LNKC; 18
+    IntC =  LNKD; 19
+    IntD =  LNKA; 16
+    DeviceType = Slot
+    PCIBusSize = 32bit
+    ROMMain = No
+    PCIExpress = Yes
+    SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+    Title  = "PCIE Port #23 Slot"
+    Parent  = "PCIE Root Port #23"
+    Attribute  = "0x0"
+    Dev_type  = "PciDevice"
+    Dev  = 00h
+    Slot  = 036h
+    Fun  = 0ffh
+    SleepNum  = 09h
+    IntA =  LNKC; 18
+    IntB =  LNKD; 19
+    IntC =  LNKA; 16
+    IntD =  LNKB; 17
+    DeviceType = Slot
+    PCIBusSize = 32bit
+    ROMMain = No
+    PCIExpress = Yes
+    SuppressDeviceGeneration = Yes
+End
+
+PCIDEVICE
+    Title  = "PCIE Port #24 Slot"
+    Parent  = "PCIE Root Port #24"
+    Attribute  = "0x0"
+    Dev_type  = "PciDevice"
+    Dev  = 00h
+    Slot  = 037h
+    Fun  = 0ffh
+    SleepNum  = 09h
+    IntA =  LNKD; 19
+    IntB =  LNKA; 16
+    IntC =  LNKB; 17
+    IntD =  LNKC; 18
+    DeviceType = Slot
+    PCIBusSize = 32bit
+    ROMMain = No
+    PCIExpress = Yes
+    SuppressDeviceGeneration = Yes
+End
+
+IOAPIC
+	Title  = "IO APIC"
+	APICID  = 02h
+	VectorBase  = 00h
+	VectorRange  = 017h
+	AddressBase  = 0fec00000h
+End
+
+TOKEN
+	Name  = "SB_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Template - SouthBridge support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "CHIPSET_VENDOR"
+	Value  = "0"
+	Help  = "Chipset Vendor for OEM reference. 0 = Intel, 1 = AMD, 2 = VIA.."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "CPVD"
+	Value  = "$(CHIPSET_VENDOR)"
+	Help  = "Chipset Vendor for OEM reference. 0 = Intel, 1 = AMD, 2 = VIA.."
+	TokenType = Integer
+	TargetASL = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "PCH_SKU"
+	Value  = "0"
+	Help  = "0:Desktop, Workstation\1:Mobile\2:UP Server"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ULT_SUPPORT"
+	Value  = "0"
+	Help  = "Enable / Disable support South Bridge Low power sku"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ULT_SUPPORT"
+	Value  = "0"
+	Help  = "Enable / Disable support South Bridge Low power sku"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "PCH_SKU" "=" "1"
+End
+
+TOKEN
+	Name  = "SB_VERSION"
+	Value  = "0001"
+	Help  = "South Bridge Version Number.\ DO NOT CHANGE THIS VALUE"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB Platform Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "SB_DEVICE_REGS_RC_DEFINITION_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_DEVICE_REGS_RC_DEFINITION_HEADER"
+	Value  = "<KabylakeSiliconPkg/Pch/Include/Register/PchRegsPcr.h>"
+	Help  = "PORTING REQUIRED. It is to include the header file for South Bridge in the reference code."
+	TokenType = Expression
+	TargetH = Yes
+	Lock = Yes
+	Token = "SB_DEVICE_REGS_RC_DEFINITION_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "FlavorMobile"
+	Value  = "1"
+	Help  = "Platform Flavor Mobile"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FlavorDesktop"
+	Value  = "2"
+	Help  = "Platform Flavor Desktop"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PlatformInfo_PlatformFlavor"
+	Value  = "$(FlavorDesktop)"
+	Help  = "BoardId Red Fort"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "PCH_SKU" "=" "0"
+End
+
+TOKEN
+	Name  = "PlatformInfo_PlatformFlavor"
+	Value  = "$(FlavorMobile)"
+	Help  = "BoardId Red Fort"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "PCH_SKU" "=" "1"
+End
+
+TOKEN
+	Name  = "RESERVED_ROM_LENGTH"
+	Value  = "0x1000000"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "RESERVED_ROM_BASE"
+	Value  = "(0xFFFFFFFF-$(RESERVED_ROM_LENGTH)+1)"
+	Help  = "Reserved for ROM image."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_TEMP_MMIO_BASE"
+	Value  = "FE600000"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_TEMP_MMIO_BASE_LENGTH"
+	Value  = "0x200000"
+	Help  = "Intel default size is 32KB bytes."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "SB_TEMP_IO_BASE"
+	Value  = "0x1200"
+	Help  = "A Temporal I/O Base Address for Init.\Its length is 1K bytes."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_TEMP_IO_BASE_LENGTH"
+	Value  = "0x10"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "SW_SMI_IO_ADDRESS"
+	Value  = "0xB2"
+	Help  = "PLEASE CHANGE THIS VALUE AS PER PM_BASE_ADDRESS"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SMIP"
+	Value  = "$(SW_SMI_IO_ADDRESS)"
+	Help  = "Token to go to ASL Name Definitions"
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "USB_DEBUGGER"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "SAVE_RESTORE_NMI_IN_SMM"
+    Value  = "0"
+    Help  = "Enable or disable Save and ReStore in Smm.(only port 74 and 76) if you have enabled it, please refer to token SB_CMOS_MISC_FLAG_REG to choose mode."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "RESERVE_SBWARMRESETVAR"
+    Value  = "0"
+    Help  = "Disable to clear SB_WARM_RESET_VARIABLE. Enable to reserve the SB_WARM_RESET_VARIABLE and set 0, it may reduce the S3 resume time but vulnerable of security."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "LSIPCIEDEVICE_SUPPORT"
+    Value  = "0"
+    Help  = "Enable or disable save LSI device path and write any register in LSI device during S3 resumes."
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB P2SB Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "PCR_BASE_ADDRESS"
+	Value  = "0xFD000000"
+	Help  = "Sideband Register Access BAR, D31F1, Offset 10h"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PCR_MMIO_SIZE"
+	Value  = "0x01000000"
+	Help  = "PCR Base Size: 16MB."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+#PcdMapping
+#	Name  = "PcdPcrBaseAddress"
+#	GuidSpace  = "gSiPkgTokenSpaceGuid"
+#	PcdType  = "PcdsFixedAtBuild"
+#	DataType  = "UINT32"
+#	Value  = "$(PCR_BASE_ADDRESS)"
+#	Offset  = 00h
+#	Length  = 04h
+#	TargetDSC = Yes
+#End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB PMC Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "ACPI_BASE_ADDRESS"
+	Value  = "0x1800"
+	Help  = "ACPI Base Address(ABASE), D31F2, Offset 40h"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PM_BASE_ADDRESS"
+	Value  = "$(ACPI_BASE_ADDRESS)"
+	Help  = "ACPI Base Address(ABASE), D31F2, Offset 40h"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+PcdMapping
+	Name  = "PcdAcpiBaseAddress"
+	GuidSpace  = "gSiPkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "Uint16"
+	Value  = "$(ACPI_BASE_ADDRESS)"
+	Offset  = 00h
+	Length  = 02h
+	TargetDSC = Yes
+End
+
+TOKEN
+	Name  = "PWRM_BASE_ADDRESS"
+	Value  = "0xFE000000"
+	Help  = "PWRM Base Address(PWRMBASE), D31F2, Offset 48h"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PWRM_MMIO_SIZE"
+	Value  = "0x00010000"
+	Help  = "PWRM Base Size: 64KB."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+#PcdMapping
+#	Name  = "PcdPwrmBaseAddress"
+#	GuidSpace  = "gSiPkgTokenSpaceGuid"
+#	PcdType  = "PcdsFixedAtBuild"
+#	DataType  = "UINT32"
+#	Value  = "$(PWRM_BASE_ADDRESS)"
+#	Offset  = 00h
+#	Length  = 04h
+#	TargetDSC = Yes
+#End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB ACPI System Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "PMBA"
+	Value  = "$(PM_BASE_ADDRESS)"
+	Help  = "ASL alias for ACPI I/O base address."
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PMLN"
+	Value  = "0x100"
+	Help  = "Power Management registers block length"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SMCR"
+	Value  = "$(PM_BASE_ADDRESS)+0x30"
+	Help  = "SMI Control Register"
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "ACPI_SCI_INT"
+	Value  = "9"
+	Help  = "SCI Interrupt number"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "3-15"
+End
+
+TOKEN
+	Name  = "PM_SCI_ENABLE"
+	Value  = "0x1"
+	Help  = "Value that needs to be written in PM1_CNT regirter \to Enable SCI generation on PM events"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "ACPI_ALARM_EVERYDAY_SUPPORT"
+    Value  = "0"
+    Help  = "Determine if support RTC wakeup every day (Time->Day = 0). Note:Enabling it would cause UEFI Runtime Services set wakeup time test failed."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+	Name  = "ACPI_ALARM_DAY_CMOS"
+	Value  = "0Dh"
+	Help  = "RTC Index of the Day-of-Month alarm"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 - 0xff 0 = not supported"
+End
+
+TOKEN
+	Name  = "ACPI_ALARM_MONTH_CMOS"
+	Value  = "00h"
+	Help  = "RTC Index of the Month-of-year alarm\"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-0xff 0 = not supported"
+End
+
+TOKEN
+	Name  = "ACPI_CENTURY_CMOS"
+	Value  = "032h"
+	Help  = "RTC Index of the Century-of-Data\"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-0xff 0 = not supported"
+End
+
+TOKEN
+	Name  = "ACPI_RESET_REG_ADDRESS"
+	Value  = "0CF9h"
+	Help  = "Reset Register Address (Part of GAS Structure refer, to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 = not Supported other values depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "ACPI_RESET_REG_TYPE"
+	Value  = "1"
+	Help  = "Reset Register Id (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0=System memory; 1=System I/O; 2=PCI Config Space; 3=Embeded Controller; 4=SMBus; 0x7F=Functional Fixed Hardware; All other values reserved"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "ACPI_RESET_REG_BITWIDTH"
+	Value  = "8"
+	Help  = "Reset Register Bit Width (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "ACPI_RESET_REG_BITOFFSET"
+	Value  = "0"
+	Help  = "Reset Register Bit Offset (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "ACPI_RESET_REG_VALUE"
+	Value  = "6"
+	Help  = "Value to write to the Reset Register to initiate System Reset"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "? - chipset specific"
+End
+
+TOKEN
+	Name  = "PM1A_EVT_BLK_ADDRESS"
+	Value  = "$(PM_BASE_ADDRESS)"
+	Help  = "PM1a_EVT BLK Base Address (Part of GAS Structure refer, to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 = not Supported other values depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "PM1A_EVT_BLK_TYPE"
+	Value  = "1"
+	Help  = "PM1a_EVT BLK Registes Id (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0=System memory; 1=System I/O; 2=PCI Config Space; 3=Embeded Controller; 4=SMBus; 0x7F=Functional Fixed Hardware; All other values reserved"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1A_EVT_BLK_BITWIDTH"
+	Value  = "32"
+	Help  = "PM1a_EVT BLK Registes Bit Width (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1A_EVT_BLK_BITOFFSET"
+	Value  = "0"
+	Help  = "PM1a_EVT BLK Registes Bit Offset (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1_EVT_LENGTH"
+	Value  = "4"
+	Help  = "PM1a_EVT BLK length in bytes"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "PM1A_CNT_BLK_ADDRESS"
+	Value  = "$(PM_BASE_ADDRESS)+0x04"
+	Help  = "PM1a_CNT BLK Base Address (Part of GAS Structure refer, to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 = not Supported other values depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "PM1A_CNT_BLK_TYPE"
+	Value  = "1"
+	Help  = "PM1a_CNT BLK Registes Id (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0=System memory; 1=System I/O; 2=PCI Config Space; 3=Embeded Controller; 4=SMBus; 0x7F=Functional Fixed Hardware; All other values reserved"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1A_CNT_BLK_BITWIDTH"
+	Value  = "16"
+	Help  = "PM1a_CNT BLK Registes Bit Width (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1A_CNT_BLK_BITOFFSET"
+	Value  = "0"
+	Help  = "PM1a_CNTT BLK Registes Bit Offset (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1_CNT_LENGTH"
+	Value  = "2"
+	Help  = "PM1a_CNT BLK length in bytes"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "PM1B_EVT_BLK_ADDRESS"
+	Value  = "0"
+	Help  = "PM1b_EVT BLK Base Address (Part of GAS Structure refer, to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 = not Supported other values depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "PM1B_EVT_BLK_TYPE"
+	Value  = "1"
+	Help  = "PM1b_EVT BLK Registes Id (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0=System memory; 1=System I/O; 2=PCI Config Space; 3=Embeded Controller; 4=SMBus; 0x7F=Functional Fixed Hardware; All other values reserved"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1B_EVT_BLK_BITWIDTH"
+	Value  = "0"
+	Help  = "PM1a_EVT BLK Registes Bit Width (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1B_EVT_BLK_BITOFFSET"
+	Value  = "0"
+	Help  = "PM1a_EVT BLK Registes Bit Offset (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1B_CNT_BLK_ADDRESS"
+	Value  = "0"
+	Help  = "PM1b_CNT BLK Base Address (Part of GAS Structure refer, to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 = not Supported other values depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "PM1B_CNT_BLK_TYPE"
+	Value  = "1"
+	Help  = "PM1a_CNT BLK Registes Id (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0=System memory; 1=System I/O; 2=PCI Config Space; 3=Embeded Controller; 4=SMBus; 0x7F=Functional Fixed Hardware; All other values reserved"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1B_CNT_BLK_BITWIDTH"
+	Value  = "0"
+	Help  = "PM1a_CNT BLK Registes Bit Width (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM1B_CNT_BLK_BITOFFSET"
+	Value  = "0"
+	Help  = "PM1a_CNTT BLK Registes Bit Offset (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM2_CNT_BLK_ADDRESS"
+	Value  = "$(PM_BASE_ADDRESS)+0x50"
+	Help  = "PM2_CNT BLK Base Address (Part of GAS Structure refer, to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 = not Supported other values depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "PM2_CNT_BLK_TYPE"
+	Value  = "1"
+	Help  = "PM2_CNT BLK Registes Id (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0=System memory; 1=System I/O; 2=PCI Config Space; 3=Embeded Controller; 4=SMBus; 0x7F=Functional Fixed Hardware; All other values reserved"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM2_CNT_BLK_BITWIDTH"
+	Value  = "8"
+	Help  = "PM2_CNT BLK Registes Bit Width (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM2_CNT_BLK_BITOFFSET"
+	Value  = "0"
+	Help  = "PM2_CNT BLK Registes Bit Offset (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM2_CNT_LENGTH"
+	Value  = "1"
+	Help  = "PM2_CNT BLK length in bytes"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "PM_TMR_BLK_ADDRESS"
+	Value  = "$(PM_BASE_ADDRESS)+0x08"
+	Help  = "PM_TMR BLK Base Address (Part of GAS Structure refer, to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 = not Supported other values depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "PM_TMR_BLK_TYPE"
+	Value  = "1"
+	Help  = "PM_TMR BLK Registes Id (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0=System memory; 1=System I/O; 2=PCI Config Space; 3=Embeded Controller; 4=SMBus; 0x7F=Functional Fixed Hardware; All other values reserved"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM_TMR_BLK_BITWIDTH"
+	Value  = "32"
+	Help  = "PM_TMR BLK Registes Bit Width (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM_TMR_BLK_BITOFFSET"
+	Value  = "0"
+	Help  = "PM_TMR BLK Registes Bit Offset (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "PM_TMR_LENGTH"
+	Value  = "4"
+	Help  = "PM_TMR BLK length in bytes"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "GPE0_BLK_ADDRESS"
+	Value  = "$(PM_BASE_ADDRESS)+0x80"
+	Help  = "GPE0 BLK Base Address (Part of GAS Structure refer, to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 = not Supported other values depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "GPE0_BLK_TYPE"
+	Value  = "1"
+	Help  = "GPE0 BLK Registes Id (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0=System memory; 1=System I/O; 2=PCI Config Space; 3=Embeded Controller; 4=SMBus; 0x7F=Functional Fixed Hardware; All other values reserved"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "GPE0_BLK_BITWIDTH"
+	Value  = "128"
+	Help  = "GPE0 BLK Registes Bit Width (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "GPE0_BLK_BITOFFSET"
+	Value  = "0"
+	Help  = "GPE0 BLK Registes Bit Offset (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "GPE0_BLK_LENGTH"
+	Value  = "32"
+	Help  = "GPE0 BLK length in bytes"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "GPE1_BLK_ADDRESS"
+	Value  = "0"
+	Help  = "GPE1 BLK Base Address (Part of GAS Structure refer, to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 = not Supported other values depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "GPE1_BLK_TYPE"
+	Value  = "1"
+	Help  = "GPE1 BLK Registes Id (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0=System memory; 1=System I/O; 2=PCI Config Space; 3=Embeded Controller; 4=SMBus; 0x7F=Functional Fixed Hardware; All other values reserved"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "GPE1_BLK_BITWIDTH"
+	Value  = "0"
+	Help  = "GPE1 BLK Registes Bit Width (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "GPE1_BLK_BITOFFSET"
+	Value  = "0"
+	Help  = "GPE1 BLK Registes Bit Offset (Part of GAS Structure, refer to ACPI v2.0 spec for details)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "GPE1_BLK_LENGTH"
+	Value  = "0"
+	Help  = "GPE1 BLK length in bytes"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "value range depends on other GAS elements"
+End
+
+TOKEN
+	Name  = "GPE1_BASE_OFFSET"
+	Value  = "0x10"
+	Help  = "GPE1 Base offset within the ACPI general purpose event model (FADT byte 94)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-0xff"
+End
+
+TOKEN
+	Name  = "A_S0_PKG"
+	Value  = "0x0,0x0,0,0"
+	Help  = "Intel ICH(x) example. Modify for a new Chipset"
+	TokenType = Expression
+	TargetMAK = Yes
+	Range  = "4 decimal or Hex (use '0x' prefix) values sepparated with ','"
+End
+
+TOKEN
+	Name  = "A_S1_PKG"
+	Value  = "0x1,0x0,0,0"
+	Help  = "Intel ICH(x) example. Modify for a new Chipset"
+	TokenType = Expression
+	TargetMAK = Yes
+	Range  = "4 decimal or Hex (use '0x' prefix) values separated with ','"
+End
+
+TOKEN
+	Name  = "A_S2_PKG"
+	Value  = "0x2,0x0,0,0"
+	TokenType = Expression
+	TargetMAK = Yes
+	Range  = "4 decimal or Hex (use '0x' prefix) values separated with ','"
+End
+
+TOKEN
+	Name  = "A_S3_PKG"
+	Value  = "0x5,0x0,0,0"
+	Help  = "Intel ICH(x) example. Modify for a new Chipset"
+	TokenType = Expression
+	TargetMAK = Yes
+	Range  = "4 decimal or Hex (use '0x' prefix) values separated with ','"
+End
+
+TOKEN
+	Name  = "A_S4_PKG"
+	Value  = "0x6,0x0,0,0"
+	Help  = "Intel ICH(x) example. Modify for a new Chipset"
+	TokenType = Expression
+	TargetMAK = Yes
+	Range  = "4 decimal or Hex (use '0x' prefix) values separated with ','"
+End
+
+TOKEN
+	Name  = "A_S5_PKG"
+	Value  = "0x7,0x0,0,0"
+	Help  = "Intel ICH(x) example. Modify for a new Chipset"
+	TokenType = Expression
+	TargetMAK = Yes
+	Range  = "4 decimal or Hex (use '0x' prefix) values separated with ','"
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB Sensor Hob Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB USB Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "PCH_USB_DEBUG_MODE"
+	Value  = "0"
+	Help  = "1:Enable USB debug mode.\0:Disable USB debug mode."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PCH_USB_DEBUG_MODE"
+	Value  = "1"
+	Help  = "1:Enable USB debug mode.\0:Disable USB debug mode."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+	Token = "AMIDEBUG_RX_SUPPORT" "=" "1"
+	Token = "USB_DEBUG_TRANSPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "PCH_USB_DEBUG_MODE"
+	Value  = "1"
+	Help  = "1:Enable USB debug mode.\0:Disable USB debug mode."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+	Token = "AMI_DEBUGGER_SUPPORT" "=" "1"
+	Token = "USB_DEBUG_TRANSPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "OEM_USB_PER_PORT_DISABLE_SUPPORT"
+	Value  = "0"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB Thermal Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "THERMAL_BASE_ADDRESS"
+	Value  = "0xFED08000"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "THERMAL_LENGTH"
+	Value  = "0x1000"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TCBR"
+	Value  = "$(THERMAL_BASE_ADDRESS)"
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "TCLT"
+	Value  = "$(THERMAL_LENGTH)"
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB SATA Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "ZPODD_SATA_PORT"
+	Value  = "0x02"
+	Help  = "ZPODD SATA Port Number."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "PCH_SKU" "=" "1"
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB PCIE Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "PCH_PCIE_PME_INTERRUPT"
+	Value  = "0"
+	Help  = "0:Disable\1:Enable"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PCH_PCIE_COMPLETION_TIME_OUT"
+	Value  = "0"
+	Help  = "0:Default\1:50us~100us\2:1ms~10ms\3:16ms~55ms\4:65ms~210ms\5:260ms~900ms\6:1s~3.5s\7:4s~13s\8:17s~64s\9:Disable"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PCH_PCIE_TEMP_RP_BUS_NUM_MIN"
+	Value  = "2"
+	Help  = "Temp Root Port Bus Number Min"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PCH_PCIE_TEMP_RP_BUS_NUM_MAX"
+	Value  = "10"
+	Help  = "Temp Root Port Bus Number Max"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "MAX_EXTRA_BUS_RESERVED"
+	Value  = "7"
+	Help  = "The Max number of extra Bus Reserved for bridges behind this Root Bridge "
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "MAX_PCIE_MEM_RESERVED"
+	Value  = "20"
+	Help  = "The Max number of reserved memory range for this Root Bridge."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "MAX_PCIE_PF_MEM_RESERVED"
+	Value  = "20"
+	Help  = "The Max number of prefetchable memory range for this Root Bridge."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "MAX_PCIE_IO_RESERVED"
+	Value  = "20"
+	Help  = "The Max number of IO range for this Root Bridge."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "RC_PORT_0"
+	Value  = "1"
+	Help  = "Set to 'On' if PCH Root Complex Port #0  phisically enabled and connected on the board"
+	TokenType = Boolean
+	TargetH = Yes
+	Range  = "On - Off"
+End
+
+TOKEN
+	Name  = "RC_PORT_1"
+	Value  = "1"
+	Help  = "Set to 'On' if PCH Root Complex Port #1  phisically enabled and connected on the board"
+	TokenType = Boolean
+	TargetH = Yes
+	Range  = "On - Off"
+	Token = "RC_PORT_0" "=" "1"
+End
+
+TOKEN
+	Name  = "RC_PORT_2"
+	Value  = "1"
+	Help  = "Set to 'On' if PCH Root Complex Port #2  phisically enabled and connected on the board"
+	TokenType = Boolean
+	TargetH = Yes
+	Range  = "On - Off"
+	Token = "RC_PORT_0" "=" "1"
+End
+
+TOKEN
+	Name  = "RC_PORT_3"
+	Value  = "1"
+	Help  = "Set to 'On' if PCH Root Complex Port #3  phisically enabled and connected on the board"
+	TokenType = Boolean
+	TargetH = Yes
+	Range  = "On - Off"
+	Token = "RC_PORT_0" "=" "1"
+End
+
+TOKEN
+	Name  = "RC_PORT_4"
+	Value  = "1"
+	Help  = "Set to 'On' if PCH Root Complex Port #4  phisically enabled and connected on the board"
+	TokenType = Boolean
+	TargetH = Yes
+	Range  = "On - Off"
+	Token = "RC_PORT_0" "=" "1"
+End
+
+TOKEN
+	Name  = "RC_PORT_5"
+	Value  = "1"
+	Help  = "Set to 'On' if PCH Root Complex Port #5  phisically enabled and connected on the board"
+	TokenType = Boolean
+	TargetH = Yes
+	Range  = "On - Off"
+	Token = "RC_PORT_0" "=" "1"
+End
+
+TOKEN
+	Name  = "RC_PORT_6"
+	Value  = "1"
+	Help  = "Set to 'On' if PCH Root Complex Port #6  phisically enabled and connected on the board"
+	TokenType = Boolean
+	TargetH = Yes
+	Range  = "On - Off"
+	Token = "RC_PORT_0" "=" "1"
+End
+
+TOKEN
+	Name  = "RC_PORT_7"
+	Value  = "1"
+	Help  = "Set to 'On' if PCH Root Complex Port #7  phisically enabled and connected on the board"
+	TokenType = Boolean
+	TargetH = Yes
+	Range  = "On - Off"
+	Token = "RC_PORT_0" "=" "1"
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB Audio Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB Lan Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB I2C Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB SM Bus Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "SB_MAX_SMBUS_CONTROLLER"
+	Value  = "1"
+	Help  = "Maximum number of SMBUS controller supported by this module"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SMBUS_BASE_ADDRESS"
+	Value  = "0x0580"
+	Help  = "This token just effected before PCI Bus driver dispatched."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "SB_SMBUS_PPI_SUPPORT"
+	Value  = "0"
+	Help  = "Enable this token if SMBus PPI is from south bridge.\ If not disable this and provide reset functionality from other PEIM."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_INSTALL_SMBUS_1_PPI"
+	Value  = "0"
+	Help  = "Enable this token if original SMBus PPI is to be installed.\ If this token is disabled, then only SMBUS2 PPI will be installed."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SMBL"
+	Value  = "0x20"
+	Help  = "SMBus I/O Registes Range"
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+LibraryMapping
+	Class  = "SmbusLib"
+	Instance  = "MdePkg.PeiSmbusLibSmbus2Ppi"
+	ModuleTypes  = "PEIM"
+	Disable = Yes
+End
+
+PcdMapping
+	Name  = "PcdSmbusBaseAddress"
+	GuidSpace  = "gSiPkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "Uint16"
+	Value  = "$(SMBUS_BASE_ADDRESS)"
+	Offset  = 00h
+	Length  = 02h
+	TargetDSC = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB SPI Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "SPI_BASE"
+	Value  = "0xFE010000"
+	Help  = "This defines the register or offset of the SPI registers in the system"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_WRITE_INDEX "
+	Value  = "0"
+	Help  = "Write Opcode Menu slot command reference"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_READ_INDEX"
+	Value  = "1"
+	Help  = "Read Opcode menu slot reference"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_ERASE_INDEX"
+	Value  = "2"
+	Help  = "Erase Opcode menu slot reference"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_READ_S_INDEX"
+	Value  = "3"
+	Help  = "Read Status Opcode Menu Slot reference"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_READ_ID_INDEX"
+	Value  = "4"
+	Help  = "Read identification opcode menu slot reference"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_WRITE_S_INDEX"
+	Value  = "5"
+	Help  = "Write Status opcode menu slot reference"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_WRITE_S_E_INDEX"
+	Value  = "6"
+	Help  = "Write Status enable opcode menu slot reference"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_WRITE_E_INDEX"
+	Value  = "7"
+	Help  = "Write Enable opcode menu slot reference"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_TYPE_READ_NO_ADDRESS"
+	Value  = "0"
+	Help  = "Opcode type that indicates that the command is a read command that doesn't need an Address sent with it"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_TYPE_WRITE_NO_ADDRESS"
+	Value  = "1"
+	Help  = "Opcode type that indicates that the command is a write command that doesn't need an Address sent with it"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_TYPE_READ_WITH_ADDRESS"
+	Value  = "2"
+	Help  = "Opcode type that indicates that the command is a read command that needs an Address sent with it"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_OPCODE_TYPE_WRITE_WITH_ADDRESS"
+	Value  = "3"
+	Help  = "Opcode type that indicates that the command is a write command that needs an Address sent with it"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SPI_MAX_TRANSFER"
+	Value  = "64"
+	Help  = "This token represents the Maximum amount of data that can be sent across the SPI Bus in one transaction in the chipset"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "OEM_UPDATE_VSCC_TABLE_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OEM_UPDATE_VSCC_TABLE_SUPPORT"
+	Value  = "0"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "SPI_INITIALIZE_WITH_VSCC" "=" "1"
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB CMOS Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "CMOS_ADDR_PORT"
+	Value  = "0x70"
+	Help  = "CMOS Address port"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "CMOS_DATA_PORT"
+	Value  = "0x71"
+	Help  = "CMOS Data port"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "CMOS_IO_EXT_INDEX"
+	Value  = "0x72"
+	Help  = "CMOS location used to check for CMOS corruption"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "CMOS_IO_EXT_DATA"
+	Value  = "0x73"
+	Help  = "CMOS location used to check for CMOS corruption"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "CMOS_IO_STD_INDEX"
+	Value  = "0x74"
+	Help  = "CMOS standard index"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "CMOS_BAD_REG"
+	Value  = "0x0E"
+	Help  = "CMOS location used to check for CMOS corruption"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "SB_TEMP_CMOS1"
+	Value  = "0xE1"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_CMOS_MISC_FLAG_REG"
+	Value  = "0x90"
+	Help  = "[1:0] = 00b: COMPLETE_SAVE_RESTORE_STD_CMOS.\[1:0] = 01b: ENABLE_NMI_BEFORE_SMI_EXIT.\[1:0] = 10b: DISABLE_NMI_BEFORE_SMI_EXIT."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+	Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB Interrupt Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "APCB"
+	Value  = "0x0FEC00000"
+	Help  = "Default I/O APIC(s) memory start address, bytes\0x0FEC00000 - default, 0 - I/O APIC's disabled"
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "APCL"
+	Value  = "0x1000"
+	Help  = "I/O APIC(s) memory decoded range, bytes\0x1000 - default,\0 - I/O APIC's not decoded "
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_PIRQ_ROUTER_VID"
+	Value  = "0x8086"
+	Help  = "IRQ Router Vendor ID. \PLEASE CHANGE THIS AS PER CHIPSET"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_PIRQ_ROUTER_DID"
+	Value  = "0x27B8"
+	Help  = "IRQ Router Device ID. \PLEASE CHANGE THIS AS PER CHIPSET"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB HPET Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "HPET_SUPPORT"
+	Value  = "0"
+	Help  = "Enables High Performance Event Timer (HPET) Support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "HPET_SUPPORT"
+	Value  = "1"
+	Help  = "Enables High Performance Event Timer (HPET) Support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "ACPI_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "HPET_BASE_ADDRESS"
+	Value  = "0xFED00000"
+	Help  = "HPET Block Registers"
+	TokenType = Integer
+	TargetH = Yes
+	Lock = Yes	
+End
+
+TOKEN
+	Name  = "HPET_PROTOCOL_SUPPORT"
+	Value  = "0"
+	Help  = "Use High Performance Event Timer (HPET) instead of 8254 to support Timer protocol in Project"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "HPET_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB TCO Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "TCO_BASE_ADDRESS"
+	Value  = "0x400"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+PcdMapping
+	Name  = "PcdTcoBaseAddress"
+	GuidSpace  = "gSiPkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "Uint32"
+	Value  = "$(TCO_BASE_ADDRESS)"
+	Offset  = 00h
+	Length  = 04h
+	TargetDSC = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=============== SB EFI Spec Config =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "OFFSET_0"
+	Value  = "0"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_1"
+	Value  = "1"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_2"
+	Value  = "2"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_3"
+	Value  = "3"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_4"
+	Value  = "4"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_5"
+	Value  = "5"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_6"
+	Value  = "6"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_7"
+	Value  = "7"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_8"
+	Value  = "8"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_9"
+	Value  = "9"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_10"
+	Value  = "10"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_11"
+	Value  = "11"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_12"
+	Value  = "12"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_13"
+	Value  = "13"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_14"
+	Value  = "14"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_15"
+	Value  = "15"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_16"
+	Value  = "16"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_17"
+	Value  = "17"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_18"
+	Value  = "18"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_19"
+	Value  = "19"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_20"
+	Value  = "20"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_21"
+	Value  = "21"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_22"
+	Value  = "22"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_23"
+	Value  = "23"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_24"
+	Value  = "24"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_25"
+	Value  = "25"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_26"
+	Value  = "26"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_27"
+	Value  = "27"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_28"
+	Value  = "28"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_29"
+	Value  = "29"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_30"
+	Value  = "30"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_31"
+	Value  = "31"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_32"
+	Value  = "32"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_33"
+	Value  = "33"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_34"
+	Value  = "34"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_35"
+	Value  = "35"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_36"
+	Value  = "36"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_37"
+	Value  = "37"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_38"
+	Value  = "38"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OFFSET_39"
+	Value  = "39"
+	Help  = "Offset 0 based in UEFI 2.1 and 1 based in UEFI 2.0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "SB_DEBUG_MESSAGE"
+	Value  = "1"
+	Help  = "Enables/disables debug message in SB module"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+	Token = "DEBUG_MODE" "!=" "0"
+End
+
+TOKEN
+	Name  = "SB_RESET_PPI_SUPPORT"
+	Value  = "1"
+	Help  = "Enable this token if reset PPI is from south bridge.\ If not disable this and provide reset functionality from other PEIM."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_STALL_PPI_SUPPORT"
+	Value  = "1"
+	Help  = "Enable this token if Stall PPI is from south bridge.\ If not disable this and provide reset functionality from other PEIM."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_ACPI_TIMER_LIB_SUPPORT"
+	Value  = "1"
+	Help  = "Enable this token if TimerLib is from south bridge.\ If not disable this and provide TimerLib from other module."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_8259_PROTOCOL_SUPPORT"
+	Value  = "1"
+	Help  = "Enable this token if 8259 Protocol is from south bridge.\ If not disable this and provide 8259 protocol from other module."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+# Use HpetTimerDxe from PcAtChipsetPkg. SB doesn't support TIMER_ARCH_PROTOCOL.
+TOKEN
+	Name  = "SB_TIMER_ARCH_PROTOCOL_SUPPORT"
+	Value  = "0"
+	Help  = "Enable this token if Timer Architectural protocol is from south bridge.\ If not disable this and provide Timer Architectural protocol from other module."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_WATCHDOG_TIMER_PROTOCOL_SUPPORT"
+	Value  = "1"
+	Help  = "Enable this token if Watchdog Timer Architectural protocol is from south bridge.\ If not disable this and provide Watchdog Timer Architectural protocol from other module."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_AMIWDATLIB_SUPPORT"
+	Value  = "1"
+	Help  = "If you want to use AmiModulePkg.AmiWdatLib as AmiWdatLib, please set it to 0."
+	TokenType = Boolean
+	TargetMAK = Yes
+	Token = "WDAT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SB_WDAT_PCI_SEG"
+	Value  = "0xFF"
+	Help  = "PCI segment number. For systems that don't support PCI segments, this number must be 0xFF."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_WDAT_PCI_BUS"
+	Value  = "0xFF"
+	Help  = "PCI device number if table describes a PCI device. Must be 0xFF if it is not a PCI device."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_WDAT_PCI_DEV"
+	Value  = "0xFF"
+	Help  = "PCI device number if table describes a PCI device. Must be 0xFF if it is not a PCI device."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_WDAT_PCI_FUN"
+	Value  = "0xFF"
+	Help  = "PCI device number if table describes a PCI device. Must be 0xFF if it is not a PCI device."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_WDAT_TIMER_PERIOD"
+	Value  = "1000"
+	Help  = "Contains the period of one timer count (in milliseconds)."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_WDAT_MAX_COUNT"
+	Value  = "0x3ff"
+	Help  = "Contains the maximum counter value that this watchdog implementation supports (in count intervals)."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_WDAT_MIN_COUNT"
+	Value  = "0"
+	Help  = "Contains the minimum counter value that this watchdog implementation supports (in count intervals)."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_WDAT_FLAG"
+	Value  = "WD_ENABLED|WD_STOPPED_IN_SLEEP_STATE"
+	Help  = "Please refer to Watchdog(WD) Flag Value defined in Wdat.h."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "INTEL_WDT_SWITCH"
+	Value  = "0"
+	Help  = "0 - The WDT of OC, it supports only Skylake chipset or later, 1 - The WDT of TCO."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "WDAT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SB_WDAT_TIMER_PERIOD"
+	Value  = "600"
+	Help  = "Contains the period of one timer count (in milliseconds)."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "INTEL_WDT_SWITCH" "=" "1"
+End
+
+TOKEN
+	Name  = "SB_WDAT_MIN_COUNT"
+	Value  = "2"
+	Help  = "Contains the minimum counter value that this watchdog implementation supports (in count intervals)."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "INTEL_WDT_SWITCH" "=" "1"
+End
+
+INFComponent
+	Name  = "AmiWdatLib"
+	File  = "AmiWdatLib/AmiWdatLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+	Token = "WDAT_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "SbCriticalSectionLib"
+	File  = "SbCriticalSectionLib/SbCriticalSectionLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+	Token = "HPET_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "AmiCriticalSectionLib"
+	Instance  = "AmiCompatibilityPkg.AmiCriticalSectionCompatLib"
+	Disable = YES
+	Token = "HPET_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "AmiCriticalSectionLib"
+	Instance  = "AmiChipsetModulePkg.SbCriticalSectionLib"
+	Token = "HPET_SUPPORT" "=" "1"
+End
+
+#Barret should remove >>>
+TOKEN
+	Name  = "PCI_EHCI_BUS_NUMBER"
+	Value  = "0x0"
+	Help  = "EHCI controller bus number"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_DEBUG_TRANSPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "PCI_EHCI_DEV_FUNC_NUMBER"
+	Value  = "0xEF"
+	Help  = "EHCI controller device and function number. \Bit 0-2 represents function number and\ Bit 3-7 represents device number"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_DEBUG_TRANSPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "PCI_EHCI_BAR_OFFSET"
+	Value  = "0x10"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_DEBUG_TRANSPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "EHCI_MMIO_BASE_ADDRESS1"
+	Value  = "0xFECD0000"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "EHCI_MMIO_BASE_ADDRESS2"
+	Value  = "$(EHCI_MMIO_BASE_ADDRESS1)+0xC00"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "EHCI_MMIO_SIZE"
+	Value  = "0x400"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_DEBUG_TRANSPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DBG_EHCI_PCI_ADDRESS"
+	Value  = "0x1A0000"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PEI_EHCI_MEM_BASE_ADDRESSES"
+	Value  = "{$(EHCI_MMIO_BASE_ADDRESS1), $(EHCI_MMIO_BASE_ADDRESS2)}"
+	Help  = "List of supported EHCI controllers in the following format: {devfunc1, devfunc2,...,devfuncN}\devfunc represents the location of UHCI controller on PCI bus: dev = Bus << 24 + Dev << 16 + Func << 8. Value followed by dev is the PCI device interface, for UHCI it must be 0.\Note: number of entries {devfunc} must not be less than a number of supported EHCI controllers specified in USB_EHCI token."
+	TokenType = Expression
+	TargetH = Yes
+End
+#Barret should remove <<<
+
+TOKEN
+	Name  = "DEBUG_COM_PORT_ADDR"
+	Value  = "0x3F8"
+	Help  = "COM Port address the debugger uses."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PCH_RCRB_OIC_CEN"
+	Value  = "1"
+	Help  = "Only for TRAD platform(2 Chipset).\1: Enable Coprocessor Error.\0: Disable Coprocessor Error."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "IDE_BASE_ADDRESS"
+	Value  = "0x0FFA0"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "SbRuntimeServiceLib_Support"
+	Value  = "1"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "A_POS_DECODE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "SX_NOTIFY_PWRB"
+	Value  = "1"
+	Help  = "Enable/Disable report notify power button event when system resume form sleep state."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PRIMARY_CHANNEL_ENABLE"
+	Value  = "1"
+	Help  = "Enable/Disable Primary Channel"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PRIMARY_MASTER_DRIVE_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "MAX_UDMA"
+	Value  = "5"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PRIMARY_SLAVE_DRIVE_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SECONDARY_CHANNEL_ENABLE"
+	Value  = "1"
+	Help  = "Enable/Disable Secondary Channel"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SECONDARY_MASTER_DRIVE_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SECONDARY_SLAVE_DRIVE_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_IDE_MODE"
+	Value  = "4"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "BUSMASTER_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "MASTER_INTERRUPT_BASE"
+	Value  = "0x58"
+	Help  = "This value set the Interrupt Vector base for the master. Hardware IRQ0 = this base.\In legacy real mode this value is 8. It can not be 8 in protected mode.\This value must be a multiple of 8, and the this value must be different than SLAVE_INTERRUPT_BASE."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-F8"
+End
+
+TOKEN
+	Name  = "SLAVE_INTERRUPT_BASE"
+	Value  = "0x70"
+	Help  = "This value set the Interrupt Vector base for the slave. Hardware IRQ8 = this base.\In legacy real mode this value is 0x70.\This value must be a multiple of 8, and the this value must be different than MASTER_INTERRUPT_BASE."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-F8"
+End
+
+TOKEN
+	Name  = "RESERVED_PAGE_ROUTE"
+	Value  = "0"
+	Help  = "Off:Enable Port 80 decoding to LPC.\On:Enable Port 80 decoding to PCI."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NON_INTEL_IDE_PROTOCOL"
+	Value  = "0"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPI_IRQ_2_IOXAPIC"
+	Value  = "0xFFFF"
+	Help  = "Enable the corresponding GPIO PIRQ pin to generate IOxAPIC interrupt for PchLp"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "{0-0xFFFF}"
+End
+
+TOKEN
+	Name  = "SB_SPECIAL_RESET_SUPPORT"
+	Value  = "0"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "VE_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "DEVICE_NAME_LENGTH"
+	Value  = "14"
+	Help  = "ATA/ATAPI Device name length, this token is defined the maximum characters of the device name will be showed on SETUP."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "2-41"
+End
+
+TOKEN
+	Name  = "ACOUSTIC_LEVEL"
+	Value  = "0xFF"
+	Help  = "0xFF - Set to Recommended value by the Vendor\0xFE - Maximum Performance\0x01 - Minimum power Consumption with Standby\0x80- - Minimum power Consumption without  Standby\0x81 -0xFD Intermediate Power Management levels without Standby\0x02 -0x7F Intermediate Power Management levels with Standby"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "01h-FFh"
+	Token = "ACOUSTIC_MANAGEMENT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "HDD_POWER_LOSS_IN_S3"
+	Value  = "1"
+	Help  = "Disable this feature if HDD doesn't lose power \during S3 resume. HDD need to be unlocked during \S3 resume if it loses power and \also HDD need to be put in Freeze state.\"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FACP_FLAG_USE_PLATFORM_CLOCK"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FACP_FLAG_S4_RTC_STS_VALID"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FACP_FLAG_REMOTE_POWER_ON_CAPABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "SB_DMI_ASPM_SUPPORT"
+	Value  = "3"
+	Help  = "0 : L0s and L1 don't support.\1 : L0s support.\2 : L1 support.\3 : L0s and L1 support."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "CLOCK_GENERATOR_SETTINGS"
+	Value  = "{0x95, 0x83, 0xff, 0xff, 0xff, 0x00, 0x00, 0x95, 0x13, 0x65, 0x7d, 0x56}"
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "INIT_CLKGEN_IN_PEI_DBG"
+	Value  = "1"
+	Help  = "Initilize CLOCKGEN in SbPeoDebugger.c"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FORCED_6064_DECODE_ENABLE"
+	Value  = "1"
+	Help  = "Forced to enable 60/64 decode."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PERFORM_KBC_RESET"
+	Value  = "0"
+	Help  = "WARNING: When this token is enabled, it might pull down the system boot speed."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "HECI_BASE_ADDRESS"
+	Value  = "0xFEDB0000"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "HECI2_BASE_ADDRESS"
+	Value  = "0xFEDC0000"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "HECI5_BASE_ADDRESS"
+	Value  = "0xFEDD0000"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "PEI_XHCI_MMIOBASE"
+    Value  = "0xFE800000"
+    Help  = "MMIO Base Address for first XHCI Controller during PEI phase"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+	Name  = "XHCI_MMIO_BASE_ADDRESS"
+	Value  = "$(PEI_XHCI_MMIOBASE)"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_3_DEBUG_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "AHCI_BASE_ADDRESSES"
+    Value  = "0xFE900000"
+    Help  = "Base addresses to be Programmed in ABAR Register"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "AhciRecovery_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "SB_TEMPLATE_VER"
+	Value  = "0008"
+	Help  = "South Bridge Template Version Number.\ DO NOT CHANGE THIS VALUE"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+	Name  = "INCLUDE_SB_ASM_FILE_IN_SEC"
+	Value  = "1"
+	Help  = "Includes an ASM file and an eLink in SEC build process for SB code modification:"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "DEFAULT_YEAR"
+	Value  = "2008"
+	Help  = "Year, that will be set in RTC in case of date corruption"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1998-2099"
+End
+
+TOKEN
+	Name  = "DEFAULT_MONTH"
+	Value  = "1"
+	Help  = "Month, that will be set in RTC in case of date corruption"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1-12"
+End
+
+TOKEN
+	Name  = "DEFAULT_DAY"
+	Value  = "1"
+	Help  = "Day, that will be set in RTC in case of date corruption"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1-31"
+End
+
+TOKEN
+	Name  = "EARLIEST_YEAR"
+	Value  = "1998"
+	Help  = "If year, stored in RTC is less than this value, date will be considered as incorrect"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1998"
+End
+
+TOKEN
+	Name  = "MAXIMUM_YEAR"
+	Value  = "9999"
+	Help  = "If year, stored in RTC is greater than this value, date will be considered as incorrect"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "99, 9999"
+End
+
+TOKEN
+	Name  = "S4_WAKE_FROM_RTC_SUPPORTED"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "REMOTE_POWER_ON_SUPPORTED"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SIO_SB_DEV_NUM"
+	Value  = "0x1F"
+	Help  = "SB LPC PCI Device Number, Porting required"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "COLD_RESET_WITH_POWER_CYCLE"
+	Value  = "0"
+	Help  = "1: EfiResetCold issues a full reset (Port 0xCF9[7:0] = 0x0E)./0: EfiResetCold issues a hard reset (Port 0xCF9[7:0] = 0x06)."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name = "SB_WAKEUP_TYPE_FN"
+	Value = "1"
+	Help = "Indicate the support for getWakeupTypeForSmbios function\0 = Not supported\1 = Supported"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "SMBIOS_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DEFAULT_SYSTEM_WAKEUP_TYPE"
+	Value  = "0x06"
+	Help  = "Specifies the System Wake-up Type while PcdSbWakeType is invalid.\00h     -     Reserved\01h     -     Other\02h     -     Unknown\03h     -     APM Timer\04h     -     Modem Ring\05h     -     LAN Remote\06h     -     Power Switch\07h     -     PCI PME#\08h     -     AC Power Restored"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0x01 - 0x08"
+End
+
+TOKEN
+	Name  = "SW_SMI_BIOS_LOCK"
+	Value  = "0xBA"
+	Help  = "SWSMI# for BIOS Lock"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name = "SW_SMI_SCRIPT_TABLE_SAVE"
+	Value = "0xBB"
+	Help = "Value to be written into SMI command register \to save script table in ReadyToBoot event."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SMM_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable SMM support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_SMM_CONTROL_PPI_SUPPORT"
+	Value  = "0"
+	Help  = "This Boolean token indicates that if enable this token SmmControl Ppi is implement by Sourth Bridge. Intel PCH RC has supported it in PeiPchSmmControlLib.c."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Token = "SMM_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DEBUG_EHCI_BUS_NUMBER"
+	Value  = "0x00"
+	Help  = "EHCI controller bus number."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_DEBUG_TRANSPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DEBUG_EHCI_DEVICE_NUMBER"
+	Value  = "0x1A"
+	Help  = "EHCI controller device number."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_DEBUG_TRANSPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DEBUG_EHCI_FUNCTION_NUMBER"
+	Value  = "0x00"
+	Help  = "EHCI controller function number."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_DEBUG_TRANSPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DEBUG_XHCI_BUS_NUMBER"
+	Value  = "0x00"
+	Help  = "XHCI controller bus number."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_3_DEBUG_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DEBUG_XHCI_DEVICE_NUMBER"
+	Value  = "0x14"
+	Help  = "XHCI controller device number."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_3_DEBUG_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DEBUG_XHCI_FUNCTION_NUMBER"
+	Value  = "0x00"
+	Help  = "XHCI controller function number."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "USB_3_DEBUG_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CTRL_HOME_CHECK_LOOP"
+	Value  = "15"
+	Help  = "Loop count for Ctrl + Home Key Scan."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "============== GPIO SETINNG =============="
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "PROGRAM_GPIO_STYLE"
+	Value  = "0"
+	Help  = "0:Using AmiSbGpio.h directly / 1:Using OEM Library(AmiOemGpioLib) function / 2:Using SB Custom Ppi"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+OUTPUTREGISTER
+	Name  = "AmiSbGpioTable"
+	Path  = "Build"
+	File  = "AmiSbGpio.h"
+	Template  = "Include/SbGpio.h"
+End
+
+ELINK
+	Name  = "SB_OEM_ADJUST_GPIO_LIST"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "{GPIO_SKL_H_GPP_A8, {GpioPadModeNative1, GpioHostOwnDefault, GpioDirIn , GpioOutDefault, GpioIntDefault , GpioPlatformReset , GpioTermNone}},"
+	Parent  = "SB_OEM_ADJUST_GPIO_LIST"
+	Help  = "Format:{}"
+	Disable = Yes
+	InvokeOrder = AfterParent
+End
+TOKEN
+	Name  = "SB_OEM_PTSS_TABLE_LIST"
+	Value  = "{0xFF, 0, 0, 0, 0},"
+	Help  = "Format:{LanNum, PhyMode, Offset, Value, BitMask}, LanNum: HSIO Lan#(Start from 1), PhyMode: 0:PCIEDMI/1:USB3/2:SATA/8:USB2, For USB2 set LanNum to 0."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPE_DWx_LP_LIST"
+	Value  = "{GPIO_SKL_LP_GROUP_GPP_C, GPIO_SKL_LP_GROUP_GPP_D, GPIO_SKL_LP_GROUP_GPP_E}"
+	Help  = "Format:{GPE_DW0, GPE_DW1, GPE_DW2}"
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPE_DWx_H_LIST"
+	Value  = "{GPIO_SKL_H_GROUP_GPP_G, GPIO_SKL_H_GROUP_GPP_D, GPIO_SKL_H_GROUP_GPP_E}"
+	Help  = "Format:{GPE_DW0, GPE_DW1, GPE_DW2}"
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "SB_PCI_DEVICES_SSID_TABLE"
+	Value  = "{SB_LPC_MMIO_BUS_DEV_FUN, -1}, {SB_ISH_MMIO_BUS_DEV_FUN, -1}, {SB_XHCI_MMIO_BUS_DEV_FUN, -1}, {SB_XDCI_MMIO_BUS_DEV_FUN, -1}, {SB_THERMAL_MMIO_BUS_DEV_FUN, -1}, {SB_CIO2_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_I2C0_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_I2C1_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_I2C2_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_I2C3_MMIO_BUS_DEV_FUN, -1}, {SB_HECI_MMIO_BUS_DEV_FUN, -1}, {SB_HECI2_MMIO_BUS_DEV_FUN, -1}, {SB_HECI3_MMIO_BUS_DEV_FUN, -1}, {SB_IDER_MMIO_BUS_DEV_FUN, -1}, {SB_KT_MMIO_BUS_DEV_FUN, -1}, {SB_SATA_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_UART2_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_I2C5_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_I2C4_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP00_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP01_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP02_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP03_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP04_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP05_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP06_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP07_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP08_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP09_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP10_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP11_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP12_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP13_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP14_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP15_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP16_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP17_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP18_MMIO_BUS_DEV_FUN, -1}, {SB_PCIERP19_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_UART0_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_UART1_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_GSPI0_MMIO_BUS_DEV_FUN, -1}, {SB_SIO_GSPI1_MMIO_BUS_DEV_FUN, -1}, {SB_SCS_EMMC_MMIO_BUS_DEV_FUN, -1}, {SB_SCS_SDIO_MMIO_BUS_DEV_FUN, -1}, {SB_SCS_SDCARD_MMIO_BUS_DEV_FUN, -1}, {SB_P2SB_MMIO_BUS_DEV_FUN, -1}, {SB_PMC_MMIO_BUS_DEV_FUN, -1}, {SB_HDA_MMIO_BUS_DEV_FUN, -1}, {SB_SMBUS_MMIO_BUS_DEV_FUN, -1}, {SB_SPI_MMIO_BUS_DEV_FUN, -1}, {SB_LAN_MMIO_BUS_DEV_FUN, -1}, {-1, -1}"
+	Help  = "List of PCI device's Sub-System ID in the following format:\{Device#1 Bus/Device/Function, Device#1 Sub-ID}, {Device#2 Bus/Device/Function, Device#2 Sub-ID}...\The format of the PCI bus/device/function is followed by EFI_PCI_CONFIGURATION_ADDRESS.\If the value of Sub-ID is -1, that means BIOS will use PCI Vendor-ID and Device-ID instead.\The last structure {-1, -1} is end of the table, don't remove it!"
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "MINIMUM_YEAR"
+	Value  = "1998"
+	Help  = "Minimum allowed year.\If RTC year is less than this value, date will be reset to defaults."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1998"
+End
+
+TOKEN
+	Name  = "DEFAULT_YEAR"
+	Value  = "2009"
+	Help  = "Default year. RTC will be reset to this value if current date is invalid."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "MINIMUM_YEAR - 2099"
+End
+
+TOKEN
+	Name  = "DEFAULT_MONTH"
+	Value  = "1"
+	Help  = "Default month. RTC will be reset to this value if current date is invalid."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1-12"
+End
+
+TOKEN
+	Name  = "DEFAULT_DAY"
+	Value  = "1"
+	Help  = "Default day. RTC will be reset to this value if current date is invalid."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1-31"
+End
+
+TOKEN
+	Name  = "PCI_BRIDGE_DISABLE"
+	Value  = "0"
+	Help  = "Set to 'On' to disable PCI Bridge."
+	TokenType = Boolean
+	TargetH = Yes
+	Range  = "ON-OFF"
+End
+
+TOKEN
+	Name  = "SW_SMI_SB_EL_S3"
+	Value  = "0xb9"
+	Help  = "Value to be written into SMI command register \to enable S3 patched codes"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ENABLE_RTC_ONE_SECOND_WAKEUP"
+	Value  = "1"
+	Help  = "1: Setups RTC 1 second alarm as well."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = " "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "SB_SWSMI_WRITE_TO_BOOTSCRIPT"
+	Value  = "1"
+	Help  = "0: Software SMI SW_SMI_ACPI_ENABLE and SW_SMI_SB_ACPI_S3 will be written to boot script in CSM module.\1: Software SMI SW_SMI_ACPI_ENABLE and SW_SMI_SB_ACPI_S3 will be written to boot script in SB eChipset."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TICK_PERIOD"
+	Value  = "1"
+	Help  = "Specifies the value of TickPeriod in EFI_METRONOME_ARCH_PROTOCOL. Please refer to the reference CRB BIOS for the setting. The unit of TickPeriod is 100ns. 100 (10uS/100ns) means delay 10uS."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1 - 2000"
+End
+
+TOKEN
+	Name  = "USB_OVERCURRENT_PIN_OVERRIDE_SUPPORT"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "USB_OVERCURRENT_PIN_OVERRIDE_USE_ELINK"
+	Value  = "0"
+	Help  = "0: Direct override data.\1: Use ELINK callback function to override data."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "USB_OVER_CURRENT_MAPPING_SETTINGS"
+	Value  = "5, 3, 8, 8, 8, 0, 0, 2, 2, 1, 1, 8, 4, 4"
+	Help  = "For PCH-Lp, there is only 10 USB2.0 port, Please modify the value to 10 items. For PCH-H, there is only 14 USB2.0 port, Please modify the value to 14 items."
+	TokenType = Expression
+	TargetH = Yes
+	Token = "USB_OVERCURRENT_PIN_OVERRIDE_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "USB30_OVER_CURRENT_MAPPING_SETTINGS"
+	Value  = "5, 8, 3, 8, 1, 0, 0, 2, 2, 1"
+	Help  = "For PCH-Lp, there is only 6 USB3.0 port, Please modify the value to 6 items. For PCH-H, there is only 10 USB3.0 port, Please modify the value to 10 items."
+	TokenType = Expression
+	TargetH = Yes
+	Token = "USB_OVERCURRENT_PIN_OVERRIDE_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SB_PCIE_ERROR_LOG_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "RUNTIME_ERROR_LOGGING_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SB_LPC_IO_DECODE_BASEADDR"
+	Value  = "0"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_LPC_IO_DECODE_SIZE"
+	Value  = "0"
+	Help  = "Size must less than 0x100"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DISABLE_DAYLIGHT_SAVINGS"
+	Value  = "0"
+	Help  = "1: Disable Daylight Savings; 0: Enable Daylight Savings"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CREATE_CMOS_BAD_HOB"
+	Value  = "1"
+	Help  = "1: Create CMOS BAD HOB while Rtc Power is invalid; 0: Never create CMOS BAD HOB"
+	TokenType = Boolean
+	TargetH = Yes
+	Lock = Yes
+End
+
+TOKEN
+    Name  = "INTEL_DISPLAY_AUDIO_VERB_TABLE_SUPPORT"
+    Value  = "1"
+    Help  = "0: Not install Intel Display Audio verb table/ 1: Install Intel Display Audio verb table"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+	Name  = "HDMI_CODEC_PORT_B"
+	Value  = "1"
+	Help  = "0: Disable Hdmi codec port B/ 1: Enable Hdmi codec port B"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "INTEL_DISPLAY_AUDIO_VERB_TABLE_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "HDMI_CODEC_PORT_C"
+	Value  = "1"
+	Help  = "0: Disable Hdmi codec port C/ 1: Enable Hdmi codec port C"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "INTEL_DISPLAY_AUDIO_VERB_TABLE_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "HDMI_CODEC_PORT_D"
+	Value  = "1"
+	Help  = "0: Disable Hdmi codec port BD/ 1: Enable Hdmi codec port D"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "INTEL_DISPLAY_AUDIO_VERB_TABLE_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "POWER_BUTTON_DRIVER_SUPPORT"
+    Value  = "1"
+    Help  = "Determine if include Power Button Dxe Smm driver into the project"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SB_I2C_HID_SUPPORT"
+    Value  = "0"
+    Help  = "Determine if include Power Button Dxe Smm driver into the project"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SB_I2C_HID_SUPPORT"
+    Value  = "1"
+    Help  = "Determine if include Power Button Dxe Smm driver into the project"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "I2C_HID_SUPPORT" "=" "1" 
+End
+
+TOKEN
+	Name  = "SB_SMBUS_LIB_SUPPORT"
+	Value  = "1"
+	Help  = "When disabled, the default library instances: PeiSmbusLibSmbus2Ppi and DxeSmbusLib (see MdePkg.sdl) will be used."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SB_AMI_IO_DECODE_LIB_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "EXTERNAL_RTC_SUPPORT"
+	Value = "0"
+	Help  = "1: Use external RTC; 0: Use chipset internal RTC"
+	TokenType = Boolean
+	TargetH = Yes
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SB_LEGACY_INTERRUPT_PROTOCOL_SUPPORT"
+	Value  = "1"
+	Help  = "Enable this token if produce Legacy Interrupt protocol from south bridge.\ If not disable this and produce Legacy Interrupt protocol from other DXE driver."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_CSP_IO_PORT_CHECK"
+    Value  = "0"
+    Help  = "Enable IO Port 0x26,0x27,0x2A,0x2B check during S3 resume. This token is enabled for debug purpose and should be enabled by QA for CRB pre-test."
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SB_RESET_SHUTDOWN_OVERRIDE"
+    Value  = "0"
+    Help  = "Hook ResetSystem() to call AmiChipsetResetSystem() when the reset type is EfiResetShutdown."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+PATH
+	Name  = "SB_DIR"
+	Path  = "AmiChipsetModulePkg/SB"
+End
+
+PATH
+	Name  = "SB_LIBRARY_DIR"
+	Path  = "AmiChipsetModulePkg/Library"
+End
+
+PATH
+	Name  = "SB_INCLUDE_DIR"
+	Path  = "AmiChipsetModulePkg/Include"
+End
+
+PATH
+	Name  = "SB_LIBRARY_INCLUDE_DIR"
+	Path  = "AmiChipsetModulePkg/Include/Library"
+End
+
+PATH
+	Name  = "SB_CSPLIB_DIR"
+	Path  = "AmiChipsetModulePkg/Library/AmiCspLib"
+End
+
+PATH
+	Name  = "SB_INIT_DIR"
+	Path  = "AmiChipsetModulePkg/SB/SbInit"
+End
+
+MODULE
+	Help  = "Includes Sb.mak to Project"
+	File  = "Sb.mak"
+End
+
+ELINK
+	Name  = "SbPeiDbgInitialize,"
+	Parent  = "PeiDebugInitialize"
+	Priority  = 10
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SbPeiDbgInitUsb,"
+	Parent  = "PeiDebugInitialize"
+	Priority  = 150
+	Token = "USB_3_DEBUG_SUPPORT" "=" "0"
+	Token = "USB_DEBUG_TRANSPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SbPeiDbgInitXhci,"
+	Parent  = "PeiDebugInitialize"
+	Priority  = 150
+	Token = "USB_3_DEBUG_SUPPORT" "=" "1"
+	Token = "USB_DEBUG_TRANSPORT" "=" "0"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(SB_LIBRARY_INCLUDE_DIR)"
+	Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SBPEIDBG_IsS3,"
+	Parent  = "PeiDbgIsS3Hook,"
+	Token = "AMIDEBUG_RX_SUPPORT" "=" "1"
+	Token = "PeiDebugger_SUPPORT" "=" "1"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "SbSmmSaveRestoreStates,"
+	Parent  = "SmmSaveRestoreEnvironment"
+	Token = "SMM_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{0, 0, 0x80, 0xff, ReadWriteCmosBank2},"
+	Parent  = "CMOS_PORT_MAPPING"
+	Help  = "Second bank CMOS access range (Registers in range: 0x80-0xff)"
+	Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SbGetRtcPowerStatus,"
+	Parent  = "CMOS_BATTERY_TEST_MAPPING"
+	Help  = "Link the standard function to determine whether or not the CMOS battery is good."
+	Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SbGetRtcPowerStatus,"
+	Parent  = "CmosMgrBatteryIsGood,"
+	Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "SbIsDefaultConfigMode,"
+	Parent  = "IsResetConfigMode"
+	Token = "EXTERNAL_RTC_SUPPORT" "=" "0"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "BiosLockEnableSmiFlashHook,"
+	Parent  = "SMIFlashEndHandlerList"
+	InvokeOrder = AfterParent
+	Token = "BIOS_LOCK_ENABLE" "=" "1"
+End
+
+ELINK
+	Name  = "AmiChipsetPkg/AmiChipsetPkg.dec"
+	Parent  = "AMI_CSP_PACKAGES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PciLib"
+	Parent  = "AMI_CSP_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SbTimerSaveRestoreRegistersCallbacks"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "SbResetCallbackList"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "SB_OEM_S3_WARMRESET_CALLBACK_LIST"
+	Token = "SecureMod_SUPPORT" "=" "1"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "OEM_HDA_VERB_TABLE_CONTENT"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "OEM_HDA_VERB_TABLE"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "$(SB_DIR)"
+	Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(SB_INIT_DIR)/Sb.ssp"
+	Parent  = "ADDON_SSP_FILES"
+	Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SbConfigurationList"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "OemPchPolicyCallbackList"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "AmiChipsetModulePkg/SB/IntelFdfRules.txt"
+	Parent  = "FdfRules"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{0xEF4017, 0x2025},"
+	Parent  = "OEM_SPI_VSCC_TABLE"
+	Help  = "W25Q64"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "BusOverrideGuidsforUefiRaid"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "{0xBB65942B,0x521F,0x4EC3,0xBA,0xF9,0xA9,0x25,0x40,0xCF,0x60,0xD2},"
+	Parent  = "BusOverrideGuidsforUefiRaid"
+	Help  = "FFS Guid of Satacontroller Driver"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{0x8F5A2E02,0x538C,0x4D59,0xB9,0x20,0xC4,0x78,0x6A,0xCB,0xC5,0x52},"
+	Parent  = "BusOverrideGuidsforUefiRaid"
+	Help  = "FFS Guid of AHCI Driver"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiChipsetIoLib"
+	Parent  = "AMI_CSP_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PchPcrLib"
+	Parent  = "AMI_CSP_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PchCycleDecodingLib"
+	Parent  = "AMI_CSP_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "OEM_SPI_VSCC_TABLE"
+	Help  = "{VidDid, Vscc}"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "SECSB_EarlyInit"
+	Parent  = "SecPlatformLibEntry"
+	Help  = "CRB Early Init in SEC (before Cache as memory enabling)"
+	Token = "INCLUDE_SB_ASM_FILE_IN_SEC" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "-D COLD_RESET_WITH_POWER_CYCLE"
+	Parent  = "*_*_*_CC_FLAGS"
+	Type  = "BuildOptions"
+	Token = "COLD_RESET_WITH_POWER_CYCLE" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "-D OEM_USB_PER_PORT_DISABLE_FLAG"
+	Parent  = "*_*_*_CC_FLAGS"
+	Type  = "BuildOptions"
+	Token = "OEM_USB_PER_PORT_DISABLE_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SbLibBeforeShutdown,"
+	Parent  = "SB_OEM_S3_WARMRESET_CALLBACK_LIST"
+	Token = "SecureMod_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SbPlatformHookBeforeAfterSmmDispatch,"
+	Parent  = "PLATFORMHOOK_BEFORE_AFTER_SMMDISPATCH"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "IsCtrlHomePressed,"
+	Parent  = "IsRecovery"
+	Help  = "Ctr+Home detection"
+	Token = "KBC_SUPPORT" "=" "1"
+	Token = "AMI_COMPATIBILITY_PKG_VERSION" ">" "18"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SB_RUN_GUIDS"
+	InvokeOrder = ReplaceParent
+	OutDSC = Yes
+End
+
+ELINK
+	Name  = "gAmiResetSystemEventGuid"
+	Parent  = "SB_RUN_GUIDS"
+	Token = "AMI_MODULE_PKG_VERSION" ">=" "28"
+	InvokeOrder = AfterParent
+	OutDSC = Yes
+End
+
+ELINK
+    Name  = "gEfiSmmBase2ProtocolGuid"
+    Parent  = "AMI_CSP_DXE_PROTOCOLS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AmiDxeLib"
+    Parent  = "AMI_CSP_DXE_LIBRARIES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiPeiLib"
+	Parent  = "AMI_CSP_PEI_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "UefiBootServicesTableLib"
+    Parent  = "AMI_CSP_DXE_LIBRARIES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SbCsm16CallCompanionFunctionsHook,"
+	Parent  = "CSM_16_CALL_COMPANION_FUNCTIONS"
+	Token = "CSM_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AmiIoDecodeLib"
+    Parent  = "AMI_CSP_LIBRARIES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AmiGpioLib"
+    Parent  = "AMI_CSP_LIBRARIES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ChipsetFlashDeviceWriteEnable,"
+    Parent  = "OemFlashWriteEnableList"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ChipsetFlashDeviceWriteDisable,"
+    Parent  = "OemFlashWriteDisableList"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AmiCspFlashLib"
+    Parent  = "AMI_CSP_PEI_LIBRARIES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AmiCspFlashLib"
+    Parent  = "AMI_CSP_DXE_LIBRARIES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiPirqRouterLib"
+	Parent  = "AMI_CSP_DXE_LIBRARIES"
+	InvokeOrder = AfterParent
+	Token = "CSM_SUPPORT" "=" "1"
+End
+
+ELINK
+	Name  = "AmiCmosLib"
+	Parent  = "AMI_CSP_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiSmmLib"
+	Parent  = "AMI_CSP_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiSmbiosLib"
+	Parent  = "AMI_CSP_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiHpetApicLib"
+	Parent  = "AMI_CSP_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiSbMiscLib"
+	Parent  = "AMI_CSP_LIBRARIES"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gAmiChipsetModulePkgTokenSpaceGuid.PcdSbWakeType"
+	Parent  = "AMI_CSP_PCD"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gAmiChipsetModulePkgTokenSpaceGuid.PcdSbPwrLossData"
+	Parent  = "AMI_CSP_PCD"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gAmiChipsetModulePkgTokenSpaceGuid.PcdSbPwrLossDataMask"
+	Parent  = "AMI_CSP_PCD"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name = "SbRtcPwrValidCallbackList"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name = "SbInitRtcCallbackList"
+	InvokeOrder = ReplaceParent
+End
+
+OUTPUTREGISTER
+	Name  = "SbElinkList"
+	Path  = "Build"
+	File  = "SbElinks.h"
+	Template  = "Elink/SbElinks.txt"
+End
+
+INFComponent
+	Name  = "PowerButton"
+	File  = "SB/PowerButton/PowerButton.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Token = "POWER_BUTTON_DRIVER_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "PcieErrorLog"
+	File  = "SB/PcieErrorLog/PcieErrorLog.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Token = "SB_PCIE_ERROR_LOG_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "SB_ELOG_GENERATE_NMI_NOW_SUPPORT"
+    Value  = "0"
+    Help  = "0: Disable ElogGenerateNmiNow() function/ 1: Enable ElogGenerateNmiNow() function"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "SB_PCIE_ERROR_LOG_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "SbHdaVerbTableLib"
+	File  = "SbHdaVerbTableLib/SbHdaVerbTableLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbSecLib"
+	File  = "Library/SbSecLib/SbSecLib.inf"
+	Package  = "AmiChipsetModulePkg"
+End
+
+INFComponent
+	Name  = "SbPeiLib"
+	File  = "Library/SbPeiLib/SbPeiLib.inf"
+	Package  = "AmiChipsetModulePkg"
+End
+
+INFComponent
+	Name  = "SbOemGpioLib"
+	File  = "SbOemGpioLib/SbOemGpioLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbSioPeiLib"
+	File  = "SbSioPeiLib/SbSioPeiLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+	Token = "AMI_SIO_MINOR_VERSION" "<" "6"
+End
+
+INFComponent
+	Name  = "SbSioDxeLib"
+	File  = "SbSioDxeLib/SbSioDxeLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+	Token = "AMI_SIO_MINOR_VERSION" "<" "6"
+End
+
+INFComponent
+	Name  = "SbCspIoDecodeLib"
+	File  = "SbCspIoDecodeLib/SbCspIoDecodeLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbAcpiTimerLib"
+	File  = "SbAcpiTimerLib/SbAcpiTimerLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+	Token = "SB_ACPI_TIMER_LIB_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "SbPeiDebugger"
+	File  = "SbPeiDebugger/SbPeiDebugger.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbRuntimeServiceLib"
+	File  = "SbRuntimeServiceLib/SbRuntimeServiceLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+	Token = "SbRuntimeServiceLib_Support" "=" "1"
+End
+
+INFComponent
+	Name  = "SbGetSetupData"
+	File  = "SbGetSetupData/SbGetSetupData.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbCspDxeLib"
+	File  = "SbCspDxeLib/SbCspDxeLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbCsmDxeLib"
+	File  = "SbCsmDxeLib/SbCsmDxeLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+	Token = "CSM_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "SbSmmLib"
+	File  = "SbSmmLib/SbSmmLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbPei"
+	File  = "SbPei.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "PEIM"
+	Path  = "SB_INIT_DIR"
+End
+
+INFComponent
+	Name  = "SbDxe"
+	File  = "SbDxe.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Path  = "SB_INIT_DIR"
+End
+
+INFComponent
+	Name  = "SbRun"
+	File  = "SB/SbInit/SbRun.inf"
+	Package  = "AmiChipsetModulePkg"
+	PreProcess = Yes
+	ModuleTypes  = "DXE_RUNTIME_DRIVER"
+End
+
+INFComponent
+	Name  = "SbRunSmm"
+	File  = "SbRunSmm.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Path  = "SB_INIT_DIR"
+End
+
+INFComponent
+	Name  = "SleepSmi"
+	File  = "SleepSmi.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Path  = "SB_INIT_DIR"
+End
+
+INFComponent
+	Name  = "PeriodicSmiControl"
+	File  = "PeriodicSmiControl.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Path  = "SB_INIT_DIR"
+End
+
+INFComponent
+	Name  = "SbSmmCorePlatformHookLib"
+	File  = "SbSmmCorePlatformHookLib/SbSmmCorePlatformHookLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+	Token = "SMM_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "SbLinkLib"
+	File  = "SbLinkLib/SbLinkLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+    Name  = "SbAcpiTableSsdt"
+    File  = "ASL/SbAcpiTableSsdt.inf"
+    Package  = "AmiChipsetModulePkg"
+    ModuleTypes  = "USER_DEFINED"
+End
+
+INFComponent
+	Name  = "SbPciHotPlugLib"
+	File  = "SbPciHotPlugLib/SbPciHotPlugLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+	Token = "HOTPLUG_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "SbPeiWdt"
+	File  = "SbWdt/SbPeiWdt.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbWdt"
+	File  = "SbWdt/SbWdt.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "TcoSmi"
+	File  = "SB/TcoSmi/TcoSmi.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+LibraryMapping
+	Class  = "AmiBeepLib"
+	Instance  = "AmiChipsetModulePkg.SbBeepLibPcAt"
+End
+
+INFComponent
+    Name  = "AmiGpioLib"
+    File  = "AmiGpioLib/AmiGpioLib.inf"
+    Package  = "AmiChipsetModulePkg"
+    Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbBeepLibPcAt"
+	File  = "SbBeepLibPcAt/SbBeepLibPcAt.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbPciDxeInitLib"
+	File  = "SbPciDxeInitLib/SbPciDxeInitLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+    Name  = "SbI2cController"
+    File  = "SB/I2cController/SbI2cController.inf"
+    Package  = "AmiChipsetModulePkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Token = "SB_I2C_HID_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "SbSmbusLib"
+	File  = "SbSmbusLib/SbSmbusLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+    Name  = "SbSpiLib"
+    File  = "SbSpiLib/SbSpiLib.inf"
+    Package  = "AmiChipsetModulePkg"
+    Path  = "SB_LIBRARY_DIR"
+End
+
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiChipsetModulePkg.SbPciDxeInitLib"
+	ModuleTypes  = "DXE_DRIVER"
+	Override  = "AmiModulePkg.PciDxeInit"
+End
+
+LibraryMapping
+	Class  = "SbPeiLib"
+	Instance  = "AmiChipsetModulePkg.SbPeiLib"
+	ModuleTypes  = "PEIM"
+End
+
+INFComponent
+	Name  = "SbPolicyUpdate"
+	File  = "SbPolicyUpdate/SbPolicyUpdate.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+LibraryMapping
+	Class  = "AmiOemGpioLib"
+	Instance  = "AmiChipsetModulePkg.SbOemGpioLib"
+	ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+	Class  = "AmiSioPeiLib"
+	Instance  = "AmiChipsetModulePkg.SbSioPeiLib"
+	ModuleTypes  = "PEIM PEI_CORE"
+	Token = "AMI_SIO_MINOR_VERSION" "<" "6"
+End
+
+LibraryMapping
+	Class  = "AmiSioDxeLib"
+	Instance  = "AmiChipsetModulePkg.SbSioDxeLib"
+	ModuleTypes  = "DXE_DRIVER UEFI_DRIVER DXE_CORE"
+	Token = "AMI_SIO_MINOR_VERSION" "<" "6"
+End
+
+LibraryMapping
+	Class  = "SmbusLib"
+	Instance  = "AmiChipsetModulePkg.SbSmbusLib"
+	ModuleTypes  = "PEIM"
+	Token = "SB_SMBUS_LIB_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "SmbusLib"
+	Instance  = "AmiChipsetModulePkg.SbSmbusLib"
+	ModuleTypes  = "DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SAL_DRIVER DXE_SMM_DRIVER UEFI_APPLICATION UEFI_DRIVER"
+	Token = "SB_SMBUS_LIB_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "AmiIoDecodeLib"
+	Instance  = "AmiChipsetModulePkg.SbCspIoDecodeLib"
+	Token = "SB_AMI_IO_DECODE_LIB_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "AmiPciHotPlugLib"
+	Instance  = "AmiChipsetModulePkg.SbPciHotPlugLib"
+	ModuleTypes  = "DXE_DRIVER UEFI_DRIVER"
+	Token = "HOTPLUG_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiChipsetModulePkg.SbSecLib"
+	Override  = "AmiCpuModulePkg.SecCore"
+End
+
+LibraryMapping
+	Class  = "SbLinkLib"
+	Instance  = "AmiChipsetModulePkg.SbLinkLib"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiChipsetModulePkg.SbLinkLib"
+	ModuleTypes  = "DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SMM_DRIVER"
+	Override  = "AmiChipsetModulePkg.SbRunSmm"
+End
+
+LibraryMapping
+	Class  = "AmiChipsetRuntimeServiceLib"
+	Instance  = "AmiChipsetModulePkg.SbRuntimeServiceLib"
+	ModuleTypes  = "DXE_SMM_DRIVER DXE_RUNTIME_DRIVER"
+	Token = "SbRuntimeServiceLib_Support" "=" "1"
+End
+
+LibraryMapping
+	Class  = "SbGetSetupData"
+	Instance  = "AmiChipsetModulePkg.SbGetSetupData"
+End
+
+LibraryMapping
+	Class  = "TimerLib"
+	Instance  = "AmiChipsetModulePkg.SbAcpiTimerLib"
+	Token = "SB_ACPI_TIMER_LIB_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "DebugPortingLib"
+	Instance  = "AmiChipsetModulePkg.SbPeiDebugger"
+End
+
+LibraryMapping
+	Class  = "AmiChipsetRuntimeServiceLib"
+	Instance  = "AmiChipsetModulePkg.SbRuntimeServiceLib"
+	ModuleTypes  = "DXE_SMM_DRIVER DXE_RUNTIME_DRIVER"
+	Token = "SbRuntimeServiceLib_Support" "=" "1"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiChipsetModulePkg.SbCspDxeLib"
+	Override  = "AmiModulePkg.Bds"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiChipsetModulePkg.SbCsmDxeLib"
+	ModuleTypes  = "DXE_DRIVER"
+	Override  = "AmiModulePkg.CsmDxe"
+	Token = "CSM_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiChipsetModulePkg.SbSmmCorePlatformHookLib"
+	Override  = "MdeModulePkg.PiSmmCore"
+End
+
+LibraryMapping
+	Class  = "SmmLib"
+	Instance  = "AmiChipsetModulePkg.SbSmmLib"
+	Token = "SMM_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "SbWdt"
+	Instance  = "AmiChipsetModulePkg.SbPeiWdt"
+	ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+	Class  = "SbHdaVerbTableLib"
+	Instance  = "AmiChipsetModulePkg.SbHdaVerbTableLib"
+End
+
+LibraryMapping
+	Class  = "SbWdt"
+	Instance  = "AmiChipsetModulePkg.SbWdt"
+	ModuleTypes  = "DXE_CORE DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SAL_DRIVER DXE_SMM_DRIVER UEFI_APPLICATION UEFI_DRIVER"
+End
+
+LibraryMapping
+	Class  = "SbPolicyUpdate"
+	Instance  = "AmiChipsetModulePkg.SbPolicyUpdate"
+End
+
+LibraryMapping
+    Class  = "AmiGpioLib"
+    Instance  = "AmiChipsetModulePkg.AmiGpioLib"
+End
+
+INFComponent
+    Name  = "SbCspFlashLib"
+    File  = "AmiCspFlashLib/SbCspFlashLib.inf"
+    Package  = "AmiChipsetModulePkg"
+    Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+    Name  = "SbCspFlashPeiLib"
+    File  = "AmiCspFlashLib/SbCspFlashPeiLib.inf"
+    Package  = "AmiChipsetModulePkg"
+    Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "SbSmbusLib"
+	File  = "SbSmbusLib/SbSmbusLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "AmiPirqRouterLib"
+	File  = "AmiPirqRouterLib/AmiPirqRouterLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+	Token = "CSM_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "AmiLegacyInterrupt"
+	File  = "SB/LegacyInterrupt/LegacyInterrupt.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "CSM_SUPPORT" "=" "1"
+	Token = "SB_LEGACY_INTERRUPT_PROTOCOL_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "AmiCmosLib"
+	File  = "AmiCmosLib/AmiCmosLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "AmiSmmLib"
+	File  = "AmiSmmLib/AmiSmmLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "AmiSmbiosLib"
+	File  = "AmiSmbiosLib/AmiSmbiosLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "AmiHpetApicLib"
+	File  = "AmiHpetApicLib/AmiHpetApicLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "AmiSbMiscLib"
+	File  = "AmiSbMiscLib/AmiSbMiscLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Path  = "SB_LIBRARY_DIR"
+End
+
+LibraryMapping
+    Class  = "AmiCspFlashLib"
+    Instance  = "AmiChipsetModulePkg.SbCspFlashLib"
+    ModuleTypes  = "DXE_CORE DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SAL_DRIVER DXE_SMM_DRIVER SMM_CORE UEFI_APPLICATION UEFI_DRIVER"
+End
+
+LibraryMapping
+    Class  = "AmiCspFlashLib"
+    Instance  = "AmiChipsetModulePkg.SbCspFlashPeiLib"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "AmiCspFlashLib"
+    Instance  = "AmiChipsetModulePkg.SbCspFlashPeiLib"
+    ModuleTypes  = "PEI_CORE"
+End
+
+LibraryMapping
+	Class  = "AmiPirqRouterLib"
+	Instance  = "AmiChipsetModulePkg.AmiPirqRouterLib"
+	ModuleTypes  = "DXE_DRIVER DXE_CORE DXE_RUNTIME_DRIVER UEFI_DRIVER SMM_CORE DXE_SMM_DRIVER UEFI_APPLICATION"
+	Token = "CSM_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "AmiCmosLib"
+	Instance  = "AmiChipsetModulePkg.AmiCmosLib"
+End
+
+LibraryMapping
+	Class  = "AmiSmmLib"
+	Instance  = "AmiChipsetModulePkg.AmiSmmLib"
+End
+
+LibraryMapping
+	Class  = "AmiSmbiosLib"
+	Instance  = "AmiChipsetModulePkg.AmiSmbiosLib"
+End
+
+LibraryMapping
+	Class  = "AmiHpetApicLib"
+	Instance  = "AmiChipsetModulePkg.AmiHpetApicLib"
+End
+
+LibraryMapping
+	Class  = "AmiSbMiscLib"
+	Instance  = "AmiChipsetModulePkg.AmiSbMiscLib"
+End
+
+LibraryMapping
+    Class  = "SbSpiLib"
+    Instance  = "AmiChipsetModulePkg.SbSpiLib"
+End
+
+RSVCHIPSET
+	Name  = "Reserved for ROM image resource"
+	BASEADDR  = "$(RESERVED_ROM_BASE)"
+	LENGTH  = "$(RESERVED_ROM_LENGTH)"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x8000000000000001"	
+End
+
+RSVCHIPSET
+	Name  = "I/O APIC(s) dedicate memory resource"
+	BASEADDR  = "$(APCB)"
+	LENGTH  = "$(APCL)"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x8000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "APIC autodetect memory resource"
+	BASEADDR  = "$(APCB) + $(APCL)"
+	LENGTH  = "0x00100000 - $(APCL)"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+	Token = "FEC00000_APIC_AUTODETECT" "=" "1"
+End
+
+RSVCHIPSET
+	Name  = "HPET memory resource"
+	BASEADDR  = "$(HPET_BASE_ADDRESS)"
+	LENGTH  = "0x00001000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x8000000000000001"
+	Token = "HPET_SUPPORT" "=" "1"
+End
+
+RSVCHIPSET
+	Name  = "Sideband Register Access BAR memory resource"
+	BASEADDR  = "$(PCR_BASE_ADDRESS)"
+	LENGTH  = "$(PCR_MMIO_SIZE)"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "PWRM Base Address(PWRMBASE) memory resource"
+	BASEADDR  = "$(PWRM_BASE_ADDRESS)"
+	LENGTH  = "$(PWRM_MMIO_SIZE)"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x8000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "SPI register memory resource"
+	BASEADDR  = "$(SPI_BASE)"
+	LENGTH  = "0x00001000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x8000000000000001"
+	Token = "SPIFlash_SUPPORT" "=" "1"
+End
+
+RSVCHIPSET
+	Name  = "Serial IO Memory resource"
+	BASEADDR  = "0xFE020000"
+	LENGTH  = "0x00016000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "Thermal Device Memory resource in ACPI mode"
+	BASEADDR  = "0xFE03C000"
+	LENGTH  = "0x00001000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "Trace Hub FW Memory resource"
+	BASEADDR  = "0xFE0C0000"
+	LENGTH  = "0x00040000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "Trace Hub MTB Memory resource"
+	BASEADDR  = "0xFE100000"
+	LENGTH  = "0x00100000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "Trace Hub SW Memory resource"
+	BASEADDR  = "0xFE200000"
+	LENGTH  = "0x00200000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "CIO2 Memory resource in ACPI mode"
+	BASEADDR  = "0xFE400000"
+	LENGTH  = "0x00010000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "SB Temp memory resource"
+	BASEADDR  = "$(SB_TEMP_MMIO_BASE)"
+	LENGTH  = "$(SB_TEMP_MMIO_BASE_LENGTH)"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "HECI memory resource"
+	BASEADDR  = "$(HECI_BASE_ADDRESS)"
+	LENGTH  = "0x10000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "HECI2 memory resource"
+	BASEADDR  = "$(HECI2_BASE_ADDRESS)"
+	LENGTH  = "0x10000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+	Name  = "HECI5 memory resource"
+	BASEADDR  = "$(HECI5_BASE_ADDRESS)"
+	LENGTH  = "0x10000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+    Name  = "XHCI memory resource"
+    BASEADDR  = "$(PEI_XHCI_MMIOBASE)"
+    LENGTH  = "0x100000"
+    TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+    ATTRIBUTES  = "0x0000000000000001"
+End
+
+RSVCHIPSET
+    Name  = "AHCI memory resource"
+    BASEADDR  = "$(AHCI_BASE_ADDRESSES)"
+    LENGTH  = "0x100000"
+    TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+    ATTRIBUTES  = "0x0000000000000001"
+    Token = "AhciRecovery_SUPPORT" "=" "1"
+End
+
+
+RSVCHIPSET
+    Name  = "ACPI Base Address(ABASE) memory resource"
+    BASEADDR  = "$(PM_BASE_ADDRESS)"
+    LENGTH  = "$(PMLN)"
+    TYPE  = "EfiGcdIoTypeIo"
+    ATTRIBUTES  = "-1"
+End
+
+RSVCHIPSET
+	Name  = "TCO Base Address memory resource"
+	BASEADDR  = "$(TCO_BASE_ADDRESS)"
+	LENGTH  = "0x80"
+	TYPE  = "EfiGcdIoTypeIo"
+	ATTRIBUTES  = "-1"
+End
+
+RSVCHIPSET
+	Name  = "SMBus memory resource"
+	BASEADDR  = "$(SMBUS_BASE_ADDRESS)"
+	LENGTH  = "$(SMBL)"
+	TYPE  = "EfiGcdIoTypeIo"
+	ATTRIBUTES  = "-1"
+End
+
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2017, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+

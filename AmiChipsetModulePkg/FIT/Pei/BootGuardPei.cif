@@ -1,0 +1,10 @@
+<component>
+	name = "BootGuardPei"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\FIT\Pei\"
+	RefName = "BootGuardPei"
+[INF]
+"BootGuardPei.inf"
+[files]
+"BootGuardPei.sdl"	
+<endComponent>

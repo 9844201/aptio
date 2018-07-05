@@ -1,0 +1,23 @@
+TOKEN
+	Name  = "HeciInit_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable HeciInit support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "HeciInit"
+	File  = "HeciInit.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes = "DXE_DRIVER"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0" 	
+End
+
+INFComponent
+	Name  = "HeciInitFsp"
+	File  = "HeciInitFsp.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes = "PEIM"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1" 	
+End

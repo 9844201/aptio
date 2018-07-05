@@ -1,0 +1,43 @@
+TOKEN
+        Name  = "FIT_FIRST_END_SUPPORT"
+        Value  = "1"
+        Help  = "Main switch to enable FitFirstEnd in Project"
+        TokenType = Boolean
+        TargetMAK = Yes
+        Master = Yes        
+End
+
+MODULE
+        Help  = "Includes FitFirstEnd.mak to Project"
+        File  = "FitFirstEnd.mak"
+End
+
+TOKEN
+        Name  = "FV_DATA_BASE"
+        Value  = "$(FV_BB_BASE) - $(FV_DATA_SIZE)"
+        Help  = "Base Address of the FV_DATA"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+End
+
+TOKEN
+        Name  = "FV_DATA_SIZE"
+        Value  = "0x90000"
+        Help  = "Size of the FV_DATA"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+End
+
+FD_AREA
+        Name  = "FV_DATA"
+        TYPE  = "FV"
+        FD_INFO  = "AMIROM"
+        Offset  = "$(FLASH_SIZE) - $(FV_BB_SIZE) - $(FV_DATA_SIZE)"
+        Size  = "$(FV_DATA_SIZE)"
+        Alignment  = "16"
+        Guid  = "AFDD39F1-19D7-4501-A730-CE5A27E1154B"
+End

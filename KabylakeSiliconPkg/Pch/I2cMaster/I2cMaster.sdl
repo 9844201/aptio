@@ -1,0 +1,14 @@
+TOKEN
+	Name  = "I2cMaster_RC_SUPPORT"
+	Value  = "0"
+	Help  = "Switch for Enabling I2cMaster support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "I2cMasterDxe"
+	File  = "Dxe/I2cMasterDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "UEFI_DRIVER"
+End

@@ -1,0 +1,198 @@
+TOKEN
+	Name  = "ME_Library_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling ME Library support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "DxeAmtLib"
+	File  = "DxeAmtLib\DxeAmtLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "DxeAmtLib"
+	Instance  = "KabylakeSiliconPkg.DxeAmtLib"
+End
+
+INFComponent
+	Name  = "DxeAmtPolicyLib"
+	File  = "DxeAmtPolicyLib\DxeAmtPolicyLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "DxeAmtPolicyLib"
+	Instance  = "KabylakeSiliconPkg.DxeAmtPolicyLib"
+End
+
+INFComponent
+	Name  = "DxeMbpDataLib"
+	File  = "DxeMbpDataLib\DxeMbpDataLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "MbpDataLib"
+	Instance  = "KabylakeSiliconPkg.DxeMbpDataLib"
+End
+
+INFComponent
+	Name  = "DxeMeLib"
+	File  = "DxeMeLib\DxeMeLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "DxeMeLib"
+	Instance  = "KabylakeSiliconPkg.DxeMeLib"
+End
+
+INFComponent
+	Name  = "DxeMePolicyLib"
+	File  = "DxeMePolicyLib\DxeMePolicyLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "DxeMePolicyLib"
+	Instance  = "KabylakeSiliconPkg.DxeMePolicyLib"
+End
+
+INFComponent
+	Name  = "DxePttHeciLib"
+	File  = "DxePttHeciLib\DxePttHeciLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PttHeciLib"
+	Instance  = "KabylakeSiliconPkg.DxePttHeciLib"
+End
+
+INFComponent
+	Name  = "DxeTouchHeciMsgsLib"
+	File  = "DxeTouchHeciMsgsLib\DxeTouchHeciMsgsLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "DxeTouchHeciMsgsLib"
+	Instance  = "KabylakeSiliconPkg.DxeTouchHeciMsgsLib"
+End
+
+INFComponent
+	Name  = "PeiAmtLib"
+	File  = "PeiAmtLib\PeiAmtLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "iAMT_SUPPORT" "=" "1"	
+End
+
+LibraryMapping
+	Class  = "PeiAmtLib"
+	Instance  = "KabylakeSiliconPkg.PeiAmtLib"
+	Token = "iAMT_SUPPORT" "=" "1"	
+End
+
+INFComponent
+	Name  = "PeiAmtLibNull"
+	File  = "PeiAmtLibNull\PeiAmtLibNull.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "iAMT_SUPPORT" "=" "0"  
+End
+
+LibraryMapping
+	Class  = "PeiAmtLib"
+	Instance  = "KabylakeSiliconPkg.PeiAmtLibNull"
+	Token = "iAMT_SUPPORT" "=" "0"  
+End
+
+INFComponent
+	Name  = "PeiAmtPolicyLib"
+	File  = "PeiAmtPolicyLib\PeiAmtPolicyLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PeiAmtPolicyLib"
+	Instance  = "KabylakeSiliconPkg.PeiAmtPolicyLib"
+End
+
+INFComponent
+	Name  = "PeiDxeMeChipsetLib"
+	File  = "PeiDxeMeChipsetLib\PeiDxeMeChipsetLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "MeChipsetLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeMeChipsetLib"
+End
+
+INFComponent
+	Name  = "PeiDxeMeShowBufferLib"
+	File  = "PeiDxeMeShowBufferLib\PeiDxeMeShowBufferLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "MeShowBufferLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeMeShowBufferLib"
+End
+
+INFComponent
+    Name  = "PeiDxePttPtpLib"
+    File  = "PeiDxePttPtpLib\PeiDxePttPtpLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "PttPtpLib"
+    Instance  = "KabylakeSiliconPkg.PeiDxePttPtpLib"
+End
+
+INFComponent
+	Name  = "PeiMeLib"
+	File  = "PeiMeLib\PeiMeLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PeiMeLib"
+	Instance  = "KabylakeSiliconPkg.PeiMeLib"
+End
+
+INFComponent
+	Name  = "PeiMePolicyLib"
+	File  = "PeiMePolicyLib\PeiMePolicyLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PeiMePolicyLib"
+	Instance  = "KabylakeSiliconPkg.PeiMePolicyLib"
+End
+
+INFComponent
+	Name  = "MeTypeLib"
+	File  = "PeiDxeMeTypeLib\PeiDxeMeTypeLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "MeTypeLib"
+	Instance  = "KabylakeSiliconPkg.MeTypeLib"
+End
+
+INFComponent
+	Name  = "MeFwStsLib"
+	File  = "BaseMeFwStsLib\BaseMeFwStsLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "MeFwStsLib"
+	Instance  = "KabylakeSiliconPkg.MeFwStsLib"
+End

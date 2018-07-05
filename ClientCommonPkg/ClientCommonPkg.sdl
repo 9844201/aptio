@@ -1,0 +1,77 @@
+TOKEN
+    Name = "IntelClientCommonPkg_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable IntelClientCommonPkgsupport in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+PATH
+    Name = "INTEL_CLIENT_COMMON_PKG_DIR"
+End
+
+TOKEN
+    Name  = "====== Intel Trace Hub Configuration ======"
+    TokenType = Expression
+End
+
+TOKEN
+    Name = "TRACE_HUB_STATUS_CODE_SUPPORT"
+    Value = "$(DEBUG_MODE)"
+    Help  = "Enables/Disables Trace Hub Status Code support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TRACE_HUB_ENABLE_REG"
+    Value  = "0x83"
+    Help  = "Use CMOS to control Trace Hub status code enable/disable."
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Lock = Yes
+    Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "$(INTEL_CLIENT_COMMON_PKG_DIR)\ClientCommonPkg.ssp"
+    Parent  = "ADDON_SSP_FILES"
+    Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "-D AMI_TRACE_HUB_ENABLE_REG=0x83"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+    Token = "TRACE_HUB_ENABLE_REG" "=" "0x83"    
+End
+
+ELINK
+    Name  = "-D TRACE_HUB_DEBUGLIB_USAGE"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "TRACE_HUB_STATUS_CODE_SUPPORT" "=" "1"
+End
+
+PcdMapping
+    Name  = "PcdTraceHubEnable"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsFeatureFlag"
+    Value  = "TRUE"
+    TargetDSC = Yes
+    Token = "TRACE_HUB_STATUS_CODE_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = " "
+    TokenType = Integer
+End

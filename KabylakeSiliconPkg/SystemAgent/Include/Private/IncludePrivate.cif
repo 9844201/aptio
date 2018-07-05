@@ -1,0 +1,13 @@
+<component>
+	name = "Private"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\Include\Private\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.Include.Private"
+[files]
+"SaConfigHob.h"	
+"SaPegHob.h"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.Include.Private.Library"
+"KabylakeSiliconPkg.SystemAgent.Include.Private.Protocol"
+"KabylakeSiliconPkg.SystemAgent.Include.Private.Ppi"
+<endComponent>

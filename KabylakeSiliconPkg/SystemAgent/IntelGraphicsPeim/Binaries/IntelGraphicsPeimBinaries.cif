@@ -1,0 +1,10 @@
+<component>
+	name = "Binaries"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\IntelGraphicsPeim\Binaries\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.IntelGraphicsPeim.Binaries"
+[INF]
+"IntelGraphicsPeim.inf"
+[files]
+"IntelGraphicsPeim.dxs"	
+<endComponent>

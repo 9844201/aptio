@@ -1,0 +1,12 @@
+<component>
+	name = "AmtSetup"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\AMT\AmtSetup\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.AmtSetup"
+[INF]
+"AmtBypass.inf"
+"AmtFastBootHook.inf"
+[files]
+"AmtSetup.sdl"	
+"AmtTseFunc.c"	
+<endComponent>

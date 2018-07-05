@@ -1,0 +1,13 @@
+<component>
+	name = "CommonPkg"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\"
+	RefName = "KabylakeSiliconPkg.Common"
+[parts]
+"KabylakeSiliconPkg.Common.Include"
+"KabylakeSiliconPkg.Common.Library"
+"KabylakeSiliconPkg.Common.SampleCode"
+"KabylakeSiliconPkg.SiInit"
+"KabylakeSiliconPkg.Hsti"
+"KabylakeSiliconPkg.Common.Wrapper"
+<endComponent>

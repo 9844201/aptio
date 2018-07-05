@@ -1,0 +1,10 @@
+<component>
+	name = "Ppi"
+	category = ModulePart
+	LocalRoot = "ClientCommonPkg\Include\Ppi\"
+	RefName = "ClientCommonPkg.Include.Ppi"
+[files]
+"BootInNonS3Mode.h"	
+"DebugService.h"	
+"ReadWriteVariable.h"	
+<endComponent>

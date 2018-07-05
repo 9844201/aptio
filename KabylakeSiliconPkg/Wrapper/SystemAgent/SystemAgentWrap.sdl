@@ -1,0 +1,13 @@
+TOKEN
+	Name  = "SystemAgentWrap_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SystemAgentWrap support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+PATH
+    Name  = "SystemAgentWrap_DIR"
+End
+
+

@@ -1,0 +1,25 @@
+<component>
+	name = "Pch RefCode"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\"
+	RefName = "KabylakeSiliconPkg.PchRefCode"
+[files]
+"PchRefCode.sdl"	
+[parts]
+"KabylakeSiliconPkg.Pch.AcpiTables"
+"KabylakeSiliconPkg.Pch.ActiveBios"
+"KabylakeSiliconPkg.Pch.I2cMaster"
+"KabylakeSiliconPkg.Pch.Include"
+"KabylakeSiliconPkg.Pch.LegacyInterrupt"
+"KabylakeSiliconPkg.Pch.Library"
+"KabylakeSiliconPkg.Pch.PchInit"
+"KabylakeSiliconPkg.Pch.PchSmiDispatcher"
+"KabylakeSiliconPkg.Pch.Reset"
+"KabylakeSiliconPkg.Pch.SataController"
+"KabylakeSiliconPkg.Pch.SerialGpio"
+"KabylakeSiliconPkg.Pch.SmartTimer"
+"KabylakeSiliconPkg.Pch.Smbus"
+"KabylakeSiliconPkg.Pch.SmmControl"
+"KabylakeSiliconPkg.Pch.Spi"
+"KabylakeSiliconPkg.Pch.Wdt"
+<endComponent>

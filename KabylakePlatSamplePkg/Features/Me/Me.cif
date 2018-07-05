@@ -1,0 +1,11 @@
+<component>
+	name = "Me"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Me\"
+	RefName = "KabylakePlatSamplePkg.Features.Me"
+[INF]
+"MeUlvCheckDxe\MeUlvCheckDxe.inf"
+"MeSmbiosDxe\MeSmbiosDxe.inf"
+[files]
+"Me.sdl"	
+<endComponent>

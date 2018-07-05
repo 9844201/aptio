@@ -1,0 +1,10 @@
+<component>
+	name = "LegacyInterrupt"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\LegacyInterrupt\"
+	RefName = "KabylakeSiliconPkg.Pch.LegacyInterrupt"
+[files]
+"LegacyInterrupt.sdl"	
+[parts]
+"KabylakeSiliconPkg.Pch.LegacyInterrupt.Dxe"
+<endComponent>

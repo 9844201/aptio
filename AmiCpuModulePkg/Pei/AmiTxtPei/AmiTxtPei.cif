@@ -1,0 +1,13 @@
+<component>
+	name = "Ami TxtPei"
+	category = ModulePart
+	Rank = 28
+	LocalRoot = "AmiCpuModulePkg\Pei\AmiTxtPei\"
+	RefName = "AmiCpuModulePkg.AmiTxtPei"
+[INF]
+"AmiTxtPei.inf"
+[files]
+"AmiTxtPei.sdl"	
+[parts]
+"AmiCpuModulePkg.AmiTxtPei.BiosAcm"
+<endComponent>

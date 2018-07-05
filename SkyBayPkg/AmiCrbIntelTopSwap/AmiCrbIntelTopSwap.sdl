@@ -1,0 +1,219 @@
+TOKEN
+    Name  = "AMI_CRB_INTEL_TOP_SWAP_SUPPORT"
+    Value  = "1"
+    Help  = "The INTEL Top Swap and AMI fault tolerant support."
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes  
+    Token = "ENHANCED_FT_RECOVERY" "=" "1"	  
+End
+
+PATH
+    Name  = "AMI_CRB_INTEL_TOP_SWAP_DIR"
+End
+
+#-----------------------------------------------------------------------
+#--------------Third case - build time fault tolerant support
+#---- FV_BB parameters are the same as in second case, so we won't copy them here
+#---- FV_RECOVERY_SIZE also remains unchanged from second case
+TOKEN
+    Name  = "FtRecovery_SUPPORT"
+    Value  = "1"
+    Help  = "Switch to enable Fault tolerant recovery support in Project"
+    TokenType = Boolean
+    TargetH = Yes
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "BUILD_TIME_BACKUP"
+    Value  = "0"
+    Help  = "If set to 1, then boot block back up image are present in ROM file"
+    TokenType = Boolean
+    TargetH = Yes
+    Lock = Yes
+    Token = "FtRecovery_SUPPORT" "=" "1"    
+End
+
+TOKEN
+    Name  = "DESKTOP_506EX"
+    Value = "0"
+    Help  = "Intel(R) SkyLake"
+    TokenType = Boolean
+    Token = "FtRecovery_SUPPORT" "=" "1" 
+End
+
+TOKEN
+    Name  = "DESKTOP_M22506E8"
+    Value  = "0"
+    Help  = "Intel(R) KabyLake -S -X Processor A-0 Stepping"
+    TokenType = Boolean
+    Token = "FtRecovery_SUPPORT" "=" "1" 
+End
+
+FFS_FILE
+        Name = "FitTable"
+        FD_AREA = "FV_BB"
+        FILE_Stmt = "AmiChipsetModulePkg/FIT/FitTableFdfFileStatement.txt"
+        Rule_Override  = "UncompressedNoChecksum"   
+        Token = "FtRecovery_SUPPORT" "=" "1"
+        Token = "INTEL_FIT_SUPPORT" "=" "1"                      
+End
+
+TOKEN
+    Name  = "FV_BB_BLOCKS"
+    Value  = "16*(0x10000/$(FLASH_BLOCK_SIZE))"
+    Help  = "Number of Blocks occupied by the FV_BB"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Lock = Yes
+    Token = "FtRecovery_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "FV_DATA_SIZE"
+    Value  = "0x30000"
+    Help  = "Size of the FV_DATA"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+    Token = "FtRecovery_SUPPORT" "=" "1"     
+End
+
+TOKEN
+    Name  = "FV_MICROCODE_BASE"
+    Value  = "$(FV_BB_BASE)"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "FtRecovery_SUPPORT" "=" "1"  
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_BB_ADDRESS"
+    Value  = "$(FV_BB_BASE)"
+    Help  = "Address of FV_BB area in flash"
+    TokenType = Integer
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_BB_OFFSET"
+    Value  = "$(FV_BB_BASE) - $(FLASH_START_ADDRESS)"
+    Help  = "Offset of FV_BB area in ROM file"
+    TokenType = Integer
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_BB_SIZE"
+    Value  = "$(FV_BB_SIZE)"
+    Help  = "Size of FV_BB area"
+    TokenType = Integer
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_RECOVERY_ADDRESS"
+    Value  = "$(FV_BB_AFTER_MEMORY_BASE)"
+    Help  = "Address of FV_RECOVERY area in flash"
+    TokenType = Integer
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    Token = "BUILD_TIME_BACKUP" "=" "0"
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_RECOVERY_OFFSET"
+    Value  = "$(FV_BB_AFTER_MEMORY_BASE) - $(FLASH_START_ADDRESS)"
+    Help  = "Offset of FV_RECOVERY area in ROM file"
+    TokenType = Integer
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    Token = "BUILD_TIME_BACKUP" "=" "0"
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_RECOVERY_SIZE"
+    Value  = "$(FV_BB_AFTER_MEMORY_SIZE)"
+    Help  = "Size of FV_RECOVERY area"
+    TokenType = Integer
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_BB_BACKUP_ADDRESS"
+    Value  = "$(AMI_ROM_LAYOUT_FV_BB_ADDRESS) - $(AMI_ROM_LAYOUT_FV_BB_SIZE)"
+    Help  = "Address of FV_BB backup area in flash"
+    TokenType = Integer
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    Token = "BUILD_TIME_BACKUP" "=" "0"
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_BB_BACKUP_OFFSET"
+    Value  = "$(AMI_ROM_LAYOUT_FV_BB_BACKUP_ADDRESS) - $(FLASH_START_ADDRESS)"
+    Help  = "Offset of FV_BB backup area in ROM file"
+    TokenType = Integer
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    Token = "BUILD_TIME_BACKUP" "=" "0"
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_RECOVERY_BACKUP_ADDRESS"
+    Value  = "$(AMI_ROM_LAYOUT_FV_BB_BACKUP_ADDRESS) - $(AMI_ROM_LAYOUT_FV_RECOVERY_SIZE)"
+    Help  = "Address of FV_RECOVERY backup area in flash"
+    TokenType = Integer
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    Token = "BUILD_TIME_BACKUP" "=" "0"
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_ROM_LAYOUT_FV_RECOVERY_BACKUP_OFFSET"
+    Value  = "$(AMI_ROM_LAYOUT_FV_RECOVERY_BACKUP_ADDRESS) - $(FLASH_START_ADDRESS)"
+    Help  = "Offset of FV_RECOVERY backup area in ROM file"
+    TokenType = Integer
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    Token = "BUILD_TIME_BACKUP" "=" "0"
+    TargetH = Yes
+End
+
+TOKEN
+        Name  = "FV_BB_VERIFY_FV_AFTER_MEMORY"
+        Value = "1"
+        Help  = "Main switch to enable two Parts's security check. BootGuard ACM ->(check by ACM ) FV_BB -> (check by BIOS ) FV_BB_AFTER_MEMORY ->(check by BIOS ) FV_MAIN"
+        TokenType = Integer
+        TargetMAK = Yes
+        TargetH = Yes
+        Lock = Yes     
+        Token = "INTEL_BOOT_GUARD_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "Microcode"
+    FD_AREA  = "FV_BB"
+    FILE_Stmt  = "SkyBayPkg\AmiCrbIntelTopSwap\MicrocodeFdfFileStatement.txt"
+    Token = "FtRecovery_SUPPORT" "=" "1" 
+    Token = "INTEL_FIT_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "-D AMI_CRB_INTEL_TOP_SWAP_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    Token = "FtRecovery_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End

@@ -1,0 +1,56 @@
+TOKEN
+    Name = "PchNvRamHook_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable PlatformNvRamHook support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+PATH
+    Name  = "PCH_NVRAM_HOOK_DIR"
+End
+
+ELINK
+    Name  = "$(PCH_NVRAM_HOOK_DIR)/PchNvRamHook.c"
+    Parent  = "AMI_CSP_PEI_SOURCES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(PCH_NVRAM_HOOK_DIR)/PchNvRamHook.c"
+    Parent  = "AMI_CSP_DXE_SOURCES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gPchSetupVariableGuid"
+    Parent  = "AMI_CSP_GUIDS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "SbGetSetupData"
+    Parent  = "AMI_CSP_LIBRARIES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "PeiPchGetVariable,"
+    Parent  = "PeiGetVariableHook"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "DxePchGetVariable,"
+    Parent  = "GetVariableHook"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "DxePchSetVariable,"
+    Parent  = "SetVariableHook"
+    InvokeOrder = AfterParent
+    Token = "SB_SETUP_SUPPORT" "=" "1" 
+End

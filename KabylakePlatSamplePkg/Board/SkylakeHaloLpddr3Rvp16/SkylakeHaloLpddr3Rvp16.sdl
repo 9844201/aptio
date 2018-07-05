@@ -1,0 +1,49 @@
+TOKEN
+    Name  = "SkylakeHaloLpddr3Rvp16_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SkylakeHaloLpddr3Rvp16 support in Project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "PeiSkylakeHaloLpddr3Rvp16BoardInitLib"
+    File  = "PeiBoardInitLib\PeiSkylakeHaloLpddr3Rvp16InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeHaloLpddr3Rvp16BoardInitLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PeiBoardConfigInit"
+End
+
+INFComponent
+    Name  = "PeiSkylakeHaloLpddr3Rvp16BoardInitPreMemLib"
+    File  = "PeiBoardInitLib\PeiSkylakeHaloLpddr3Rvp16InitPreMemLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeHaloLpddr3Rvp16BoardInitPreMemLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.BoardConfigInitPreMem"
+End
+
+INFComponent
+    Name  = "DxeSkylakeHaloLpddr3Rvp16InitLib"
+    File  = "DxeBoardInitLib\SkylakeHaloLpddr3Rvp16InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.DxeSkylakeHaloLpddr3Rvp16InitLib"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.DxeBoardConfigInit"
+End

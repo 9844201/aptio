@@ -1,0 +1,25 @@
+<component>
+	name = "Board"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Board\"
+	RefName = "KabylakePlatSamplePkg.Board"
+[files]
+"BaseBoardFunction.h"	
+"BoardHook.h"	
+"BoardConfigInit.h"	
+"BoardInitTable.h"	
+"PeiBoardConfigPostMem.h"	
+"RcBoard.sdl"	
+[parts]
+"KabylakePlatSamplePkg.BaseFuncLib"
+"KabylakePlatSamplePkg.BoardInit"
+"KabylakePlatSamplePkg.Board.Include"
+"KabylakePlatSamplePkg.Board.Library"
+"KabylakePlatSamplePkg.Others"
+"KabylakePlatSamplePkg.SkylakeA0Rvp3"
+"KabylakePlatSamplePkg.SkylakeHaloDdr4Rvp11"
+"KabylakePlatSamplePkg.SkylakeURvp7"
+"KabylakePlatSamplePkg.SkylakeHaloLpddr3Rvp16"
+"KabylakePlatSamplePkg.SkylakeURvp15"
+"KabylakePlatSamplePkg.SkylakeYRvp13"
+<endComponent>

@@ -1,0 +1,14 @@
+TOKEN
+	Name  = "SmmAccess_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "SmmAccessDxe"
+	File  = "Dxe/SmmAccess.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End

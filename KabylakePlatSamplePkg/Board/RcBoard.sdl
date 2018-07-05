@@ -1,0 +1,112 @@
+TOKEN
+	Name  = "RcBoard_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Board support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "SkylakeA0Rvp3/PeiBoardInitLib/SkylakeA0Rvp3GpioTable.h"
+    Token = "CRB_BOARD" "=" "0"
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "Others/PeiBoardInitLib/GpioTableLpddr3Rvp5.h"
+    Token = "CRB_BOARD" "=" "1"
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "SkylakeURvp7/PeiBoardInitLib/GpioTableDdr3LrRvp7.h"
+    Token = "CRB_BOARD" "=" "2"
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "Others/PeiBoardInitLib/GpioTableDtRvp8Crb.h"
+    Token = "CRB_BOARD" "=" "3"
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "Others/PeiBoardInitLib/GpioTableAioRvp9Crb.h"
+    Token = "CRB_BOARD" "=" "9" #For KBL-S DDR4 UDIMM CRB
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "Others\PeiBoardInitLib/GpioTableAioRvp9Crb.h"
+    Token = "CRB_BOARD" "=" "4"
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "Others/PeiBoardInitLib/GpioTableAioRvp10Crb.h"
+    Token = "CRB_BOARD" "=" "5"
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "Others/PeiBoardInitLib/GpioTableZumbaBeach.h"
+    Token = "CRB_BOARD" "=" "6"
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "SkylakeHaloDdr4Rvp11/PeiBoardInitLib/GpioTableHaloRvp11.h"
+    Token = "CRB_BOARD" "=" "7"
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "SkylakeURvp7/PeiBoardInitLib/GpioTableDdr3LrRvp7.h"
+    Token = "CRB_BOARD" "=" "8"
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "SkylakeURvp7/PeiBoardInitLib/GpioTableDdr3LrRvp7.h"
+    Token = "CRB_BOARD" "=" "11" #For KBL-Refresh U CRB
+End
+
+OUTPUTREGISTER
+    Name  = "AmiBoardConfigInit"
+    Path  = "Build"
+    File  = "AmiBoardConfigInit.h"
+    Template  = "BoardConfigInit.h"
+    Token = "SKYLAKE_ALL_VBIOS_AND_VBT_SUPPORT" "=" "1"
+End
+
+PcdMapping
+    Name  = "PcdResetOnMemoryTypeInformationChange"
+    GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+    PcdType  = "PcdsDynamicDefault"
+    DataType  = "Boolean"
+    Value  = "TRUE"
+    TargetDSC = Yes
+End

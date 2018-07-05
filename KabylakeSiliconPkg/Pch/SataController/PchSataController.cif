@@ -1,0 +1,10 @@
+<component>
+	name = "SataController"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\SataController\"
+	RefName = "KabylakeSiliconPkg.Pch.SataController"
+[files]
+"PchSataController.sdl"	
+[parts]
+"KabylakeSiliconPkg.Pch.SataController.Dxe"
+<endComponent>

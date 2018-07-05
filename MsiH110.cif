@@ -1,0 +1,7 @@
+<component>
+	name = "MsiH110"
+	category = Flavor
+	RefName = "MsiH110"
+[files]
+"MsiH110.sdl"	
+<endComponent>

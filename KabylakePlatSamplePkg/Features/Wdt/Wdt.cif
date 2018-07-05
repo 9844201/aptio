@@ -1,0 +1,10 @@
+<component>
+	name = "Wdt"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Wdt\"
+	RefName = "KabylakePlatSamplePkg.Features.Wdt"
+[INF]
+"WdtAppDxe\WdtAppDxe.inf"
+[files]
+"Wdt.sdl"	
+<endComponent>

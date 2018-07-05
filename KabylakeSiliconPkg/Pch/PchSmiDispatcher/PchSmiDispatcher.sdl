@@ -1,0 +1,20 @@
+TOKEN
+	Name  = "PchSmiDispatcher_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "PchSmiDispatcher"
+	File  = "Smm/PchSmiDispatcher.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+FFS_FILE
+    Name  = "PchSmiDispatcher"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "KabylakeSiliconPkg.PchSmiDispatcher"
+End

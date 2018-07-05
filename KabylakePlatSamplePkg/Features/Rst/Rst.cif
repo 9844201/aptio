@@ -1,0 +1,12 @@
+<component>
+	name = "Rst"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Rst\"
+	RefName = "KabylakePlatSamplePkg.Features.Rst"
+[INF]
+"RstOneClickEnable\RstOneClickEnable.inf"
+[files]
+"Rst.sdl"	
+"RstOneClickEnable\RstConfigVariable.h"	
+"RstOneClickEnable\RstOneClickEnable.h"	
+<endComponent>

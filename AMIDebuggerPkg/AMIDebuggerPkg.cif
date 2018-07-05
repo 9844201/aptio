@@ -1,0 +1,13 @@
+<component>
+	name = "AMIDebuggerPkg"
+	category = eModule
+	Rank = 46
+	LocalRoot = "AMIDebuggerPkg\"
+	RefName = "AMIDebuggerPkg.Bin"
+[files]
+"AMIDebuggerPkg.sdl"	
+"AMIDebuggerPkg.dec"
+[parts]
+"AMIDebuggerPkg.Bin.Include"
+"AMIDebuggerPkg.Bin.LibraryInstances"
+<endComponent>

@@ -1,0 +1,18 @@
+<component>
+	name = "Overclock"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\OverClocking\"
+	RefName = "KabylakePlatSamplePkg.Features.OverClocking"
+[INF]
+"OverClockInit\PeiOverClock.inf"
+"OverClockInit\PeiOverClockLib.inf"
+"OverClockInit\DxeOverClockLib.inf"
+"OverClockInit\DxeOverClock.inf"
+"OverClockInit\DxeOverClockSetupOverrideLib.inf"
+"OverclockInterface\OverclockInterface.inf"
+"OverclockInterface\OverClockSmiHandler.inf"
+"OverclockInterface\OverclockInterfaceACPI.inf"
+[files]
+"Overclock.sdl"	
+"OverClockSetupOverride.c"	
+<endComponent>

@@ -1,0 +1,12 @@
+<component>
+	name = "BiosAcm"
+	category = ModulePart
+	LocalRoot = "AmiCpuModulePkg\Pei\AmiTxtPei\BiosAcm\"
+	RefName = "AmiCpuModulePkg.AmiTxtPei.BiosAcm"
+[files]
+"BiosAcm.sdl"	
+"BiosAcmFdfFileStatement.txt"	
+"BiosAcDbgRev0120.bin"	
+"BiosAcProdNpwRev0120.bin"	
+"BiosAcProdRev0120.bin"	
+<endComponent>

@@ -1,0 +1,176 @@
+TOKEN
+	Name  = "Pch_LibraryPrivate_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Pch LibraryPrivate support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+    Name  = "BasePchSpiCommonLib"
+    File  = "BasePchSpiCommonLib\BasePchSpiCommonLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "PchSpiCommonLib"
+    Instance  = "KabylakeSiliconPkg.BasePchSpiCommonLib"
+End
+
+INFComponent
+	Name  = "DxePchHdaLib"
+	File  = "DxePchHdaLib\DxePchHdaLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchHdaLib"
+	Instance  = "KabylakeSiliconPkg.DxePchHdaLib"
+End
+
+INFComponent
+    Name  = "PeiDxeI2cMasterCommonLib"
+    File  = "PeiDxeI2cMasterCommonLib\PeiDxeI2cMasterCommonLib.inf"
+    Package  = "KabylakeSiliconPkg"     
+End
+
+LibraryMapping
+    Class  = "I2cMasterCommonLib"
+    Instance  = "KabylakeSiliconPkg.PeiDxeI2cMasterCommonLib"
+End
+
+INFComponent
+    Name  = "PeiI2cMasterLib"
+    File  = "PeiI2cMasterLib\PeiI2cMasterLib.inf"
+    Package  = "KabylakeSiliconPkg"   
+End
+
+LibraryMapping
+    Class  = "PeiI2cMasterLib"
+    Instance  = "KabylakeSiliconPkg.PeiI2cMasterLib"        
+End
+
+INFComponent
+    Name  = "PeiDxeSmmPchAlternateAccessModeLib"
+    File  = "PeiDxeSmmPchAlternateAccessModeLib\PeiDxeSmmPchAlternateAccessModeLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "PchAlternateAccessModeLib"
+    Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchAlternateAccessModeLib"
+End
+
+INFComponent
+    Name  = "PeiDxeSmmGpioPrivateLib"
+    File  = "PeiDxeSmmGpioPrivateLib\PeiDxeSmmGpioPrivateLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "GpioPrivateLib"
+    Instance  = "KabylakeSiliconPkg.PeiDxeSmmGpioPrivateLib"
+End
+
+INFComponent
+    Name  = "PeiDxeSmmPchInitCommonLib"
+    File  = "PeiDxeSmmPchInitCommonLib\PeiDxeSmmPchInitCommonLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "PchInitCommonLib"
+    Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchInitCommonLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchPciExpressHelpersLib"
+	File  = "PeiDxeSmmPchPciExpressHelpersLib\PeiDxeSmmPchPciExpressHelpersLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchPciExpressHelpersLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchPciExpressHelpersLib"
+End
+
+INFComponent
+    Name  = "PeiDxeSmmPchSmbusCommonLib"
+    File  = "PeiDxeSmmPchSmbusCommonLib\PeiDxeSmmPchSmbusCommonLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "PchSmbusCommonLib"
+    Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchSmbusCommonLib"
+End
+
+INFComponent
+    Name  = "PeiDxeSmmPchXhciLib"
+    File  = "PeiDxeSmmPchXhciLib\PeiDxeSmmPchXhciLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "PchXhciLib"
+    Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchXhciLib"
+End
+
+INFComponent
+	Name  = "PeiPchInitLib"
+	File  = "PeiPchInitLib\PeiPchInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+LibraryMapping
+	Class  = "PchInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiPchInitLib"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"    	
+End
+
+INFComponent
+	Name  = "PeiPchInitLibFsp"
+	File  = "PeiPchInitLib\PeiPchInitLibFsp.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"    	
+End
+
+LibraryMapping
+	Class  = "PchInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiPchInitLibFsp"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"        	
+End
+
+INFComponent
+	Name  = "PeiPchRcLib"
+	File  = "PeiPchRcLib\PeiPchRcLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchRcLib"
+	Instance  = "KabylakeSiliconPkg.PeiPchRcLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmPchPsfPrivateLib"
+	File  = "PeiDxeSmmPchPsfPrivateLib\PeiDxeSmmPchPsfPrivateLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PchPsfPrivateLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmPchPsfPrivateLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmRstPrivateLib"
+	File  = "PeiDxeSmmRstPrivateLib\PeiDxeSmmRstPrivateLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "RstPrivateLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmRstPrivateLib"
+End

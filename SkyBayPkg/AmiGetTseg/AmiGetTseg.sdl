@@ -1,0 +1,15 @@
+TOKEN
+    Name = "CRB_AMI_GET_TSEG_SIZE_SUPPORT"
+    Value = "0"
+    Help  = "Main switch to enable AmiGetTseg support in shell"
+    TokenType = Boolean
+    TargetH = Yes
+    Master = Yes
+End
+
+INFComponent
+	Name  = "AmiGetTseg"
+	File  = "AmiGetTseg.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "UEFI_APPLICATION"
+End

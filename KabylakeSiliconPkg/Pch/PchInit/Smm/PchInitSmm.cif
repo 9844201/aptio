@@ -1,0 +1,8 @@
+<component>
+	name = "Smm"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\PchInit\Smm\"
+	RefName = "KabylakeSiliconPkg.Pch.PchInit.Smm"
+[INF]
+"PchInitSmm.inf"
+<endComponent>

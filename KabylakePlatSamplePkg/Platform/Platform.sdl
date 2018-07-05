@@ -1,0 +1,94 @@
+TOKEN
+	Name  = "Platform_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Platform support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+#INFComponent
+#    Name  = "SetupDataCachePei"
+#    File  = "SetupDataCache\Pei\SetupDataCachePei.inf"
+#    Package  = "KabylakePlatSamplePkg"
+#    ModuleTypes  = "PEIM"
+#End
+
+# The value of Apriori_Index have to bigger than the value of NvramPei.
+#FFS_FILE
+#    Name  = "SetupDataCachePei"
+#    FD_AREA  = "FV_BB"
+#    INFComponent  = "KabylakePlatSamplePkg.SetupDataCachePei"
+#    Apriori_Index  = "3"
+#End
+
+INFComponent
+	Name  = "PlatformInfoDxe"
+	File  = "PlatformInfo\Dxe\PlatformInfoDxe.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "SavePegConfig"
+    File  = "SavePegConfig\Dxe\SavePegConfig.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "SaveMemoryConfig"
+    File  = "SaveMemoryConfig\Dxe\SaveMemoryConfig.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "PlatformSetup"
+    File  = "PlatformSetup\Dxe\PlatformSetup.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "SmramSaveInfoHandlerSmm"
+    File  = "SmramSaveInfoHandlerSmm\SmramSaveInfoHandlerSmm.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+ELINK
+    Name  = "-D EFI_S3_RESUME"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "-D EFI_S3_RESUME"
+    Parent  = "*_*_*_ASLPP_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "-D EFI_S3_RESUME"
+    Parent  = "*_*_*_ASLCC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+	Name = '{L"MemoryConfig", {0xc94f8c4d, 0x9b9a, 0x45fe, 0x8a, 0x55, 0x23, 0x8b, 0x67, 0x30, 0x26, 0x43}},'
+	Parent = "BlockS3VariablesList"
+	Help = "{Name, GUID}."
+	InvokeOrder = AfterParent
+	Token = "BlockS3Var_SUPPORT" "=" "1"
+End
+
+ELINK
+	Name = '{L"SaPegData", {0xb414caf8, 0x8225, 0x4d6f, 0xb9, 0x18, 0xcd, 0xe5, 0xcb, 0x84, 0xcf, 0x0b}},'
+	Parent = "BlockS3VariablesList"
+	Help = "{Name, GUID}."
+	InvokeOrder = AfterParent
+	Token = "BlockS3Var_SUPPORT" "=" "1"
+End

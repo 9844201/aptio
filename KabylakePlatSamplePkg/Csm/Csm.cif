@@ -1,0 +1,10 @@
+<component>
+	name = "Csm"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Csm\"
+	RefName = "KabylakePlatSamplePkg.Csm"
+[files]
+"Csm.sdl"	
+[parts]
+"KabylakePlatSamplePkg.Csm.Int15"
+<endComponent>

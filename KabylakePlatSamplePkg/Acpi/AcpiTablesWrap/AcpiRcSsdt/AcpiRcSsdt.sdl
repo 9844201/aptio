@@ -1,0 +1,256 @@
+TOKEN
+	Name  = "AcpiRcSsdt_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling AcpiRcSsdt support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+    Name  = "ZPODD_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable ZpODD support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "RTD3_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable RTD3 support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "RVP3RTD3_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable RTD3 support for Whitetip Mountain or Sawtooth Peak CRB"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "RTD3_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "RTD3FFRD_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable RTD3 support for FFRD SKU CRB"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "RTD3_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "CRB_THERMAL_ASL_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to Include/Remove CRB THERMAL Zone Code/ASL support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_RVP3RTD3_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRtd3/Rvp3Rtd3.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_RVP3RTD3_TBTAIC_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRtd3/Rvp3Rtd3TbtAic.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_RVP3RTD3_WWAN_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRtd3/Rvp3Rtd3Wwan.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_RVP7RTD3_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRtd3/Rvp7Rtd3.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_RVPRRTD3_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRtd3/RvpRRtd3.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_RVP10RTD3_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRtd3/Rvp10Rtd3.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_RVP11RTD3_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRtd3/Rvp11Rtd3.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_RVPKCRTD3_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRtd3/RvpKcRtd3.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_SDSRTD3_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRtd3/SdsRtd3.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_AMI_DEFAULT_RTD3_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRtd3/AmiDefaultRtd3.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_THERMAL_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtRvp/THERMAL.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_THERMALSDS_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtSds/ThermalSds.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_USBPORTXHCI_RVP3_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciRvp3.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_USBPORTXHCI_RVP3_SKL_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciRvp3Skl.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_USBPORTXHCI_RVP7_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciRvp7.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_USBPORTXHCI_RVP10_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciRvp10.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_USBPORTXHCI_RVP8_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciRvp8.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_AMI_USBPORTXHCI_KBLS_DDR4_UDIMM_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciKblSDdr4Udimm.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_AMI_USBPORTXHCI_KBLS_EV_DDR4_UDIMM_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciKblSEvDdr4Udimm.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_AMI_USBPORTXHCI_KBLR_U_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciKblR.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_USBPORTXHCI_RVP16_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciRvp16.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_USBPORTXHCI_ZUMBA_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciZumbaBeach.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_AMI_USBPORTXHCI_RVP11_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/UsbPortXhciRvp11.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_AMI_USBPORTXHCI_DEFAULT_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/SsdtXhci/AmiUsbPortXhciDefault.asl"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "ACPI_RC_HPET_SSDT_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTables/Hpet/Hpet.act"
+    TokenType = Expression
+    TargetMAK = Yes
+    Token = "HPET_SUPPORT" "=" "1"    
+End
+
+TOKEN
+    Name  = "ACPI_RC_SSDT_INF_PATH"
+    Value  = "KabylakePlatSamplePkg/Acpi/AcpiTablesWrap/AcpiRcSsdt/AcpiRcSsdt.txt"
+    TokenType = Expression
+    TargetMAK = Yes
+End
+
+MODULE
+    Help  = "Includes AcpiRcSsdt.mak to Project"
+    File  = "AcpiRcSsdt.mak"
+End
+
+INFComponent
+    Name  = "AcpiRcSsdt"
+    File  = "../../../../Build/AcpiRcSsdt.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "USER_DEFINED"
+End
+
+FFS_FILE
+    Name  = "AcpiRcSsdt"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "KabylakePlatSamplePkg.AcpiRcSsdt"
+    Rule_Override  = "ACPITABLE"
+End

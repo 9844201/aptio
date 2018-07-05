@@ -1,0 +1,396 @@
+TOKEN
+	Name  = "CRB_BOARD"
+	Value  = "3"
+	Help  = "Select CRB Broad, 0:RVP3 \ 1:RVP5 \ 2:RVP7 \ 3:RVP8 \ 4:RVP9 \ 5:RVP10 \ 6:ZumbaBeachServerEV \ 7:RVP11 \ 8: SKY-U + DDR4 combination \ 9: KBL-S DDR4 UDIMM CRB"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_CONFIG_INDEX"
+	Value  = "0x4E"
+	Help  = "SIO index port."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_CONFIG_DATA"
+	Value  = "0x4F"
+	Help  = "SIO data port."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_PARALLEL_PORT_PRESENT"
+	Value  = "0"
+	Help  = "LPT Port Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_SERIAL_PORT2_PRESENT"
+	Value  = "0"
+	Help  = "Serial Port 2 (COMB / UART2) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "KBC_SUPPORT"
+	Value  = "1"
+	Help  = "Enable/Disable KBC support"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "SIO_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "EMUL6064_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable KBC Emulation support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "USB_RUNTIME_DRIVER_IN_SMM" "!=" "0"
+End
+
+TOKEN
+	Name  = "SILENT"
+	Value  = "1"
+	Help  = "Enables/disables silent build mode.\In silent build mode executed commands are not displayed, and certain auxiliary build process messages are suppressed or displayed in a condensed format.\In non-silent build mode executed command are displayed prior to execution, and all auxiliary messages are visible.\Silent build mode is typically faster because less information goes into a build log.\Non-silent mode is useful for debugging of the build issues."
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "DEBUG_MODE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "CRB_PROJECT_MAJOR_VERSION"
+	Value  = "2"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CRB_PROJECT_MINOR_VERSION"
+	Value  = "0"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CRB_PROJECT_TAG"
+	Value  = "KGBIA"
+	Help  = "This value should only be 5 characters max"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PLATFORM_GUID"
+	Value  = "665B23CF-D12E-4949-8396-5BC626D27392"
+	Help  = "The unique platform GUID that does into the description file.\MUST BE CLONED IN EVERY PROJECT!"
+	TokenType = Expression
+	TargetDSC = Yes
+End
+
+TOKEN
+	Name  = "FW_VERSION_GUID"
+	Value  = "{ 0x665b23cf, 0xd12e, 0x4949, { 0x83, 0x96, 0x5b, 0xc6, 0x26, 0xd2, 0x73, 0x92 } }"
+	Help  = "FW Version GUID inserted into Firmware ID structure.\FW version has to be overridden for every project."
+	TokenType = Expression
+	TargetH = Yes
+	Range  = "GUID"
+End
+
+TOKEN
+	Name  = "EdkShellBinPkg_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable EdkShellBinPkg support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "COM0_DEFAULT_CONSOLE_REDIRECTION_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TOTAL_PCI_SERIAL_PORTS"
+	Value  = "0"
+	Help  = "**PORTING NEEDED** Total number of PCI serial ports present."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "0-4"
+End
+
+TOKEN
+	Name  = "INTEL_BOOT_GUARD_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable Intel Boot Guard in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "USE_NEW_MPACK"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "TOOLS_IASL_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable Platform SamplePkg IASL support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "iAMT_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable iAMT support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "iME_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "Thunderbolt_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable Thunderbolt support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "HOTPLUG_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "OVER_CLOCK_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable Overclock support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DETECT_PS2_KEYBOARD"
+	Value  = "1"
+	Help  = "1 - Perform PS2 Keyboard Detection. 0 - Do not perform PS2 Keyboard Detection."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DETECT_PS2_MOUSE"
+	Value  = "1"
+	Help  = "1 - Perform PS2 Mouse Detection. 0 - Do not perform PS2 Mouse Detection."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "INSTALL_KEYBOARD_MOUSE_ALWAYS"
+	Value  = "0"
+	Help  = "1 - Install the Keyboard- SimpleTextIn, Mouse - AbsPointer Always, 0 - Install the Keyboard- SimpleTextIn, Mouse - AbsPointer only if the device is present at the time of detection."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FLASH_SIZE_SELECT"
+	Value  = "2"
+	Help  = "flash size switch, 1:4MB, 2:6MB, 3:7MB"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FV_DATA_SIZE"
+	Value  = "0xB0000"
+	Help  = "Size of the FV_DATA"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_PXE_OPROM_POLICY"
+	Value  = "$(CSMSETUP_UEFI_ONLY_OPROMS)"
+	Help  = "Default value of Launch PXE OpROM policy setup control"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "$(CSMSETUP_SKIP_OPROMS) - Do not launch\$(CSMSETUP_UEFI_ONLY_OPROMS) - Launch UEFI OpROM only\$(CSMSETUP_LEGACY_ONLY_OPROMS) - Launch Legacy OpROM only"
+	Token = "CSM_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "FV_BB_BLOCKS"
+	Value  = "22*(0x10000/$(FLASH_BLOCK_SIZE))"
+	Help  = "Number of Blocks occupied by the FV_BB"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+	Name  = "FV_BB_AFTER_MEMORY_BLOCKS"
+	Value  = "13*(0x10000/$(FLASH_BLOCK_SIZE))"
+	Help  = "Number of Blocks occupied by the FV_BB_AFTER_MEMORY"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+	Name  = "AMIDEBUGGERPKG_SUPPORT"
+	Value  = "0"
+	Help  = "Switch for Enabling AMIDebuggerPkg support in the project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "ACPI_PM_PROFILE"
+    Value  = "1"
+    Help  = "Power Management Profile ACPI 2.0\See acpi20.h"
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0-6 0 = Unspecified; 1 = Desktop; 2 = Modile; 3 = Workstation; 4 = Enterprise Server; 5 = SOHO Server; 6 = Application PC"
+    Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+    Name  = "XHCI_MMIO_BASEADDRESS"
+    Value  = "0xFE800000"
+    Help  = "MMIO Base Address for first XHCI Controller"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+INFComponent
+	Name  = "AmiCapsuleUpdateLib"
+	File  = "AmiModulePkg/Library/AmiCapsuleUpdateLib/AmiCapsuleUpdateLib.inf"
+	Package  = "AmiModulePkg"
+End
+
+LibraryMapping
+	Class  = "AmiSioDxeLib"
+	Instance  = "AmiChipsetModulePkg.SbSioDxeLib"
+	ModuleTypes  = "DXE_DRIVER UEFI_DRIVER DXE_CORE"
+	Token = "AmiChipsetModulePkg_SUPPORT" "=" "1"
+	Disable = Yes
+End
+
+LibraryMapping
+	Class  = "SerialPortLib"
+	Instance  = "MdeModulePkg.BaseSerialPortLib16550"
+	Token = "DEBUG_MESSAGES_INTERFACE" "=" "0"
+End
+
+PcdMapping
+	Name  = "PcdDebugPrintErrorLevel"
+	GuidSpace  = "gEfiMdePkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	Value  = "0x80000006"
+	Offset  = 00h
+	Length  = 00h
+	TargetDSC = Yes
+End
+
+FD_AREA
+	Name  = "FV_MAIN_WRAPPER"
+	TYPE  = "FV"
+	FD_INFO  = "AMIROM"
+	Offset  = "$(FV_MAIN_OFFSET)"
+	Size  = "$(FV_MAIN_SIZE)"
+	Layout_Attribute  = "0x108"
+	Attributes  = "0xffff"
+	Alignment  = "16"
+	Guid  = "4f1c52d3-d824-4d2a-a2f0-ec40c23c5916"
+	Token = "NESTED_FV_MAIN" "=" "1"
+End
+
+FD_AREA
+	Name  = "FV_BB_AFTER_MEMORY"
+	TYPE  = "FV"
+	FD_INFO  = "AMIROM"
+	Offset  = "$(FD_AREA_FV_BB_AFTER_MEMORY_OFFSET)"
+	Size  = "$(FV_BB_AFTER_MEMORY_SIZE)"
+	Layout_Attribute  = "0xd82"
+	Attributes  = "0xffff"
+	Alignment  = "16"
+	Guid  = "14E428FA-1A12-4875-B637-8B3CC87FDF07"
+End
+
+SIODEVICE
+	Name  = "NCT6793D"
+	Parent  = "LpcBridge"
+	IndexPort  = 04eh
+	DataPort  = 04fh
+	StdSioType  = "Yes"
+	DevSelReg  = 07h
+	ActivateReg  = 030h
+	ActivateVal  = 01h
+	DeActivateVal  = 00h
+	BaseHiReg1  = 060h
+	BaseLoReg1  = 061h
+	BaseHiReg2  = 062h
+	BaseLoReg2  = 063h
+	Irq1Reg  = 070h
+	Irq2Reg  = 072h
+	Dma1Reg  = 074h
+	Dma2Reg  = 075h
+	GblRegFlag  = "0xbdf43c1b0000"
+	LocalRegFlag  = "0xffffffff0000000000000000000000000033000f000000000001000000000000"
+	EnterConfig  = "Script,'Index;Write;87h','Index;Write;87h'"
+	ExitConfig  = "Script,'Index;Write;aah'"
+	SMBIOSStr  = "Test String"
+	GPEbit  = 01dh
+	SleepNum  = 03h
+	ASLfile  = "'AmiModulePkg/IO/NCT6793D/NCT6793DDev.asl','AmiModulePkg/IO/NCT6793D/NCT6793DEvt.asl'"
+	ASLdeviceName  = "SIO1"
+	ASL_PTS  = "Method;SIO_PTS(Arg0)"
+	ASL_WAK  = "Method;SIO_WAK(Arg0)"
+	WakeEnabled = Yes
+End
+

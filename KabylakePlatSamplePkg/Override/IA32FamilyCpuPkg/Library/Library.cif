@@ -1,0 +1,11 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Override\IA32FamilyCpuPkg\Library\"
+	RefName = "KabylakePlatSamplePkg.IA32FamilyCpuPkg.Library"
+[INF]
+"SmmCpuFeaturesLib\SmmCpuFeaturesLib.inf"
+[files]
+"Library.sdl"	
+"SmmCpuFeaturesLib\SmmCpuFeaturesLib.uni"	
+<endComponent>

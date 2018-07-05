@@ -1,0 +1,10 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "BpCommonPkg\Include\"
+	RefName = "BpCommonPkg.Include"
+[parts]
+"BpCommonPkg.Include.Guid"
+"BpCommonPkg.Include.Library"
+"BpCommonPkg.Include.Protocol"
+<endComponent>

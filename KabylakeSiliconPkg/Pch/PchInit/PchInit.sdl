@@ -1,0 +1,30 @@
+TOKEN
+	Name  = "PchInit_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "PchInitDxe"
+	File  = "Dxe/PchInitDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+INFComponent
+	Name  = "PchInitDxeFsp"
+	File  = "Dxe\PchInitDxeFsp.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "PEIM"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"	
+End
+
+INFComponent
+	Name  = "PchLateInitSmm"
+	File  = "Smm/PchInitSmm.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+End

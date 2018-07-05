@@ -1,0 +1,18 @@
+TOKEN
+	Name  = "SecCore_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SecCore support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+
+INFComponent
+	Name  = "SecCore"
+	File  = "SecCore.inf"
+	Package  = "AmiCpuModulePkg"
+	ModuleTypes  = "SEC"
+	Token = "SecCore_SUPPORT" "=" "1"
+	Token = "FSP_WRAPPER_ENABLE" "=" "0"	
+End
+

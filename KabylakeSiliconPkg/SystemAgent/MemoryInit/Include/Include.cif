@@ -1,0 +1,26 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\MemoryInit\Include\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.MemoryInit.Include"
+[files]
+"MemoryInit.h"	
+"MemoryTest.h"	
+"MrcCommonTypes.h"	
+"MrcDebugHook.h"	
+"MrcInterface.h"	
+"MrcRmtData.h"	
+"MrcSpdData.h"	
+"MrcSsaServices.h"	
+"MrcTypes.h"	
+"SsaCallbackPeim.h"	
+"SsaCommonConfig.h"	
+"SsaMemoryClientConfig.h"	
+"SsaMemoryConfig.h"	
+"SsaMemoryDdrtConfig.h"	
+"SsaMemoryServerConfig.h"	
+"SsaResultsConfig.h"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.MemoryInit.Include.Library"
+"KabylakeSiliconPkg.SystemAgent.MemoryInit.Include.Private"
+<endComponent>

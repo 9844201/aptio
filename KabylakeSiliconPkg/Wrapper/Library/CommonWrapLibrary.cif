@@ -1,0 +1,10 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Library"
+	RefName = "KabylakeSiliconPkg.Common.Wrapper.Library"
+[files]
+"CommonWrapLibrary.sdl"		
+[INF]
+"SafeStringOverrideLib\SafeStringOverrideLib.inf"	
+<endComponent>

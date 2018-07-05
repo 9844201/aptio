@@ -1,0 +1,49 @@
+TOKEN
+	Name  = "BiosAcm_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling BiosAcm support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "BiosAc_Version"
+	Value  = "0"
+	Help  = "Selection of BIOS AC version. 0:Debug version\1:Production Npw version\2:Production version."
+	TokenType = Integer
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "BiosAcmFile"
+	Value  = "AmiCpuModulePkg/Pei/AmiTxtPei/BiosAcm/BiosAcDbgRev0120.bin"
+	TokenType = File
+	TargetFDF = Yes
+	TargetMAK = Yes
+	Token = "BiosAc_Version" "=" "0"
+End
+
+TOKEN
+	Name  = "BiosAcmFile"
+	Value  = "AmiCpuModulePkg/Pei/AmiTxtPei/BiosAcm/BiosAcProdNpwRev0120.bin"
+	TokenType = File
+	TargetFDF = Yes
+	TargetMAK = Yes
+	Token = "BiosAc_Version" "=" "1"
+End
+
+TOKEN
+	Name  = "BiosAcmFile"
+	Value  = "AmiCpuModulePkg/Pei/AmiTxtPei/BiosAcm/BiosAcProdRev0120.bin"
+	TokenType = File
+	TargetFDF = Yes
+	TargetMAK = Yes
+	Token = "BiosAc_Version" "=" "2"
+End
+
+FFS_FILE
+	Name  = "BiosAcmFdfFileStatement"
+	FD_AREA  = "FV_BB"
+	FILE_Stmt  = "AmiCpuModulePkg/Pei/AmiTxtPei/BiosAcm/BiosAcmFdfFileStatement.txt"
+End
+

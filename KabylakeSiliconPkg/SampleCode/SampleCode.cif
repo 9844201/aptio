@@ -1,0 +1,15 @@
+<component>
+	name = "SampleCode"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode"
+[parts]
+"KabylakeSiliconPkg.Common.SampleCode.Include"
+"KabylakeSiliconPkg.Common.SampleCode.Library"
+"KabylakeSiliconPkg.Common.SampleCode.SecurityPkg"
+"KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg"
+"KabylakeSiliconPkg.Common.SampleCode.IntelFrameworkModulePkg"
+"KabylakeSiliconPkg.Common.SampleCode.IntelFrameworkPkg"
+"KabylakeSiliconPkg.Common.SampleCode.IntelGraphicsPeimVbt"
+"KabylakeSiliconPkg.Common.SampleCode.Pch"
+<endComponent>

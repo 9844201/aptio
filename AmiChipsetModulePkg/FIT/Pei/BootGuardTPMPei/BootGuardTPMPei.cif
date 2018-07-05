@@ -1,0 +1,11 @@
+<component>
+	name = "BootGuardTPMPei"
+	category = ModulePart
+	Rank = 39
+	LocalRoot = "AmiChipsetModulePkg\FIT\Pei\BootGuardTPMPei\"
+	RefName = "BootGuardTPMPei"
+[INF]
+"BootGuardTPMPei.inf"
+[files]
+"BootGuardTPMPei.sdl"	
+<endComponent>

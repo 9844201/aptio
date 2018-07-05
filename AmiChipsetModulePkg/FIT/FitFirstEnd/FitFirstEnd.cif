@@ -1,0 +1,9 @@
+<component>
+	name = "FitFirstEnd"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\FIT\FitFirstEnd\"
+	RefName = "FitFirstEnd"
+[files]
+"FitFirstEnd.mak"	
+"FitFirstEnd.sdl"	
+<endComponent>

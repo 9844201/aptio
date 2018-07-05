@@ -1,0 +1,11 @@
+<component>
+	name = "GopDebugDxe"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\GopDebugDxe\"
+	RefName = "KabylakePlatSamplePkg.GopDebugDxe"
+[INF]
+"GopDebugDxe.inf"
+[files]
+"GopDebugDxe.sdl"	
+"GopDebugDxe.h"	
+<endComponent>

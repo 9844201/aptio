@@ -1,0 +1,9 @@
+<component>
+	name = "Tools"
+	category = ModulePart
+	LocalRoot = "ClientCommonPkg\Tools\"
+	RefName = "ClientCommonPkg.Tools"
+[files]
+"Tools.sdl"
+"Stafixup\Stafixup.exe"
+<endComponent>

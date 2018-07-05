@@ -1,0 +1,33 @@
+TOKEN
+    Name = "CLIENTCOMMONPKG_UNIVERSAL_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable ClientCommonPkg Universal in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+TOKEN
+    Name = "IsvtCheckpointDxe_SUPPORT"
+    Value = "0"
+    Help  = "Switch to enable IsvtCheckpointDxe driver."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+INFComponent
+    Name  = "IsvtCheckpointDxe"
+    File  = "IsvtCheckpointDxe\IsvtCheckpointDxe.inf"
+    Package  = "ClientCommonPkg"
+    ModuleTypes  = "DXE_DRIVER"   
+    Token = "IsvtCheckpointDxe_SUPPORT" "=" "1"     
+End
+
+INFComponent
+    Name  = "SetTimerPeriodDxe"
+    File  = "SetTimerPeriodDxe\SetTimerPeriodDxe.inf"
+    Package  = "ClientCommonPkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Token = "HPET_PROTOCOL_SUPPORT" "=" "0"   
+End

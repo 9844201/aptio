@@ -1,0 +1,8 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "SkyBayPkg\Include\Protocol\"
+	RefName = "SkyBayPkg.Protocol"
+[files]
+"CrbInfo.h"	
+<endComponent>

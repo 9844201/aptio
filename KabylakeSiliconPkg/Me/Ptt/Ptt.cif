@@ -1,0 +1,8 @@
+<component>
+	name = "Ptt"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\Ptt\"
+	RefName = "KabylakeSiliconPkg.Me.Ptt"
+[parts]
+"KabylakeSiliconPkg.Me.Ptt.Smm"
+<endComponent>

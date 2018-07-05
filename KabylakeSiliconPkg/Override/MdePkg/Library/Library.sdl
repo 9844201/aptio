@@ -1,0 +1,26 @@
+TOKEN
+	Name  = "SI_OVERRIDE_MDEPKG_LIBRARY_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SiPkg Override MdePkg Library support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "DxeHstiLib"
+	File  = "DxeHstiLib/DxeHstiLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "HstiLib"
+	Instance  = "MdePkg.DxeHstiLib"
+	ModuleTypes  = "DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SAL_DRIVER SMM_CORE DXE_SMM_DRIVER UEFI_APPLICATION UEFI_DRIVER"
+	Disable = Yes
+End
+
+LibraryMapping
+	Class  = "HstiLib"
+	Instance  = "KabylakeSiliconPkg.DxeHstiLib"
+	ModuleTypes  = "DXE_CORE DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SAL_DRIVER DXE_SMM_DRIVER UEFI_APPLICATION UEFI_DRIVER"
+End

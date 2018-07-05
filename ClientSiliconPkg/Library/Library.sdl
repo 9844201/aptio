@@ -1,0 +1,18 @@
+TOKEN
+    Name  = "ClientSiliconPkg_Library_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for ClientSiliconPkg Library support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "BaseConfigBlockLib"
+    File  = "BaseConfigBlockLib\BaseConfigBlockLib.inf"
+    Package  = "ClientSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "ConfigBlockLib"
+    Instance  = "ClientSiliconPkg.BaseConfigBlockLib"
+End

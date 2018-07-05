@@ -1,0 +1,72 @@
+TOKEN
+	Name  = "SA_MemoryInit_LibraryPrivate_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SA MemoryInit LibraryPrivate support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "EV_LOADER_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "EV_LOADER_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "INTEL_MMA_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "PeiEvLoaderLib"
+	File  = "PeiEvLoaderLib\PeiEvLoaderLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "EvLoaderLib"
+	Instance  = "KabylakeSiliconPkg.PeiEvLoaderLib"
+	Token = "EV_LOADER_ENABLE" "=" "1"	
+End
+
+INFComponent
+	Name  = "PeiEvLoaderLibNull"
+	File  = "PeiEvLoaderLibNull\PeiEvLoaderLibNull.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "EvLoaderLib"
+	Instance  = "KabylakeSiliconPkg.PeiEvLoaderLibNull"
+	Token = "EV_LOADER_ENABLE" "=" "0"  
+End
+
+INFComponent
+	Name  = "PeiMemoryInitLib"
+	File  = "PeiMemoryInitLib\PeiMemoryInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"    	
+End
+
+LibraryMapping
+	Class  = "MemoryInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiMemoryInitLib"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"    	
+End
+
+INFComponent
+	Name  = "PeiMemoryInitLib"
+	File  = "PeiMemoryInitLib\PeiMemoryInitLibFsp.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"        
+End
+
+LibraryMapping
+	Class  = "MemoryInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiMemoryInitLib"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"    
+End

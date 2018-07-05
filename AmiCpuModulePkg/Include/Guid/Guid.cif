@@ -1,0 +1,6 @@
+<component>
+	name = "Guid"
+	category = ModulePart
+	LocalRoot = "AmiCpuModulePkg\Include\Guid\"
+	RefName = "AmiCpuModulePkg.Guid"
+<endComponent>

@@ -1,0 +1,25 @@
+<component>
+	name = "SkyBayPkg"
+	category = eBoard
+	LocalRoot = "SkyBayPkg\"
+	RefName = "SkyBayPkg"
+[INF]
+"Dxe\CrbDxe.inf"
+"Pei\CrbPei.inf"
+"Smm\CrbSmi.inf"
+"Pei\AfterMemoryDummyDriver\AfterMemoryDummyDriver.inf"
+[files]
+"SkyBayPkg.dec"	
+"Crb.sdl"	
+"Csp.sdl"	
+"Crb.mak"	
+"Crb.ssp"	
+"IntelGigabitLan.efi"	
+[parts]
+"SkyBayPkg.Setup"
+"SkyBayPkg.Include"
+"SkyBayPkg.LibraryInstances"
+"AmiGetTseg"
+"AmiCrbIntelTopSwap"
+"SasbyIsland"
+<endComponent>

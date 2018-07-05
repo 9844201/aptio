@@ -1,0 +1,8 @@
+<component>
+	name = "Dxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\SmmAccess\Dxe\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.SmmAccess.Dxe"
+[INF]
+"SmmAccess.inf"
+<endComponent>

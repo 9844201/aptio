@@ -1,0 +1,8 @@
+TOKEN
+	Name  = "SIPKG_OVERRIDE_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Silicon Package Override support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+	Master = Yes
+End

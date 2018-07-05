@@ -1,0 +1,10 @@
+<component>
+	name = "AcpiSmm"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Acpi\AcpiSmm\"
+	RefName = "KabylakePlatSamplePkg.Acpi.AcpiSmm"
+[INF]
+"AcpiSmm.inf"
+[files]
+"AcpiSmm.sdl"	
+<endComponent>

@@ -1,0 +1,14 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "AmiCpuModulePkg\Include\"
+	RefName = "AmiCpuModulePkg.Include"
+[files]
+"Cpu.h"	
+"Library\CpuPolicy.h"	
+"CpuInfoHob.h"	
+[parts]
+"AmiCpuModulePkg.Guid"
+"AmiCpuModulePkg.Library"
+"AmiCpuModulePkg.Ppi"
+<endComponent>

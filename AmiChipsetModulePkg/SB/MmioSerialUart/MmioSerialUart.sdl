@@ -1,0 +1,146 @@
+TOKEN
+	Name  = "MmioSerialUart_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable Serial UART to Console Redirection in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "SERIAL_UART_DEV_IS_MMIO"
+	Value  = "1"
+	Help  = "0: the resource is gotton from IO space; otherwise it's come from MMIO"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SERIAL_UART0_MMIO_AT_BUS"
+	Value  = "0"
+	Help  = "Serial device location - Bus; This data will be ignored if SERIAL_UART_DEV_IS_MMIO is disabled"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SERIAL_UART0_MMIO_AT_DEV"
+	Value  = "30"
+	Help  = "Serial device location - Device; This data will be ignored if SERIAL_UART_DEV_IS_MMIO is disabled"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SERIAL_UART0_MMIO_AT_FUN"
+	Value  = "0"
+	Help  = "Serial device location - Function; This data will be ignored if SERIAL_UART_DEV_IS_MMIO is disabled"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "SERIAL_UART1_MMIO_AT_BUS"
+    Value  = "0"
+    Help  = "Serial device location - Bus; This data will be ignored if SERIAL_UART_DEV_IS_MMIO is disabled"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SERIAL_UART1_MMIO_AT_DEV"
+    Value  = "30"
+    Help  = "Serial device location - Device; This data will be ignored if SERIAL_UART_DEV_IS_MMIO is disabled"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SERIAL_UART1_MMIO_AT_FUN"
+    Value  = "1"
+    Help  = "Serial device location - Function; This data will be ignored if SERIAL_UART_DEV_IS_MMIO is disabled"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SERIAL_UART2_MMIO_AT_BUS"
+    Value  = "0"
+    Help  = "Serial device location - Bus; This data will be ignored if SERIAL_UART_DEV_IS_MMIO is disabled"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SERIAL_UART2_MMIO_AT_DEV"
+    Value  = "25"
+    Help  = "Serial device location - Device; This data will be ignored if SERIAL_UART_DEV_IS_MMIO is disabled"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SERIAL_UART2_MMIO_AT_FUN"
+    Value  = "0"
+    Help  = "Serial device location - Function; This data will be ignored if SERIAL_UART_DEV_IS_MMIO is disabled"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+	Name  = "SERIAL_UART_IO_BASE"
+	Value  = "0x3F8"
+	Help  = "Define the address for the serial device; This data will be ignored if SERIAL_UART_DEV_IS_MMIO is enabled"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+TOKEN
+	Name  = "SERIAL_UART_IRQ"
+	Value  = "4"
+	Help  = "Serial UART IRQ. This data will be ignored if SERIAL_UART_DEV_IS_MMIO is enabled"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SERIAL_UART_DEV_BAR_NUMBER"
+	Value  = "0"
+	Help  = "Check the device resource from Base Address Register, please follow PCI SIG to adjust it. This data will be ignored if SERIAL_UART_DEV_IS_MMIO is disabled"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+INFComponent
+	Name  = "MmioSerialUart0"
+	File  = "MmioSerialUart0.inf"
+	Package  = "AmiChipsetModulePkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "MmioSerialUart1"
+    File  = "MmioSerialUart1.inf"
+    Package  = "AmiChipsetModulePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "MmioSerialUart2"
+    File  = "MmioSerialUart2.inf"
+    Package  = "AmiChipsetModulePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End

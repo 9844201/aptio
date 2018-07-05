@@ -1,0 +1,12 @@
+<component>
+	name = "AcpiTables"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\AcpiTables\"
+	RefName = "KabylakeSiliconPkg.Pch.AcpiTables"
+[INF]
+"Dsdt\PchAcpiTables.inf"
+[files]
+"Dsdt\PchIsh.asl"	
+"Dsdt\PchScs.asl"	
+"Dsdt\PchHeci.asl"	
+<endComponent>

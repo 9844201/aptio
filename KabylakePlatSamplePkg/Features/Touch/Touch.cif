@@ -1,0 +1,10 @@
+<component>
+	name = "Touch"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Touch\"
+	RefName = "KabylakePlatSamplePkg.Features.Touch"
+[INF]
+"TouchInputFilter\TouchInputFilterDriver.inf"
+[files]
+"Touch.sdl"	
+<endComponent>

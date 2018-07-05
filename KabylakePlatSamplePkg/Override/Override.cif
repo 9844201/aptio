@@ -1,0 +1,18 @@
+<component>
+	name = "Override"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Override\"
+	RefName = "KabylakePlatSamplePkg.Override"
+[INF]
+"PcAtChipsetPkg\HpetTimerDxe\HpetTimerDxe.inf"
+"PcAtChipsetPkg\Library\TscAcpiTimerLib\BaseTscTimerLib.inf"
+[files]
+"Override.sdl"	
+"PcAtChipsetPkg\HpetTimerDxe\HpetTimerDxe.uni"	
+"PcAtChipsetPkg\HpetTimerDxe\HpetTimerDxeExtra.uni"	
+[parts]
+"PcAtChipsetPkg"
+"KabylakePlatSamplePkg.Override.BpCommonPkg"
+"KabylakePlatSamplePkg.Override.IA32FamilyCpuPkg"
+"KabylakePlatSamplePkg.Override.UefiCpuPkg"
+<endComponent>

@@ -1,0 +1,62 @@
+TOKEN
+	Name  = "Common_Library_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Common Library support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "BaseSiConfigBlockLib"
+	File  = "BaseSiConfigBlockLib\BaseSiConfigBlockLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SiConfigBlockLib"
+	Instance  = "KabylakeSiliconPkg.BaseSiConfigBlockLib"
+End
+
+INFComponent
+	Name  = "DxeAslUpdateLib"
+	File  = "DxeAslUpdateLib\DxeAslUpdateLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "AslUpdateLib"
+	Instance  = "KabylakeSiliconPkg.DxeAslUpdateLib"
+End
+
+INFComponent
+	Name  = "DxeSiFviLib"
+	File  = "DxeSiFviLib\DxeSiFviLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SiFviLib"
+	Instance  = "KabylakeSiliconPkg.DxeSiFviLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmMmPciLib"
+	File  = "PeiDxeSmmMmPciLib\PeiDxeSmmMmPciLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "MmPciLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmMmPciLib"
+End
+
+INFComponent
+	Name  = "PeiSiPolicyLib"
+	File  = "PeiSiPolicyLib\PeiSiPolicyLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SiPolicyLib"
+	Instance  = "KabylakeSiliconPkg.PeiSiPolicyLib"
+End

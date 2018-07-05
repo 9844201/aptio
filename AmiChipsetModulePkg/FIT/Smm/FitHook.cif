@@ -1,0 +1,10 @@
+<component>
+	name = "FitHook"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\FIT\Smm\"
+	RefName = "FitHook"
+[INF]
+"FitHook.inf"
+[files]
+"FitHook.sdl"	
+<endComponent>

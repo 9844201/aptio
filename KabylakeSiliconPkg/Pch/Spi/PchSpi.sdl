@@ -1,0 +1,21 @@
+TOKEN
+	Name  = "PchSpi_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "PchSpiRuntime"
+	File  = "RuntimeDxe/PchSpiRuntime.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_RUNTIME_DRIVER"
+End
+
+INFComponent
+	Name  = "PchSpiSmm"
+	File  = "Smm/PchSpiSmm.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+End

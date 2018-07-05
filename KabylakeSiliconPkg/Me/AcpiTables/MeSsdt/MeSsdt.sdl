@@ -1,0 +1,23 @@
+TOKEN
+	Name  = "MeSsdt_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MeSsdt support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "MeSsdt"
+	File  = "MeSsdt.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes="USER_DEFINED"
+	Token = "MeSsdt_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+	Name  = "MeSsdt"
+	FD_AREA  = "FV_MAIN"
+	INFComponent  = "KabylakeSiliconPkg.MeSsdt"
+	Rule_Override  = "ACPITABLE"
+	Token = "MeSsdt_SUPPORT" "=" "1"
+End

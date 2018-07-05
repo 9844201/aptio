@@ -1,0 +1,21 @@
+TOKEN
+	Name  = "PowerManagement_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "PowerMgmtDxe"
+	File  = "Dxe/PowerMgmtDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+	Name  = "PowerMgmtSmm"
+	File  = "Smm/PowerMgmtSmm.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+End

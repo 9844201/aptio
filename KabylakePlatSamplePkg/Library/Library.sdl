@@ -1,0 +1,476 @@
+TOKEN
+    Name  = "Platform_Library_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Platform Library support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+TOKEN
+    Name  = "AMI_SMBUS_BUSY_WAIT_DELAY_SUPPORT"
+    Value  = "0"
+    Help  = "1: Wait smbus host busy delay, 0: Normal."
+    TokenType = Boolean
+    Token = "SmBus_SUPPORT" "=" "0"
+End
+
+ELINK
+    Name  = "-D SMBUS_BUSY_WAIT_DELAY"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "AMI_SMBUS_BUSY_WAIT_DELAY_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "PeiPolicyInitLib"
+    File  = "PeiPolicyInitLib\PeiPolicyInitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PeiPolicyInitLib"
+    Instance  = "KabylakePlatSamplePkg.PeiPolicyInitLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiPlatformRecoveryLib"
+    File  = "PeiPlatformRecoveryLib\PeiPlatformRecoveryLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PeiPlatformRecoveryLib"
+    Instance  = "KabylakePlatSamplePkg.PeiPlatformRecoveryLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiSwbpeLib"
+    File  = "PeiSwbpeLib\PeiSwbpeLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PeiSwbpeLib"
+    Instance  = "KabylakePlatSamplePkg.PeiSwbpeLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiBootGuardEventLogLib"
+    File  = "PeiBootGuardEventLogLib\PeiBootGuardEventLogLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "BootGuardEventLogLib"
+    Instance  = "KabylakePlatSamplePkg.PeiBootGuardEventLogLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiPlatformHookLib"
+    File  = "PeiPlatformHooklib\PeiPlatformHooklib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PeiPlatformHookLib"
+    Instance  = "KabylakePlatSamplePkg.PeiPlatformHookLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiPolicyBoardConfigLib"
+    File  = "PeiPolicyBoardConfigLib\PeiPolicyBoardConfigLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PeiPolicyBoardConfigLib"
+    Instance  = "KabylakePlatSamplePkg.PeiPolicyBoardConfigLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiPolicyDebugLib"
+    File  = "PeiPolicyDebugLib\PeiPolicyDebugLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PeiPolicyDebugLib"
+    Instance  = "KabylakePlatSamplePkg.PeiPolicyDebugLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiPolicyUpdateLib"
+    File  = "PeiPolicyUpdateLib\PeiPolicyUpdateLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PeiPolicyUpdateLib"
+    Instance  = "KabylakePlatSamplePkg.PeiPolicyUpdateLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiReadWriteVariableLibNull"
+    File  = "PeiReadWriteVariableLibNull\PeiReadWriteVariableLibNull.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PeiReadWriteVariableLib"
+    Instance  = "KabylakePlatSamplePkg.PeiReadWriteVariableLibNull"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiSetupDataCacheLibNull"
+    File  = "PeiSetupDataCacheLibNull\PeiSetupDataCacheLibNull.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "SetupDataCacheLib"
+    Instance  = "KabylakePlatSamplePkg.PeiSetupDataCacheLibNull"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "AmiTbtOemLibNull"
+    File  = "AmiTbtOemLibNull\AmiTbtOemLibNull.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+INFComponent
+    Name  = "PeiTbtInitLibNull"
+    File  = "PeiTbtInitLibNull\PeiTbtInitLibNull.inf"
+    Package  = "KabylakePlatSamplePkg"
+    Token = "Thunderbolt_SUPPORT" "=" "0"
+End
+
+LibraryMapping
+    Class  = "AmiTbtOemLib"
+    Instance  = "KabylakePlatSamplePkg.AmiTbtOemLibNull"
+    Token = "Thunderbolt_SUPPORT" "=" "0"
+End
+
+LibraryMapping
+    Class  = "PeiTbtInitLib"
+    Instance  = "KabylakePlatSamplePkg.PeiTbtInitLibNull"
+    ModuleTypes  = "PEIM"
+    Token = "Thunderbolt_SUPPORT" "=" "0"
+End
+
+INFComponent
+    Name  = "PeiPcdValueUpdateLib"
+    File  = "PeiPcdValueUpdateLib\PeiPcdValueUpdateLib.inf" 
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PcdValueUpdateLib"
+    Instance  = "KabylakePlatSamplePkg.PeiPcdValueUpdateLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiWdtAppLib"
+    File  = "PeiWdtAppLib\PeiWdtAppLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PeiWdtAppLib"
+    Instance  = "KabylakePlatSamplePkg.PeiWdtAppLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PlatformInitLib"
+    File  = "PlatformInitLib\PlatformInitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"    
+End
+
+LibraryMapping
+    Class  = "PlatformInitLib"
+    Instance  = "KabylakePlatSamplePkg.PlatformInitLib"
+    Token = "FSP_WRAPPER_ENABLE" "=" "1"    
+End
+
+INFComponent
+    Name  = "PlatformSecureLibTest"
+    File  = "PlatformSecureLibTest\PlatformSecureLibTest.inf"
+    Package  = "KabylakePlatSamplePkg"  
+End
+
+LibraryMapping
+    Class  = "PlatformSecureLib"
+    Instance  = "KabylakePlatSamplePkg.PlatformSecureLibTest"
+    ModuleTypes  = "DXE_DRIVER" 
+End
+
+INFComponent
+    Name  = "PeiI2cAccessLib"
+    File  = "PeiI2cAccessLib\PeiI2cAccessLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "I2cAccessLib"
+    Instance  = "KabylakePlatSamplePkg.PeiI2cAccessLib"
+End
+
+INFComponent
+    Name  = "PeiWdtAppLibNull"
+    File  = "PeiWdtAppLibNull\PeiWdtAppLibNull.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+INFComponent
+    Name  = "DxePolicyBoardConfigLib"
+    File  = "DxePolicyBoardConfigLib\DxePolicyBoardConfigLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "DxePolicyBoardConfigLib"
+    Instance  = "KabylakePlatSamplePkg.DxePolicyBoardConfigLib"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "DxePolicyUpdateLib"
+    File  = "DxePolicyUpdateLib\DxePolicyUpdateLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "DxePolicyUpdateLib"
+    Instance  = "KabylakePlatSamplePkg.DxePolicyUpdateLib"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "DxeSmmInternalGraphicDeviceLib"
+    File  = "DxeSmmInternalGraphicDeviceLib\DxeSmmInternalGraphicDeviceLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "DxeSmmInternalGraphicDeviceLib"
+    Instance  = "KabylakePlatSamplePkg.DxeSmmInternalGraphicDeviceLib"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+INFComponent
+    Name  = "DxeSmmAcpiCustomLib"
+    File  = "DxeSmmAcpiCustomLib\DxeSmmAcpiCustomLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "DxeSmmAcpiCustomLib"
+    Instance  = "KabylakePlatSamplePkg.DxeSmmAcpiCustomLib"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+INFComponent
+    Name  = "DxeSmmScriptLib"
+    File  = "DxeSmmScriptLib\DxeSmmScriptLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "DxeSmmScriptLib"
+    Instance  = "KabylakePlatSamplePkg.DxeSmmScriptLib"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+INFComponent
+    Name  = "DTSHookLib"
+    File  = "DTSHookLib\Smm\DTSHookLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "DTSHookLib"
+    Instance  = "KabylakePlatSamplePkg.DTSHookLib"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+INFComponent
+    Name  = "SmmIoLib"
+    File  = "SmmIo\SmmIoLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "SmmIoLib"
+    Instance  = "KabylakePlatSamplePkg.SmmIoLib"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+INFComponent
+    Name  = "PlatformCmosAccessLib"
+    File  = "PlatformCmosAccessLib\PlatformCmosAccessLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "PlatformCmosAccessLib"
+    Instance  = "KabylakePlatSamplePkg.PlatformCmosAccessLib"
+End
+
+INFComponent
+    Name  = "BasePlatformTimerLib"
+    File  = "BasePlatformTimerLib\BasePlatformTimerLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "BasePlatformTimerLib"
+    Instance  = "KabylakePlatSamplePkg.BasePlatformTimerLib"
+End
+
+INFComponent
+    Name  = "BootGuardRevocationLib"
+    File  = "BootGuardRevocationLib\BootGuardRevocationLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "BootGuardRevocationLib"
+    Instance  = "KabylakePlatSamplePkg.BootGuardRevocationLib"
+End
+
+INFComponent
+    Name  = "BaseSerialPortLib"
+    File  = "BaseSerialPortLib\BaseSerialPortLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    Token = "TRACE_HUB_STATUS_CODE_SUPPORT" "=" "0"    
+End
+
+LibraryMapping
+    Class  = "SerialPortLib"
+    Instance  = "KabylakePlatSamplePkg.BaseSerialPortLib"
+    Token = "TRACE_HUB_STATUS_CODE_SUPPORT" "=" "0"    
+End
+
+INFComponent
+    Name  = "BaseGpioExpanderLib"
+    File  = "BaseGpioExpanderLib\BaseGpioExpanderLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "GpioExpanderLib"
+    Instance  = "KabylakePlatSamplePkg.BaseGpioExpanderLib"
+End
+
+INFComponent
+    Name  = "BaseSerialPortLibTraceHub"
+    File  = "BaseSerialPortLib\BaseSerialPortLibTraceHub.inf"
+    Package  = "KabylakePlatSamplePkg"
+    Token = "TRACE_HUB_STATUS_CODE_SUPPORT" "=" "1"    
+End
+
+LibraryMapping
+    Class  = "SerialPortLib"
+    Instance  = "KabylakePlatSamplePkg.BaseSerialPortLibTraceHub"
+    Token = "TRACE_HUB_STATUS_CODE_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "HidI2cPlatformSupportLib"
+    File  = "DxeHidI2cPlatformSupportLib\DxeHidI2cPlatformSupportLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "HidI2cPlatformSupportLib"
+    Instance  = "KabylakePlatSamplePkg.HidI2cPlatformSupportLib"
+End
+
+INFComponent
+    Name  = "BaseEcHwLib"
+    File  = "BaseEcHwLib\BaseEcHwLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "EcHwLib"
+    Instance  = "KabylakePlatSamplePkg.BaseEcHwLib"
+End
+
+INFComponent
+    Name  = "BaseEcLib"
+    File  = "BaseEcLib\BaseEcLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "EcLib"
+    Instance  = "KabylakePlatSamplePkg.BaseEcLib"
+End
+
+INFComponent
+    Name  = "BaseEcMiscLib"
+    File  = "BaseEcMiscLib\BaseEcMiscLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "EcMiscLib"
+    Instance  = "KabylakePlatSamplePkg.BaseEcMiscLib"
+End
+
+INFComponent
+    Name  = "SmmPchLib"
+    File  = "SmmPchLib\SmmPchLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+    Class  = "SmmPchLib"
+    Instance  = "KabylakePlatSamplePkg.SmmPchLib"
+End
+
+INFComponent
+    Name  = "BasePlatformHookLib"
+    File  = "BasePlatformHookLib\BasePlatformHookLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    Token = "SIO_SUPPORT" "=" "0"
+End
+
+LibraryMapping
+    Class  = "PlatformHookLib"
+    Instance  = "KabylakePlatSamplePkg.BasePlatformHookLib"
+    Token = "SIO_SUPPORT" "=" "0"
+End
+
+PcdMapping
+    Name  = "PcdAcpiDebugEnable"
+    GuidSpace  = "gEfiBpCommonPkgTokenSpaceGuid"
+    PcdType  = "PcdsDynamicDefault"
+    DataType  = "Boolean"
+    Value  = "FALSE"
+    TargetDSC = Yes
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+ELINK
+    Name  = "-D PERFORMANCE_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "PERFORMANCE_MEASUREMENTS_SUPPORT" "=" "1"
+End
+

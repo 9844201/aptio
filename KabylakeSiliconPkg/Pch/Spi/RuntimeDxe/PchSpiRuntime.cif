@@ -1,0 +1,8 @@
+<component>
+	name = "Dxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Spi\RuntimeDxe\"
+	RefName = "KabylakeSiliconPkg.Pch.Spi.RuntimeDxe"
+[INF]
+"PchSpiRuntime.inf"
+<endComponent>

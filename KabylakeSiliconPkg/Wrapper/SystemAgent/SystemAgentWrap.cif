@@ -1,0 +1,12 @@
+<component>
+	name = "SystemAgentWrap"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\SystemAgent\"
+	RefName = "KabylakeSiliconPkg.SystemAgentWrap"
+[files]
+"SystemAgentWrap.sdl"	
+[parts]
+"KabylakeSiliconPkg.SaWrapLibrary"
+"KabylakeSiliconPkg.Wrapper.Include.SaInclude"
+"KabylakeSiliconPkg.SystemAgentWrap.SaNvRamHook"
+<endComponent>

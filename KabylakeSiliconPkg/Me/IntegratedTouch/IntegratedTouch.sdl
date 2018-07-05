@@ -1,0 +1,18 @@
+TOKEN
+	Name  = "IntegratedTouch_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable IntegratedTouch support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+PATH
+    Name  = "IntegratedTouch_DIR"
+End
+
+INFComponent
+    Name  = "IntegratedTouch"
+    File  = "IntegratedTouch.inf"
+    Package  = "KabylakeSiliconPkg"
+    ModuleTypes  = "UEFI_DRIVER"
+End

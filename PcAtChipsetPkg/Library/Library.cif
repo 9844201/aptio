@@ -1,0 +1,12 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "PcAtChipsetPkg\Library\"
+	RefName = "PcAtChipsetPkg.Library"
+[INF]
+"AcpiTimerLib\BaseAcpiTimerLib.inf"
+"BaseIoApicLib\BaseIoApicLib.inf"
+"SerialIoLib\SerialIoLib.inf"
+[files]
+"Library.sdl"	
+<endComponent>

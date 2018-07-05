@@ -1,0 +1,68 @@
+TOKEN
+	Name  = "SA_Library_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SA Library support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "DxeSaPolicyLib"
+	File  = "DxeSaPolicyLib\DxeSaPolicyLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "DxeSaPolicyLib"
+	Instance  = "KabylakeSiliconPkg.DxeSaPolicyLib"
+End
+
+INFComponent
+	Name  = "PeiSaPolicyLib"
+	File  = "PeiSaPolicyLib\PeiSaPolicyLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PeiSaPolicyLib"
+	Instance  = "KabylakeSiliconPkg.PeiSaPolicyLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmSaPlatformLib"
+	File  = "PeiDxeSmmSaPlatformLib\PeiDxeSmmSaPlatformLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SaPlatformLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmSaPlatformLib"
+End
+
+INFComponent
+    Name  = "PeiSmmAccessLib"
+    File  = "PeiSmmAccessLib\PeiSmmAccessLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "SmmAccessLib"
+    Instance  = "KabylakeSiliconPkg.PeiSmmAccessLib"
+End
+
+INFComponent
+    Name  = "PeiSmmAccessLibNull"
+    File  = "PeiSmmAccessLibNull\PeiSmmAccessLibNull.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+INFComponent
+	Name  = "SecSaLib"
+	File  = "SecSaLib\SecSaLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SecSaLib"
+	Instance  = "KabylakeSiliconPkg.SecSaLib"
+End

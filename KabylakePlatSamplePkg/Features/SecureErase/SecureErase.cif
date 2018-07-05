@@ -1,0 +1,11 @@
+<component>
+	name = "SecureErase"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\SecureErase\"
+	RefName = "KabylakePlatSamplePkg.Features.SecureErase"
+[INF]
+"SecureEraseDxe\SecureEraseDxe.inf"
+[files]
+"SecureErase.sdl"	
+"AmiTsePasswordCheck.c"	
+<endComponent>

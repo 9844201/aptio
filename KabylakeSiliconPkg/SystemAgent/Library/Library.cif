@@ -1,0 +1,21 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\Library\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.Library"
+[INF]
+"DxeSaPolicyLib\DxeSaPolicyLib.inf"
+"PeiSaPolicyLib\PeiSaPolicyLib.inf"
+"PeiDxeSmmSaPlatformLib\PeiDxeSmmSaPlatformLib.inf"
+"PeiSmmAccessLib\PeiSmmAccessLib.inf"
+"PeiSmmAccessLibNull\PeiSmmAccessLibNull.inf"
+"SecSaLib\SecSaLib.inf"
+[files]
+"Library.sdl"	
+"SecSaLib\Ia32\SecSaLib.inc"	
+"SecSaLib\Ia32\SecSaLibGcc.inc"	
+"PeiSaPolicyLib\Ia32\MrcOemPlatform.nasm"	
+"SecSaLib\Ia32\SecSaLib.nasm"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.Library.Private"
+<endComponent>

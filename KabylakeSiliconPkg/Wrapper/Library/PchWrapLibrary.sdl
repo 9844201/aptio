@@ -1,0 +1,56 @@
+TOKEN
+    Name  = "PchWrapLibrary_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling Pch Library support in the project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes    
+    Master = Yes
+End
+
+ELINK
+    Name  = "PchSetupCallbacks,"
+    Parent  = "SbConfigurationList"
+    InvokeOrder = AfterParent
+End
+
+INFComponent
+    Name  = "PchLinkLib"
+    File  = "PchLinkLib/PchLinkLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "PchLinkLib"
+    Instance  = "KabylakeSiliconPkg.PchLinkLib"
+End
+
+INFComponent
+    Name  = "PchHookPeiLib"
+    File  = "PchHookLib\PchHookPeiLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "PchHookPeiLib"
+    Instance  = "KabylakeSiliconPkg.PchHookPeiLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PchPcieSsdHookLib"
+    File  = "PchHookLib\PchPcieSsdHookLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakeSiliconPkg.PchPcieSsdHookLib"
+    Override  = "AmiModulePkg.Bds"
+End
+
+ELINK
+    Name  = "LocateAndInitializePcieSsd,"
+    Parent  = "SignalAllDriversConnectedEvent,"
+    InvokeOrder = BeforeParent
+End

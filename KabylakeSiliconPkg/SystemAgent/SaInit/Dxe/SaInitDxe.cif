@@ -1,0 +1,9 @@
+<component>
+	name = "Dxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\SaInit\Dxe\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.SaInit.Dxe"
+[INF]
+"SaInitDxe.inf"
+"SaInitFsp.inf"
+<endComponent>

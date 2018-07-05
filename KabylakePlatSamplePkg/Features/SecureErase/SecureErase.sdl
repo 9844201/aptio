@@ -1,0 +1,38 @@
+TOKEN
+    Name  = "SecureErase_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SecureErase support in Project"
+    TokenType = Boolean
+    Master = Yes
+    Token = "iAMT_SUPPORT" "=" "1"      
+End
+
+PATH
+    Name  = "SECURE_ERASE_DIR"
+End
+
+INFComponent
+    Name  = "SecureEraseDxe"
+    File  = "SecureEraseDxe/SecureEraseDxe.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+ELINK
+    Name  = "$(SECURE_ERASE_DIR)/AmiTsePasswordCheck.c"
+    Parent  = "TSE_SOURCE_FILES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "KabylakePlatSamplePkg/PlatformPkg.dec"
+    Parent  = "ADDITIONAL_AMITSE_Packages"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gHddPasswordExternalControlProtocolGuid"
+    Parent  = "ADDITIONAL_AMITSE_Protocols"
+    InvokeOrder = AfterParent
+End
+

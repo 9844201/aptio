@@ -1,0 +1,8 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Acpi\AcpiTables\Include\"
+	RefName = "KabylakePlatSamplePkg.Acpi.AcpiTables.Include"
+[files]
+"AcpiCommon.h"	
+<endComponent>

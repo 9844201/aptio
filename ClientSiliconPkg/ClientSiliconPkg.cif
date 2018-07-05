@@ -1,0 +1,14 @@
+<component>
+	name = "IntelClientSiliconPkg"
+	category = eModule
+	LocalRoot = "ClientSiliconPkg\"
+	RefName = "ClientSiliconPkg"
+[files]
+"ClientSiliconPkg.sdl"	
+"ClientSiliconPkg.dec"	
+"IntelClientSiliconPkg.chm"	
+[parts]
+"ClientSiliconPkg.Include"
+"ClientSiliconPkg.Library"
+"ClientSiliconPkg.SampleCode"
+<endComponent>

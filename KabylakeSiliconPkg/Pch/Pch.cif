@@ -1,0 +1,12 @@
+<component>
+	name = "Pch"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\"
+	RefName = "KabylakeSiliconPkg.Pch"
+[files]
+"Pch.sdl"	
+"PCH_RC_History.txt"	
+[parts]
+"KabylakeSiliconPkg.PchRefCode"
+"KabylakeSiliconPkg.PchWrap"
+<endComponent>

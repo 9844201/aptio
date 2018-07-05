@@ -1,0 +1,11 @@
+<component>
+	name = "Universal"
+	category = ModulePart
+	LocalRoot = "ClientCommonPkg\Universal\"
+	RefName = "ClientCommonPkg.Universal"
+[INF]
+"IsvtCheckpointDxe\IsvtCheckpointDxe.inf"
+"SetTimerPeriodDxe\SetTimerPeriodDxe.inf"
+[files]
+"Universal.sdl"	
+<endComponent>

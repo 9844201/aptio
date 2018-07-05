@@ -1,0 +1,10 @@
+<component>
+    name = "NbOemPciDeviceInitRoutine"
+    category = ModulePart
+    LocalRoot = "AmiChipsetModulePkg\NB\NbOemPciDeviceInitRoutine\"
+    RefName = "AmiChipsetModulePkg.NbOemPciDeviceInitRoutine"
+[properties]
+    Orphan = AmiChipsetModulePkg.NorthBridge
+[files]
+"NbOemPciDeviceInitRoutine.sdl"
+<endComponent>

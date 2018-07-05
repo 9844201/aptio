@@ -1,0 +1,11 @@
+<component>
+	name = "SasbyIsland"
+	category = ModulePart
+	LocalRoot = "SkyBayPkg\SasbyIsland\"
+	RefName = "SasbyIsland"
+[files]
+"SasbyIsland.sdl"	
+"SasbyIslandSetup.sd"	
+"GpioTableDdr3LrSasbyIsland.h"	
+"Corporate_11_7_3307.xml"	
+<endComponent>

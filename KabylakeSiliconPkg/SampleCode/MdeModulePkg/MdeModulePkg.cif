@@ -1,0 +1,8 @@
+<component>
+	name = "MdeModulePkg"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\MdeModulePkg\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg"
+[parts]
+"KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg.Include"
+<endComponent>

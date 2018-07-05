@@ -1,0 +1,49 @@
+TOKEN
+    Name  = "RcOthers_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable Others support in Project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "PeiOthersBoardInitPreMemLib"
+    File  = "PeiBoardInitLib\OthersBoardInitPreMemLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiOthersBoardInitPreMemLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.BoardConfigInitPreMem"
+End
+
+INFComponent
+    Name  = "PeiOthersBoardInitLib"
+    File  = "PeiBoardInitLib\OthersBoardInitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiOthersBoardInitLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PeiBoardConfigInit"
+End
+
+INFComponent
+    Name  = "DxeOthersBoardInitLib"
+    File  = "DxeBoardInitLib\OthersBoardInitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.DxeOthersBoardInitLib"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.DxeBoardConfigInit"
+End

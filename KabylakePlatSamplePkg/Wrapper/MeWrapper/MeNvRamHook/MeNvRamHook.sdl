@@ -1,0 +1,61 @@
+TOKEN
+	Name  = MeNvRamHook_SUPPORT
+	Value  = 1
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Help  = "Main switch to enable AmtNvRamHook support in Project"
+End
+
+PATH
+    Name  = "MeNvRamHook_DIR"
+End
+
+INFComponent
+	Name  = "MeNvRamHookDxeLib"
+	File  = "MeNvRamHook.inf"
+	Package  = "KabylakePlatSamplePkg"
+End
+
+INFComponent
+	Name  = "MeNvRamHookPeiLib"
+	File  = "MeNvRamPeiHook.inf"
+	Package  = "KabylakePlatSamplePkg"
+End
+
+ELINK
+    Name  = "PeiMEGetVariable,"
+    Parent  = "PeiGetVariableHook"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "DxeMEGetVariable,"
+    Parent  = "GetVariableHook"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "DxeMESetVariable,"
+    Parent  = "SetVariableHook"
+    InvokeOrder = AfterParent
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "KabylakePlatSamplePkg.MeNvRamHookPeiLib"
+	Override  = "AmiModulePkg.NvramPei"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "KabylakePlatSamplePkg.MeNvRamHookDxeLib"
+	Override  = "AmiModulePkg.NvramDxe"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "KabylakePlatSamplePkg.MeNvRamHookDxeLib"
+	Override  = "AmiModulePkg.NvramSmm"
+End

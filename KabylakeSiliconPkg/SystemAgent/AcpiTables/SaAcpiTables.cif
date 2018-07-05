@@ -1,0 +1,15 @@
+<component>
+	name = "SystemAgent ACPI Tables"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\AcpiTables\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.AcpiTables"
+[INF]
+"SaAcpiTables.inf"
+[files]
+"HostBus.asl"	
+"SaAcpiTables.sdl"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.AcpiTables.PegSsdt"
+"KabylakeSiliconPkg.SystemAgent.AcpiTables.SaSsdt"
+"KabylakeSiliconPkg.SystemAgent.AcpiTables.SwitchableGraphics"
+<endComponent>

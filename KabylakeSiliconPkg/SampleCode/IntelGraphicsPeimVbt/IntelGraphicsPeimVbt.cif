@@ -1,0 +1,10 @@
+<component>
+	name = "IntelGraphicsPeimVbt"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\IntelGraphicsPeimVbt\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.IntelGraphicsPeimVbt"
+[files]
+"IntelGraphicsPeimVbt.sdl"	
+"PeiVbt.bin"	
+"PeiVbtFdfFileStatements.txt"	
+<endComponent>

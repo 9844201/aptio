@@ -1,0 +1,14 @@
+TOKEN
+	Name  = "PlatSamplePkg_Smbios_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable KabylakePlatSamplePkg Smbios support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "FirmwareVersionInfoDxe"
+	File  = "FirmwareVersionInfoDxe\FirmwareVersionInfoDxe.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_DRIVER"
+End

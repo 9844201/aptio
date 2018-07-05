@@ -1,0 +1,11 @@
+<component>
+	name = "SB Protocols"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\Include\Protocol\"
+	RefName = "AmiChipsetModulePkg.SbProtocols"
+[files]
+"SmmIoTrapDispatch.h"
+"PeriodicSmiControl.h"	
+"SBPlatformData.h"	
+"SbHpet.h"	
+<endComponent>

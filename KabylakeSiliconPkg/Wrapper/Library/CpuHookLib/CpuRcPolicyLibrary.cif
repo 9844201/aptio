@@ -1,0 +1,11 @@
+<component>
+	name = "CpuRcPolicyLibraryInstances"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Library\CpuHookLib\"
+	RefName = "KabylakeSiliconPkg.CpuWrap.CpuRcPolicyLibraryInstances"
+[INF]
+"CpuRcPolicyWrapPeiLib\CpuRcPolicyWrapPeiLib.inf"
+[files]
+"CpuRcPolicyLibrary.sdl"	
+"CpuRcPolicyLibrary.mak"	
+<endComponent>

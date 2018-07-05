@@ -1,0 +1,27 @@
+
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2017, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+TOKEN
+	Name  = "AmiChipsetModulePkg_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable AmiChipsetModulePkg support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+PATH
+	Name  = "AmiChipsetModulePkg_DIR"
+End

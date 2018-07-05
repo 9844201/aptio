@@ -1,0 +1,10 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "SkyBayPkg\Include\"
+	RefName = "SkyBayPkg.Include"
+[parts]
+"SkyBayPkg.Ppi"
+"SkyBayPkg.Protocol"
+"SkyBayPkg.Library"
+<endComponent>

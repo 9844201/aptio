@@ -1,0 +1,11 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\IntelFrameworkPkg\Include\Protocol\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.IntelFrameworkPkg.Include.Protocol"
+[files]
+"DataHub.h"	
+"Legacy8259.h"	
+"LegacyBios.h"	
+"LegacyInterrupt.h"	
+<endComponent>

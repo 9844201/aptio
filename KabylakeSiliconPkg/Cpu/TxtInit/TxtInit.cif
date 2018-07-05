@@ -1,0 +1,16 @@
+<component>
+	name = "TxtInit"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Cpu\TxtInit\"
+	RefName = "KabylakeSiliconPkg.Cpu.TxtInit"
+[INF]
+"Dxe\TxtDxe.inf"
+"Pei\Ia32\TxtPeiAp.inf"
+[files]
+"TxtInit.sdl"	
+"Dxe\TxtDxeLib.h"	
+"Dxe\x64\Mmx64.inc"	
+"Pei\Ia32\makefile.new"	
+"Pei\Ia32\TxtPeiApFdfFileStatement.txt"	
+"Pei\Ia32\TxtPeiApGccDummy.c"
+<endComponent>

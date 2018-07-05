@@ -1,0 +1,15 @@
+<component>
+	name = "SkylakeYRvp13"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Board\SkylakeYRvp13\"
+	RefName = "KabylakePlatSamplePkg.SkylakeYRvp13"
+[INF]
+"DxeBoardInitLib\SkylakeYRvp13InitLib.inf"
+"PeiBoardInitLib\PeiSkylakeYRvp13InitLib.inf"
+"PeiBoardInitLib\PeiSkylakeYRvp13InitPreMemLib.inf"
+[files]
+"SkylakeYRvp13.sdl"	
+"DxeBoardInitLib\SkylakeYRvp13InitLib.h"	
+"PeiBoardInitLib\PeiSkylakeYRvp13InitLib.h"	
+"PeiBoardInitLib\SkylakeYRvp13HsioPtssTables.h"	
+<endComponent>

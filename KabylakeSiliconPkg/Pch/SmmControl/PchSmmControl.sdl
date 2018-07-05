@@ -1,0 +1,14 @@
+TOKEN
+	Name  = "PchSmmControl_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "SmmControlDxe"
+	File  = "RuntimeDxe/SmmControl.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_RUNTIME_DRIVER"
+End

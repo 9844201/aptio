@@ -1,0 +1,11 @@
+<component>
+	name = "PowerManagement"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Cpu\PowerManagement\"
+	RefName = "KabylakeSiliconPkg.Cpu.PowerManagement"
+[INF]
+"Dxe\PowerMgmtDxe.inf"
+"Smm\PowerMgmtSmm.inf"
+[files]
+"PowerManagement.sdl"	
+<endComponent>

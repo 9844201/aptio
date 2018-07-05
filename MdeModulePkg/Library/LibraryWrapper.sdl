@@ -1,0 +1,21 @@
+TOKEN
+    Name = "MdeModulePkg_Library_Wrapper_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable MdeModulePkg library support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+INFComponent
+    Name  = "UefiBootManagerLib"
+    File  = "UefiBootManagerLib\UefiBootManagerLib.inf"
+    Package  = "MdeModulePkg"
+End
+
+LibraryMapping
+    Class  = "UefiBootManagerLib"
+    Instance  = "MdeModulePkg.UefiBootManagerLib"
+    ModuleTypes  = "DXE_DRIVER DXE_RUNTIME_DRIVER UEFI_APPLICATION UEFI_DRIVER"
+End

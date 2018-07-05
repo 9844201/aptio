@@ -1,0 +1,10 @@
+<component>
+	name = "ActiveBios"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\ActiveBios\"
+	RefName = "KabylakeSiliconPkg.Pch.ActiveBios"
+[files]
+"ActiveBios.sdl"	
+[parts]
+"KabylakeSiliconPkg.Pch.ActiveBios.Dxe"
+<endComponent>

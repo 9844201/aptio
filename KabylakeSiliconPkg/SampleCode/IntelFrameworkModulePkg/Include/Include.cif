@@ -1,0 +1,8 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\IntelFrameworkModulePkg\Include\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.IntelFrameworkModulePkg.Include"
+[parts]
+"KabylakeSiliconPkg.Common.SampleCode.IntelFrameworkModulePkg.Include.Guid"
+<endComponent>

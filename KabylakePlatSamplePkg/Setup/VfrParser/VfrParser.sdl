@@ -1,0 +1,102 @@
+TOKEN
+	Name  = "VFR_INSTEAD_HEADER_FILES"
+	Value  = "1"
+	Help  = "Main switch to enable Vfr Parsing support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+TOKEN
+    Name  = "HFR_FILES_SORTING"
+    Value  = "1"
+    Help  = "Main switch to enable Vfr Parsing support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+End
+
+PATH
+	Name  = "VFR_PARSER"
+End
+
+MODULE
+	Help  = "Includes VfrParser.mak to Project"
+	File  = "VfrParser.mak"
+End
+
+ELINK
+	Name  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "{AcpiSetup.hfr, ACPI},"
+	Parent  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	Help  = "Connect this file into VFR header translating list"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{CpuSetup.hfr, CPU},"
+	Parent  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	Help  = "Connect this file into VFR header translating list"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{SaSetup.hfr, SA},"
+	Parent  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	Help  = "Connect this file into VFR header translating list"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{PchSetup.hfr, PCH},"
+	Parent  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	Help  = "Connect this file into VFR header translating list"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{MeSetup.hfr, ME},"
+	Parent  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	Help  = "Connect this file into VFR header translating list"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{PlatformSetup.hfr, PLATFORM},"
+	Parent  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	Help  = "Connect this file into VFR header translating list"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{OverClockSetup.hfr, OC},"
+	Parent  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	Help  = "Connect this file into VFR header translating list"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{AmtSetup.hfr, AMT},"
+	Parent  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	Help  = "Connect this file into VFR header translating list"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{IccSetup.hfr, ICC},"
+	Parent  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	Help  = "Connect this file into VFR header translating list"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{TbtSetup.hfr, TBT},"
+	Parent  = "VFR_FILES_OF_READY_TOTRANSLATE_LIST"
+	Help  = "Connect this file into VFR header translating list"
+	InvokeOrder = AfterParent
+End
+

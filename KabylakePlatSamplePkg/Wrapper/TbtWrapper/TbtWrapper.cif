@@ -1,0 +1,8 @@
+<component>
+	name = "TbtWrapper"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\TbtWrapper\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.TbtWrapper"
+[files]
+"TbtSetupWrapper.c"
+<endComponent>

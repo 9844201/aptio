@@ -1,0 +1,10 @@
+<component>
+	name = "PeiPolicyInitLib"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Library\PeiPolicyInitLib\"
+	RefName = "KabylakePlatSamplePkg.Library.PeiPolicyInitLib"
+[INF]
+"PeiPolicyInitLib.inf"
+[files]
+"PeiSiPolicyInit.h"	
+<endComponent>

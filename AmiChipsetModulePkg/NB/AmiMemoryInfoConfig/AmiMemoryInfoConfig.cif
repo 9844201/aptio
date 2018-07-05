@@ -1,0 +1,13 @@
+<component>
+    name = "AmiMemoryInfoConfig"
+    category = ModulePart
+    LocalRoot = "AmiChipsetModulePkg\NB\AmiMemoryInfoConfig\"
+    RefName = "AmiChipsetModulePkg.AmiMemoryInfoConfig"
+[properties]
+    Orphan = AmiChipsetModulePkg.NorthBridge
+[INF]
+"AmiMemoryInfoConfig.inf"
+"AmiMemoryInfoSample\AmiMemoryInfoSample.inf"
+[files]
+"AmiMemoryInfoConfig.sdl"
+<endComponent>

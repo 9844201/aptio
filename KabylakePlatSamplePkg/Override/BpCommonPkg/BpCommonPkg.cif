@@ -1,0 +1,8 @@
+<component>
+	name = "BpCommonPkg"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Override\BpCommonPkg\"
+	RefName = "KabylakePlatSamplePkg.Override.BpCommonPkg"
+[parts]
+"SkyKabylakePlatSamplePkg.Override.BpCommonPkgBayPkg.Iasl"
+<endComponent>

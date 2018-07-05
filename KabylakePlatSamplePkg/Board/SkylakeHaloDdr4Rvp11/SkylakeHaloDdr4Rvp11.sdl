@@ -1,0 +1,49 @@
+TOKEN
+    Name  = "SkylakeHaloDdr4Rvp11_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SkylakeHaloDdr4Rvp11 support in Project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "PeiSkylakeHaloDdr4Rvp11BoardInitPreMemLib"
+    File  = "PeiBoardInitLib\PeiSkylakeHaloDdr4Rvp11InitPreMemLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeHaloDdr4Rvp11BoardInitPreMemLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.BoardConfigInitPreMem"
+End
+
+INFComponent
+    Name  = "PeiSkylakeHaloDdr4Rvp11BoardInitLib"
+    File  = "PeiBoardInitLib\PeiSkylakeHaloDdr4Rvp11InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeHaloDdr4Rvp11BoardInitLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PeiBoardConfigInit"
+End
+
+INFComponent
+    Name  = "DxeSkylakeHaloDdr4Rvp11InitLib"
+    File  = "DxeBoardInitLib\SkylakeHaloDdr4Rvp11InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.DxeSkylakeHaloDdr4Rvp11InitLib"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.DxeBoardConfigInit"
+End

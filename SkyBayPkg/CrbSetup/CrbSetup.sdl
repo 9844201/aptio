@@ -1,0 +1,82 @@
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2013, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+#
+#*************************************************************************
+# $Header: $
+#
+# $Revision: $
+#
+# $Date: $
+#*************************************************************************
+#<AMI_FHDR_START>
+#
+# Name:  <CRBSetup.SDL>
+#
+# Description:     
+#
+#<AMI_FHDR_END>
+#*************************************************************************
+
+TOKEN
+    Name = "CRB_SETUP_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable CRB Setup support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+PATH
+    Name = "CRB_SETUP_DIR"
+End
+
+ELINK
+    Name  = "InitCrbStrings,"
+    Parent  = "SetupStringInit"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(CRB_SETUP_DIR)/Crb.uni"
+    Parent  = "SetupStringFiles"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(CRB_SETUP_DIR)/Crb.sd"
+    Parent  = "SETUP_DEFINITIONS"
+    Priority  = 20
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(CRB_SETUP_DIR)/CrbSetup.c"
+    Parent  = "SetupCallbackFiles"
+    InvokeOrder = AfterParent
+End
+
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2013, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************

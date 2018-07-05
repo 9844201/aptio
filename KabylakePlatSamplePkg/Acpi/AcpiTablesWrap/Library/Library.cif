@@ -1,0 +1,13 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\Library\"
+	RefName = "KabylakePlatSamplePkg.Acpi.AcpiTablesWrap.Library"
+[INF]
+"DxeKscLib\DxeKscLib.inf"
+"AcpiPlatformSetupLib\AcpiPlatformSetupLib.inf"
+"AcpiGetSetupData\AcpiGetSetupData.inf"
+"AmiPlatformInfoPeiLib\AmiPlatformInfoPeiLib.inf"
+[files]
+"Library.sdl"	
+<endComponent>

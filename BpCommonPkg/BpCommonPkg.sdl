@@ -1,0 +1,9 @@
+TOKEN
+	Name  = BpCommonPkg_SUPPORT
+	Value  = 1
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Help  = "Main switch to enable BpCommonPkg support in Project"
+End

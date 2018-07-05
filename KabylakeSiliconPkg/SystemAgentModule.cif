@@ -1,0 +1,11 @@
+<component>
+	name = "SystemAgent"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\"
+	RefName = "KabylakeSiliconPkg.SystemAgent"
+[files]
+"SA_RC_History.txt"	
+[parts]
+"KabylakeSiliconPkg.SystemAgentRefCode"
+"KabylakeSiliconPkg.SystemAgentWrap"
+<endComponent>

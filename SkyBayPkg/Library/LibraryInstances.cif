@@ -1,0 +1,9 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "SkyBayPkg\Library\"
+	RefName = "SkyBayPkg.LibraryInstances"
+[INF]
+"CrbLib\CrbLib.inf"
+"CrbSecLib\CrbSecLib.inf"
+<endComponent>

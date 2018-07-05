@@ -1,0 +1,6 @@
+<component>
+	name = "Ppi"
+	category = ModulePart
+	LocalRoot = "AmiCpuModulePkg\Include\Ppi\"
+	RefName = "AmiCpuModulePkg.Ppi"
+<endComponent>

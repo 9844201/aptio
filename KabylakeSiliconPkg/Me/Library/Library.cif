@@ -1,0 +1,36 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\Library\"
+	RefName = "KabylakeSiliconPkg.Me.Library"
+[INF]
+"DxeAmtLib\DxeAmtLib.inf"
+"DxeAmtLibNull\DxeAmtLibNull.inf"
+"DxeAmtPolicyLib\DxeAmtPolicyLib.inf"
+"DxeAmtPolicyLibNull\DxeAmtPolicyLibNull.inf"
+"DxeMbpDataLib\DxeMbpDataLib.inf"
+"DxeMeLib\DxeMeLib.inf"
+"DxeMePolicyLib\DxeMePolicyLib.inf"
+"DxePttHeciLib\DxePttHeciLib.inf"
+"DxeTouchHeciMsgsLib\DxeTouchHeciMsgsLib.inf"
+"PeiAmtLib\PeiAmtLib.inf"
+"PeiAmtLibNull\PeiAmtLibNull.inf"
+"PeiAmtPolicyLib\PeiAmtPolicyLib.inf"
+"PeiAmtPolicyLibNull\PeiAmtPolicyLibNull.inf"
+"PeiDxeMeChipsetLib\PeiDxeMeChipsetLib.inf"
+"PeiDxeMeShowBufferLib\PeiDxeMeShowBufferLib.inf"
+"PeiDxePttPtpLib\PeiDxePttPtpLib.inf"
+"PeiMeLib\PeiMeLib.inf"
+"PeiMePolicyLib\PeiMePolicyLib.inf"
+"PeiDxeMeTypeLib\PeiDxeMeTypeLib.inf"
+"BaseMeFwStsLib\BaseMeFwStsLib.inf"
+[files]
+"Library.sdl"	
+"PeiMeLib\MePeiLibInternals.h"	
+"DxeMeLib\MeDxeLibInternals.h"	
+"DxeAmtLib\AmtDxeLibInternals.h"	
+"DxeMePolicyLib\DxeMePolicyLibrary.h"	
+"DxeAmtPolicyLib\DxeAmtPolicyLibrary.h"	
+[parts]
+"KabylakeSiliconPkg.Me.Library.Private"
+<endComponent>

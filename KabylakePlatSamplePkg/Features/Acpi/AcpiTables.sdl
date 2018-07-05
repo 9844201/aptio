@@ -1,0 +1,73 @@
+TOKEN
+    Name  = "FeaturesAcpiTables_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling Features AcpiTables support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+TOKEN
+    Name  = "PTID_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SsdtPtid support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "IntelRMT_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable Intel Ready Mode Technology support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TbtTypeC_Wrapper_ASL_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable Intel Ready Mode Technology support in Project"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+PATH
+    Name  = "FeaturesAcpiASL_DIR"
+    Path  = "KabylakePlatSamplePkg/Features/Acpi/AcpiTables"
+End
+
+ELINK
+    Name  = "$(FeaturesAcpiASL_DIR)"
+    Parent  = "PLATFORM_DSC_INCLUDE_PATHS"
+    InvokeOrder = AfterParent
+End
+
+INFComponent
+   Name  = "AcpiFeatures"
+   File  = "AcpiTables\AcpiFeatures.inf"
+   Package  = "KabylakePlatSamplePkg"
+   ModuleTypes  = "DXE_DRIVER"
+End
+
+FFS_FILE
+    Name  = "AcpiFeatures"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "KabylakePlatSamplePkg.AcpiFeatures"
+    Rule_Override = "DRIVER_ACPITABLE"
+End
+
+INFComponent
+    Name  = "IrmtAcpiTables"
+    File  = "AcpiTables/SsdtIrmt/IrmtAcpiTables.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "USER_DEFINED"
+End
+
+OUTPUTREGISTER
+    Name  = "OEM_TBT_ASL_ELINK_PATH"
+    Path  = "Build"
+    File  = "OemTbtTypeCWrapper.asl"
+    Template  = "AcpiTables/TbtTypeC/TbtTypeCWrapper.asl"
+    Help  = "Oem can clone this OUTPUTREGISTER and replace the Template to their ASL code for meeting their H/w design."
+End

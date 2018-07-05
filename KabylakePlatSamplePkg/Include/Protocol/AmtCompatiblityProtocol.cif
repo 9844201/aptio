@@ -1,0 +1,8 @@
+<component>
+	name = "AmtCompatiblityProtocol"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Include\Protocol\"
+	RefName = "AmtCompatiblityProtocol"
+[files]
+"AmtCompatiblity.h"	
+<endComponent>

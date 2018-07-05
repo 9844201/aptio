@@ -1,0 +1,9 @@
+<component>
+	name = "PchNvRamHook"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Pch\PchNvRamHook\"
+	RefName = "KabylakeSiliconPkg.Wrapper.PchNvRamHook"
+[files]
+"PchNvRamHook.sdl"	
+"PchNvRamHook.c"	
+<endComponent>

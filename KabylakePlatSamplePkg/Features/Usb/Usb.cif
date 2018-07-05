@@ -1,0 +1,10 @@
+<component>
+	name = "Usb"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Usb\"
+	RefName = "KabylakePlatSamplePkg.Features.Usb"
+[files]
+"Usb.sdl"	
+[parts]
+"KabylakePlatSamplePkg.Features.Usb.UsbDeviceDxe"
+<endComponent>

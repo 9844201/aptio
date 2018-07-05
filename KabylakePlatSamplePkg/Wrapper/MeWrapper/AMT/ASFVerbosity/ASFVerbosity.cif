@@ -1,0 +1,10 @@
+<component>
+	name = "ASFVerbosity"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\AMT\ASFVerbosity\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.ASFVerbosity"
+[INF]
+"ASFVerbosity.inf"
+[files]
+"ASFVerbosity.sdl"	
+<endComponent>

@@ -1,0 +1,7 @@
+TOKEN
+	Name  = "PlatSamplePkg_Csm_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable KabylakePlatSamplePkg Csm support in Project"
+	TokenType = Boolean
+	Master = Yes
+End

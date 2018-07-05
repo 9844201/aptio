@@ -1,0 +1,12 @@
+<component>
+	name = "TraceHubDebugLibSvenTx"
+	category = ModulePart
+	LocalRoot = "BpCommonPkg\Library\TraceHubDebugLibSvenTx\"
+	RefName = "BpCommonPkg.BaseTraceHubDebugLib"
+[INF]
+"BaseTraceHubDebugLibSvenTx.inf"
+"DxeTraceHubDebugLibSvenTx.inf"	
+"PeiTraceHubDebugLibSvenTx.inf"
+[files]
+"TraceHubDebugLibSvenTx.sdl"
+<endComponent>

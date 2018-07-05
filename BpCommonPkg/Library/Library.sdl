@@ -1,0 +1,54 @@
+TOKEN
+    Name  = "BpCommonPkg_Library_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Platform Library support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "DxeBiosIdLib"
+    File  = "BiosIdLib\DxeBiosIdLib.inf"
+    Package  = "BpCommonPkg"
+End
+
+LibraryMapping
+    Class  = "BiosIdLib"
+    Instance  = "BpCommonPkg.DxeBiosIdLib"
+    ModuleTypes  = "DXE_DRIVER"    
+End
+
+INFComponent
+    Name  = "CmosAccessLib"
+    File  = "CmosAccessLib\CmosAccessLib.inf"
+    Package  = "BpCommonPkg"
+End
+
+LibraryMapping
+    Class  = "CmosAccessLib"
+    Instance  = "BpCommonPkg.CmosAccessLib"  
+End
+
+INFComponent
+    Name  = "PeiBiosIdLib"
+    File  = "BiosIdLib\PeiBiosIdLib.inf"
+    Package  = "BpCommonPkg"
+End
+
+LibraryMapping
+    Class  = "BiosIdLib"
+    Instance  = "BpCommonPkg.PeiBiosIdLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PlatformCmosAccessLib"
+    File  = "PlatformCmosAccessLibNull\PlatformCmosAccessLibNull.inf"
+    Package  = "BpCommonPkg"
+End
+
+LibraryMapping
+    Class  = "PlatformCmosAccessLib"
+    Instance  = "BpCommonPkg.PlatformCmosAccessLib"
+    Token  = "KabylakePlatSamplePkg_SUPPORT" "=" "0"
+End

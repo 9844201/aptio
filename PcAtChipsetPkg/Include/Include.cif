@@ -1,0 +1,11 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "PcAtChipsetPkg\Include\"
+	RefName = "PcAtChipsetPkg.Include"
+[files]
+"Guid\PcAtChipsetTokenSpace.h"	
+"Library\IoApicLib.h"	
+"Register\Hpet.h"	
+"Register\IoApic.h"	
+<endComponent>

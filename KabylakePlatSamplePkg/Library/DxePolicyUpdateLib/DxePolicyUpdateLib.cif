@@ -1,0 +1,12 @@
+<component>
+	name = "DxePolicyUpdateLib"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Library\DxePolicyUpdateLib\"
+	RefName = "KabylakePlatSamplePkg.Library.DxePolicyUpdateLib"
+[INF]
+"DxePolicyUpdateLib.inf"
+[files]
+"DxeAmtPolicyUpdate.h"	
+"DxeMePolicyUpdate.h"	
+"DxeSaPolicyUpdate.h"	
+<endComponent>

@@ -1,0 +1,15 @@
+TOKEN
+	Name  = "AcpiSmm_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable AcpiSmm support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+    Name  = "AcpiSmm"
+    File  = "AcpiSmm.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End
+

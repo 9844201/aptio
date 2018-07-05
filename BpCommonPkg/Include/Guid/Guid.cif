@@ -1,0 +1,10 @@
+<component>
+	name = "Guid"
+	category = ModulePart
+	LocalRoot = "BpCommonPkg\Include\Guid\"
+	RefName = "BpCommonPkg.Include.Guid"
+[files]
+"BiosId.h"
+"HddPasswordSecurityVariable.h"	
+"VariableSmi.h"
+<endComponent>

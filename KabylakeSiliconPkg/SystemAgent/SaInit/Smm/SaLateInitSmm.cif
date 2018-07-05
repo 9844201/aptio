@@ -1,0 +1,8 @@
+<component>
+	name = "Smm"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\SaInit\Smm\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.SaInit.Smm"
+[INF]
+"SaLateInitSmm.inf"
+<endComponent>

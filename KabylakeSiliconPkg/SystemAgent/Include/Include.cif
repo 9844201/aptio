@@ -1,0 +1,22 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\Include\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.Include"
+[files]
+"Bdat4.h"	
+"DmaRemappingTable.h"	
+"MemInfoHob.h"	
+"SaAccess.h"	
+"SaCommonDefinitions.h"	
+"SaDataHob.h"	
+"SaPciExpressLib.h"	
+"SaRegs.h"	
+"SaPolicyCommon.h"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.Include.Library"
+"KabylakeSiliconPkg.SystemAgent.Include.Ppi"
+"KabylakeSiliconPkg.SystemAgent.Include.Protocol"
+"KabylakeSiliconPkg.SystemAgent.Include.Private"
+"KabylakeSiliconPkg.SystemAgent.Include.ConfigBlock"
+<endComponent>

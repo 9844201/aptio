@@ -1,0 +1,8 @@
+<component>
+	name = "MeFwDowngrade"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\MeFwDowngrade\"
+	RefName = "KabylakeSiliconPkg.Me.MeFwDowngrade"
+[parts]
+"KabylakeSiliconPkg.Me.MeFwDowngrade.MeFwDowngradeDxe"
+<endComponent>

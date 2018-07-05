@@ -1,0 +1,8 @@
+<component>
+	name = "Dxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\SataController\Dxe\"
+	RefName = "KabylakeSiliconPkg.Pch.SataController.Dxe"
+[INF]
+"SataController.inf"
+<endComponent>

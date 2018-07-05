@@ -1,0 +1,14 @@
+TOKEN
+	Name  = "SmbiosMisc_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Smbios Misc support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+    Name  = "SmbiosMisc"
+    File  = "SmbiosMiscDxe.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End

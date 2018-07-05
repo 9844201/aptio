@@ -1,0 +1,11 @@
+<component>
+	name = "SaInit"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\SaInit\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.SaInit"
+[files]
+"SaInit.sdl"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.SaInit.Dxe"
+"KabylakeSiliconPkg.SystemAgent.SaInit.Smm"
+<endComponent>

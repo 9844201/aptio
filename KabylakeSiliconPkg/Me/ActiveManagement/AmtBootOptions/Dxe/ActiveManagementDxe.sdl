@@ -1,0 +1,15 @@
+TOKEN
+	Name  = "ActiveManagement_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable ActiveManagement support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "ActiveManagement"
+	File  = "ActiveManagement.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes="DXE_DRIVER"
+End
+

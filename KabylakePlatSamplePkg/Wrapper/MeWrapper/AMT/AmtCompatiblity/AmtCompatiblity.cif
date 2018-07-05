@@ -1,0 +1,12 @@
+<component>
+	name = "AmtCompatiblity"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\AMT\AmtCompatiblity\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.AMTAmtCompatiblity"
+[INF]
+"AmtCompatiblity.inf"
+[files]
+"AmtCompatiblity.sdl"	
+[parts]
+"AmtCompatiblityProtocol"
+<endComponent>

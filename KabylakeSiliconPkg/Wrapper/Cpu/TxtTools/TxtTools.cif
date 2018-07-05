@@ -1,0 +1,9 @@
+<component>
+	name = "TxtTools"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Cpu\TxtTools\"
+	RefName = "KabylakeSiliconPkg.CpuWrap.TxtTools"
+[files]
+"TxtTools.sdl"	
+"TxtTools.mak"	
+<endComponent>

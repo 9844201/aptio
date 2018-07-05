@@ -1,0 +1,49 @@
+TOKEN
+	Name  = "MsiRomImage_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable MsiRomImage support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "FITC_ME_MAP"
+	Value  = "$(MSI_ROM_IMAGE_DIR)$(PATH_SLASH)Msi.map"
+	TokenType = Expression
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "FWCAPSULE_FILE_NAME"
+	Value  = "$(BUILD_DIR)$(PATH_SLASH)AMI.ROM"
+	Help  = "Signed BIOS file name. FwCapsule Hdr with the Signature is embedded inside the BIOS ROM.\Warning!!! Default Recovery image name is set by PCD:PcdRecoveryImageName"
+	TokenType = Expression
+	TargetMAK = Yes
+	Token = "FWCAPSULE_FILE_FORMAT" "=" "0"
+End
+
+TOKEN
+	Name  = "CRB_RECOVERY_BIN_STRING"
+	Value  = '"AMI.ROM"'
+	Help  = "Redirect FWCAPSULE_FILE_NAME to DSC for string type PCD"
+	TokenType = Expression
+	TargetDSC = Yes
+	Token = "SecureMod_SUPPORT" "=" "1"
+End
+
+PATH
+	Name  = "MSI_ROM_IMAGE_DIR"
+End
+
+MODULE
+	Help  = "Includes RomImage to Project"
+	File  = "RomImage.mak"
+End
+
+MODULE
+	Help  = "Includes Crb.mak to Project"
+	File  = "Crb.mak"
+End
+

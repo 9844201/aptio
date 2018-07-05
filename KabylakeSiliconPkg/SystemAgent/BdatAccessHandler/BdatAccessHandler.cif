@@ -1,0 +1,10 @@
+<component>
+	name = "BdatAccessHandler"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\BdatAccessHandler\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.BdatAccessHandler"
+[files]
+"BdatAccessHandler.sdl"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.BdatAccessHandler.Dxe"
+<endComponent>

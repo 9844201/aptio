@@ -1,0 +1,21 @@
+TOKEN
+	Name  = "HstiIbvPlatformDxe_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable HstiIbvPlatformDxe support in Project"
+	TokenType = Boolean
+	Master = Yes
+	Token = "AmiHstiPkg_SUPPORT" "=" "0"	
+End
+
+PATH
+	Name  = "HstiIbvPlatformDxe_DIR"
+	Help  = "Path to SecureErase Module in Project"
+End
+
+INFComponent
+	Name  = "HstiIbvPlatformDxe"
+	File  = "HstiIbvPlatformDxe.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+

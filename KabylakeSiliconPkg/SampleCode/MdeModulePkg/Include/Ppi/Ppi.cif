@@ -1,0 +1,9 @@
+<component>
+	name = "Ppi"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\MdeModulePkg\Include\Ppi\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg.Include.Ppi"
+[files]
+"SmmAccess.h"	
+"SmmControl.h"	
+<endComponent>

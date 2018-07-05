@@ -1,0 +1,10 @@
+<component>
+	name = "PlatformInfo"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\PlatformInfo\"
+	RefName = "KabylakePlatSamplePkg.Acpi.AcpiTablesWrap.PlatformInfo"
+[INF]
+"Pei\PlatformInfoPei.inf"
+[files]
+"PlatformInfo.sdl"	
+<endComponent>

@@ -1,0 +1,26 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "ClientCommonPkg\Include\Protocol\"
+	RefName = "ClientCommonPkg.Include.Protocol"
+[files]
+"SmmThunk.h"	
+"SmmTxtResource.h"	
+"SmmTxtStmService.h"	
+"FastBootException.h"	
+"FixedPciResource.h"	
+"FlashDeviceInfo.h"	
+"FpdtFirmwarePerformance.h"	
+"HddPasswordExternalControl.h"
+"IrqBoardInfo.h"	
+"IrqTableInfo.h"	
+"KeyboardLeds.h"	
+"SmmExitBootServices.h"
+"SmmLegacyBoot.h"
+"SmmReadyToBoot.h"
+"TrEEPlatform.h"	
+"VirtualKeyboard.h"	
+"VirtualKeyboardLayout.h"	
+"WdtApp.h"	
+"Esrt.h"	
+<endComponent>

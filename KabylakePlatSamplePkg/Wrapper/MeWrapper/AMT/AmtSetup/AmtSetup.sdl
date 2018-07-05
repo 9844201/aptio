@@ -1,0 +1,130 @@
+TOKEN
+    Name  = "iAMT_Setup"
+    Value  = "1"
+    Help  = "Main switch to enable iAMT Setup support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+End
+
+PATH
+    Name  = "AMT_SETUP_DIR"
+End
+
+ELINK
+    Name  = "iAMTProcessProceedToBootHook,"
+    Parent  = "ProcessProceedToBoot,"
+    Help  = "iAMT hook into TSE for TSE specific functions "
+    InvokeOrder = BeforeParent
+End
+
+ELINK
+	Name  = "iAMTProcessEnterSetupHook,"
+	Parent  = "PostManagerHandShakeHook,"
+	Help  = "iAMT hook into TSE for TSE specific functions "
+	InvokeOrder = AfterParent
+End
+
+#ELINK
+#    Name  = "KabylakePlatSamplePkg/Platform/AMT/AMT.dec"
+#    Parent  = "ADDITIONAL_AMITSE_Packages"
+#    InvokeOrder = AfterParent
+#End
+
+ELINK
+    Name  = "$(AMT_SETUP_DIR)/AmtTseFunc.c"
+    Parent  = "TSE_SOURCE_FILES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AMTSETUP_LIB"
+    InvokeOrder = ReplaceParent
+End
+
+ELINK
+    Name  = "iAMTProcessConInAvailabilityHook,"
+    Parent  = "ProcessConInAvailability,"
+    Help  = "iAMT hook into TSE for TSE specific functions "
+    InvokeOrder = AfterParent
+End
+
+#ELINK
+#    Name  = "AMTBypassPasswordCheck,"
+#    Parent  = "ProcessConInAvailabilityHook,"
+#    Priority  = 0
+#    InvokeOrder = AfterParent
+#End
+
+#TOKEN
+#    Name  = "AMT_SMIFLASH_LIB"
+#    Value  = "$(BUILD_DIR)/AmtSetup.lib"
+#    TokenType = Expression
+#    TargetMAK = Yes
+#End
+
+#ELINK
+#    Name  = "$(BUILD_DIR)/AmtSetup.lib"
+#    Parent  = "PRESERVE_LIB"
+#    InvokeOrder = AfterParent
+#End
+
+INFComponent
+    Name  = "AmtBypass"
+    File  = "AmtBypass.inf"
+    Package  = "KabylakePlatSamplePkg"
+    EDK_Module = Yes
+    ModuleTypes="DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "AmtFastBootHook"
+    File  = "AmtFastBootHook.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Token = "POST_TIME_TUNING_SUPPORT" "=" "1"    
+End
+
+ELINK
+    Name  = "gHeciProtocolGuid"
+    Parent  = "ADDITIONAL_AMITSE_Protocols"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gEfiAmtWrapperProtocolGuid"
+    Parent  = "ADDITIONAL_AMITSE_Protocols"
+    InvokeOrder = AfterParent
+End
+
+
+ELINK
+    Name  = "gDxeAmtPolicyGuid"
+    Parent  = "ADDITIONAL_AMITSE_Protocols"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAlertStandardFormatProtocolGuid"
+    Parent  = "ADDITIONAL_AMITSE_Protocols"
+    InvokeOrder = AfterParent
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.AmtFastBootHook"
+    Override  = "AmiModulePkg.Bds"
+    Token = "iAMT_SUPPORT" "=" "1"
+    Token = "POST_TIME_TUNING_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "IsiAmtBoot,"
+    Parent  = "IsFastBootList"
+    Priority  = -10
+    InvokeOrder = AfterParent
+    Token = "iAMT_SUPPORT" "=" "1"
+    Token = "POST_TIME_TUNING_SUPPORT" "=" "1" 
+End
+

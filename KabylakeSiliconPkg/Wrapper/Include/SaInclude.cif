@@ -1,0 +1,13 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Wrapper\Include\"
+	RefName = "KabylakeSiliconPkg.Wrapper.Include.SaInclude"
+[files]
+"SaSetupData.h"	
+"Library\SystemAgentHookPeiLib.h"	
+"Library\SystemAgentHookDxeLib.h"	
+"Library\SaLinkLib.h"	
+"Guid\GraphicsInfoHob.h"	
+"Include\Ppi\Graphics.h"	
+<endComponent>

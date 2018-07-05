@@ -1,0 +1,8 @@
+<component>
+	name = "Dxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\SerialGpio\Dxe\"
+	RefName = "KabylakeSiliconPkg.Pch.SerialGpio.Dxe"
+[INF]
+"PchSerialGpio.inf"
+<endComponent>

@@ -1,0 +1,11 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\MdeModulePkg\Include\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg.Include"
+[parts]
+"KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg.Include.Guid"
+"KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg.Include.Library"
+"KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg.Include.Ppi"
+"KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg.Include.Protocol"
+<endComponent>

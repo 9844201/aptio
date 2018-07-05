@@ -1,0 +1,23 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\Library\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.Library"
+[INF]
+"PlatformSecLib\PlatformSecLib.inf"
+"PlatformSecLib\FspMPlatformSecLib.inf"
+"PlatformSecLib\FspSPlatformSecLib.inf"
+"PlatformSecLib\FspTPlatformSecLib.inf"
+[files]
+"Library.sdl"	
+"PlatformSecLib\Ia32\Chipset.inc"	
+"PlatformSecLib\Ia32\ChipsetGcc.inc"	
+"PlatformSecLib\Ia32\SecCore.inc"	
+"PlatformSecLib\Ia32\SecCoreGcc.inc"	
+"PlatformSecLib\Ia32\Platform.inc"	
+"PlatformSecLib\Ia32\PlatformGcc.inc"	
+"PlatformSecLib\Ia32\ChipsetNasm.inc"	
+"PlatformSecLib\Ia32\Flat32.nasm"	
+"PlatformSecLib\Ia32\PlatformNasm.inc"	
+"PlatformSecLib\Ia32\SecCoreNasm.inc"	
+<endComponent>

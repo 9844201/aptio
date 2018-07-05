@@ -1,0 +1,8 @@
+<component>
+	name = "Dxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\SmmControl\RuntimeDxe\"
+	RefName = "KabylakeSiliconPkg.Pch.SmmControl.RuntimeDxe"
+[INF]
+"SmmControl.inf"
+<endComponent>

@@ -1,0 +1,15 @@
+<component>
+	name = "SkylakeHaloLpddr3Rvp16"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Board\SkylakeHaloLpddr3Rvp16\"
+	RefName = "KabylakePlatSamplePkg.SkylakeHaloLpddr3Rvp16"
+[INF]
+"DxeBoardInitLib\SkylakeHaloLpddr3Rvp16InitLib.inf"
+"PeiBoardInitLib\PeiSkylakeHaloLpddr3Rvp16InitLib.inf"
+"PeiBoardInitLib\PeiSkylakeHaloLpddr3Rvp16InitPreMemLib.inf"
+[files]
+"SkylakeHaloLpddr3Rvp16.sdl"	
+"DxeBoardInitLib\SkylakeHaloLpddr3Rvp16InitLib.h"	
+"PeiBoardInitLib\PeiSkylakeHaloLpddr3Rvp16InitLib.h"	
+"PeiBoardInitLib\SkylakeHaloLpddr3Rvp16HsioPtssTables.h"	
+<endComponent>

@@ -1,0 +1,18 @@
+TOKEN
+    Name  = "IA32FamilyCpuPkg_Library_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for IA32FamilyCpuPkg Library support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "SmmCpuFeaturesLib"
+    File  = "SmmCpuFeaturesLib\SmmCpuFeaturesLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+LibraryMapping
+	Class  = "SmmCpuFeaturesLib"
+	Instance  = "KabylakePlatSamplePkg.SmmCpuFeaturesLib"
+End

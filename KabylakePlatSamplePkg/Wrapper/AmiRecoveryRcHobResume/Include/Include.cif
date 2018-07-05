@@ -1,0 +1,10 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\AmiRecoveryRcHobResume\Include\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.AmiRecoveryRcHobResume.Include"
+[files]
+"Library\AmiCpuInitDataHobLib.h"	
+"Library\AmiSiPolicyHobLib.h"	
+"Library\AmiPchPolicyHobLib.h"	
+<endComponent>

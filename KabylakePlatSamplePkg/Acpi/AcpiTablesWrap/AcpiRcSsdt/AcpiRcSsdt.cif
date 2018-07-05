@@ -1,0 +1,10 @@
+<component>
+	name = "AcpiRcSsdt"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiRcSsdt\"
+	RefName = "KabylakePlatSamplePkg.Acpi.AcpiTablesWrap.AcpiRcSsdt"
+[files]
+"AcpiRcSsdt.sdl"	
+"AcpiRcSsdt.mak"	
+"AcpiRcSsdt.txt"	
+<endComponent>

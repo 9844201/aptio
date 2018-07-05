@@ -1,0 +1,29 @@
+TOKEN
+	Name  = "CpuInit_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling CpuInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "CPU_SMBIOS_RC_SUPPORT"
+	Value  = "1"
+	Help  = "On:Intel RC provides smbios type 4 and type 7. Off:Ami cpu module provides smbios type 4 and type 7."
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "REQUEST_EBDA_SIZE"
+	Value  = "0x1000"
+	Help  = "Default value 0x1000. If we need to use EBDA, please change the token value to 0x2000. For example, Using mini-pcie card."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+INFComponent
+	Name  = "CpuInitDxe"
+	File  = "Dxe/CpuInitDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End

@@ -1,0 +1,15 @@
+TOKEN
+	Name  = "SmmPlatform_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Platform support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+    Name  = "SmmPlatform"
+    File  = "Smm\SmmPlatform.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End
+

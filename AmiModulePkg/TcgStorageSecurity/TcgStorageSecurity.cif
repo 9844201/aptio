@@ -1,0 +1,21 @@
+<component>
+	name = "TcgStorageSecurity"
+	category = eModule
+	LocalRoot = "AmiModulePkg\TcgStorageSecurity\"
+	RefName = "TcgStorageSecurity"
+[INF]
+"TcgStorageSecurity.inf"
+[files]
+"TcgStorageSecurity.sdl"	
+"TcgStorageSecurity.chm"	
+[parts]
+"TcgStorageDynamicSetup"
+"AmiTseTcgStorageSecurity"
+"TcgStorageSecurityIncludes"
+"SmmTcgStorageSec"
+[dependency]
+AmiModulePkg >= "SS: AptioV;$/AptioV/Source/Interfaces/AmiModulePkg;AmiModulePkg_28"
+NVMe >= "SS: AptioV;$/AptioV/Source/Modules/NVMe;NVMe_13"
+AMITSE >= "SS: AptioV;$/AptioV/Binary/Modules/AMITSE;AMITSE_2_18_1263"
+AHCI >= "SS: AptioV;$/AptioV/Source/Modules/AHCI;AHCI_13"
+<endComponent>

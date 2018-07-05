@@ -1,0 +1,24 @@
+<component>
+	name = "ConfigBlock"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\Include\ConfigBlock\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.Include.ConfigBlock"
+[files]
+"GmmConfig.h"	
+"GraphicsPeiConfig.h"	
+"GraphicsPeiPreMemConfig.h"	
+"MemoryConfig.h"	
+"OverClockingConfig.h"	
+"PciePeiConfig.h"	
+"PciePeiPreMemConfig.h"	
+"SaMiscPeiConfig.h"	
+"SaMiscPeiPreMemConfig.h"	
+"SkycamConfig.h"	
+"SwitchableGraphicsConfig.h"	
+"VtdConfig.h"	
+"GraphicsDxeConfig.h"	
+"MemoryDxeConfig.h"	
+"MiscDxeConfig.h"	
+"PcieDxeConfig.h"	
+"VbiosDxeConfig.h"	
+<endComponent>

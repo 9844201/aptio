@@ -1,0 +1,13 @@
+<component>
+	name = "IntelSaGopSetup"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\NB\GOP\IntelSaGopSetup\"
+	RefName = "IntelSaGopSetup"
+[INF]
+"IntelSaGopSetup.inf"
+"SetBrightnessLevelDuringPostLib.inf"
+[files]
+"IntelSaGopSetup.sdl"	
+"IntelSaGopSetup.sd"	
+"IntelSaGopSetup.uni"	
+<endComponent>

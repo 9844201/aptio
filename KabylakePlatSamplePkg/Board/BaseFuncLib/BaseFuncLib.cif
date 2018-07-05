@@ -1,0 +1,10 @@
+<component>
+	name = "BaseFuncLib"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Board\BaseFuncLib\"
+	RefName = "KabylakePlatSamplePkg.BaseFuncLib"
+[INF]
+"BaseFuncLib.inf"
+[files]
+"BaseFuncLib.sdl"	
+<endComponent>

@@ -1,0 +1,21 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Include\"
+	RefName = "KabylakeSiliconPkg.Common.Include"
+[files]
+"PcieRegs.h"	
+"SiPolicyStruct.h"	
+"Ppi\SiInitPpi.h"	
+"Ppi\SiPolicy.h"	
+"Library\AslUpdateLib.h"	
+"Library\MmPciLib.h"	
+"Library\SiFviLib.h"	
+"Library\SiPolicyLib.h"	
+"Library\PeiSiPolicyUpdateLib.h"	
+"Library\SiConfigBlockLib.h"	
+"Protocol\SiPolicyProtocol.h"	
+"Private\SiConfigHob.h"	
+"Private\Library\PcieInitLib.h"	
+"Private\Library\SiFviInitLib.h"	
+<endComponent>

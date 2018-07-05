@@ -1,0 +1,10 @@
+<component>
+	name = "LegacyUsb"
+	category = ModulePart
+	LocalRoot = "ClientCommonPkg\LegacyUsb\"
+	RefName = "ClientCommonPkg.LegacyUsb"
+[files]
+"LegacyUsbPlatformConfig.h"	
+[parts]
+"ClientCommonPkg.LegacyUsb.Protocol"
+<endComponent>

@@ -1,0 +1,13 @@
+<component>
+	name = "IntelBpCommonPkg"
+	category = eModule
+	LocalRoot = "BpCommonPkg\"
+	RefName = "BpCommonPkg"
+[files]
+"BpCommonPkg.sdl"	
+"BpCommonPkg.dec"	
+"IntelBpCommonPkg.chm"	
+[parts]
+"BpCommonPkg.Include"
+"BpCommonPkg.Library"
+<endComponent>

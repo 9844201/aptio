@@ -1,0 +1,13 @@
+<component>
+	name = "AmiGetBoardInfoLib"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\AmiGetBoardInfoLib\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.AmiGetBoardInfoLib"
+[properties]
+	Orphan = KabylakePlatSamplePkg.Wrapper
+[INF]
+"AmiGetBoardInfoLib.inf"
+[files]
+"AmiGetBoardInfoLib.sdl"	
+"AmiGetBoardInfoLib.h"	
+<endComponent>

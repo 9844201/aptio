@@ -1,0 +1,247 @@
+TOKEN
+	Name  = "OVER_CLOCK_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+	Help  = "Main switch to enable Overclock support in Project"
+End
+
+TOKEN
+        Name  = "PERF_TUNE_SW_SMI"
+        Value  = "0xB2"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+End
+
+TOKEN
+	Name  = "PFTU"
+	Value  = "$(PERF_TUNE_SW_SMI)"
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+PcdMapping
+    Name  = "PcdOverClockingInterfaceSwSmi"
+    GuidSpace  = "gPlatformModuleTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "$(PERF_TUNE_SW_SMI)"
+    Offset  = 00h
+    Length  = 01h
+    TargetDSC = Yes
+End
+
+PcdMapping
+    Name  = "PcdSmbusBaseAddress"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "$(SMBUS_BASE_ADDRESS)"
+    Offset  = 00h
+    Length  = 01h
+    TargetDSC = Yes
+End
+
+ELINK
+    Name  = "-D OC_SUPPORT"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+End
+
+INFComponent
+    Name  = "PeiOverClock"
+    File  = "OverClockInit\PeiOverClock.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiOverClockLib"
+    File  = "OverClockInit\PeiOverClockLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+INFComponent
+    Name  = "DxeOverClockLib"
+    File  = "OverClockInit\DxeOverClockLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+End
+
+INFComponent
+    Name  = "DxeOverClock"
+    File  = "OverClockInit\DxeOverClock.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+#INFComponent
+#    Name  = "DxeOverClockSetupOverrideLib"
+#    File  = "OverClockInit\DxeOverClockSetupOverrideLib.inf"
+#    Package  = "KabylakePlatSamplePkg"
+#End
+
+INFComponent
+    Name  = "OverclockInterface"
+    File  = "OverclockInterface\OverclockInterface.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "OverClockSmiHandler"
+    File  = "OverclockInterface\OverClockSmiHandler.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+LibraryMapping
+    Class  = "PeiOverClockLib"
+    Instance  = "KabylakePlatSamplePkg.PeiOverClockLib"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+	Class  = "DxeOverClockLib"
+	Instance  = "KabylakePlatSamplePkg.DxeOverClockLib"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+	Name  = "OverclockInterfaceACPI"
+	File  = "OverclockInterface\OverclockInterfaceACPI.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes="USER_DEFINED"
+End
+
+FFS_FILE
+	Name  = "OverclockInterfaceACPI"
+	FD_AREA  = "FV_MAIN"
+	INFComponent  = "KabylakePlatSamplePkg.OverclockInterfaceACPI"
+	Rule_Override  = "ACPITABLE"
+End
+
+PATH
+     Name  = "OVER_CLOCK_PATH"
+End
+
+TOKEN
+        Name  = "OC_BCLK_FLOW_WARM_RESET"
+        Value  = "0"
+        TokenType = Integer
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Help  = "Determine Overclock reset flow. 0 = cold boot, 1 = warm boot."
+End
+
+ELINK
+    Name  = "-D BCLK_FLOW_WARM_RESET"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "OC_BCLK_FLOW_WARM_RESET" "=" "1"
+End
+
+ELINK
+    Name  = "$(OVER_CLOCK_PATH)/OverClockSetupOverride.c"
+    Parent  = "TSE_SOURCE_FILES"
+    Token = "OVER_CLOCK_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "OcProcessEnterSetup,"
+    Parent  = "ProcessEnterSetup,"
+    Token = "OVER_CLOCK_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "OcSetupResetHook,"
+    Parent  = "PreSystemResetHook,"
+    Token = "OVER_CLOCK_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "LoadOverClockHwDefault,"
+    Parent  = "LoadedConfigDefaultsHook,"
+    Token = "OVER_CLOCK_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "DisableOCWdt,"
+    Parent  = "InstallConInStartedProtocol,"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO1,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO3,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO11,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO10,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO13,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO5,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO6,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO8,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO7,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(ADVANCED_FORM_SET_CLASS,0,KEY_MEMINFO4,OverClockSetupCallback),"
+    Parent  = "SetupItemCallbacks"
+    InvokeOrder = AfterParent
+End

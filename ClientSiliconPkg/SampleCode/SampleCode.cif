@@ -1,0 +1,8 @@
+<component>
+	name = "SampleCode"
+	category = ModulePart
+	LocalRoot = "ClientSiliconPkg\SampleCode\"
+	RefName = "ClientSiliconPkg.SampleCode"
+[files]
+"IntelFrameworkPkg\Include\Guid\SmramMemoryReserve.h"	
+<endComponent>

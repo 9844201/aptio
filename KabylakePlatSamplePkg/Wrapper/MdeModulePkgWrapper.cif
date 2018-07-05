@@ -1,0 +1,8 @@
+<component>
+	name = "MdeModulePkgWrapper"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MdeModulePkgWrapper"
+[parts]
+"MdeModulePkg.LibraryWrapper"
+<endComponent>

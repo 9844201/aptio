@@ -1,0 +1,16 @@
+TOKEN
+	Name  = "AMI_TXT_PEI_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable AMI TXT PEI support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+INFComponent
+	Name  = "AmiTxtPei"
+	File  = "AmiTxtPei.inf"
+	Package  = "AmiCpuModulePkg"
+	ModuleTypes  = "PEIM"
+End

@@ -1,0 +1,21 @@
+TOKEN
+	Name  = "CpuAcpiTables_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "CpuAcpiTables"
+	File  = "CpuAcpiTables.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes="USER_DEFINED"
+End
+
+FFS_FILE
+	Name  = "CpuAcpiTables"
+	FD_AREA  = "FV_MAIN"
+	INFComponent  = "KabylakeSiliconPkg.CpuAcpiTables"
+	Rule_Override  = "ACPITABLE"
+End

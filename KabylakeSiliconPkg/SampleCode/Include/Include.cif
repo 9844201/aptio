@@ -1,0 +1,11 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\Include\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.Include"
+[files]
+"Guid\PttPTPInstanceGuid.h"	
+"Library\SecPlatformLib.h"	
+"Library\SocketLga775Lib.h"	
+"Library\SocketLga1156Lib.h"	
+<endComponent>

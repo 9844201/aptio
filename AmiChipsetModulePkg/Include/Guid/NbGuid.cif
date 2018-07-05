@@ -1,0 +1,8 @@
+<component>
+	name = "NB Guid"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\Include\Guid\"
+	RefName = "AmiChipsetModulePkg.NbGuid"
+[files]
+"NbChipsetGuid.h"	
+<endComponent>

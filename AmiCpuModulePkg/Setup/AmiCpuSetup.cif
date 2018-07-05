@@ -1,0 +1,15 @@
+<component>
+	name = "Ami CpuSetup"
+	category = ModulePart
+	LocalRoot = "AmiCpuModulePkg\Setup\"
+	RefName = "AmiCpuModulePkg.AmiCpuSetup"
+[INF]
+"AmiCpuFeaturesDxe.inf"
+"AmiCpuSetupPreserve.inf"
+"AmiCpuNvRamHookLib.inf"
+"AmiCpuNvRamHookPeiLib.inf"
+[files]
+"AmiCpuSetup.sdl"	
+"AmiCpuSetupReset.c"	
+"Include\CpuSetupFeature.h"	
+<endComponent>

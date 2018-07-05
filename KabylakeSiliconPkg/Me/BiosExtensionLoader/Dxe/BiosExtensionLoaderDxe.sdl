@@ -1,0 +1,15 @@
+TOKEN
+	Name  = "BiosExtensionLoader_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable BiosExtensionLoader support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "BiosExtensionLoader"
+	File  = "BiosExtensionLoader.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes="DXE_DRIVER"
+End
+

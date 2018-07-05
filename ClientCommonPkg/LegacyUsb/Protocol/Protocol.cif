@@ -1,0 +1,9 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "ClientCommonPkg\LegacyUsb\Protocol\"
+	RefName = "ClientCommonPkg.LegacyUsb.Protocol"
+[files]
+"UsbPolicy.h"	
+"UsbController.h"	
+<endComponent>

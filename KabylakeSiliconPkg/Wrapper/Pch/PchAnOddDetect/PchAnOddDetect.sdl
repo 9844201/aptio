@@ -1,0 +1,20 @@
+TOKEN
+	Name  = "PCH_AN_ODD_DETECT_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable Logo Changer support in Project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+End
+
+PATH
+	Name  = "PCH_AN_ODD_DETECT_DIR"
+End
+
+INFComponent
+	Name  = "PchAnOddDetect"
+	File  = "PchAnOddDetect.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End

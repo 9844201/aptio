@@ -1,0 +1,22 @@
+TOKEN
+	Name  = "IntelGraphicsPeim_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling IntelGraphicsPeim support in the project"
+	TokenType = Boolean
+	TargetH = Yes	
+	Master = Yes
+End
+
+INFComponent
+	Name  = "IntelGraphicsPeim"
+	File  = "Binaries\IntelGraphicsPeim.inf"
+	Package  = "KabylakeSiliconPkg"
+    ModuleTypes  = "PEIM"
+End
+
+FFS_FILE
+	Name  = "IntelGraphicsPeim"
+	FD_AREA  = "FV_BB_AFTER_MEMORY"
+	INFComponent  = "KabylakeSiliconPkg.IntelGraphicsPeim"
+	Token = "FSP_WRAPPER_ENABLE" "=" "0"			
+End

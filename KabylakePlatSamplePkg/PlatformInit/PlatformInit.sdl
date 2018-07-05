@@ -1,0 +1,112 @@
+TOKEN
+	Name  = "PlatformInit_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable PlatformInit support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "PlatformInit"
+	File  = "PlatformInitPei\PlatformInit.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "PEIM"
+End
+
+INFComponent
+	Name  = "PlatformInitPreMem"
+	File  = "PlatformInitPei\PlatformInitPreMem.inf"
+	Package  = "KabylakePlatSamplePkg"
+	ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PlatformInitDxe"
+    File  = "PlatformInitDxe\PlatformInitDxe.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakeSiliconPkg.PchHookPeiLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PlatformInitPreMem"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakeSiliconPkg.PchHookPeiLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PlatformInit"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiChipsetModulePkg.NbGetSetupData"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PlatformInitPreMem"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiChipsetModulePkg.SbGetSetupData"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PlatformInitPreMem"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiChipsetModulePkg.SbGetSetupData"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PlatformInit"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiChipsetModulePkg.SbPeiLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PlatformInitPreMem"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiChipsetModulePkg.SbPeiLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PlatformInit"
+    Token = "AMI_OEM_SSID_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+	Name  = "PlatformInitPreMem"
+	FD_AREA  = "FV_BB"
+	INFComponent  = "KabylakePlatSamplePkg.PlatformInitPreMem"
+	Index  = '"AFTER" "SiInitPreMem"'
+	Token = "FSP_WRAPPER_ENABLE" "=" "0"    	
+End
+
+FFS_FILE
+	Name  = "PlatformInitPreMem"
+	FD_AREA  = "FV_BB"
+	INFComponent  = "KabylakePlatSamplePkg.PlatformInitPreMem"   
+	Token = "FSP_WRAPPER_ENABLE" "=" "1"        
+End
+
+FFS_FILE
+    Name  = "PlatformInit"
+    FD_AREA  = "FV_BB"
+    INFComponent  = "KabylakePlatSamplePkg.PlatformInit"
+    Index  = '"AFTER" "BiosGuardCpuPolicyOverride"'
+    Token = "BiosGuard_SUPPORT" "=" "1"
+End
+
+PcdMapping
+    Name  = "PcdSoftwareGuardEnable"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsFeatureFlag"
+    DataType  = "BOOLEAN"
+    Value  = "TRUE"
+    Offset  = 00h
+    Length  = 01h
+    TargetDSC = Yes
+End

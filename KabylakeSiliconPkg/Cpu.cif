@@ -1,0 +1,11 @@
+<component>
+	name = "Cpu"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\"
+	RefName = "KabylakeSiliconPkg.Cpu"
+[files]
+"CPU_RC_History.txt"	
+[parts]
+"KabylakeSiliconPkg.CpuRefCode"
+"KabylakeSiliconPkg.CpuWrap"
+<endComponent>

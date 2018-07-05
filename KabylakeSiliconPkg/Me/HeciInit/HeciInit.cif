@@ -1,0 +1,8 @@
+<component>
+	name = "HeciInit"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\HeciInit\"
+	RefName = "KabylakeSiliconPkg.Me.HeciInit"
+[parts]
+"KabylakeSiliconPkg.Me.HeciInit.HeciInitDxe"
+<endComponent>

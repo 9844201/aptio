@@ -1,0 +1,10 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\AmiRecoveryRcHobResume\Library\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.AmiRecoveryRcHobResume.Library"
+[INF]
+"AmiCpuInitDataHobLib\AmiCpuInitDataHobLib.inf"
+"AmiSiPolicyHobLib\AmiSiPolicyHobLib.inf"
+"AmiPchPolicyHobLib\AmiPchPolicyHobLib.inf"
+<endComponent>

@@ -1,0 +1,13 @@
+TOKEN
+    Name = "IntelClientSiliconPkg_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable IntelClientSiliconPkg in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+PATH
+    Name = "INTEL_CLIENT_SILICON_PKG_DIR"
+End

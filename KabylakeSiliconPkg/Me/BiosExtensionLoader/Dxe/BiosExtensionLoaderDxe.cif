@@ -1,0 +1,10 @@
+<component>
+	name = "BiosExtensionLoaderDxe"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\BiosExtensionLoader\Dxe\"
+	RefName = "KabylakeSiliconPkg.Me.BiosExtensionLoader.BiosExtensionLoaderDxe"
+[INF]
+"BiosExtensionLoader.inf"
+[files]
+"BiosExtensionLoaderDxe.sdl"	
+<endComponent>

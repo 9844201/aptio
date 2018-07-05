@@ -1,0 +1,124 @@
+TOKEN
+	Name  = "CryptoPkg_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling CryptoPkg support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+    Name = "CryptoPkg_MAJOR_VERSION"
+    Value = "28"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name = "CryptoPkg_MINOR_VERSION"
+    Value = "1"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "DISABLE_STDLIB_WRAPPER_METHODS"
+    Value  = "0"
+    Help  = "Token for disabling build of wrapper methods related to StdLib in the project. 1 - Remove StdLib wrapper methods from build process, 0 - Add StdLib wrapper methods to build process"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "StdLib_SUPPORT" "=" "0"    
+End
+
+TOKEN
+    Name  = "DISABLE_STDLIB_WRAPPER_METHODS"
+    Value  = "1"
+    Help  = "Token for disabling build of wrapper methods related to StdLib in the project. 1 - Remove StdLib wrapper methods from build process, 0 - Add StdLib wrapper methods to build process"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "StdLib_SUPPORT" "=" "1"    
+End
+
+TOKEN
+    Name  = "BUILD_OPENSSL_WITH_SOCKET"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+ELINK
+    Name  = "ADDITIONAL_OpenSsl_Packages"
+    InvokeOrder = ReplaceParent
+End
+
+ELINK
+    Name  = "ADDITIONAL_OpenSsl_LibraryClasses"
+    InvokeOrder = ReplaceParent
+End
+
+ELINK
+    Name  = "AmiDxeLib"
+    Parent  = "ADDITIONAL_OpenSsl_LibraryClasses"
+    Token = "DISABLE_STDLIB_WRAPPER_METHODS" "!=" "0"        
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "LibC"
+    Parent  = "ADDITIONAL_OpenSsl_LibraryClasses"
+    Token = "DISABLE_STDLIB_WRAPPER_METHODS" "!=" "0"        
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "LibStdLib"
+    Parent  = "ADDITIONAL_OpenSsl_LibraryClasses"
+    Token = "DISABLE_STDLIB_WRAPPER_METHODS" "!=" "0"        
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "LibNetUtil"
+    Parent  = "ADDITIONAL_OpenSsl_LibraryClasses"
+    Token = "DISABLE_STDLIB_WRAPPER_METHODS" "!=" "0"        
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AmiCompatibilityPkg/AmiCompatibilityPkg.dec"
+    Parent  = "ADDITIONAL_OpenSsl_Packages"
+    Token = "DISABLE_STDLIB_WRAPPER_METHODS" "!=" "0"        
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "StdLib/StdLib.dec"
+    Parent  = "ADDITIONAL_OpenSsl_Packages"
+    Token = "DISABLE_STDLIB_WRAPPER_METHODS" "!=" "0"        
+    InvokeOrder = AfterParent
+End
+  
+ELINK
+  Name = "-DOPENSSL_NO_STDIO -DOPENSSL_NO_FP_API -DOPENSSL_NO_TLS1_1 -DOPENSSL_NO_TLS1 -DOPENSSL_NO_TLS1_METHOD -DOPENSSL_NO_TLS1_1_METHOD"
+  Parent = "*_*_*_CC_FLAGS"
+  Type = "BuildOptions"
+  TOKEN = "DISABLE_STDLIB_WRAPPER_METHODS" "=" "0"	  
+  InvokeOrder = AfterParent
+End
+
+ELINK
+  Name = "-DOPENSSL_NO_TLS1_1 -DOPENSSL_NO_TLS1 -DOPENSSL_NO_TLS1_METHOD -DOPENSSL_NO_TLS1_1_METHOD"
+  Parent = "*_*_*_CC_FLAGS"
+  Type = "BuildOptions"
+  TOKEN = "DISABLE_STDLIB_WRAPPER_METHODS" "=" "1"	  
+  InvokeOrder = AfterParent
+End
+
+ELINK
+  Name = "*_*_*_CC_FLAGS"
+  Type = "BuildOptions"
+  Arch = "COMMON"
+  InvokeOrder = ReplaceParent
+  OutDSC = Yes
+End

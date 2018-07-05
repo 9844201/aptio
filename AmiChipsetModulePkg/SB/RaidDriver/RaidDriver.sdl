@@ -1,0 +1,66 @@
+TOKEN
+	Name  = "RaidDriver_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling RaidDriver support in the project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+End
+
+TOKEN
+    Name  = "CFL_RAID_DRIVER_SUPPORT"
+    Value  = "0"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+INFComponent
+	Name = "RaidDriver"
+	File = "RaidDriver.inf"
+	Package = "AmiChipsetModulePkg"
+	ModuleTypes = "UEFI_DRIVER"
+    Token = "CFL_RAID_DRIVER_SUPPORT" "=" "0"
+End
+
+FFS_FILE
+    Name  = "RaidDriver"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "AmiChipsetModulePkg.RaidDriver"
+    Rule_Override = "EfiBinary"
+    Token = "CFL_RAID_DRIVER_SUPPORT" "=" "0"
+End
+
+INFComponent
+    Name = "CflRaidDriver"
+    File = "CflRaidDriver.inf"
+    Package = "AmiChipsetModulePkg"
+    ModuleTypes = "UEFI_DRIVER"
+    Token = "CFL_RAID_DRIVER_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+    Name  = "RaidDriver"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "AmiChipsetModulePkg.CflRaidDriver"
+    Rule_Override = "EfiBinary"
+    Token = "CFL_RAID_DRIVER_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "RAID_DRIVER_SMM_SUPPORT"
+    Value  = "0"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+FFS_FILE
+   Name  = "RaidDriverSmm"
+   FD_AREA  = "FV_MAIN"
+   FILE_Stmt  = "AmiChipsetModulePkg\SB\RaidDriver\RaidDriverSmm_FdfFileStatement.txt"
+   Token = "RAID_DRIVER_SMM_SUPPORT" "=" "1"
+End

@@ -1,0 +1,26 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Include\Protocol\"
+	RefName = "KabylakePlatSamplePkg.Include.Protocol"
+[files]
+"AmtWrapperProtocol.h"	
+"CapsuleStatusProtocol.h"	
+"DxePolicyUpdateProtocol.h"	
+"EcAccess.h"	
+"EfiUsbFnIo.h"	
+"EmmcCardInfoProtocol.h"	
+"GlobalNvsArea.h"	
+"GloblNvsArea_Def.h"	
+"I2cBusConfigurationManagement.h"	
+"I2cMaster.h"	
+"IccOverClocking.h"	
+"SdHostIo.h"	
+"SmmCpuSaveState.h"	
+"SystemMonitor.h"	
+"TxtOneTouchOp.h"	
+"UsbDeviceModeProtocol.h"	
+"HddPasswordExternalControl.h"	
+"AmiTbtProtocol.h"	
+"TbtInfoProtocol.h"	
+<endComponent>

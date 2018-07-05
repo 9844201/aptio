@@ -1,0 +1,707 @@
+TOKEN
+	Name  = "AcpiAslWrap_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Ref code AcpiAsl Wrap support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+End
+
+PCIDEVICE
+    Title  = "AcpiAslWrap"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiAslWrap\PlatformExternal.asl;Before Pci Tree','KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiAslWrap\PlatformPS2Wake.asl;After Pci Tree','KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiAslWrap\PlatformEC.asl;After Pci Tree','KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiAslWrap\PlatformDock.asl;After Pci Tree','KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiAslWrap\BatBst.asl;After Pci Tree'"
+    Token = "AcpiAslWrap_SUPPORT" "=" "1"    
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "AcpiAslWrap"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiAslWrap\PlatformExternal.asl;Before Pci Tree','KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiAslWrap\PlatformPS2Wake.asl;After Pci Tree','KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiAslWrap\PlatformEC.asl;After Pci Tree','KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\AcpiAslWrap\PlatformDock.asl;After Pci Tree'"
+    Token = "AcpiAslWrap_SUPPORT" "=" "1"   
+    Token = "CRB_EC_SUPPORT" "=" "1" 
+    DeviceType = OnBoard
+    PCIBusSize = 32bit
+    ROMMain = No
+    Virtual = Yes
+End
+
+TOKEN
+	Name  = "B1ST_DEFOF_NUM"
+	Value  = "50"
+	Help  = "The DefOf Number of B1ST."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "B2ST_DEFOF_NUM"
+	Value  = "54"
+	Help  = "The DefOf Number of B2ST."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CFAN_DEFOF_NUM"
+	Value  = "03"
+	Help  = "The DefOf Number of CFAN."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CMDR_DEFOF_NUM"
+	Value  = "58"
+	Help  = "The DefOf Number of CMDR."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DOCK_DEFOF_NUM"
+	Value  = "48"
+	Help  = "The DefOf Number of DOCK."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PLMX_DEFOF_NUM"
+	Value  = "01"
+	Help  = "The DefOf Number of PLMX."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PECH_DEFOF_NUM"
+	Value  = "131"
+	Help  = "The DefOf Number of PECH."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PECL_DEFOF_NUM"
+	Value  = "130"
+	Help  = "The DefOf Number of PECL."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PENV_DEFOF_NUM"
+	Value  = "68"
+	Help  = "The DefOf Number of PENV."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PINV_DEFOF_NUM"
+	Value  = "67"
+	Help  = "The DefOf Number of PINV."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PPSH_DEFOF_NUM"
+	Value  = "66"
+	Help  = "The DefOf Number of PPSH."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PPSL_DEFOF_NUM"
+	Value  = "65"
+	Help  = "The DefOf Number of PPSL."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PSTP_DEFOF_NUM"
+	Value  = "69"
+	Help  = "The DefOf Number of PSTP."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "RPWR_DEFOF_NUM"
+	Value  = "03"
+	Help  = "The DefOf Number of RPWR."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "LSTE_DEFOF_NUM"
+	Value  = "03"
+	Help  = "The DefOf Number of LSTE."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "VPWR_DEFOF_NUM"
+	Value  = "48"
+	Help  = "The DefOf Number of VPWR."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "WTMS_DEFOF_NUM"
+	Value  = "196"
+	Help  = "The DefOf Number of WTMS."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AWT2_DEFOF_NUM"
+	Value  = "197"
+	Help  = "The DefOf Number of AWT2."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AWT1_DEFOF_NUM"
+	Value  = "198"
+	Help  = "The DefOf Number of AWT1."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AWT0_DEFOF_NUM"
+	Value  = "199"
+	Help  = "The DefOf Number of AWT0."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DLED_DEFOF_NUM"
+	Value  = "120"
+	Help  = "The DefOf Number of DLED."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SPT2_DEFOF_NUM"
+	Value  = "200"
+	Help  = "The DefOf Number of SPT2."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PB10_DEFOF_NUM"
+	Value  = "120"
+	Help  = "The DefOf Number of PB10."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IWCW_DEFOF_NUM"
+	Value  = "160"
+	Help  = "The DefOf Number of IWCW."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IWCR_DEFOF_NUM"
+	Value  = "160"
+	Help  = "The DefOf Number of IWCR."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PVOL_DEFOF_NUM"
+	Value  = "232"
+	Help  = "The DefOf Number of PVOL."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PWRT_DEFOF_NUM"
+	Value  = "121"
+	Help  = "The DefOf Number of PVOL."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "B1ST_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return B1ST value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "B2ST_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return B2ST value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CFAN_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return CFAN value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CMDR_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return CMDR value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DOCK_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return DOCK value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PLMX_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PLMX value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PECH_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PECH value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PECL_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PECL value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PENV_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PENV value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PINV_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PINV value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PPSH_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PPSH value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PPSL_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PPSL value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PSTP_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PSTP value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "RPWR_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return RPWR value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "LSTE_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return LSTE value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "VPWR_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return VPWR value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "WTMS_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return WTMS value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AWT2_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return AWT2 value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AWT1_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return AWT1 value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AWT0_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return AWT0 value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DLED_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return DLED value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SPT2_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return SPT2 value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PB10_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PB10 value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IWCW_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return IWCW value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IWCR_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return IWCR value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PVOL_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PVOL value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PWRT_ECRD_METHOD"
+	Value  = "Return (0)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PWRT value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "B1ST_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return B1ST value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "B2ST_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return B2ST value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CFAN_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return CFAN value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CMDR_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return CMDR value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DOCK_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return DOCK value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PLMX_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PLMX value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PECH_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PECH value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PECL_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PECL value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PENV_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PENV value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PINV_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PINV value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PPSH_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PPSH value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PPSL_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PPSL value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PSTP_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PSTP value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "RPWR_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return RPWR value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "LSTE_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return LSTE value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "VPWR_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return VPWR value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "WTMS_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return WTMS value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AWT2_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return AWT2 value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AWT1_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return AWT1 value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AWT0_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return AWT0 value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DLED_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return DLED value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SPT2_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return SPT2 value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PB10_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PB10 value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IWCW_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return IWCW value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IWCR_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return IWCR value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PVOL_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PVOL value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PWRT_ECWT_METHOD"
+	Value  = " "
+	Help  = "OEM can return an integer directly or call any method/variable to get/return PWRT value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "BST1_METHOD"
+	Value  = "Return (\_SB.PCI0.LPCB.H_EC.BST1)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return _BST value."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "BST2_METHOD"
+	Value  = "Return (\_SB.PCI0.LPCB.H_EC.BST2)"
+	Help  = "OEM can return an integer directly or call any method/variable to get/return _BST value."
+	TokenType = Expression
+	TargetH = Yes
+End

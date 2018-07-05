@@ -1,0 +1,35 @@
+TOKEN
+    Name = "PCH_RC_SUPPORT"
+    Value = "1"
+    Help = "Switch for Enabling Pch RC support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+OUTPUTREGISTER
+	Name  = "AmiGpioConfig"
+	Path  = "Build"
+	File  = "AmiGpioConfig.h"
+	Template  = "Include/GpioConfig.h"
+End
+
+OUTPUTREGISTER
+	Name  = "AmiGpioPinsSklLp"
+	Path  = "Build"
+	File  = "AmiGpioPinsSklLp.h"
+	Template  = "Include/GpioPinsSklLp.h"
+End
+
+OUTPUTREGISTER
+	Name  = "AmiGpioPinsSklH"
+	Path  = "Build"
+	File  = "AmiGpioPinsSklH.h"
+	Template  = "Include/GpioPinsSklH.h"
+End
+
+OUTPUTREGISTER
+	Name  = "AmiGpioLib"
+	Path  = "Build"
+	File  = "AmiGpioLib.h"
+	Template  = "Include/Library/GpioLib.h"
+End

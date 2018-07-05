@@ -1,0 +1,17 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "BpCommonPkg\Include\Library\"
+	RefName = "BpCommonPkg.Include.Library"
+[files]
+"BeepLib.h"	
+"BiosIdLib.h"
+"CmosAccessLib.h"
+"PlatformBeepMapLib.h"
+"PlatformCmosAccessLib.h"	
+"PlatformPostCodeMapLib.h"
+"TraceHubDebugLib.h"	
+"TraceHubHookLib.h"
+"Usb3DebugPortLib.h"	
+"Usb3DebugPortParameterLib.h"	
+<endComponent>

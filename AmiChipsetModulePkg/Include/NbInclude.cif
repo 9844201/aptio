@@ -1,0 +1,16 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\Include\"
+	RefName = "AmiChipsetModulePkg.NbInclude"
+[files]
+"Nb.h"	
+"Library\NbCspLib.h"	
+"NbSetupData.h"	
+"Library\AmiNbMiscLib.h"
+"Library\AmiShadowLib.h"
+[parts]
+"AmiChipsetModulePkg.NbPpi"
+"AmiChipsetModulePkg.NbProtocols"
+"AmiChipsetModulePkg.NbGuid"
+<endComponent>

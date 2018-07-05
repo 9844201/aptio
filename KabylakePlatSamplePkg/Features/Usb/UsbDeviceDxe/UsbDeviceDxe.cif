@@ -1,0 +1,20 @@
+<component>
+	name = "UsbDeviceDxe"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Usb\UsbDeviceDxe\"
+	RefName = "KabylakePlatSamplePkg.Features.Usb.UsbDeviceDxe"
+[INF]
+"UsbDeviceDxe.inf"
+[files]
+"UsbDeviceDxe.sdl"	
+"MsgPrintf.h"	
+"UsbDeviceDxe.h"	
+"UsbDeviceMode.h"	
+"UsbFuncIo.h"	
+"UsbIoNode.h"	
+"XdciCommon.h"	
+"XdciDevice.h"	
+"XdciDWC.h"	
+"XdciInterface.h"	
+"XdciUtility.h"	
+<endComponent>

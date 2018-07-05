@@ -1,0 +1,21 @@
+TOKEN
+	Name  = "PchWdt_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "PchWdtDxe"
+	File  = "Dxe/WdtDxe.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+FFS_FILE
+	Name  = "PchWdtDxe"
+	FD_AREA  = "FV_MAIN"
+	INFComponent  = "KabylakeSiliconPkg.PchWdtDxe"
+	Apriori_Index  = "10"
+End

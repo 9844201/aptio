@@ -1,0 +1,22 @@
+<component>
+	name = "KabylakeSiliconPkg"
+	category = eChipset
+	LocalRoot = "KabylakeSiliconPkg\"
+	RefName = "KabylakeSiliconPkg"
+[files]
+"KabylakeSiliconPkg.sdl"	
+"SiPkg.dec"	
+"KabylakeSiliconPrivate.dec"	
+"SiPkg_History.txt"	
+"KabylakeSiliconPkg.chm"	
+[parts]
+"KabylakeSiliconPkg.Cpu"
+"KabylakeSiliconPkg.SystemAgent"
+"KabylakeSiliconPkg.Pch"
+"KabylakeSiliconPkg.Me"
+"KabylakeSiliconPkg.Common"
+"KabylakeSiliconPkg.Override"
+"KabylakeSiliconPkg.RefrenceCodesReleaseNotes"
+[dependency]
+AmiChipsetModulePkg >= "SS: AptioV;$/AptioV/Source/Hardware/Chipset/Intel/Kabylake/AmiChipsetModulePkg;AmiChipsetModulePkg_041"
+<endComponent>

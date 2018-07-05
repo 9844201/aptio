@@ -1,0 +1,73 @@
+TOKEN
+    Name = "SaNvRamHook_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable SaNvRamHook support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+PATH
+    Name  = "SA_NVRAM_HOOK_DIR"
+End
+
+ELINK
+    Name  = "$(SA_NVRAM_HOOK_DIR)/SaNvRamHook.c"
+    Parent  = "AMI_CSP_PEI_SOURCES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(SA_NVRAM_HOOK_DIR)/SaNvRamHook.c"
+    Parent  = "AMI_CSP_DXE_SOURCES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "KabylakePlatSamplePkg/PlatformPkg.dec"
+    Parent  = "AMI_CSP_PACKAGES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "MdeModulePkg/MdeModulePkg.dec"
+    Parent  = "AMI_CSP_PACKAGES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gEfiMemoryTypeInformationGuid"
+    Parent  = "AMI_CSP_GUIDS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gSaSetupVariableGuid"
+    Parent  = "AMI_CSP_GUIDS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "NbGetSetupData"
+    Parent  = "AMI_CSP_LIBRARIES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "PeiSaGetVariable,"
+    Parent  = "PeiGetVariableHook"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "DxeSaGetVariable,"
+    Parent  = "GetVariableHook"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "DxeSaSetVariable,"
+    Parent  = "SetVariableHook"
+    InvokeOrder = AfterParent
+End

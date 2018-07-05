@@ -1,0 +1,51 @@
+TOKEN
+	Name  = "PlatSamplePkg_AMT_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Platform AMT support in Project"
+	TokenType = Boolean
+	Master = Yes
+	Token = "iAMT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "AMT_OS_Wake_Vector_Message"
+	Value  = "0"
+	Help  = "Send Call OS Vector event when S3 resume"
+	TokenType = Boolean
+        TargetH = Yes
+End
+
+INFComponent
+    Name  = "AmtStatusCodePei"
+    File  = "AmtStatusCodePei\AmtStatusCodePei.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "AmtWrapperDxe"
+    File  = "AmtWrapperDxe\AmtWrapperDxe.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "AsfTable"
+    File  = "AsfTable\AsfTable.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "AmtSetup"
+    File  = "AmtSetupDxe\AmtSetupDxe.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "AmtPetAlert"
+    File  = "AmtPetAlertDxe\AmtPetAlertDxe.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End

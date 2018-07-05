@@ -1,0 +1,59 @@
+TOKEN
+	Name  = "PlatformInfo_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling PlatformInfo support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+    Name  = "PlatformInfo_RevisonId"
+    Value  = "0x01"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardId"
+    Value  = "BoardIdSkylakeA0Rvp3"
+    TokenType = Expression
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PlatformInfo_BoardRev"
+    Value  = "0x00"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PLATFORM_INFO_ENABLED"
+    Value  = "1"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+PATH
+	Name  = "PlatformInfo_DIR"
+End
+
+INFComponent
+    Name  = "PlatformInfoPei"
+    File  = "Pei/PlatformInfoPei.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+    Token = "CRB_EC_SUPPORT" "=" "0"    
+End
+
+FFS_FILE
+    Name  = "PlatformInfoPei"
+    FD_AREA  = "FV_BB"
+    INFComponent  = "PlatformInfoPei"
+    Apriori_Index  = "10"
+    Token = "CRB_EC_SUPPORT" "=" "0"    
+End

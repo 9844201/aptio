@@ -1,0 +1,119 @@
+TOKEN
+	Name  = "Cpu_Library_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Cpu Library support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "PeiCpuPolicyLib"
+	File  = "PeiCpuPolicyLib\PeiCpuPolicyLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "CpuPolicyLib"
+	Instance  = "KabylakeSiliconPkg.PeiCpuPolicyLib"
+End
+
+LibraryMapping
+    Class  = "CpuPolicyLib"
+    Instance  = "KabylakeSiliconPkg.PeiCpuPolicyLib"
+    Override  = "KabylakePlatSamplePkg.PlatformInit"
+End
+
+INFComponent
+    Name  = "PeiCpuPolicyLibPreMem"
+    File  = "PeiCpuPolicyLibPreMem\PeiCpuPolicyLibPreMem.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "CpuPolicyLibPreMem"
+    Instance  = "KabylakeSiliconPkg.PeiCpuPolicyLibPreMem"
+End
+
+LibraryMapping
+    Class  = "CpuPolicyLibPreMem"
+    Instance  = "KabylakeSiliconPkg.PeiCpuPolicyLibPreMem"
+    Override  = "KabylakePlatSamplePkg.PlatformInitPreMem"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmBootGuardLib"
+	File  = "PeiDxeSmmBootGuardLib\PeiDxeSmmBootGuardLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "BootGuardLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmBootGuardLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmCpuMailboxLib"
+	File  = "PeiDxeSmmCpuMailboxLib\PeiDxeSmmCpuMailboxLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+INFComponent
+	Name  = "BaseCpuMailboxLibNull"
+	File  = "BaseCpuMailboxLibNull\BaseCpuMailboxLibNull.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "CpuMailboxLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmCpuMailboxLib"
+End
+
+INFComponent
+	Name  = "PeiDxeSmmCpuPlatformLib"
+	File  = "PeiDxeSmmCpuPlatformLib\PeiDxeSmmCpuPlatformLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "CpuPlatformLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeSmmCpuPlatformLib"
+End
+
+INFComponent
+	Name  = "PeiDxeTxtLib"
+	File  = "PeiDxeTxtLib\PeiDxeTxtLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "TxtLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeTxtLib"
+End
+
+INFComponent
+	Name  = "SecCpuLib"
+	File  = "SecCpuLib\SecCpuLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+LibraryMapping
+	Class  = "SecCpuLib"
+	Instance  = "KabylakeSiliconPkg.SecCpuLib"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+INFComponent
+	Name  = "SecCpuLibFsp"
+	File  = "SecCpuLib\SecCpuLibFsp.inf"
+	Package  = "KabylakeSiliconPkg"  
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"        
+End
+
+LibraryMapping
+	Class  = "SecCpuLib"
+	Instance  = "KabylakeSiliconPkg.SecCpuLibFsp"
+	Arch  = "IA32"
+	ModuleTypes  = "PEI_CORE PEIM SEC"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"        
+End

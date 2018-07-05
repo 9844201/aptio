@@ -1,0 +1,15 @@
+<component>
+	name = "SkylakeURvp15"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Board\SkylakeURvp15\"
+	RefName = "KabylakePlatSamplePkg.SkylakeURvp15"
+[INF]
+"DxeBoardInitLib\SkylakeURvp15InitLib.inf"
+"PeiBoardInitLib\PeiSkylakeURvp15InitLib.inf"
+"PeiBoardInitLib\PeiSkylakeURvp15InitPreMemLib.inf"
+[files]
+"SkylakeURvp15.sdl"	
+"DxeBoardInitLib\SkylakeURvp15InitLib.h"	
+"PeiBoardInitLib\PeiSkylakeURvp15InitLib.h"	
+"PeiBoardInitLib\SkylakeURvp15HsioPtssTables.h"	
+<endComponent>

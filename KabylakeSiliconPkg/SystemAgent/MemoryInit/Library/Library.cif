@@ -1,0 +1,12 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\MemoryInit\Library\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.MemoryInit.Library"
+[INF]
+"PeiDxeSmmMemoryAddressEncodeDecodeLib\PeiDxeSmmMemoryAddressEncodeDecodeLib.inf"
+[files]
+"Library.sdl"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.MemoryInit.Library.Private"
+<endComponent>

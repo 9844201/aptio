@@ -1,0 +1,16 @@
+<component>
+	name = "AMTWrapper"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\AMT\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT"
+[files]
+"AMTWrapper.sdl"	
+"ReleaseNote.txt"	
+[parts]
+"KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.AMTAmtCompatiblity"
+"KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.AmtLockKBD"
+"KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.AmtSetup"
+"KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.ASFVerbosity"
+"KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.Mebx"
+"KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT.MebxSetupBrowser"
+<endComponent>

@@ -1,0 +1,13 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\SecurityPkg\Include\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.SecurityPkg.Include"
+[files]
+"Guid\TrEEPhysicalPresenceData.h"	
+"Guid\Tcg2PhysicalPresenceData.h"	
+"Ppi\TpmInitialized.h"	
+"Library\Tpm2DeviceLib.h"	
+"Library\Tpm2CommandLib.h"	
+"Library\Tcg2PhysicalPresenceLib.h"	
+<endComponent>

@@ -1,0 +1,11 @@
+<component>
+	name = "Spi"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Spi\"
+	RefName = "KabylakeSiliconPkg.Pch.Spi"
+[files]
+"PchSpi.sdl"	
+[parts]
+"KabylakeSiliconPkg.Pch.Spi.RuntimeDxe"
+"KabylakeSiliconPkg.Pch.Spi.Smm"
+<endComponent>

@@ -1,0 +1,34 @@
+<component>
+	name = "Intel SunrisePoint"
+	category = eChipset
+	LocalRoot = "AmiChipsetModulePkg\"
+	RefName = "AmiChipsetModulePkg.SouthBridge"
+[INF]
+"SB\PowerButton\PowerButton.inf"
+"SB\LegacyInterrupt\LegacyInterrupt.inf"
+"ASL\SbAcpiTableSsdt.inf"
+"SB\TcoSmi\TcoSmi.inf"
+"SB\PcieErrorLog\PcieErrorLog.inf"
+"SB\I2cController\SbI2cController.inf"
+[files]
+"Sb.sdl"	
+"Sb.mak"	
+"Elink\SbElinks.txt"	
+"LegacyRom\Pxe\GbE_OR.BIN"	
+"LegacyRom\Raid\RaidOrom.bin"	
+"LegacyRom\Raid\CflRaidOrom.bin"	
+"SB\IntelFdfRules.txt"	
+"SB\SbInit\Sb.ssp"	
+"SB_History.txt"	
+[parts]
+"AmiChipsetModulePkg.SbInit"
+"AmiChipsetModulePkg.SmBus"
+"AmiChipsetModulePkg.SbSetup"
+"AmiChipsetModulePkg.AcpiModeEnable"
+"AmiChipsetModulePkg.SmmChildDispatcher"
+"AmiChipsetModulePkg.SbAsl"
+"AmiChipsetModulePkg.SbLibrary"
+"AmiChipsetModulePkg.SbInclude"
+"AmiChipsetModulePkg.RaidDriver"
+"AmiChipsetModulePkg.MmioSerialUart"
+<endComponent>

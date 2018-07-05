@@ -1,0 +1,70 @@
+TOKEN
+    Name  = "NB_PEG_InitRoutine_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable Nb OEM Pci Device InitRoutine (AptioV style) in Project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+PCIDEVICE
+    Title  = "PEG Port Slot x16 - InitRoutine"
+    Parent  = "PEG Root Port D1F0"
+    Attribute  = "0x0"
+    Dev_type  = "PciDevice"
+    Dev  = 00h
+    Slot  = 010h
+    Fun  = 00h
+    SleepNum  = 01h
+    IntA = 	LNKA; 16
+    IntB = 	LNKB; 17
+    IntC = 	LNKC; 18
+    IntD = 	LNKD; 19
+    DeviceType = Slot
+    PCIBusSize = 32bit
+    ROMMain = No
+    InitRoutine  = "CspNbPciInitPeg012"
+    SuppressDeviceGeneration = Yes
+    Token = "RC_PEG_0" "=" "1"
+End
+
+PCIDEVICE
+    Title  = "PEG Port Slot x8 - InitRoutine"
+    Parent  = "PEG Root Port D1F1"
+    Attribute  = "0x0"
+    Dev_type  = "PciDevice"
+    Dev  = 00h
+    Slot  = 011h
+    Fun  = 00h
+    SleepNum  = 01h
+    IntA = 	LNKB; 17
+    IntB = 	LNKC; 18
+    IntC = 	LNKD; 19
+    IntD = 	LNKA; 16
+    DeviceType = Slot
+    PCIBusSize = 32bit
+    ROMMain = No
+    InitRoutine  = "CspNbPciInitPeg012"
+    SuppressDeviceGeneration = Yes
+    Token = "RC_PEG_1" "=" "1"
+End
+
+PCIDEVICE
+    Title  = "PEG Port Slot x4 - InitRoutine"
+    Parent  = "PEG Root Port D1F2"
+    Attribute  = "0x0"
+    Dev_type  = "PciDevice"
+    Dev  = 00h
+    Slot  = 012h
+    Fun  = 00h
+    SleepNum  = 01h
+    IntA = 	LNKC; 18
+    IntB = 	LNKD; 19
+    IntC = 	LNKA; 16
+    IntD = 	LNKB; 17
+    DeviceType = Slot
+    PCIBusSize = 32bit
+    ROMMain = No
+    InitRoutine  = "CspNbPciInitPeg012"
+    SuppressDeviceGeneration = Yes
+    Token = "RC_PEG_2" "=" "1"
+End

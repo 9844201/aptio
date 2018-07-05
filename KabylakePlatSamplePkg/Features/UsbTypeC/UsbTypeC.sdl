@@ -1,0 +1,34 @@
+TOKEN
+    Name  = "PlatSamplePkg_UsbTypeC_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable Intel UsbTypeC support in Project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+ELINK
+    Name  = "ACPI_RC_USB_TYPE_C_SSDT_PATH"
+    InvokeOrder = ReplaceParent
+    OutDSC = Yes
+End
+
+ELINK
+    Name  = "KabylakePlatSamplePkg/Features/UsbTypeC/UsbTypeCDxe/UsbTypeC.asl"
+    Parent  = "ACPI_RC_USB_TYPE_C_SSDT_PATH"
+    InvokeOrder = ReplaceParent
+End
+
+INFComponent
+    Name  = "UsbTypeCDxe"
+    File  = "UsbTypeCDxe\UsbTypeCDxe.inf"
+    Package  = "KabylakePlatSamplePkg"
+    PreProcess = Yes
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+FFS_FILE
+    Name  = "UsbTypeCDxe"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "KabylakePlatSamplePkg.UsbTypeCDxe"
+    Rule_Override = "DRIVER_ACPITABLE"
+End

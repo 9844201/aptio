@@ -1,0 +1,213 @@
+PCIDEVICE
+	Title  = "Gbe Controller"
+	Parent  = "PciRoot"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 01fh
+	Fun  = 06h
+	SleepNum  = 01h
+	ROMFile  = "AmiChipsetModulePkg/LegacyRom/Pxe/GbE_OR.BIN"
+	IntA = 	LNKA; 16
+	Disable = Yes
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	SuppressDeviceGeneration = Yes
+	LegacyRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "50339d20-c90a-4bb2-9aff-d8a11b23bc15"
+End
+
+PCIDEVICE
+	Title  = "RealTek Network"
+	Parent  = "PCIE Root Port #1"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 01h
+	ROMFile  = "AmiMsiPkg/RealTek.rom"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	LegacyRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "873cc7db-72f5-4e0d-a23d-bbd97e2930b0"
+End
+
+PCIDEVICE
+	Title  = "PCIE Port #1 Slot"
+	Parent  = "PCIE Root Port #1"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 020h
+	Fun  = 0ffh
+	SleepNum  = 01h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Disable = Yes
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	SuppressDeviceGeneration = Yes
+End
+
+TOKEN
+	Name  = "AmiMsiPkg_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable AmiMsiPkg support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "UefiCpuPkg_Override_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable UefiCpuPkg Override support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SI_OVERRIDE_UEFICPUPKG_SUPPORT"
+	Value  = "0"
+	Help  = "Switch for Enabling SiPkg Override UefiCpuPkg support in the project"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "SIPKG_OVERRIDE_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable Silicon Package Override support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+ELINK
+	Name  = " "
+	Parent  = "-D SIO_PTS=\_SB.PCI0.LPCB.SIO1.SIOS"
+	Type  = "Grouping"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = " "
+	Parent  = "-D SIO_WAK=\_SB.PCI0.LPCB.SIO1.SIOW"
+	Type  = "Grouping"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "/D SIO_PTS=\_SB.PCI0.LPCB.SIO1.SIOS"
+	Parent  = "MSFT:*_*_*_ASLPP_FLAGS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "/D SIO_WAK=\_SB.PCI0.LPCB.SIO1.SIOW"
+	Parent  = "MSFT:*_*_*_ASLPP_FLAGS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "-D SIO_WAK=\\_SB.PCI0.LPCB.SIO1.SIOW"
+	Parent  = "GCC:*_*_*_ASLPP_FLAGS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "-D SIO_PTS=\\_SB.PCI0.LPCB.SIO1.SIOS"
+	Parent  = "GCC:*_*_*_ASLPP_FLAGS"
+	InvokeOrder = AfterParent
+End
+
+INFComponent
+	Name  = "MsiPs2PortDetectionLib"
+	File  = "MsiPs2PortDetectionLib/MsiPs2PortDetectionLib.inf"
+	Package  = "AmiMsiPkg"
+End
+
+INFComponent
+	Name  = "SafeStringOverrideLib"
+	File  = "SafeStringOverrideLib/SafeStringOverrideLib.inf"
+	Package  = "AmiMsiPkg"
+End
+
+INFComponent
+	Name  = "PiSmmCpuDxeSmm"
+	File  = "../UefiCpuPkg/PiSmmCpuDxeSmm/PiSmmCpuDxeSmm.inf"
+	Package  = "UefiCpuPkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Token = "SMM_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "PeiMpInitLib"
+	File  = "../UefiCpuPkg/Library/MpInitLib/PeiMpInitLib.inf"
+	Package  = "UefiCpuPkg"
+End
+
+INFComponent
+	Name  = "CpuMpPei"
+	File  = "../UefiCpuPkg/CpuMpPei/CpuMpPei.inf"
+	Package  = "UefiCpuPkg"
+	ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+	Class  = "MpInitLib"
+	Instance  = "UefiCpuPkg.PeiMpInitLib"
+	Arch  = "IA32 X64"
+	ModuleTypes  = "PEIM"
+End
+
+INFComponent
+	Name  = "DxeSmmAcpiCustomLib"
+	File  = "DxeSmmAcpiCustomLib/DxeSmmAcpiCustomLib.inf"
+	Package  = "AmiMsiPkg"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiMsiPkg.MsiPs2PortDetectionLib"
+	Override  = "AmiModulePkg.Ps2Main"
+End
+
+LibraryMapping
+	Class  = "SafeStringOverrideLib"
+	Instance  = "AmiMsiPkg.SafeStringOverrideLib"
+End
+
+LibraryMapping
+	Class  = "SmmCpuFeaturesLib"
+	Instance  = "UefiCpuPkg.SmmCpuFeaturesLib"
+End
+
+LibraryMapping
+	Class  = "SmmIoLib"
+	Instance  = "KabylakePlatSamplePkg.SmmIoLib"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Disable = Yes
+End
+
+LibraryMapping
+	Class  = "DxeSmmAcpiCustomLib"
+	Instance  = "AmiMsiPkg.DxeSmmAcpiCustomLib"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+End
+
+FFS_FILE
+	Name  = "CpuMpPei"
+	FD_AREA  = "FV_BB_AFTER_MEMORY"
+	INFComponent  = "UefiCpuPkg.CpuMpPei"
+	Index  = '"BEFORE" "SiInit"'
+End
+

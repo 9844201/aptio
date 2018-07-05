@@ -1,0 +1,22 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Include\Private\Library\"
+	RefName = "KabylakeSiliconPkg.Pch.Include.Private.Library"
+[files]
+"DxePchHdaNhlt.h"	
+"GpioPrivateLib.h"	
+"I2cMasterCommonLib.h"	
+"PchHdaLib.h"	
+"PchAlternateAccessModeLib.h"	
+"PchInitCommonLib.h"	
+"PchInitLib.h"	
+"PchPciExpressHelpersLib.h"	
+"PchRcLib.h"	
+"PchSmbusCommonLib.h"	
+"PchSpiCommonLib.h"	
+"PchXhciLib.h"	
+"PeiI2cMasterLib.h"	
+"PchPsfPrivateLib.h"	
+"RstPrivateLib.h"	
+<endComponent>

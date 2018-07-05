@@ -1,0 +1,12 @@
+<component>
+	name = "MmioSerialUart"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\SB\MmioSerialUart\"
+	RefName = "AmiChipsetModulePkg.MmioSerialUart"
+[INF]
+"MmioSerialUart0.inf"
+"MmioSerialUart1.inf"
+"MmioSerialUart2.inf"
+[files]
+"MmioSerialUart.sdl"	
+<endComponent>

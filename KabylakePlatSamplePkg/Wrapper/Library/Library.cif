@@ -1,0 +1,13 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\Library\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.Library"
+[INF]
+"AmiBdsPlatformLib\AmiBdsPlatformLib.inf"
+[files]
+"Library.sdl"	
+[parts]
+"KabylakePlatSamplePkg.Wrapper.Library.AmtBdsLib"
+"KabylakePlatSamplePkg.Wrapper.Library.AmiGetUcsiRevLib"
+<endComponent>

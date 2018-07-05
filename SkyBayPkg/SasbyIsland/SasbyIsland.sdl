@@ -1,0 +1,110 @@
+TOKEN
+    Name  = "SASBY_ISLAND_SUPPORT"
+    Value  = "0"
+    Help  = "SasbyIsland platform support."
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes    
+End
+
+TOKEN
+    Name  = "CRB_BOARD"
+    Value  = "2"
+    Help  = "Select CRB Broad, 0:RVP3 \ 1:RVP5 \ 2:RVP7 \ 3:RVP8 \ 4:RVP9 \ 5:RVP10 \ 6:ZumbaBeachServerEV \ 7:RVP11 \ 8: SKY-U + DDR4 combination \ 9: KBL-S DDR4 UDIMM CRB \ 11: KBL-Refresh U CRB"
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PlatSamplePkg_UsbTypeC_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable Intel UsbTypeC support in Project"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "Thunderbolt_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable Thunderbolt support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TbtTypeC_Wrapper_ASL_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable Intel Ready Mode Technology support in Project"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SDIO_DRIVER_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable SdioDriver support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes    
+End
+
+TOKEN
+    Name  = "EcPs2Kbd_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "EC_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable EC_H8SMC support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SgTpv_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+    Help  = "Main switch to enable SwitchableGraphics TPV support in Project"
+End
+
+TOKEN
+    Name  = "BiosGuard_SUPPORT"
+    Value  = "0"
+    Help  = "Switch for Enabling BiosGuard support in the project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+PATH
+    Name  = "SASBY_ISLAND_DIR"
+End
+
+TOKEN
+    Name  = "====== Setup item override ======"
+    TokenType = Expression
+End
+
+ELINK
+    Name  = "$(SASBY_ISLAND_DIR)/SasbyIslandSetup.sd"
+    Parent  = "SETUP_DEFINITIONS"
+    InvokeOrder = AfterParent
+End
+
+OUTPUTREGISTER
+    Name  = "AmiGpioTable"
+    Path  = "Build"
+    File  = "AmiGpioTable.h"
+    Template  = "GpioTableDdr3LrSasbyIsland.h"
+End

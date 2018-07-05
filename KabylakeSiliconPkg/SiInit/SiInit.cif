@@ -1,0 +1,15 @@
+<component>
+	name = "SiInit"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SiInit\"
+	RefName = "KabylakeSiliconPkg.SiInit"
+[INF]
+"Dxe\SiInitDxe.inf"
+"Pei\SiInit.inf"
+"Pei\SiInitPreMem.inf"
+"Pei\SiInitPreMemFsp.inf"
+[files]
+"SiInit.sdl"	
+"Pei\SiInit.h"	
+"Pei\SiInitPreMem.h"	
+<endComponent>

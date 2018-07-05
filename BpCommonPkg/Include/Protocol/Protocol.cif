@@ -1,0 +1,9 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "BpCommonPkg\Include\Protocol\"
+	RefName = "BpCommonPkg.Include.Protocol"
+[files]
+"HddPasswordNotify.h"	
+"PciHostBridgePlatform.h"	
+<endComponent>

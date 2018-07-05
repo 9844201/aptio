@@ -1,0 +1,11 @@
+<component>
+	name = "UsbTypeC"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\UsbTypeC\"
+	RefName = "KabylakePlatSamplePkg.Features.UsbTypeC"
+[INF]
+"UsbTypeCDxe\UsbTypeCDxe.inf"
+[files]
+"UsbTypeC.sdl"	
+"UsbTypeCDxe\UsbTypeC.asl"	
+<endComponent>

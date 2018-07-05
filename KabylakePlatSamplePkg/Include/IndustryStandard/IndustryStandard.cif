@@ -1,0 +1,10 @@
+<component>
+	name = "IndustryStandard"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Include\IndustryStandard\"
+	RefName = "KabylakePlatSamplePkg.Include.IndustryStandard"
+[files]
+"CeAta.h"	
+"Mmc.h"	
+"SdCard.h"	
+<endComponent>

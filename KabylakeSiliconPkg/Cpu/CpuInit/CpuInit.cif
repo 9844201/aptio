@@ -1,0 +1,15 @@
+<component>
+	name = "CpuInit"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Cpu\CpuInit\"
+	RefName = "KabylakeSiliconPkg.Cpu.CpuInit"
+[INF]
+"Dxe\CpuInitDxe.inf"
+[files]
+"CpuInit.sdl"	
+"Dxe\x64\MpEqu.h"	
+"Dxe\x64\MpEqu.inc"	
+"Dxe\x64\Cpu.nasm"	
+"Dxe\x64\MpEquNasm.inc"	
+"Dxe\x64\MpFuncs.nasm"	
+<endComponent>

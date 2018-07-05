@@ -1,0 +1,11 @@
+<component>
+	name = "AmiGetTseg"
+	category = ModulePart
+	LocalRoot = "SkyBayPkg\AmiGetTseg"
+	RefName = "AmiGetTseg"
+[INF]
+"AmiGetTseg.inf"
+
+[files]
+"AmiGetTseg.sdl"
+<endComponent>

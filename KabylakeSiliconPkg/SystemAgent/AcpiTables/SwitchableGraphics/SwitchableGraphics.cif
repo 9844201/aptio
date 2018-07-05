@@ -1,0 +1,11 @@
+<component>
+	name = "SwitchableGraphics"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\AcpiTables\SwitchableGraphics\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.AcpiTables.SwitchableGraphics"
+[INF]
+"Pch\SgAcpiTablesPch.inf"
+"Peg\SgAcpiTables.inf"
+[files]
+"Peg\SgDgpu.asl"	
+<endComponent>

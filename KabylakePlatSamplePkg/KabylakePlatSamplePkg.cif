@@ -1,0 +1,30 @@
+<component>
+	name = "KabylakePlatPkg"
+	category = eChipset
+	LocalRoot = "KabylakePlatSamplePkg\"
+	RefName = "KabylakePlatSamplePkg"
+[files]
+"KabylakePlatSamplePkg.sdl"	
+"PlatformPkg.dec"	
+"KabylakePlatPkg.chm"	
+"CPU_RC_Sample_History.txt"	
+"OC_RC_Sample_History.txt"	
+"TBT_RC_Sample_History.txt"	
+"PlatformFdfRules.txt"
+"Apfixup.txt"	
+[parts]
+"KabylakePlatSamplePkg.Acpi"
+"KabylakePlatSamplePkg.Board"
+"KabylakePlatSamplePkg.Csm"
+"KabylakePlatSamplePkg.Features"
+"KabylakePlatSamplePkg.GopDebugDxe"
+"KabylakePlatSamplePkg.Include"
+"KabylakePlatSamplePkg.Library"
+"KabylakePlatSamplePkg.Override"
+"KabylakePlatSamplePkg.Platform"
+"KabylakePlatSamplePkg.PlatformInit"
+"KabylakePlatSamplePkg.Setup"
+"KabylakePlatSamplePkg.Wrapper"
+[dependency]
+AmiChipsetModulePkg >= "SS: AptioV;$/AptioV/Source/Hardware/Chipset/Intel/Kabylake/AmiChipsetModulePkg;AmiChipsetModulePkg_041"
+<endComponent>

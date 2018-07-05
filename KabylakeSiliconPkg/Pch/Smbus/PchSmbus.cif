@@ -1,0 +1,11 @@
+<component>
+	name = "Smbus"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\Smbus\"
+	RefName = "KabylakeSiliconPkg.Pch.Smbus"
+[files]
+"PchSmbus.sdl"	
+[parts]
+"KabylakeSiliconPkg.Pch.Smbus.Dxe"
+"KabylakeSiliconPkg.Pch.Smbus.Smm"
+<endComponent>

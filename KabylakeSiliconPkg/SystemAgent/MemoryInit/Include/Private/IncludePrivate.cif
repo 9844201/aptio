@@ -1,0 +1,9 @@
+<component>
+	name = "Private"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\MemoryInit\Include\Private\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.MemoryInit.Include.Private"
+[files]
+"Library\EvLoaderLib.h"	
+"Library\MemoryInitLib.h"	
+<endComponent>

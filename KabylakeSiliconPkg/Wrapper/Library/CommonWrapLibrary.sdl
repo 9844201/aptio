@@ -1,0 +1,20 @@
+TOKEN
+	Name  = "CommonWrapLibrary_SUPPORT"
+	Value  = "0"
+	Help  = "Switch for Enabling CommonPkg Wrapper Library support in the project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+INFComponent
+	Name  = "SafeStringOverrideLib"
+	File  = "SafeStringOverrideLib\SafeStringOverrideLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SafeStringOverrideLib"
+	Instance  = "KabylakeSiliconPkg.SafeStringOverrideLib"
+End

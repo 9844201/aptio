@@ -1,0 +1,31 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "ClientCommonPkg\Include\"
+	RefName = "ClientCommonPkg.Include"
+[files]
+"BiosInfo.h"	
+"BootState.h"	
+"BootTime.h"	
+"DisplayCapsule.h"	
+"ExtendedFirmwarePerformanceData.h"	
+"FastBootDataDef.h"	
+"FastBootExceptionInfoHob.h"
+"FastBootFunctionEnabledHob.h"
+"LowPowerIdleTable.h"	
+"MultiPlatSupport.h"	
+"PeiFirmwarePerformance.h"	
+"PlatformBoardType.h"	
+"S3MemoryVariable.h"	
+"SimpleBootFlag.h"	
+"SmmStmConfTable.h"	
+"SmramMemoryProfile.h"	
+"StmDefinition.h"	
+"SystemConfigVariable.h"	
+"TxtInfoHob.h"	
+"WdtAppVariable.h"	
+[parts]
+"ClientCommonPkg.Include.Library"
+"ClientCommonPkg.Include.Protocol"
+"ClientCommonPkg.Include.Ppi"
+<endComponent>

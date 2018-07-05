@@ -1,0 +1,30 @@
+<component>
+	name = "DptfAcpiTablesSds"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Dptf\AcpiTables\Sds\"
+	RefName = "KabylakePlatSamplePkg.Features.Dptf.Sds.DptfAcpiTablesSds"
+[INF]
+"DptfAcpiTablesSds.inf"
+[files]
+"DptfAcpiTablesSds.sdl"	
+"Art.asl"	
+"Etrm.asl"	
+"Gen1Participant.asl"	
+"Gen2Participant.asl"	
+"Gen3Participant.asl"	
+"Gen4Participant.asl"	
+"Gen5Participant.asl"	
+"LpatMurata.asl"	
+"LpatMurataEc.asl"	
+"Psvt.asl"	
+"Sen1Participant.asl"	
+"Sen2Participant.asl"	
+"Sen3Participant.asl"	
+"Sen4Participant.asl"	
+"Trt.asl"	
+"Vir1Participant.asl"	
+"Vir2Participant.asl"	
+"BiosDataVault.asl"	
+"DptfSdsIncludeFile.txt"	
+"BiosDataVaultSdsFile.txt"	
+<endComponent>

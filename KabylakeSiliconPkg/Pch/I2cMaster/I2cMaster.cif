@@ -1,0 +1,10 @@
+<component>
+	name = "I2cMaster"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\I2cMaster\"
+	RefName = "KabylakeSiliconPkg.Pch.I2cMaster"
+[INF]
+"Dxe\I2cMasterDxe.inf"
+[files]
+"I2cMaster.sdl"	
+<endComponent>

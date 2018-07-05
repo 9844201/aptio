@@ -1,0 +1,15 @@
+TOKEN
+	Name  = "LegacyInterrupt_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MemoryInit support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "LegacyInterruptDxe"
+	File  = "Dxe/LegacyInterrupt.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes  = "DXE_DRIVER"
+    Token = "CSM_SUPPORT" "=" "1"	
+End

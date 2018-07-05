@@ -1,0 +1,16 @@
+<component>
+	name = "AmiTxtTcg"
+	category = ModulePart
+	LocalRoot = "AmiCpuModulePkg\AmiTxtTcg\"
+	RefName = "AmiCpuModulePkg.AmiTxtTcg"
+[INF]
+"AmiTxtTcgPeim.inf"
+"TCG2OemTpm12PeiCommLib.inf"
+"TCG2OemTpm20PeiCommLib.inf"
+"TCG2PeiCrbLib.inf"
+"TCG2PeiTisLib.inf"
+[files]
+"AmiTxtTcg.sdl"	
+"Tpm12.h"	
+"Tpm20.h"	
+<endComponent>

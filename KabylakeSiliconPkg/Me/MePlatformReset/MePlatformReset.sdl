@@ -1,0 +1,27 @@
+TOKEN
+    Name  = "MePlatformReset_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling MePlatformReset support in the project"
+    TokenType = Boolean
+    TargetH = YES
+    Master = Yes
+End
+
+PATH
+    Name  = "MePlatformReset_DIR"
+    Path  = "KabylakeSiliconPkg\Me\MePlatformReset\RuntimeDxe"
+End
+
+INFComponent
+    Name  = "MePlatformReset"
+    File  = "MePlatformReset.inf"
+    Package  = "KabylakeSiliconPkg"
+    Path  = "MePlatformReset_DIR"
+    ModuleTypes="DXE_RUNTIME_DRIVER"
+End
+
+LibraryMapping
+    Class  = "ResetSystemLib"
+    Instance  = "KabylakeSiliconPkg.DxeRuntimeResetSystemLib"
+    Override  = "KabylakeSiliconPkg.MePlatformReset"
+End

@@ -1,0 +1,14 @@
+<component>
+	name = "AmiRecoveryRcHobResume"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\AmiRecoveryRcHobResume\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.AmiRecoveryRcHobResume"
+[INF]
+"AmiPeiCreateDummyRcHob.inf"
+"AmiRecoveryRcHobResume.inf"
+[files]
+"AmiRecoveryRcHobResume.sdl"	
+[parts]
+"KabylakePlatSamplePkg.Wrapper.AmiRecoveryRcHobResume.Library"
+"KabylakePlatSamplePkg.Wrapper.AmiRecoveryRcHobResume.Include"
+<endComponent>

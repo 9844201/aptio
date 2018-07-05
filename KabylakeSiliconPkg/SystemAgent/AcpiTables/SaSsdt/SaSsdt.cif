@@ -1,0 +1,18 @@
+<component>
+	name = "SaSsdt"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\AcpiTables\SaSsdt\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.AcpiTables.SaSsdt"
+[INF]
+"SaSsdt.inf"
+[files]
+"Igfx.asl"	
+"IgfxCommon.asl"	
+"IgfxDsm.asl"	
+"IgfxOpGbda.asl"	
+"IgfxOpRn.asl"	
+"IgfxOpSbcb.asl"	
+"Imgu.asl"	
+"Sa.asl"	
+"SaNvs.asl"	
+<endComponent>

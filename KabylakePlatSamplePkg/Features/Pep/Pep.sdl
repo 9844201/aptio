@@ -1,0 +1,14 @@
+TOKEN
+	Name  = "Pep_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Pep support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+    Name  = "PepBccdSmm"
+    File  = "Smm\PepBccdSmm.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End

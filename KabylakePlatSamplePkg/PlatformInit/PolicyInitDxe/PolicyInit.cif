@@ -1,0 +1,10 @@
+<component>
+	name = "PolicyInitDxe"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\PlatformInit\PolicyInitDxe\"
+	RefName = "KabylakePlatSamplePkg.PlatformInit.PolicyInitDxe"
+[INF]
+"PolicyInitDxe.inf"
+[files]
+"PolicyInit.sdl"	
+<endComponent>

@@ -1,0 +1,9 @@
+<component>
+	name = "MeSetup"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\MeSetup\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper.MeSetup"
+[files]
+"MeSetup.sdl"	
+"MebxPrompt.c"	
+<endComponent>

@@ -1,0 +1,219 @@
+TOKEN
+	Name  = "SA_LibraryPrivate_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SA LibraryPrivate support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "DxeSmbiosMemoryLib"
+	File  = "DxeSmbiosMemoryLib\DxeSmbiosMemoryLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SmbiosMemoryLib"
+	Instance  = "KabylakeSiliconPkg.DxeSmbiosMemoryLib"
+End
+
+INFComponent
+	Name  = "DxeSmbiosMemoryLibNull"
+	File  = "DxeSmbiosMemoryLibNull\DxeSmbiosMemoryLibNull.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+INFComponent
+	Name  = "DxeSmmSaPcieLib"
+	File  = "DxeSmmSaPcieLib\DxeSmmSaPcieLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SaPcieLib"
+	Instance  = "KabylakeSiliconPkg.DxeSmmSaPcieLib"
+End
+
+INFComponent
+	Name  = "PeiGmmInitLib"
+	File  = "PeiGmmInitLib\PeiGmmInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "GmmInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiGmmInitLib"
+End
+
+INFComponent
+	Name  = "PeiGraphicsInitLib"
+	File  = "PeiGraphicsInitLib\PeiGraphicsInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "GraphicsInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiGraphicsInitLib"
+End
+
+INFComponent
+	Name  = "PeiPcieInitLib"
+	File  = "PeiPcieInitLib\PeiPcieInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "PcieInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiPcieInitLib"
+End
+
+INFComponent
+	Name  = "PeiSaDmiInitLib"
+	File  = "PeiSaDmiInitLib\PeiSaDmiInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SaDmiInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiSaDmiInitLib"
+End
+
+INFComponent
+    Name  = "PeiSaDmiInitLibNull"
+    File  = "PeiSaDmiInitLibNull\PeiSaDmiInitLibNull.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+INFComponent
+	Name  = "PeiSaInitLib"
+	File  = "PeiSaInitLib\PeiSaInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+LibraryMapping
+	Class  = "SaInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiSaInitLib"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+INFComponent
+	Name  = "PeiSaInitLibFsp"
+	File  = "PeiSaInitLib\PeiSaInitLibFsp.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"    
+End
+
+LibraryMapping
+	Class  = "SaInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiSaInitLibFsp"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"    
+End
+
+INFComponent
+	Name  = "PeiSaOcInitLib"
+	File  = "PeiSaOcInitLib\PeiSaOcInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SaOcInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiSaOcInitLib"
+End
+
+INFComponent
+	Name  = "PeiSaPcieDmiLib"
+	File  = "PeiSaPcieDmiLib\PeiSaPcieDmiLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SaPcieDmiLib"
+	Instance  = "KabylakeSiliconPkg.PeiSaPcieDmiLib"
+End
+
+INFComponent
+	Name  = "PeiSaPcieInitLib"
+	File  = "PeiSaPcieInitLib\PeiSaPcieInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SaPcieInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiSaPcieInitLib"
+End
+
+INFComponent
+    Name  = "PeiGraphicsInitLibDisable"
+    File  = "PeiGraphicsInitLib\PeiGraphicsInitLibDisable.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+INFComponent
+    Name  = "PeiSaPcieInitLibDisable"
+    File  = "PeiSaPcieInitLib\PeiSaPcieInitLibDisable.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+INFComponent
+	Name  = "PeiSkyCamInitLib"
+	File  = "PeiSkyCamInitLib\PeiSkyCamInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SkyCamInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiSkyCamInitLib"
+End
+
+INFComponent
+	Name  = "PeiSwitchableGraphicsInitLib"
+	File  = "PeiSwitchableGraphicsInitLib\PeiSwitchableGraphicsInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "SwitchableGraphicsInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiSwitchableGraphicsInitLib"
+End
+
+INFComponent
+	Name  = "PeiVtdInitLib"
+	File  = "PeiVtdInitLib\PeiVtdInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "VtdInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiVtdInitLib"
+End
+
+INFComponent
+	Name  = "PeiDisplayInitLib"
+	File  = "PeiDisplayInitLib\PeiDisplayInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "DisplayInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiDisplayInitLib"
+End
+
+INFComponent
+	Name  = "PeiDisplayInitLibNull"
+	File  = "PeiDisplayInitLibNull\PeiDisplayInitLibNull.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+INFComponent
+	Name  = "LegacyRegionLib"
+	File  = "DxeLegacyRegionLib\DxeLegacyRegionLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "KabylakeSiliconPkg.LegacyRegionLib"
+	Override  = "KabylakeSiliconPkg.SaInitDxe"
+	Token = "CSM_SUPPORT" "=" "1"	
+End

@@ -1,0 +1,28 @@
+TOKEN
+	Name  = "Sol_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Sol support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "SerialOverLan_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable PciSerial support in Project"
+	TokenType = Boolean
+End
+
+PATH
+	Name  = "SerialOverLan_DIR"
+	Path  = "KabylakeSiliconPkg\Me\ActiveManagement\Sol\Dxe"
+End
+
+INFComponent
+	Name  = "SerialOverLan"
+	File  = "SerialOverLan.inf"
+	Package  = "KabylakeSiliconPkg"
+	ModuleTypes="DXE_DRIVER"
+	Path  = "SerialOverLan_DIR"
+End
+

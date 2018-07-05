@@ -1,0 +1,12 @@
+<component>
+	name = "Smm"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\Ptt\Smm\"
+	RefName = "KabylakeSiliconPkg.Me.Ptt.Smm"
+[INF]
+"PttHciSmm.inf"
+"Tpm2AcpiTables.inf"
+[files]
+"PttNvs.asl"	
+"Smm.sdl"	
+<endComponent>

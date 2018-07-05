@@ -1,0 +1,49 @@
+TOKEN
+    Name  = "SkylakeA0Rvp3_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable SkylakeA0Rvp3 support in Project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+INFComponent
+    Name  = "PeiSkylakeA0Rvp3BoardInitLib"
+    File  = "PeiBoardInitLib\PeiSkylakeA0Rvp3InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeA0Rvp3BoardInitLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.PeiBoardConfigInit"
+End
+
+INFComponent
+    Name  = "PeiSkylakeA0Rvp3BoardInitPreMemLib"
+    File  = "PeiBoardInitLib\PeiSkylakeA0Rvp3InitPreMemLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.PeiSkylakeA0Rvp3BoardInitPreMemLib"
+    ModuleTypes  = "PEIM"
+    Override  = "KabylakePlatSamplePkg.BoardConfigInitPreMem"
+End
+
+INFComponent
+    Name  = "DxeSkylakeA0Rvp3InitLib"
+    File  = "DxeBoardInitLib\SkylakeA0Rvp3InitLib.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "KabylakePlatSamplePkg.DxeSkylakeA0Rvp3InitLib"
+    ModuleTypes  = "DXE_DRIVER"
+    Override  = "KabylakePlatSamplePkg.DxeBoardConfigInit"
+End

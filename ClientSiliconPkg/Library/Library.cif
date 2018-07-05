@@ -1,0 +1,10 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "ClientSiliconPkg\Library\"
+	RefName = "ClientSiliconPkg.Library"
+[INF]
+"BaseConfigBlockLib\BaseConfigBlockLib.inf"
+[files]
+"Library.sdl"	
+<endComponent>

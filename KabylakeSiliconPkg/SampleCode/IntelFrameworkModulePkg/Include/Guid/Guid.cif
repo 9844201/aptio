@@ -1,0 +1,8 @@
+<component>
+	name = "Guid"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\IntelFrameworkModulePkg\Include\Guid\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.IntelFrameworkModulePkg.Include.Guid"
+[files]
+"DataHubStatusCodeRecord.h"	
+<endComponent>

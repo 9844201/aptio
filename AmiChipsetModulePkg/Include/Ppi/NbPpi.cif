@@ -1,0 +1,9 @@
+<component>
+	name = "NB Ppi"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\Include\Ppi\"
+	RefName = "AmiChipsetModulePkg.NbPpi"
+[files]
+"MemoryErrorReportPpi.h"	
+"NbCpuOnlyResetPpi.h"	
+<endComponent>

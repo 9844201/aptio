@@ -1,0 +1,13 @@
+TOKEN
+    Name = "IntelClientCommonPkg_Tools_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable IntelClientCommonPkgsupport Tools in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+PATH
+    Name = "INTEL_CLIENT_COMMON_PKG_TOOLS_DIR"
+End

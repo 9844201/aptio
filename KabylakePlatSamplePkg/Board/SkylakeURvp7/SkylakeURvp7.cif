@@ -1,0 +1,17 @@
+<component>
+	name = "SkylakeURvp7"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Board\SkylakeURvp7\"
+	RefName = "KabylakePlatSamplePkg.SkylakeURvp7"
+[INF]
+"DxeBoardInitLib\SkylakeURvp7InitLib.inf"
+"PeiBoardInitLib\PeiSkylakeURvp7InitPreMemLib.inf"
+"PeiBoardInitLib\PeiSkylakeURvp7InitLib.inf"
+[files]
+"SkylakeURvp7.sdl"	
+"DxeBoardInitLib\SkylakeURvp7InitLib.h"	
+"PeiBoardInitLib\GpioTableDdr3LrRvp7.h"	
+"PeiBoardInitLib\PeiSkylakeURvp7InitLib.h"	
+"PeiBoardInitLib\SkylakeURvp7HsioPtssTables.h"	
+"PeiBoardInitLib\SkylakeURvp7HdaVerbTables.h"	
+<endComponent>

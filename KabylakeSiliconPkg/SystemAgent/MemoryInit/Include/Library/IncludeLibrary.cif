@@ -1,0 +1,8 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\MemoryInit\Include\Library\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.MemoryInit.Include.Library"
+[files]
+"MemoryAddressEncodeDecodeLib.h"	
+<endComponent>

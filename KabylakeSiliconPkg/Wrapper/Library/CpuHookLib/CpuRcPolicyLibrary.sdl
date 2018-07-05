@@ -1,0 +1,64 @@
+TOKEN
+	Name  = "CpuWrapLibrary_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling CpuWrap support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+MODULE
+    Help  = "Includes CpuRcPolicyLibrary.mak to Project"
+    File  = "CpuRcPolicyLibrary.mak"
+End
+
+ELINK
+    Name  = "PeiPreMemCpuPolicyInitList"
+    InvokeOrder = ReplaceParent
+    Help  = "eLink for overriding CPU Reference Code PEI PreMem CPU Platform Policy."
+End
+
+ELINK
+    Name  = "AmiPeiPreMemCpuPolicyInit,"
+    Parent  = "PeiPreMemCpuPolicyInitList"
+    InvokeOrder = AfterParent
+    Help  = "CPU module default Cpu RC PEI CPU Platform Policy overriding eLink."
+End
+
+ELINK
+    Name  = "PeiCpuPolicyInitList"
+    InvokeOrder = ReplaceParent
+    Help  = "eLink for overriding CPU Reference Code PEI CPU Platform Policy."
+End
+
+ELINK
+    Name  = "AmiPeiCpuPolicyInit,"
+    Parent  = "PeiCpuPolicyInitList"
+    InvokeOrder = AfterParent
+    Help  = "CPU module default Cpu RC PEI CPU Platform Policy overriding eLink."
+End
+
+INFComponent
+	Name  = "CpuRcPolicyWrapPeiLib"
+	File  = "CpuRcPolicyWrapPeiLib/CpuRcPolicyWrapPeiLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "CpuRcPolicyWrapPeiLib"
+	Instance  = "KabylakeSiliconPkg.CpuRcPolicyWrapPeiLib"
+	ModuleTypes  = "PEIM"
+End
+
+#LibraryMapping
+#    Class  = "NULL"
+#    Instance  = "KabylakeSiliconPkg.CpuRcPolicyWrapPeiLib"
+#    ModuleTypes  = "PEIM"
+#    Override  = "KabylakePlatSamplePkg.PlatformInitPreMem"
+#End
+
+#LibraryMapping
+#    Class  = "NULL"
+#    Instance  = "KabylakeSiliconPkg.CpuRcPolicyWrapPeiLib"
+#    ModuleTypes  = "PEIM"
+#    Override  = "KabylakePlatSamplePkg.PlatformInit"
+#End

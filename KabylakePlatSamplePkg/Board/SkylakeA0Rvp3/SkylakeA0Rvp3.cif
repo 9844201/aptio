@@ -1,0 +1,18 @@
+<component>
+	name = "SkylakeA0Rvp3"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Board\SkylakeA0Rvp3\"
+	RefName = "KabylakePlatSamplePkg.SkylakeA0Rvp3"
+[INF]
+"DxeBoardInitLib\SkylakeA0Rvp3InitLib.inf"
+"PeiBoardInitLib\PeiSkylakeA0Rvp3InitLib.inf"
+"PeiBoardInitLib\PeiSkylakeA0Rvp3InitPreMemLib.inf"
+[files]
+"SkylakeA0Rvp3.sdl"	
+"DxeBoardInitLib\SkylakeA0Rvp3InitLib.h"	
+"PeiBoardInitLib\PeiSkylakeA0Rvp3InitLib.h"	
+"PeiBoardInitLib\SkylakeA0Rvp3GpioTable.h"	
+"PeiBoardInitLib\SkylakeA0Rvp3HdaVerbTables.h"	
+"PeiBoardInitLib\SkylakeA0Rvp3HsioPtssTables.h"	
+"PeiBoardInitLib\SkylakeA0Rvp3SpdTable.h"	
+<endComponent>

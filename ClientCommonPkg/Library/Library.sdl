@@ -1,0 +1,157 @@
+TOKEN
+    Name  = "ClientCommonPkg_Library_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Platform Library support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+TOKEN
+    Name  = "DEBUG_MESSAGES_INTERFACE"
+    Value  = "0"
+    Help  = "0: Legacy UART.\1: Serial IO UART."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+ELINK
+    Name  = "-D AMI_DEBUG_INTERFACE_PARAMETER=0x82"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "DEBUG_MESSAGES_INTERFACE" "=" "0"    
+End
+
+ELINK
+    Name  = "-D AMI_DEBUG_INTERFACE_PARAMETER=0x90"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "DEBUG_MESSAGES_INTERFACE" "=" "1"    
+End
+
+PcdMapping
+    Name  = "PcdSerialIoUartDebugEnable"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    Value  = "TRUE"
+    TargetDSC = Yes
+    Token = "DEBUG_MESSAGES_INTERFACE" "=" "1"
+End
+
+PcdMapping
+    Name  = "PcdSerialIoUartNumber"
+    GuidSpace  = "gSiPkgTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "UINT8"
+    Value  = "0x02"
+    Offset  = 00h
+    Length  = 01h
+    TargetDSC = Yes
+    Token = "DEBUG_MESSAGES_INTERFACE" "=" "1"
+End
+
+INFComponent
+    Name  = "BaseDebugPropertyLibNull"
+    File  = "BaseDebugPropertyLibNull\BaseDebugPropertyLibNull.inf"
+    Package  = "ClientCommonPkg"
+End
+
+LibraryMapping
+    Class  = "DebugPropertyLib"
+    Instance  = "ClientCommonPkg.BaseDebugPropertyLibNull"
+End
+
+INFComponent
+    Name  = "BasePlatformPostCodeMapLib"
+    File  = "BasePlatformPostCodeMapLib\BasePlatformPostCodeMapLib.inf"
+    Package  = "ClientCommonPkg"
+End
+
+LibraryMapping
+    Class  = "PlatformPostCodeMapLib"
+    Instance  = "ClientCommonPkg.BasePlatformPostCodeMapLib"
+End
+
+INFComponent
+    Name  = "BasePostCodeLibPort80Ex"
+    File  = "BasePostCodeLibPort80Ex\BasePostCodeLibPort80Ex.inf"
+    Package  = "ClientCommonPkg"
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"    
+End
+
+LibraryMapping
+    Class  = "PostCodeLib"
+    Instance  = "ClientCommonPkg.BasePostCodeLibPort80Ex"
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"     
+End
+
+INFComponent
+    Name  = "BaseI2cDriverLib"
+    File  = "BaseI2cDriverLib\BaseI2cDriverLib.inf"
+    Package  = "ClientCommonPkg"
+End
+
+LibraryMapping
+    Class  = "I2cDriverLib"
+    Instance  = "ClientCommonPkg.BaseI2cDriverLib"
+End
+
+INFComponent
+    Name  = "BaseSerialPortParameterLibPcd"
+    File  = "BaseSerialPortParameterLibPcd\BaseSerialPortParameterLibPcd.inf"
+    Package  = "ClientCommonPkg"
+End
+
+LibraryMapping
+    Class  = "SerialPortParameterLib"
+    Instance  = "ClientCommonPkg.BaseSerialPortParameterLibPcd"
+End
+
+INFComponent
+    Name  = "DxeSmbiosProcessorLib"
+    File  = "DxeSmbiosProcessorLib\DxeSmbiosProcessorLib.inf"
+    Package  = "ClientCommonPkg"
+End
+
+LibraryMapping
+    Class  = "DxeSmbiosProcessorLib"
+    Instance  = "ClientCommonPkg.DxeSmbiosProcessorLib"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+    Name  = "PeiMultiPlatSupportLib"
+    File  = "PeiMultiPlatSupportLib\PeiMultiPlatSupportLib.inf"
+    Package  = "ClientCommonPkg"
+End
+
+LibraryMapping
+    Class  = "MultiPlatSupportLib"
+    Instance  = "ClientCommonPkg.PeiMultiPlatSupportLib"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "PeiMultiPlatSupportLibOptSize"
+    File  = "PeiMultiPlatSupportLib\PeiMultiPlatSupportLibOptSize.inf"
+    Package  = "ClientCommonPkg"
+End
+
+LibraryMapping
+    Class  = "MultiPlatSupportLib"
+    Instance  = "ClientCommonPkg.PeiMultiPlatSupportLibOptSize"
+    ModuleTypes  = "PEIM"
+End
+
+PcdMapping
+    Name  = "PcdSmbiosDefaultMaxSpeed"
+    GuidSpace  = "gClientCommonModuleTokenSpaceGuid"
+    PcdType  = "PcdsFixedAtBuild"
+    DataType  = "Uint16"
+    Value  = "8300"
+    Offset  = 00h
+    Length  = 02h
+    TargetDSC = Yes
+End
+

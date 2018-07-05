@@ -1,0 +1,13 @@
+<component>
+	name = "Dptf"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Dptf\"
+	RefName = "KabylakePlatSamplePkg.Features.Dptf"
+[INF]
+"Dxe\Dptf.inf"
+[files]
+"Dptf.sdl"	
+[parts]
+"KabylakePlatSamplePkg.Features.Dptf.DptfAcpiTables"
+"KabylakePlatSamplePkg.Features.Dptf.Sds.DptfAcpiTablesSds"
+<endComponent>

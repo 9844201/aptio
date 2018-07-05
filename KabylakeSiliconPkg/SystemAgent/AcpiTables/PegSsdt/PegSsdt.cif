@@ -1,0 +1,11 @@
+<component>
+	name = "PegSsdt"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\AcpiTables\PegSsdt\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.AcpiTables.PegSsdt"
+[INF]
+"PegSsdt.inf"
+[files]
+"PegOnOff.asl"	
+"SaPcieDsm.asl"	
+<endComponent>

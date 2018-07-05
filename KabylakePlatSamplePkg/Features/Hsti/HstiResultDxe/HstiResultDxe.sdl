@@ -1,0 +1,21 @@
+TOKEN
+    Name = "HstiResultDxe_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable Hsti Result Dxe support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+    Token = "HSTI_RC_SUPPORT" "=" "1"    
+End
+
+PATH
+    Name  = "HSTI_RESULT_DXE_DIR"
+End
+
+INFComponent
+    Name  = "HstiResultDxe"
+    File  = "HstiResultDxe.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End

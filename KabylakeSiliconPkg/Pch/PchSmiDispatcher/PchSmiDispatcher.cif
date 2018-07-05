@@ -1,0 +1,12 @@
+<component>
+	name = "PchSmiDispatcher"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Pch\PchSmiDispatcher\"
+	RefName = "KabylakeSiliconPkg.Pch.PchSmiDispatcher"
+[files]
+"PchSmiDispatcher.sdl"	
+"Smm\PchSmmEspi.h"	
+"Smm\IoTrap.h"	
+[parts]
+"KabylakeSiliconPkg.Pch.PchSmiDispatcher.Smm"
+<endComponent>

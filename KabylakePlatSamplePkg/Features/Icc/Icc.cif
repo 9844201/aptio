@@ -1,0 +1,11 @@
+<component>
+	name = "Icc"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Icc\"
+	RefName = "KabylakePlatSamplePkg.Features.Icc"
+[INF]
+"IccPlatformDxe\IccPlatformDxe.inf"
+[files]
+"Icc.sdl"	
+"IccPlatformDxe\IccPlatform.h"	
+<endComponent>

@@ -1,0 +1,13 @@
+<component>
+	name = "RefrenceCodesReleaseNotes"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\RefrenceCodesReleaseNotes\"
+	RefName = "KabylakeSiliconPkg.RefrenceCodesReleaseNotes"
+[files]
+"CSME_RC_ReleaseNote.pdf"	
+"Kaby Lake Silicon Initilization Code Release Notes.pdf"	
+"KBL_CPU_RC_ReleaseNotes.pdf"	
+"KBL_MRC_ReleaseNote.pdf"	
+"KBL_PCH ReleaseNotes.pdf"	
+"KBL_SA_RC_ReleaseNote.pdf"	
+<endComponent>

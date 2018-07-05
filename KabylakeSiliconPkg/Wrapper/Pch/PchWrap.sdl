@@ -1,0 +1,1086 @@
+TOKEN
+    Name  = "PCH_WRAP_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling PchWrap support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+TOKEN
+    Name = "DEFAULT_PCH_USB30_MODE"
+    Value = "1"
+    Help = "Disable : 0, Enable : 1"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "DEFAULT_CRID_ENABLE"
+    Value  = "0"
+    Help  = "1:Enable CRID feature/0:Disable CRID feature"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_DCI_ENABLE"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_IO_APIC_ID"
+    Value  = "02"
+    Help  = "Assign IO APIC ID"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_APIC_RANGE_SELECT"
+    Value  = "0"
+    Help  = "Program APIC Range Select bits at RCBA + 31FEh[7:0]"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "IOAPIC_ENTRY_24_39"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_PWR_OPT_DMI"
+    Value  = "1"
+    Help  = "0:Set the function to 'Disabled'.\1:Set the function to 'Enabled'."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_PWR_OPT_GBE"
+    Value  = "1"
+    Help  = "0:Set the function to 'Disabled'.\1:Set the function to 'Enabled'."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_PWR_OPT_XHCI"
+    Value  = "0"
+    Help  = "0:Set the function to 'Disabled'.\1:Set the function to 'Enabled'."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_PWR_OPT_EHCI"
+    Value  = "0"
+    Help  = "0:Set the function to 'Disabled'.\1:Set the function to 'Enabled'."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_PWR_OPT_SATA"
+    Value  = "1"
+    Help  = "0:Set the function to 'Disabled'.\1:Set the function to 'Enabled'."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "MEM_CLOSE_STATE_EN"
+    Value  = "1"
+    Help  = "0:Set the function to 'Disabled'.\1:Set the function to 'Enabled'."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "INTERNAL_OBFF_EN"
+    Value  = "1"
+    Help  = "0:Set the function to 'Disabled'.\1:Set the function to 'Enabled'."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "LEGACY_DMA_DISABLE"
+    Value  = "0"
+    Help  = "0:Legacy DMA is enable.\1:Legacy DMA is disable.\Supported in PCH RC v1.4.0."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "HDA_RESET_WAIT_TIMER"
+    Value  = "300"
+    Help  = "Minimum link timing requirements."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TSEL_LOCK"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TSC_LOCK"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TSMIC_LOCK"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TTLEVELS_SUGGESTED_SETTING"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "DMIHAAWC_SUGGESTED_SETTING"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SATATT_SUGGESTED_SETTING"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SATA_THROTTLING_ENABLED"
+    Value  = "{TRUE, TRUE, TRUE, TRUE, TRUE, TRUE}"
+    Help = "Enable or disable SATA Throttling./{P0, P1, P2, P3, P4, P5, P6}/Note: P5 and P6 only available on LPTLP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SATA_LEGACYMODE"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "ESATA_SPEED_LIMIT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCIE_NAND_REMAP_DEVICE_RESET_DELAY"
+    Value  = "100"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_PCIE_THROTTLING_PORT0"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_PCIE_THROTTLING_PORT1"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_PCIE_THROTTLING_PORT2"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_PCIE_THROTTLING_PORT3"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_PCIE_THROTTLING_PORT4"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_PCIE_THROTTLING_PORT5"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_PCIE_THROTTLING_PORT6"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_PCIE_THROTTLING_PORT7"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PHLC_LOCK"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TSGPIO_C_PMSYN"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TSGPIO_D_PMSYN"
+    Value  = "1"
+    Help  = "0:Disable\1:Enable"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TSGPIO_C_C0_TRANSMIT"
+    Value  = "1"
+    Help  = "0:Disable\1:Enable"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TSGPIO_D_C0_TRANSMIT"
+    Value  = "1"
+    Help  = "0:Disable\1:Enable"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TSGPIO_C_PIN_SEL"
+    Value  = "1"
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0-1"
+End
+
+TOKEN
+    Name  = "TSGPIO_D_PIN_SEL"
+    Value  = "0"
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "0-1"
+End
+
+TOKEN
+    Name  = "PCH_SLP_S3_MIN_ASSERT_VALUE"
+    Value  = "2"
+    Help  = "SLP_S3# Stretch\0:60us\1:1ms\2:50ms\3:2s"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_SLP_S4_MIN_ASSERT_VALUE"
+    Value  = "4"
+    Help  = "SLP_S4# Stretch\0:Pch Time\1:1s\2:2s\3:3s\4:4s"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_SLP_SUS_MIN_ASSERT_VALUE"
+    Value  = "3"
+    Help  = "SLP_SUS# Minimum Assertion Width.\0:0ms\1:500ms\2:1s\3:4s"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_SLPA_MIN_ASSERT"
+    Value  = "3"
+    Help  = "0:0ms\1:4S\2:98ms\3:2s"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name = "PCH_RESET_CYCLE_DURATION"
+    Value = "0"
+    Help = "Reset Power Cycle Duration.\0:Default(4s)\1:1-2s\2:2-3s\3:3-4s\4:4-5s\Supported in PCH RC v1.4.0."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SLP_STRCH_SUS_UP"
+    Value  = "0"
+    Help  = "SLP Stretching After SUS Well Power Up\0:Disable\1:Enable"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FVI_SMBIOS_TYPE"
+    Value  = "0xDD"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SLP_LAN_LOW_DC"
+    Value  = "0"
+    Help  = "SLP_LAN# Low on DC Power.\0:Disable\1:Enable"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TTLEVELS_SUGGEST"
+    Value  = "1"
+    Help  = "Thermal Throttling.\0:Disable\1:Enable"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "DMIHAAWC_SUGGEST"
+    Value  = "1"
+    Help  = "0:Disable\1:Enable"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SATATT_SUGGEST"
+    Value  = "1"
+    Help  = "0:Disable\1:Enable"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SIRQ_ENABLE"
+    Value  = "1"
+    Help  = "0:Disable\1:Enable"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SIRQ_DEFAULT_MODE"
+    Value  = "0"
+    Help  = "0:QUIET Mode\ 1:CONTINUOUS Mode"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SIRQ_START_FRAME_PULSE"
+    Value  = "0"
+    Help  = "0:4 clocks\1:6 clocks\2:8 clocks"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_PCIE_ADVANCED_ERROR_REPORTING"
+    Value  = "0"
+    Help  = "0:Disable\1:Enable"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "ME_WAKE_STS"
+    Value  = "1"
+    Help  = "Clear Intel ME WAKE STATUS."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "ME_HRST_COLD_STS"
+    Value  = "1"
+    Help  = "Clear Intel ME Host Reset Cold Status."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "ME_HRST_WARM_STS"
+    Value  = "1"
+    Help  = "Clear Intel ME Host Reset Warm Status"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_OEM_SSID_SUPPORT"
+    Value  = "0"
+    Help  = "1: Use OEM SSID, 0: Use Intel RC SSID."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+ELINK
+    Name  = "-D INSTALL_INTEL_SSID"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "AMI_OEM_SSID_SUPPORT" "=" "0"
+End
+
+TOKEN
+    Name  = "BIOS_SECURITY"
+    Value  = "1"
+    Help  = "1:Set SMI Lock & BIOS Lock Enable"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "BIOS_LOCK_ENABLE"
+    Value  = "$(BIOS_SECURITY)"
+    Help  = "1:Enable BIOS Lock.\0:Disable BIOS Lock.\Only read cycles result in Firmware Hub I/F cycles."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SMI_LOCK_ENABLE"
+    Value  = "$(BIOS_SECURITY)"
+    Help  = "1:Enable SMI Lock.\0:Disable SMI Lock.\Enable SMI Lock the GBL_SMI_EN (PMBASE + 30h, bit 0) can not be changed."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "SMM_BIOS_WRITE_PROTECT"
+    Value  = "$(BIOS_SECURITY)"
+    Help  = "SMM BIOS Write Protect(SMM_BWP, B0:D31:F0 Reg#DCh[5]).\0 = BIOS region SMM protection is disabled.\1 = BIOS region SMM protection is enabled."
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "ENABLE_SPI_LOCK"
+    Value  = "0"
+    Help  = "When the token SMI_LOCK_ENABLE is set, the SPI flash can not be erase or write."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "BIOS_INTERFACE_LOCKDOWN"
+    Value  = "1"
+    Help  = "0:Set the default value to 'Disabled'.\1:Set the default value to 'Enabled'.\BLE, RCBA + 3410h[0]"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "GPIO_LOCKDOWN_ENABLE"
+    Value  = "0"
+    Help  = "0:Set the default value to 'Disabled'.\1:Set the default value to 'Enabled'.\GLE, B0:D31:F0:4Ch[0]"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "RTC_LOCK_ENABLE"
+    Value  = "1"
+    Help  = "0:Set the default value to 'Disabled'.\1:Set the default value to 'Enabled'."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_USB_XHCI_THERMAL_THROTTLING"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "INSTALL_OEM_HDA_VERB_TABLE"
+    Value  = "0"
+    TokenType = Boolean
+End
+
+ELINK
+    Name  = "-D OEM_HDA_VERB_TABLE_INSTALL"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    InvokeOrder = AfterParent
+    Token = "INSTALL_OEM_HDA_VERB_TABLE" "=" "1"
+End
+
+TOKEN
+    Name  = "PCH_DMIIOT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCIE_RP_LTR_ENABLE"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCHLP_LTR_MAX_SNOOP_LATENCY"
+    Value  = "0x1003"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCHLP_LTR_MAX_NO_SNOOP_LATENCY"
+    Value  = "0x1003"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_LTR_MAX_SNOOP_LATENCY"
+    Value  = "0x0846"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_LTR_MAX_NO_SNOOP_LATENCY"
+    Value  = "0x0846"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_RP_LTR_CONFIG_LOCK"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_RP_SNOOP_LATENCY_OVERRIDE_MODE"
+    Value  = "2"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_RP_SNOOP_LATENCY_OVERRIDE_MULTIPLIER"
+    Value  = "2"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_RP_SNOOP_LATENCY_OVERRIDE_VALUE"
+    Value  = "60"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_RP_NO_SNOOP_LATENCY_OVERRIDE_MODE"
+    Value  = "2"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_RP_NO_SNOOP_LATENCY_OVERRIDE_MULTIPLIER"
+    Value  = "2"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_RP_NO_SNOOP_LATENCY_OVERRIDE_VALUE"
+    Value  = "60"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_PME_B0_S5_DISABLE"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_WAKE_ON_WLAN_ENABLE"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PCH_WAKE_ON_WLAN_DEEP_SX_ENABLE"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_LEGACY_INTERRUPT_CFG"
+    Value = "{11, 10, 11, 11, 11, 11, 11, 11}"
+    Help  = "Ami Legacy interrupt setting, format:{PIRQA, PIRQB, PIRQC, PIRQD, PIRQE, PIRQF, PIRQG, PIRQH}. That value means PIRQx mapping to IRQx. the IRQ vaule only can be 3, 4, 5, 6, 10, 11, 12, 14 and 15. If IRQ vaule is 0, that means IRQ will be assigned by CSM."
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV31_H"
+    Value = "PCH_DEV_IP_SETTING(2, INT_B) | PCH_DEV_IP_SETTING(3, INT_C) | PCH_DEV_IP_SETTING(5, INT_B) | PCH_DEV_IP_SETTING(6, INT_C)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV31 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV29_H"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV29 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV28_H"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A) | PCH_DEV_IP_SETTING(1, INT_B) | PCH_DEV_IP_SETTING(2, INT_C) | PCH_DEV_IP_SETTING(3, INT_D) | PCH_DEV_IP_SETTING(4, INT_A) | PCH_DEV_IP_SETTING(5, INT_B) | PCH_DEV_IP_SETTING(6, INT_C) | PCH_DEV_IP_SETTING(7, INT_D)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV28 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV27_H"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV27 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV26_H"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV26 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV25_H"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV25 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV20_H"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV20 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV31_H"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_A, PIRQ_D, PIRQ_C, PIRQ_A )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV31 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV29_H"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_H, PIRQ_D, PIRQ_A, PIRQ_C )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV29 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV28_H"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_A, PIRQ_B, PIRQ_C, PIRQ_D )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV28 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV27_H"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_G, PIRQ_B, PIRQ_C, PIRQ_D )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV27 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV26_H"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_A, PIRQ_F, PIRQ_C, PIRQ_D )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV26 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV25_H"
+    Value = "PCH_DEV_IR_SETTING(PIRQ_E, PIRQ_F, PIRQ_G, PIRQ_H )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV25 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV20_H"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_A, PIRQ_B, PIRQ_C, PIRQ_D )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV20 for H"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV31_LP"
+    Value = "PCH_DEV_IP_SETTING(2, INT_B) | PCH_DEV_IP_SETTING(3, INT_C) | PCH_DEV_IP_SETTING(5, INT_B) | PCH_DEV_IP_SETTING(6, INT_C)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV31 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV29_LP"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV29 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV28_LP"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A) | PCH_DEV_IP_SETTING(1, INT_B) | PCH_DEV_IP_SETTING(2, INT_C) | PCH_DEV_IP_SETTING(3, INT_D) | PCH_DEV_IP_SETTING(4, INT_A) | PCH_DEV_IP_SETTING(5, INT_B) | PCH_DEV_IP_SETTING(6, INT_C) | PCH_DEV_IP_SETTING(7, INT_D)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV28 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV27_LP"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV27 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV25_LP"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV25 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_PIN_CONFIG_DEV20_LP"
+    Value = "PCH_DEV_IP_SETTING(0, INT_A)"
+    Help  = "AMI_INTERRUPT_PIN_CONFIG DEV20 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV31_LP"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_A, PIRQ_D, PIRQ_C, PIRQ_A )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV31 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV29_LP"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_H, PIRQ_D, PIRQ_A, PIRQ_C )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV29 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV28_LP"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_A, PIRQ_B, PIRQ_C, PIRQ_D )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV28 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV27_LP"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_G, PIRQ_B, PIRQ_C, PIRQ_D )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV27 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV26_LP"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_A, PIRQ_F, PIRQ_C, PIRQ_D )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV26 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV25_LP"
+    Value = "PCH_DEV_IR_SETTING(PIRQ_E, PIRQ_F, PIRQ_G, PIRQ_H )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV25 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV23_LP"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_G,    0x0,   0x0,   0x0 )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV23 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV21_LP"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_E, PIRQ_E, PIRQ_F, PIRQ_F )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV21 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV20_LP"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_A, PIRQ_B, PIRQ_C, PIRQ_D )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV20 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AMI_INTERRUPT_ROUTE_CONFIG_DEV19_LP"
+    Value = "PCH_DEV_IR_SETTING( PIRQ_H,    0x0,    0x0,   0x0 )"
+    Help  = "AMI_INTERRUPT_ROUTE_CONFIG DEV19 for LP"
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "OEM_SETUPDATA_OVERRIDE"
+    Value  = "0"
+    Help  = "Switch for enabling OEM SetupData name override"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "PchHdAudio"
+    Value = "PchAzalia"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "OEM_SETUPDATA_OVERRIDE" "=" "1"
+End
+
+TOKEN
+    Name  = "PchCrid"
+    Value = "PchEnableCrid"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "OEM_SETUPDATA_OVERRIDE" "=" "1"
+End
+
+TOKEN
+    Name  = "PchUsbPortDisable"
+    Value = "PchUsbPerPortCtl"
+    TokenType = Expression
+    TargetH = Yes
+    Token = "OEM_SETUPDATA_OVERRIDE" "=" "1"
+End
+
+TOKEN
+    Name  = "CRB_I2C_IO_EXPANDER_SUPPORT"
+    Value  = "1"
+    Help  = "This token is for configure I2C I/O expander at PlatformInitPreMem.c."
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+ELINK
+    Name  = "-D AMI_CRB_I2C_IO_EXPANDER_SUPPORT_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    Token = "CRB_I2C_IO_EXPANDER_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+TOKEN
+    Name  = "CRB_GPIO_OVERRIDE_SUPPORT"
+    Value  = "0"
+    Help  = "This token is for override gpio pad mode. When the gpio is used as native function, code will automatically set the pad mode before initialize. Disable will skip set the pad mode to native function. Then the pad mode will use the setting in gpio table. Currnetly only disable UART0, UART2 and I2C0 gpio override. Others can be disabled by policy."
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+ELINK
+    Name  = "-D AMI_CRB_GPIO_OVERRIDE_SUPPORT_FLAG"
+    Parent  = "*_*_*_CC_FLAGS"
+    Type  = "BuildOptions"
+    Token = "CRB_GPIO_OVERRIDE_SUPPORT" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+TOKEN
+    Name = "SPI_PROTECTED_RANGE_0"
+    Value = "{2, TRUE, FALSE, $(SPI_FV_BB_PROTECTED_RANGE_BASE), $(SPI_FV_BB_PROTECTED_RANGE_LENGTH)}"
+    Help = "Format:\ 1st - The type of protected range 0, the available types are Undefined Type(0), Descriptor Type(1), BIOS Type(2), ME/TXE Type(3) and GBE Type(4).\ 2nd - Write Protected Enable.\ 3rd - Read Protected Enable.\ 4th - The protected range base MUST to be 4KB alignment, it is only used for the protected types 0(Undefined) and 2(BIOS).\ 5th - The protection range length(the minimum length MUST be 4KB).\ Note : If 2nd & 3rd parameters both are 0, then this protected range will be disabled.\ FV_BB is default for the protected range 0, but you can update it according to your design."        
+    TokenType = Expression
+    TargetH = Yes
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+TOKEN
+    Name = "SPI_FV_BB_PROTECTED_RANGE_BASE"
+    Value = "$(FV_BB_BASE) - $(FLASH_START_ADDRESS)"
+    Help = "If you set the type of protected range 0 to BIOS Type(2), we will use this token for Protection Range Base(MUST be 4KB alignment) in BIOS Region - For FV_BB"
+    TokenType = Integer
+    TargetH = Yes
+    Lock = Yes
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+TOKEN
+    Name = "SPI_FV_BB_PROTECTED_RANGE_LENGTH"
+    Value = "$(FV_BB_SIZE)"
+    Help = "If you set the type of protected range 0 to BIOS Type(2), we will use this token for Protection Range Length(the minimum length MUST be 4KB) in BIOS Region - For FV_BB"      
+    TokenType = Integer
+    TargetH = Yes
+    Lock = Yes
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+TOKEN
+    Name  = "SPI_PROTECTED_RANGE_1"
+    Value = "{2, TRUE, FALSE, $(SPI_FV_BB_AFTER_MEMORY_PROTECTED_RANGE_BASE), $(SPI_FV_BB_AFTER_MEMORY_PROTECTED_RANGE_LENGTH)}" 
+    Help = "Format:\ 1st - The type of protected range 1, the available types are Undefined Type(0), Descriptor Type(1), BIOS Type(2), ME/TXE Type(3) and GBE Type(4).\ 2nd - Write Protected Enable.\ 3rd - Read Protected Enable.\ 4th - The protected range base MUST to be 4KB alignment, it is only used for the protected types 0(Undefined) and 2(BIOS).\ 5th - The protection range length(the minimum length MUST be 4KB).\ Note : If 2nd & 3rd parameters both are 0, then this protected range will be disabled.\ FV_MAIN is default for the protected range 1, but you can update it according to your design."
+    TokenType = Expression
+    TargetH = Yes
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+TOKEN
+    Name = "SPI_FV_BB_AFTER_MEMORY_PROTECTED_RANGE_BASE"
+    Value = "$(FV_BB_AFTER_MEMORY_BASE) - $(FLASH_START_ADDRESS)"
+    Help = "If you set the type of protected range 1 to BIOS Type(2), we will use this token for Protection Range Base(MUST be 4KB alignment) in BIOS Region - For FV_MAIN" 
+    TokenType = Integer
+    TargetH = Yes
+    Lock = Yes        
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+TOKEN
+    Name = "SPI_FV_BB_AFTER_MEMORY_PROTECTED_RANGE_LENGTH"
+    Value = "$(FV_BB_AFTER_MEMORY_SIZE)"
+    Help = "If you set the type of protected range 1 to BIOS Type(2), we will use this token for Protection Range Length(the minimum length MUST be 4KB) in BIOS Region - For FV_MAIN"        
+    TokenType = Integer
+    TargetH = Yes
+    Lock = Yes        
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+TOKEN
+    Name = "SPI_PROTECTED_RANGE_2"
+    Value = "{2, TRUE, FALSE, $(SPI_FV_MAIN_PROTECTED_RANGE_BASE), $(SPI_FV_MAIN_PROTECTED_RANGE_LENGTH)}" 
+    Help = "Format:\ 1st - The type of protected range 2, the available types are Undefined Type(0), Descriptor Type(1), BIOS Type(2), ME/TXE Type(3) and GBE Type(4).\ 2nd - Write Protected Enable.\ 3rd - Read Protected Enable.\ 4th - The protected range base MUST to be 4KB alignment, it is only used for the protected types 0(Undefined) and 2(BIOS).\ 5th - The protection range length(the minimum length MUST be 4KB).\ Note : If 2nd & 3rd parameters both are 0, then this protected range will be disabled.\ OEM Reserve is default for the protected range 2 if you don't support INTEL_FIT_SUPPORT., but you can update it according to your design."                
+    TokenType = Expression
+    TargetH = Yes
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+TOKEN
+    Name = "SPI_FV_MAIN_PROTECTED_RANGE_BASE"
+    Value = "$(FV_MAIN_BASE) - $(FLASH_START_ADDRESS)"
+    Help = "If you set the type of protected range 1 to BIOS Type(2), we will use this token for Protection Range Base(MUST be 4KB alignment) in BIOS Region - For FV_MAIN" 
+    TokenType = Integer
+    TargetH = Yes
+    Lock = Yes        
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+TOKEN
+    Name = "SPI_FV_MAIN_PROTECTED_RANGE_LENGTH"
+    Value = "$(FV_MAIN_SIZE)"
+    Help = "If you set the type of protected range 1 to BIOS Type(2), we will use this token for Protection Range Length(the minimum length MUST be 4KB) in BIOS Region - For FV_MAIN"        
+    TokenType = Integer
+    TargetH = Yes
+    Lock = Yes        
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"
+End
+
+TOKEN
+    Name = "SPI_PROTECTED_RANGE_3"
+    Value = "{0, FALSE, FALSE, 0, 0}"
+    Help = "Format:\ 1st - The type of protected range 3, the available types are Undefined Type(0), Descriptor Type(1), BIOS Type(2), ME/TXE Type(3) and GBE Type(4).\ 2nd - Write Protected Enable.\ 3rd - Read Protected Enable.\ 4th - The protected range base MUST to be 4KB alignment, it is only used for the protected types 0(Undefined) and 2(BIOS).\ 5th - The protection range length(the minimum length MUST be 4KB).\ Note : If 2nd & 3rd parameters both are 0, then this protected range will be disabled.\ OEM Reserve is default for the protected range 3, but you can update it according to your design."                
+    TokenType = Expression
+    TargetH = Yes
+End
+
+TOKEN
+    Name = "SPI_PROTECTED_RANGE_4"
+    Value = "{0, FALSE, FALSE, 0, 0}"
+    Help = "Format:\ 1st - The type of protected range 4, the available types are Undefined Type(0), Descriptor Type(1), BIOS Type(2), ME/TXE Type(3) and GBE Type(4).\ 2nd - Write Protected Enable.\ 3rd - Read Protected Enable.\ 4th - The protected range base MUST to be 4KB alignment, it is only used for the protected types 0(Undefined) and 2(BIOS).\ 5th - The protection range length(the minimum length MUST be 4KB).\ Note : If 2nd & 3rd parameters both are 0, then this protected range will be disabled.\ OEM Reserve is default for the protected range 4, but you can update it according to your design."        
+    TokenType = Expression
+    TargetH = Yes
+End

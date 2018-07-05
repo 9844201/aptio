@@ -1,0 +1,18 @@
+<component>
+	name = "AcpiTablesWrap"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Acpi\AcpiTablesWrap\"
+	RefName = "KabylakePlatSamplePkg.Acpi.AcpiTablesWrap"
+[INF]
+"AcpiDsdtAsl\AcpiDsdtAsl.inf"
+"AcpiDebug\AcpiDebug.inf"
+"AcpiTableSsdt\AcpiDebugTable.inf"
+[files]
+"AcpiTablesWrap.sdl"	
+[parts]
+"KabylakePlatSamplePkg.Acpi.AcpiTablesWrap.AcpiAslWrap"
+"KabylakePlatSamplePkg.Acpi.AcpiTablesWrap.AcpiRcSsdt"
+"KabylakePlatSamplePkg.Acpi.AcpiTablesWrap.PlatformInfo"
+"KabylakePlatSamplePkg.Acpi.AcpiTablesWrap.Library"
+"KabylakePlatSamplePkg.Acpi.AcpiTablesWrap.Include"
+<endComponent>

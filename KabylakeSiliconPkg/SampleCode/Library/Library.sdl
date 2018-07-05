@@ -1,0 +1,55 @@
+TOKEN
+    Name  = "SampleCode_Library_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling SampleCode Library support in the project"
+    TokenType = Boolean
+    Master = Yes
+    Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"   
+End
+
+PATH
+    Name  = "SampleCode_Library_DIR"
+    Path  = "KabylakeSiliconPkg\SampleCode\Library"
+End
+
+INFComponent
+    Name  = "FspMPlatformSecLib"
+    File  = "PlatformSecLib\FspMPlatformSecLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "FspSecPlatformLib"
+    Instance  = "KabylakeSiliconPkg.FspMPlatformSecLib"
+    Override  = "IntelFsp2Pkg.FspSecCoreM"   
+End
+
+INFComponent
+    Name  = "FspSPlatformSecLib"
+    File  = "PlatformSecLib\FspSPlatformSecLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "FspSecPlatformLib"
+    Instance  = "KabylakeSiliconPkg.FspSPlatformSecLib"
+    Override  = "IntelFsp2Pkg.FspSecCoreS" 
+End
+
+INFComponent
+    Name  = "FspTPlatformSecLib"
+    File  = "PlatformSecLib\FspTPlatformSecLib.inf"
+    Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+    Class  = "SecPlatformLib"
+    Instance  = "KabylakeSiliconPkg.FspTPlatformSecLib"
+    ModuleTypes  = "SEC"    
+End
+
+LibraryMapping
+    Class  = "FspSecPlatformLib"
+    Instance  = "KabylakeSiliconPkg.FspTPlatformSecLib"
+    Override  = "IntelFsp2Pkg.FspSecCoreT" 
+End

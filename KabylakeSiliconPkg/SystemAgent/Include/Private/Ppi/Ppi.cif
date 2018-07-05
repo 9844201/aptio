@@ -1,0 +1,8 @@
+<component>
+	name = "Ppi"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\Include\Private\Ppi\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.Include.Private.Ppi"
+[files]
+"GraphicsPlatformPolicyPpi.h"	
+<endComponent>

@@ -1,0 +1,11 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Override\MdePkg\Library\"
+	RefName = "KabylakeSiliconPkg.Override.MdePkg.Library"
+[INF]
+"DxeHstiLib\DxeHstiLib.inf"
+[files]
+"Library.sdl"	
+"DxeHstiLib\DxeHstiLib.uni"	
+<endComponent>

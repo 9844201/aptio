@@ -1,0 +1,15 @@
+<component>
+	name = "Acpi"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Acpi\"
+	RefName = "KabylakePlatSamplePkg.Acpi"
+[files]
+"Acpi.sdl"	
+"AmiAcpiElinks.txt"	
+"NotifyInPNOT.txt"	
+"CrbNotifyBat.asl"	
+[parts]
+"KabylakePlatSamplePkg.Acpi.AcpiTables"
+"KabylakePlatSamplePkg.Acpi.AcpiTablesWrap"
+"KabylakePlatSamplePkg.Acpi.AcpiSmm"
+<endComponent>

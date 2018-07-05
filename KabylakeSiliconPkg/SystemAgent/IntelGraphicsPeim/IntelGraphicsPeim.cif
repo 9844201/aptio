@@ -1,0 +1,10 @@
+<component>
+	name = "IntelGraphicsPeim"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SystemAgent\IntelGraphicsPeim\"
+	RefName = "KabylakeSiliconPkg.SystemAgent.IntelGraphicsPeim"
+[files]
+"IntelGraphicsPeim.sdl"	
+[parts]
+"KabylakeSiliconPkg.SystemAgent.IntelGraphicsPeim.Binaries"
+<endComponent>

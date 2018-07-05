@@ -1,0 +1,147 @@
+TOKEN
+	Name  = AmiCpuSetup_SUPPORT
+	Value  = 1
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Help  = "Main switch to enable Cpu Setup support in Project"
+End
+
+TOKEN
+	Name  = "CpuSetupPreserveLib_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable CpuSetupPreserveLib support in Project"
+	TokenType = Boolean
+End
+
+PATH
+	Name  = "CPU_SETUP_DIR"
+End
+
+ELINK
+    Name  = "$(CPU_SETUP_DIR)/AmiCpuSetupReset.c"
+    Parent  = "TSE_SOURCE_FILES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiCpuModulePkg/AmiCpuModulePkg.dec"
+	Parent  = "AdditionalSetupPackages"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "AmiTsePkg/AmiTsePkg.dec"
+    Parent  = "AdditionalSetupPackages"
+    InvokeOrder = AfterParent    
+End
+
+ELINK
+    Name  = "gAmiPostManagerProtocolGuid"
+    Parent  = "AdditionalSetupProtocols"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gMePlatformGetResetTypeGuid"
+    Parent  = "ADDITIONAL_AMITSE_Protocols"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiCpuSavedConfigChanges,"
+	Parent  = "SavedConfigChangesHook,"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PreserveCpuSetupData,"
+	Parent  = "SMIFlashPreUpdateList"
+	Token = "CpuSetupPreserveLib_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "RestoreCpuSetupData,"
+	Parent  = "SMIFlashEndUpdateList"
+	Token = "CpuSetupPreserveLib_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "PeiCpuGetVariable,"
+    Parent  = "PeiGetVariableHook"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "DxeCpuGetVariable,"
+    Parent  = "GetVariableHook"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "DxeCpuSetVariable,"
+    Parent  = "SetVariableHook"
+    InvokeOrder = AfterParent
+End
+
+#ELINK
+#	Name  = "CpuExitSetupEvent,"
+#	Parent  = "PreSystemResetHook,"
+#	InvokeOrder = BeforeParent
+#End
+
+INFComponent
+	Name  = "AmiCpuFeaturesDxe"
+	File  = "AmiCpuFeaturesDxe.inf"
+	Package  = "AmiCpuModulePkg"
+	ModuleTypes  = "DXE_DRIVER"	
+End
+
+INFComponent
+	Name  = "CpuSetupPreserveLib"
+	File  = "AmiCpuSetupPreserve.inf"
+	Package  = "AmiCpuModulePkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Token = "CpuSetupPreserveLib_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "CpuNvRamHookLib"
+	File  = "AmiCpuNvRamHookLib.inf"
+	Package  = "AmiCpuModulePkg"
+End
+
+INFComponent
+	Name  = "CpuNvRamHookPeiLib"
+	File  = "AmiCpuNvRamHookPeiLib.inf"
+	Package  = "AmiCpuModulePkg"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiCpuModulePkg.CpuSetupPreserveLib"
+	Override  = "AmiModulePkg.SmiFlash"
+	Token = "CpuSetupPreserveLib_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiCpuModulePkg.CpuNvRamHookLib"
+	Override  = "AmiModulePkg.NvramDxe"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiCpuModulePkg.CpuNvRamHookLib"
+	Override  = "AmiModulePkg.NvramSmm"
+	Token = "SMM_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiCpuModulePkg.CpuNvRamHookPeiLib"
+	Override  = "AmiModulePkg.NvramPei"
+End

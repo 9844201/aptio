@@ -1,0 +1,10 @@
+<component>
+	name = "Guid"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\SampleCode\MdeModulePkg\Include\Guid\"
+	RefName = "KabylakeSiliconPkg.Common.SampleCode.MdeModulePkg.Include.Guid"
+[files]
+"AcpiS3Context.h"	
+"ConsoleOutDevice.h"	
+"MemoryTypeInformation.h"	
+<endComponent>

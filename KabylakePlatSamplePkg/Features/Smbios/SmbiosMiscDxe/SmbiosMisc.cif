@@ -1,0 +1,13 @@
+<component>
+	name = "SmbiosMisc"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Smbios\SmbiosMiscDxe\"
+	RefName = "KabylakePlatSamplePkg.Features.Smbios.SmbiosMiscDxe"
+[INF]
+"SmbiosMiscDxe.inf"
+[files]
+"SmbiosMisc.sdl"	
+"MiscSystemOther.uni"	
+"MiscSystemOtherData.c"	
+"MiscSystemOtherFunction.c"	
+<endComponent>

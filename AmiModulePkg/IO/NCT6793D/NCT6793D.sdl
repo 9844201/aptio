@@ -1,0 +1,1183 @@
+TOKEN
+	Name  = "====== SIO Global Control Tokens ======"
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "Specify global control tokens."
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "NCT6793D_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable NCT6793D support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "SIO_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable SIO support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_DBG_SUPPORT"
+	Value  = "1"
+	Help  = "Switch to enable SIO serial port debug function support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_RECOVERY_SUPPORT"
+	Value  = "1"
+	Help  = "Switch to enable SIO recovery support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "====== SIO For Debug Setting =========="
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "The Debug Serial Port Setting."
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "DEBUG_COM_PORT_ADDR"
+	Value  = "0x3F8"
+	Help  = "COM Port address the debugger uses. "
+	TokenType = Integer
+	TargetH = Yes
+	Token = "NCT6793D_DBG_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "DEBUG_LDN_UART"
+	Value  = "$(NCT6793D_LDN_UART1)"
+	Help  = "UARTx Logical Devive for Debugger."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "DEBUG_COM_PORT_ADDR" "=" "0x3F8"
+End
+
+TOKEN
+	Name  = "DEBUG_LDN_UART"
+	Value  = "$(NCT6793D_LDN_UART2)"
+	Help  = "UARTx Logical Devive for Debugger."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "DEBUG_COM_PORT_ADDR" "=" "0x2F8"
+End
+
+TOKEN
+	Name  = "====== SIO For Recovery Setting =========="
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "The Recovery Serial Port Setting."
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "RECOVERY_COM_PORT_ADDR"
+	Value  = "0x3F8"
+	Help  = "COM Port address the recovery uses."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "NCT6793D_RECOVERY_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "RECOVERY_LDN_UART"
+	Value  = "$(NCT6793D_LDN_UART1)"
+	Help  = "UARTx Logical Devive for recovery."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "RECOVERY_COM_PORT_ADDR" "=" "0x3F8"
+End
+
+TOKEN
+	Name  = "RECOVERY_LDN_UART"
+	Value  = "$(NCT6793D_LDN_UART2)"
+	Help  = "UARTx Logical Devive for recovery."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "RECOVERY_COM_PORT_ADDR" "=" "0x2F8"
+End
+
+TOKEN
+	Name  = "=== SIO Logic Device Present Settings =========="
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "All Logic Device Present / Not Present."
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "NCT6793D_PARALLEL_PORT_PRESENT"
+	Value  = "1"
+	Help  = "LPT Port Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_KEYBOARD_PRESENT"
+	Value  = "1"
+	Help  = "Keyboard Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "KBC_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "NCT6793D_MOUSE_PRESENT"
+	Value  = "1"
+	Help  = "Mouse Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "KBC_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "NCT6793D_SERIAL_PORT1_PRESENT"
+	Value  = "1"
+	Help  = "Serial Port 1 (COMA / UART1) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_SERIAL_PORT2_PRESENT"
+	Value  = "1"
+	Help  = "Serial Port 2 (COMB / UART2) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_GPIO1_PORT_PRESENT"
+	Value  = "1"
+	Help  = "GPIO(LDN7) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_GPIO2_PORT_PRESENT"
+	Value  = "1"
+	Help  = "GPIO,WDT1(LDN8) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_GPIO3_PORT_PRESENT"
+	Value  = "1"
+	Help  = "GPIO(LDN9) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_GPIO4_PORT_PRESENT"
+	Value  = "1"
+	Help  = "GPIO(LDNF) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_WDT2_PRESENT"
+	Value  = "1"
+	Help  = "Watch Dog Timer(LDND) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_ACPI_PRESENT"
+	Value  = "1"
+	Help  = "ACPI Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_HWM_PRESENT"
+	Value  = "1"
+	Help  = "HWM Port Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_CIR_PORT_PRESENT"
+	Value  = "0"
+	Help  = "CIR Port Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_CIRWAKE_PRESENT"
+	Value  = "0"
+	Help  = "CIR Wake Up(LDNE) Port Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_PSOUT_PRESENT"
+	Value  = "1"
+	Help  = " GPIO, RI PSOUT Wake-Up Register(LDN11) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_SWE_PRESENT"
+	Value  = "1"
+	Help  = "SW Error,Port80 Control Register(LDN12) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_P80_PRESENT"
+	Value  = "1"
+	Help  = "Port 80(LDN14) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LED_PRESENT"
+	Value  = "1"
+	Help  = "FADING LED(LDN15) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_DSLP_PRESENT"
+	Value  = "1"
+	Help  = "DEEP SLEEP(LDN16) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "====== SIO Registers Layout =========="
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "Specify Register address inside SIO Chip."
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "NCT6793D_CONFIG_INDEX"
+	Value  = "0x2E"
+	Help  = "SIO index port."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_CONFIG_DATA"
+	Value  = "0x2F"
+	Help  = "SIO data port."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_SEL_REGISTER"
+	Value  = "0x07"
+	Help  = "Logical Device Select Register Address"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_ACTIVATE_REGISTER"
+	Value  = "0x30"
+	Help  = "Device Identification Register Address"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_BASE1_HI_REGISTER"
+	Value  = "0x60"
+	Help  = "Device BaseAddres Register#1 MSB Address"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_BASE1_LO_REGISTER"
+	Value  = "0x61"
+	Help  = "Device BaseAddres Register#1 LSB Address"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_BASE2_HI_REGISTER"
+	Value  = "0x62"
+	Help  = "Device BaseAddres Register#2 MSB Address"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_BASE2_LO_REGISTER"
+	Value  = "0x63"
+	Help  = "Device BaseAddres Register#2 LSB Address"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_IRQ1_REGISTER"
+	Value  = "0x70"
+	Help  = "Device IRQ Register#1 Address"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_IRQ2_REGISTER"
+	Value  = "0x72"
+	Help  = "Device IRQ Register#2 Address"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_DMA1_REGISTER"
+	Value  = "0x74"
+	Help  = "Device DMA Register#1 Address"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_DMA2_REGISTER"
+	Value  = "0x75"
+	Help  = "Device DMA Register#2 Address"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "====== SIO Logical Devices Numbers ======"
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "Specify Devices Logical Number."
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_LPT"
+	Value  = "0x01"
+	Help  = "LDN for Serial Port Controller"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_PS2K"
+	Value  = "0x05"
+	Help  = "LDN for PS2 Keyboard Controller"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_PS2M"
+	Value  = "0x05"
+	Help  = "LDN for PS2 Mouse Controller. (it is same as PS2K specify same value)"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_HWM"
+	Value  = "0x0B"
+	Help  = "LDN for Hardware Monitor Controller"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_ACPI"
+	Value  = "0x0A"
+	Help  = "LDN for ACPI"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_GPIO1"
+	Value  = "0x07"
+	Help  = "LDN for GPIO."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_GPIO2"
+	Value  = "0x08"
+	Help  = "LDN for GPIO,WDT."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_GPIO3"
+	Value  = "0x09"
+	Help  = "LDN for GPIO."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_GPIO4"
+	Value  = "0x0F"
+	Help  = "LDN for GPIO."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_WDT2"
+	Value  = "0x0D"
+	Help  = "LDN for Watch Dog Timer"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_UART1"
+	Value  = "0x02"
+	Help  = "LDN for Serial Port 1 Controller"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_UART2"
+	Value  = "0x03"
+	Help  = "LDN for Serial Port 2 Controller"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_CIR"
+	Value  = "0x06"
+	Help  = "LDN for Consumer IR Register"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_CIRWU"
+	Value  = "0x0E"
+	Help  = "LDN for CIR Wake-Up Register"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_PSOUT"
+	Value  = "0x11"
+	Help  = "LDN for GPIO,IR PSOUT Register"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_SWE"
+	Value  = "0x12"
+	Help  = "LDN for SW Error,Port80 Control Register"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_P80"
+	Value  = "0x14"
+	Help  = "LDN for Port 80 Register"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_LED"
+	Value  = "0x15"
+	Help  = "LDN for FADING LED Register"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_LDN_DSLP"
+	Value  = "0x16"
+	Help  = "LDN for Deep Sleep Register"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "=== SIO Global Registers Settings =========="
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "SIO Global Registers Setting"
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "=== SIO Activation Values =========="
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "Specify Logical Device Activation Value."
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "NCT6793D_CONFIG_MODE_ENTER_VALUE"
+	Value  = "0x87"
+	Help  = "Value to enter the SIO Configuration Mode."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_CONFIG_MODE_EXIT_VALUE"
+	Value  = "0xAA"
+	Help  = "Value to enter the SIO Configuration Mode."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ENTK"
+	Value  = "$(NCT6793D_CONFIG_MODE_ENTER_VALUE)"
+	Help  = "ASL alias for SIO Config Mode Enter Value."
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "EXTK"
+	Value  = "$(NCT6793D_CONFIG_MODE_EXIT_VALUE)"
+	Help  = "ASL alias for SIO Config Mode Exit Value."
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_ACTIVATE_VALUE"
+	Value  = "0x01"
+	Help  = "Value to activate Device."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_DEACTIVATE_VALUE"
+	Value  = "0x00"
+	Help  = "Value to deactivate Device."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "====== SIO BASE ADDRESS Setting =========="
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "SIO some base address setting "
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "NCT6793D_TOTAL_BASE_ADDRESS"
+	Value  = "0xA00"
+	Help  = "It's used for IODecode, System will open TOTAL_BASE_ADDRESS+TOTAL_LENGTH IODecode for GPIO+PME+..."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_GPIO_BASE_ADDRESS"
+	Value  = "$(NCT6793D_TOTAL_BASE_ADDRESS)"
+	Help  = "Base Address of GPIO. If changed, please update PeiSetLpcDeviceDecoding() in NCT6793DPEI.c too."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_GPIO_LENGTH"
+	Value  = "0x10"
+	Help  = "Base Address's length of GPIO. If changed, please update PeiSetLpcDeviceDecoding() in NCT6793DPEI.c too."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IO1B"
+	Value  = "$(NCT6793D_GPIO_BASE_ADDRESS)"
+	Help  = "Base Address of GPIO Controller."
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IO1L"
+	Value  = "$(NCT6793D_GPIO_LENGTH)"
+	Help  = "Length of GPIO Controller."
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_CIRW_BASE_ADDRESS"
+	Value  = "$(NCT6793D_TOTAL_BASE_ADDRESS)+$(IO1L)"
+	Help  = "Base Address of CIR wake-up Direct Access. If changed, please update PeiSetLpcDeviceDecoding() in NCT6793DPEI.c too."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_CIRW_LENGTH"
+	Value  = "0x10"
+	Help  = "Base Address's length of CIR wake-up Direct Access. If changed, please update PeiSetLpcDeviceDecoding() in NCT6793DPEI.c too."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IO2B"
+	Value  = "$(NCT6793D_CIRW_BASE_ADDRESS)"
+	Help  = "Base Address of CIRW Controller."
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IO2L"
+	Value  = "$(NCT6793D_CIRW_LENGTH)"
+	Help  = "Length of CIRW Controller."
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_HWM_BASE_ADDRESS"
+	Value  = "$(NCT6793D_TOTAL_BASE_ADDRESS)+$(IO1L)+$(IO2L)"
+	Help  = "Base Address of HWM Direct Access. If changed, please update PeiSetLpcDeviceDecoding() in NCT6793DPEI.c too."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_HWM_LENGTH"
+	Value  = "0x10"
+	Help  = "Base Address's length of HWM Direct Access. If changed, please update PeiSetLpcDeviceDecoding() in NCT6793DPEI.c too."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_HWM_INDEX_PORT"
+	Value  = "($(NCT6793D_HWM_BASE_ADDRESS)&0XFFF0)+5"
+	Help  = "HWM Index Port."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_HWM_DATA_PORT"
+	Value  = "$(NCT6793D_HWM_INDEX_PORT)+1"
+	Help  = "HWM Index Port."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IO3B"
+	Value  = "$(NCT6793D_HWM_BASE_ADDRESS)"
+	Help  = "Base Address of HWM Controller."
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IO3L"
+	Value  = "$(NCT6793D_HWM_LENGTH)"
+	Help  = "Length of HWM Controller."
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_TSI_BASE_ADDRESS"
+	Value  = "$(NCT6793D_TOTAL_BASE_ADDRESS)+$(IO1L)+$(IO2L)+$(IO3L)"
+	Help  = "Base Address of TSI Direct Access. If changed, please update PeiSetLpcDeviceDecoding() in NCT6793DPEI.c too."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_TSI_LENGTH"
+	Value  = "0x10"
+	Help  = "Base Address's length of TSI Direct Access. If changed, please update PeiSetLpcDeviceDecoding() in NCT6793DPEI.c too."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IO4B"
+	Value  = "$(NCT6793D_TSI_BASE_ADDRESS)"
+	Help  = "Base Address of TSI Controller."
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IO4L"
+	Value  = "$(NCT6793D_TSI_LENGTH)"
+	Help  = "Length of TSI Controller."
+	TokenType = Integer
+	TargetASL = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NCT6793D_TOTAL_LENGTH"
+	Value  = "$(IO1L)+$(IO2L)+$(IO3L)+$(IO4L)"
+	Help  = "IODecode base address 's length. 0xFF >= TOTAL_LENGTH >= GPIO_LENGTH + PME_LENGTH + ..."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "===== SIO token only been used in ASL  ====="
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "Provide Resource properties."
+	TokenType = Expression
+End
+
+TOKEN
+	Name  = "SP1O"
+	Value  = "$(NCT6793D_CONFIG_INDEX)"
+	Help  = "Super IO Index/Data configuration port for ASL."
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "KBFG"
+	Value  = "0"
+	Help  = "Keyboard wake-up flag."
+	TokenType = Integer
+	TargetASL = Yes
+	Token = "NCT6793D_KEYBOARD_PRESENT" "=" "0"
+End
+
+TOKEN
+	Name  = "MSFG"
+	Value  = "0"
+	Help  = "Mouse wake-up flag."
+	TokenType = Integer
+	TargetASL = Yes
+	Token = "NCT6793D_MOUSE_PRESENT" "=" "0"
+End
+
+TOKEN
+	Name  = "IOES"
+	Value  = "0x00"
+	Help  = "It is used similar to IOST, when Device's DCAT > 0x0F , then it will be used."
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "===== SIO Module Setting   ======"
+	Value  = "!!!DO NOT CHANGE NAMES JUST VALUES!!!"
+	Help  = "SIO Module Setting"
+	TokenType = Expression
+End
+
+PATH
+	Name  = "NCT6793D_DIR"
+End
+
+MODULE
+	Help  = "Includes NCT6793D.MAK to Project"
+	File  = "NCT6793D.mak"
+End
+
+ELINK
+	Name  = "$(NCT6793D_DIR)/NCT6793DSetup.sd"
+	Parent  = "SETUP_DEFINITIONS"
+	Priority  = 40
+	Token = "SIO_SETUP_USE_APTIO_4_STYLE" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "-i $(NCT6793D_DIR)"
+	Parent  = "SETUP_VFR_INCLUDES"
+	Token = "SIO_SETUP_USE_APTIO_4_STYLE" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{dsUART,0x00, STR_SERIAL1_CONFIG_VALUE},"
+	Parent  = "SetupStrTableList"
+	Token = "SIO_SETUP_USE_APTIO_4_STYLE" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{dsUART,0x01, STR_SERIAL2_CONFIG_VALUE},"
+	Parent  = "SetupStrTableList"
+	Token = "SIO_SETUP_USE_APTIO_4_STYLE" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{dsLPT, 0x00, STR_PARALLEL_CONFIG_VALUE},"
+	Parent  = "SetupStrTableList"
+	Token = "SIO_SETUP_USE_APTIO_4_STYLE" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{dsCIR, 0x00, STR_NCT6793D_CIR_CONFIG_VALUE},"
+	Parent  = "SetupStrTableList"
+	Token = "SIO_SETUP_USE_APTIO_4_STYLE" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(NCT6793D_DIR)/NCT6793DSetup.c"
+	Parent  = "SetupCallbackFiles"
+	Token = "SIO_SETUP_USE_APTIO_4_STYLE" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "OemInitNCT6793DSetupStrings,"
+	Parent  = "SetupStringInit"
+	Token = "SIO_SETUP_USE_APTIO_4_STYLE" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(NCT6793D_DIR)/NCT6793DSetup.uni"
+	Parent  = "SetupStringFiles"
+	Token = "SIO_SETUP_USE_APTIO_4_STYLE" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "*_*_*_ASLPP_FLAGS"
+	Type  = "BuildOptions"
+	Arch  = "COMMON"
+	InvokeOrder = ReplaceParent
+	OutDSC = Yes
+End
+
+ELINK
+	Name  = "-D SIO_PTS=\_SB.PCI0.SBRG.SIO1.SIOS"
+	Parent  = "*_*_*_ASLPP_FLAGS"
+	Type  = "BuildOptions"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "-D SIO_WAK=\_SB.PCI0.SBRG.SIO1.SIOW"
+	Parent  = "*_*_*_ASLPP_FLAGS"
+	Type  = "BuildOptions"
+	InvokeOrder = AfterParent
+End
+
+INFComponent
+	Name  = "NCT6793DDxeInit"
+	File  = "NCT6793DDxeInit.inf"
+	Package  = "AmiModulePkg"
+End
+
+INFComponent
+	Name  = "NCT6793DPeiInit"
+	File  = "NCT6793DPeiInit.inf"
+	Package  = "AmiModulePkg"
+	ModuleTypes  = "PEIM"
+	Token = "NCT6793D_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "NCT6793DPlatformHookSerialPortLib"
+	File  = "NCT6793DPlatformHookSerialPortLib.inf"
+	Package  = "AmiModulePkg"
+	Token = "NCT6793D_DBG_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "PlatformHookLib"
+	Instance  = "AmiModulePkg.NCT6793DPlatformHookSerialPortLib"
+	ModuleTypes  = "PEIM PEI_CORE SEC"
+	Token = "NCT6793D_DBG_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiModulePkg.NCT6793DDxeInit"
+	Override  = "AmiModulePkg.SioDxeInit"
+	ModuleTypes  = "DXE_DRIVER"  
+	Token = "NCT6793D_SUPPORT" "=" "1"
+End
+
+FFS_FILE
+	Name  = "NCT6793DPeiInit"
+	FD_AREA  = "FV_BB"
+	INFComponent  = "AmiModulePkg.NCT6793DPeiInit"
+	Apriori_Index  = "0"
+End
+
+LibraryMapping
+        Class  = "NULL"
+        Instance  = "AmiModulePkg.NCT6793DDxeInit"
+        Override  = "AmiModulePkg.SmmGenericSio"
+        ModuleTypes  = "DXE_SMM_DRIVER"
+        Token = "NCT6793D_SUPPORT" "=" "1"
+        Token = "SMM_SUPPORT" "=" "1"
+        Token = "AMI_SIO_MINOR_VERSION" ">=" "6"
+End
+
+SIODEVICE
+	Name  = "NCT6793D"
+	Parent  = "LpcBridge"
+	IndexPort  = 02eh
+	DataPort  = 02fh
+	StdSioType  = "Yes"
+	DevSelReg  = 07h
+	ActivateReg  = 030h
+	ActivateVal  = 01h
+	DeActivateVal  = 00h
+	BaseHiReg1  = 060h
+	BaseLoReg1  = 061h
+	BaseHiReg2  = 062h
+	BaseLoReg2  = 063h
+	Irq1Reg  = 070h
+	Irq2Reg  = 072h
+	Dma1Reg  = 074h
+	Dma2Reg  = 075h
+	GblRegFlag  = "0xbdf43c1b0000"
+	LocalRegFlag  = "0xffffffff0000000000000000000000000033000f000000000001000000000000"
+	EnterConfig  = "Script,'Index;Write;87h','Index;Write;87h'"
+	ExitConfig  = "Script,'Index;Write;aah'"
+	SMBIOSStr  = "Test String"
+	GPEbit  = 01dh
+	SleepNum  = 03h
+	ASLfile  = "'AmiModulePkg/IO/NCT6793D/NCT6793DDev.asl','AmiModulePkg/IO/NCT6793D/NCT6793DEvt.asl'"
+	ASLdeviceName  = "SIO1"
+	ASL_PTS  = "Method;SIO_PTS(Arg0)"
+	ASL_WAK  = "Method;SIO_WAK(Arg0)"
+	WakeEnabled = Yes
+End
+
+LDEVICE
+	Name  = "Lpt"
+	SioDevice  = "NCT6793D"
+	Dev_Type  = "dsLPT"
+	LDev_Num  = "01h"
+	UID  = "00h"
+	PnPID  = "0400h"
+	SIO_RES_Flag  = "0x0"
+	HasSetup = Yes
+	ResBaseAddr1  = "00h"
+	ResLength1  = "00h"
+	ResBaseAddr2  = "00h"
+	ResLength2  = "00h"
+	InitRoutine  = "NCT6793D_LPT_Init"
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg/IO/NCT6793D/Lpte.asl'"
+	ASLdeviceName  = "LPTE"
+	ASL_HID = Yes
+	Token = "NCT6793D_PARALLEL_PORT_PRESENT" "=" "1"
+End
+
+LDEVICE
+	Name  = "Ps2Kb"
+	SioDevice  = "NCT6793D"
+	Dev_Type  = "dsPS2CK"
+	LDev_Num  = "05h"
+	UID  = "00h"
+	PnPID  = "0303h"
+	SIO_RES_Flag  = "0x0"
+	HasSetup = Yes
+	ResBaseAddr1  = "00h"
+	ResLength1  = "00h"
+	ResBaseAddr2  = "00h"
+	ResLength2  = "00h"
+	InitRoutine  = "NCT6793D_KBC_Init"
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg/GenericSio/PS2_KB.ASL'"
+	ASLdeviceName  = "PS2K"
+	Token = "NCT6793D_KEYBOARD_PRESENT" "=" "1"
+End
+
+LDEVICE
+	Name  = "Ps2Ms"
+	SioDevice  = "NCT6793D"
+	Dev_Type  = "dsPS2CM"
+	LDev_Num  = "05h"
+	UID  = "00h"
+	PnPID  = "0f03h"
+	SIO_RES_Flag  = "0x3"
+	HasSetup = Yes
+	ResBaseAddr1  = "00h"
+	ResLength1  = "00h"
+	ResBaseAddr2  = "00h"
+	ResLength2  = "00h"
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg/GenericSio/PS2_MS.ASL'"
+	ASLdeviceName  = "PS2M"
+	Token = "NCT6793D_MOUSE_PRESENT" "=" "1"
+End
+
+LDEVICE
+	Name  = "Com1"
+	SioDevice  = "NCT6793D"
+	Dev_Type  = "dsUART"
+	LDev_Num  = "02h"
+	UID  = "00h"
+	PnPID  = "0501h"
+	SIO_RES_Flag  = "0x0"
+	HasSetup = Yes
+	ResBaseAddr1  = "00h"
+	ResLength1  = "00h"
+	ResBaseAddr2  = "00h"
+	ResLength2  = "00h"
+	InitRoutine  = "NCT6793D_COM_Init"
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg/IO/NCT6793D/UART1.ASL'"
+	ASLdeviceName  = "UAR1"
+	Token = "NCT6793D_SERIAL_PORT1_PRESENT" "=" "1"
+End
+
+LDEVICE
+	Name  = "Com2"
+	SioDevice  = "NCT6793D"
+	Dev_Type  = "dsUART"
+	LDev_Num  = "03h"
+	UID  = "01h"
+	PnPID  = "0501h"
+	SIO_RES_Flag  = "0x0"
+	HasSetup = Yes
+	ResBaseAddr1  = "00h"
+	ResLength1  = "00h"
+	ResBaseAddr2  = "00h"
+	ResLength2  = "00h"
+	InitRoutine  = "NCT6793D_COM_Init"
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg/IO/NCT6793D/UART2.ASL'"
+	ASLdeviceName  = "UAR2"
+	ASL_HID = Yes
+	Token = "NCT6793D_SERIAL_PORT2_PRESENT" "=" "1"
+End
+
+LDEVICE
+	Name  = "Cir"
+	SioDevice  = "NCT6793D"
+	Dev_Type  = "dsCIR"
+	LDev_Num  = "06h"
+	UID  = "00h"
+	PnPID  = "0510h"
+	SIO_RES_Flag  = "0x0"
+	HasSetup = Yes
+	ResBaseAddr1  = "00h"
+	ResLength1  = "00h"
+	ResBaseAddr2  = "00h"
+	ResLength2  = "00h"
+	InitRoutine  = "NCT6793D_CIR_Init"
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg/IO/NCT6793D/Cir.asl'"
+	ASLdeviceName  = "CIR_"
+	Token = "NCT6793D_CIR_PORT_PRESENT" "=" "1"
+End
+
+LDEVICE
+	Name  = "HwMonitor"
+	SioDevice  = "NCT6793D"
+	Dev_Type  = "dsHwMon"
+	LDev_Num  = "0Bh"
+	UID  = "01h"
+	PnPID  = "0c08h"
+	SIO_RES_Flag  = "0x0"
+	ResBaseAddr1  = "$(IO3B)"
+	ResLength1  = "$(IO3L)"
+	ResBaseAddr2  = "$(IO4B)"
+	ResLength2  = "$(IO4L)"
+	InitRoutine  = "NCT6793D_HWM_Init"
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg/GenericSio/NO_RES_STA.asl'"
+	ASLdeviceName  = "HHMD"
+	Token = "NCT6793D_HWM_PRESENT" "=" "1"
+End
+
+LDEVICE
+	Name  = "Gpio"
+	SioDevice  = "NCT6793D"
+	Dev_Type  = "dsGPIO"
+	LDev_Num  = "08h"
+	UID  = "02h"
+	PnPID  = "0c08h"
+	SIO_RES_Flag  = "0x0"
+	ResBaseAddr1  = "$(IO1B)"
+	ResLength1  = "$(IO1L)"
+	ResBaseAddr2  = "00h"
+	ResLength2  = "00h"
+	InitRoutine  = "NCT6793D_GPIO_Init"
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg/GenericSio/NO_RES_STA.asl'"
+	ASLdeviceName  = "SGPI"
+	Token = "NCT6793D_GPIO2_PORT_PRESENT" "=" "1"
+End
+
+LDEVICE
+	Name  = "CirWake"
+	SioDevice  = "NCT6793D"
+	Dev_Type  = "dsNone"
+	LDev_Num  = "0Eh"
+	UID  = "03h"
+	PnPID  = "0c08h"
+	SIO_RES_Flag  = "0x0"
+	ResBaseAddr1  = "$(IO2B)"
+	ResLength1  = "$(IO2L)"
+	ResBaseAddr2  = "00h"
+	ResLength2  = "00h"
+	InitRoutine  = "NCT6793D_CIRWAKE_Init"
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg/GenericSio/NO_RES_STA.asl'"
+	ASLdeviceName  = "CIRW"
+	Token = "NCT6793D_CIRWAKE_PRESENT" "=" "1"
+End
+

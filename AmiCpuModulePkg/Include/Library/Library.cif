@@ -1,0 +1,9 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "AmiCpuModulePkg\Include\Library\"
+	RefName = "AmiCpuModulePkg.Library"
+[files]
+"CpuCspLib.h"	
+"CpuBoardLib.h"	
+<endComponent>

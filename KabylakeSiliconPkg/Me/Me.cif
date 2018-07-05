@@ -1,0 +1,21 @@
+<component>
+	name = "Me"
+	category = ModulePart
+	LocalRoot = "KabylakeSiliconPkg\Me\"
+	RefName = "KabylakeSiliconPkg.Me"
+[files]
+"Me.sdl"	
+"ME_RC_History.txt"	
+[parts]
+"KabylakeSiliconPkg.Me.AcpiTables"
+"KabylakeSiliconPkg.Me.ActiveManagement"
+"KabylakeSiliconPkg.Me.BiosExtensionLoader"
+"KabylakeSiliconPkg.Me.HeciInit"
+"KabylakeSiliconPkg.Me.MeFwDowngrade"
+"KabylakeSiliconPkg.Me.MePlatformReset"
+"KabylakeSiliconPkg.Me.Include"
+"KabylakeSiliconPkg.Me.IntegratedTouch"
+"KabylakeSiliconPkg.Me.Jhi"
+"KabylakeSiliconPkg.Me.Library"
+"KabylakeSiliconPkg.Me.Ptt"
+<endComponent>

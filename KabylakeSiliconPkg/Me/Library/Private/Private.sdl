@@ -1,0 +1,107 @@
+TOKEN
+	Name  = "ME_Library_Private_RC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling LibraryPrivate support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "DxeBeihaiLib"
+	File  = "DxeBeihaiLib\DxeBeihaiLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "JHI_ENABLE" "=" "1"  
+End
+
+LibraryMapping
+	Class  = "DxeBeihaiLib"
+	Instance  = "KabylakeSiliconPkg.DxeBeihaiLib"
+	Token = "JHI_ENABLE" "=" "1"  
+End
+
+INFComponent
+	Name  = "DxeJhiSupportLib"
+	File  = "DxeJhiSupportLib\DxeJhiSupportLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "JHI_ENABLE" "=" "1"  
+End
+
+LibraryMapping
+	Class  = "DxeJhiSupportLib"
+	Instance  = "KabylakeSiliconPkg.DxeJhiSupportLib"
+	Token = "JHI_ENABLE" "=" "1"  
+End
+
+INFComponent
+	Name  = "PeiActiveManagementLib"
+	File  = "PeiActiveManagementLib\PeiActiveManagementLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "iAMT_SUPPORT" "=" "1"	
+End
+
+LibraryMapping
+	Class  = "ActiveManagementLib"
+	Instance  = "KabylakeSiliconPkg.PeiActiveManagementLib"
+	Token = "iAMT_SUPPORT" "=" "1"	
+End
+
+INFComponent
+	Name  = "PeiActiveManagementLibNull"
+	File  = "PeiActiveManagementLibNull\PeiActiveManagementLibNull.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "iAMT_SUPPORT" "=" "0"	
+End
+
+LibraryMapping
+	Class  = "ActiveManagementLib"
+	Instance  = "KabylakeSiliconPkg.PeiActiveManagementLibNull"
+	Token = "iAMT_SUPPORT" "=" "0"	
+End
+
+INFComponent
+	Name  = "PeiDxeAlertStandardFormatLib"
+	File  = "PeiDxeAlertStandardFormatLib\PeiDxeAlertStandardFormatLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "AlertStandardFormatLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeAlertStandardFormatLib"
+End
+
+INFComponent
+	Name  = "PeiDxeHeciInitLib"
+	File  = "PeiDxeHeciInitLib\PeiDxeHeciInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+End
+
+LibraryMapping
+	Class  = "HeciInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiDxeHeciInitLib"
+End
+
+INFComponent
+	Name  = "PeiMeInitLib"
+	File  = "PeiMeInitLib\PeiMeInitLib.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+LibraryMapping
+	Class  = "MeInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiMeInitLib"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "0"	
+End
+
+INFComponent
+	Name  = "PeiMeInitLibFsp"
+	File  = "PeiMeInitLib\PeiMeInitLibFsp.inf"
+	Package  = "KabylakeSiliconPkg"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"    
+End
+
+LibraryMapping
+	Class  = "MeInitLib"
+	Instance  = "KabylakeSiliconPkg.PeiMeInitLibFsp"
+	Token = "FSP_SOURCE_BUILD_ENABLE" "=" "1"    
+End

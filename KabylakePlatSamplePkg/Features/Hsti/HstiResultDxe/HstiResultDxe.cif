@@ -1,0 +1,10 @@
+<component>
+	name = "HstiResultDxe"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Features\Hsti\HstiResultDxe\"
+	RefName = "KabylakePlatSamplePkg.Features.Hsti.HstiResultDxe"
+[INF]
+"HstiResultDxe.inf"
+[files]
+"HstiResultDxe.sdl"	
+<endComponent>

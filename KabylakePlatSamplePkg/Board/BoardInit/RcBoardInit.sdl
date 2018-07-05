@@ -1,0 +1,48 @@
+TOKEN
+	Name  = "RcBoardInit_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable BoardInit support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+    Name  = "BoardConfigInitPreMem"
+    File  = "Pei\BoardConfigInitPreMem.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+FFS_FILE
+    Name  = "BoardConfigInitPreMem"
+    FD_AREA  = "FV_BB"
+    INFComponent  = "KabylakePlatSamplePkg.BoardConfigInitPreMem"
+    Apriori_Index  = "10"
+End
+
+INFComponent
+    Name  = "PeiBoardConfigInit"
+    File  = "Pei\BoardConfigInit.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+FFS_FILE
+    Name  = "PeiBoardConfigInit"
+    FD_AREA  = "FV_BB_AFTER_MEMORY"
+    INFComponent  = "KabylakePlatSamplePkg.PeiBoardConfigInit"
+End
+
+INFComponent
+    Name  = "DxeBoardConfigInit"
+    File  = "Dxe\BoardConfigInit.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+FFS_FILE
+    Name  = "DxeBoardConfigInit"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "KabylakePlatSamplePkg.DxeBoardConfigInit"
+    Apriori_Index  = "10"
+End

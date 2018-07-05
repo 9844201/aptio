@@ -1,0 +1,13 @@
+<component>
+	name = "MeWrapper"
+	category = ModulePart
+	LocalRoot = "KabylakePlatSamplePkg\Wrapper\MeWrapper\"
+	RefName = "KabylakePlatSamplePkg.Wrapper.MeWrapper"
+[files]
+"MeWrapper.sdl"	
+[parts]
+"KabylakePlatSamplePkg.Wrapper.MeWrapper.AMT"
+"KabylakePlatSamplePkg.Wrapper.MeWrapper.MeNvRamHook"
+"KabylakePlatSamplePkg.Wrapper.MeWrapper.MeSetup"
+"KabylakePlatSamplePkg.Wrapper.MeWrapper.PttWrapper"
+<endComponent>

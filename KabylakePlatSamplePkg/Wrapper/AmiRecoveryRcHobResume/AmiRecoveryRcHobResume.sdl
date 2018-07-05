@@ -1,0 +1,78 @@
+TOKEN
+    Name = "AmiRecoveryRcHobResume_SUPPORT"
+    Value = "0"
+    Help  = "Main switch to enable AmiRecoveryRcHobResume support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+End
+
+PATH
+    Name  = "AMI_RECOVERY_RC_HOB_RESUME_DIR"
+End
+
+PATH
+    Name  = "AMI_RECOVERY_RC_HOB_RESUME_LIBRARY_DIR"
+    Path  = "KabylakePlatSamplePkg/Wrapper/AmiRecoveryRcHobResume/Library"
+End
+
+INFComponent
+    Name  = "AmiPeiCreateDummyRcHob"
+    File  = "AmiPeiCreateDummyRcHob.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "PEIM"
+End
+
+INFComponent
+    Name  = "AmiRecoveryRcHobResume"
+    File  = "AmiRecoveryRcHobResume.inf"
+    Package  = "KabylakePlatSamplePkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+	Name  = "AmiCpuInitDataHobLib"
+	File  = "AmiCpuInitDataHobLib/AmiCpuInitDataHobLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+	Path  = "AMI_RECOVERY_RC_HOB_RESUME_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "AmiSiPolicyHobLib"
+	File  = "AmiSiPolicyHobLib/AmiSiPolicyHobLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+	Path  = "AMI_RECOVERY_RC_HOB_RESUME_LIBRARY_DIR"
+End
+
+INFComponent
+	Name  = "AmiPchPolicyHobLib"
+	File  = "AmiPchPolicyHobLib/AmiPchPolicyHobLib.inf"
+	Package  = "KabylakePlatSamplePkg"
+	Path  = "AMI_RECOVERY_RC_HOB_RESUME_LIBRARY_DIR"
+End
+
+LibraryMapping
+	Class  = "AmiCpuInitDataHobLib"
+	Instance  = "KabylakePlatSamplePkg.AmiCpuInitDataHobLib"
+	ModuleTypes  = "DXE_CORE DXE_DRIVER"
+End
+
+LibraryMapping
+	Class  = "AmiSiPolicyHobLib"
+	Instance  = "KabylakePlatSamplePkg.AmiSiPolicyHobLib"
+	ModuleTypes  = "DXE_CORE DXE_DRIVER"
+End
+
+LibraryMapping
+	Class  = "AmiPchPolicyHobLib"
+	Instance  = "KabylakePlatSamplePkg.AmiPchPolicyHobLib"
+	ModuleTypes  = "DXE_CORE DXE_DRIVER"
+End
+
+FFS_FILE
+    Name  = "AmiRecoveryRcHobResume"
+    FD_AREA  = "FV_Main"
+    INFComponent  = "KabylakePlatSamplePkg.AmiRecoveryRcHobResume"
+    Apriori_Index  = "4"
+End
